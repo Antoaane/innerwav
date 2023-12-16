@@ -1,5 +1,76 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+.maint-title {
+  font-size: 10rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.h2 {
+  font-size: 3rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.subtitle-big {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+* {
+  font-family: "montserrat", sans-serif;
+  color: #FFFFFF;
+}
+
+.button-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+header {
+  height: 5rem;
+  padding: 1.25rem 0;
+  display: flex;
+  justify-content: end;
+}
+header .main-nav ul {
+  width: max-content;
+  display: flex;
+  align-items: center;
+}
+header .main-nav ul li {
+  margin: 0 1.5rem;
+}
+
 .container {
   margin: 0 auto;
+}
+
+body {
+  background-image: url("../../res/basics/gradiants.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
 }
 
 /*# sourceMappingURL=output.css.map */

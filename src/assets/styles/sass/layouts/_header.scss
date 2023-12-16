@@ -1,0 +1,21 @@
+header {
+    height: 5rem;
+    padding: 1.25rem 0;
+
+    display: flex;
+    justify-content: end;
+
+    .main-nav {
+        
+        ul {
+            width: max-content;
+
+            display: flex;
+            align-items: center;
+
+            li {
+                margin: 0 1.5rem;
+            }
+        }
+    }
+}
