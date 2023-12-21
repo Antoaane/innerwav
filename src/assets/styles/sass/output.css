@@ -59,6 +59,50 @@ header .main-nav ul {
 }
 header .main-nav ul li {
   margin: 0 1.5rem;
+  position: relative;
+}
+header .main-nav ul li::before {
+  content: "";
+  width: calc(100% + 1.5rem);
+  height: calc(100% + 0.25rem);
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  background-color: #FFFFFF;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+}
+header .main-nav ul li:first-of-type::before {
+  display: none;
+}
+header .main-nav ul li:first-of-type:hover {
+  transform: translateY(-5%);
+}
+header .main-nav ul li:first-of-type:hover path {
+  fill: #FFFFFF;
+}
+header .main-nav ul li:last-of-type::before {
+  display: none;
+}
+header .main-nav ul li:last-of-type:hover {
+  transform: translateY(-5%);
+}
+header .main-nav ul li:last-of-type:hover path {
+  fill: #FFFFFF;
+}
+header .main-nav ul li:hover {
+  color: #200944;
+  transition: all 300ms ease-in-out;
+}
+header .main-nav ul li:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+header .main-nav ul li:hover path {
+  fill: #200944;
 }
 
 .container {
