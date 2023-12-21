@@ -18,6 +18,8 @@ header {
 
                 position: relative;
 
+                transition: all 150ms ease-in-out;
+
                 &::before {
                     content: '';
                     width: calc(100% + 1.5rem);
@@ -42,7 +44,7 @@ header {
                     }
 
                     &:hover {
-                        transform: translateY(-5%);
+                        transform: translateY(-10%);
 
                         path {
                             fill: $light;

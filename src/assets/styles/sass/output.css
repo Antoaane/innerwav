@@ -60,6 +60,7 @@ header .main-nav ul {
 header .main-nav ul li {
   margin: 0 1.5rem;
   position: relative;
+  transition: all 150ms ease-in-out;
 }
 header .main-nav ul li::before {
   content: "";
@@ -79,7 +80,7 @@ header .main-nav ul li:first-of-type::before {
   display: none;
 }
 header .main-nav ul li:first-of-type:hover {
-  transform: translateY(-5%);
+  transform: translateY(-10%);
 }
 header .main-nav ul li:first-of-type:hover path {
   fill: #FFFFFF;
