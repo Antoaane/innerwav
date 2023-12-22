@@ -40,10 +40,21 @@
   color: #FFFFFF;
 }
 
-.button-text {
-  font-size: 1.5rem;
+.nav-text {
+  font-size: 1.125rem;
   font-weight: 700;
+  text-align: center;
   text-transform: uppercase;
+}
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .nav-text {
+    font-size: 1.125rem;
+  }
+}
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+  .nav-text {
+    font-size: 1.5rem;
+  }
 }
 
 header {
@@ -52,17 +63,25 @@ header {
   display: flex;
   justify-content: end;
 }
-header .main-nav ul {
+@media screen and (max-width: 1023px) {
+  header .main-nav {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
+header .main-nav .desktop {
   width: max-content;
-  display: flex;
   align-items: center;
 }
-header .main-nav ul li {
+header .main-nav .desktop > .main-nav-item {
   margin: 0 1.5rem;
   position: relative;
   transition: all 150ms ease-in-out;
 }
-header .main-nav ul li::before {
+header .main-nav .desktop > .main-nav-item::before {
   content: "";
   width: calc(100% + 1.5rem);
   height: calc(100% + 0.25rem);
@@ -76,33 +95,57 @@ header .main-nav ul li::before {
   opacity: 0;
   transition: all 300ms ease-in-out;
 }
-header .main-nav ul li:first-of-type::before {
+header .main-nav .mobile {
+  width: 100%;
+  height: 100%;
+  padding: 1.25rem;
+}
+@media screen and (min-width: 640px) {
+  header .main-nav .mobile {
+    padding: 2rem;
+  }
+}
+header .main-nav .mobile > ul {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 100%, 0));
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+header .main-nav .mobile > ul > .main-nav-item {
+  margin: 5vh 0;
+}
+header .main-nav .mobile > ul > .main-nav-item:last-of-type {
+  margin: 0;
+  position: absolute;
+  top: 1.75rem;
+  right: 2rem;
+}
+
+.main-nav-item:last-of-type::before {
   display: none;
 }
-header .main-nav ul li:first-of-type:hover {
-  transform: translateY(-10%);
-}
-header .main-nav ul li:first-of-type:hover path {
-  fill: #FFFFFF;
-}
-header .main-nav ul li:last-of-type::before {
-  display: none;
-}
-header .main-nav ul li:last-of-type:hover {
+.main-nav-item:last-of-type:hover {
   transform: translateY(-5%);
 }
-header .main-nav ul li:last-of-type:hover path {
+.main-nav-item:last-of-type:hover path {
   fill: #FFFFFF;
 }
-header .main-nav ul li:hover {
+.main-nav-item:hover {
   color: #200944;
   transition: all 300ms ease-in-out;
 }
-header .main-nav ul li:hover::before {
+.main-nav-item:hover::before {
   opacity: 1;
   transform: translate(-50%, -50%);
 }
-header .main-nav ul li:hover path {
+.main-nav-item:hover path {
   fill: #200944;
 }
 
