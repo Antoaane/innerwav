@@ -18,29 +18,26 @@ header {
             width: max-content;
 
             align-items: center;
+            position: relative;
+
+            #hover-item {
+                width: 0;
+                height: calc(100% - 0.25rem);
+                position: absolute;
+                z-index: -1;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                background-color: $light;
+                border-radius: $border-regular;
+                opacity: 0;
+                transition: all 150ms ease-in-out;
+            }
 
             &>.main-nav-item {
-                margin: 0 1.5rem;
+                padding: 0 1.5rem;
 
                 position: relative;
-
-                &::before {
-                    content: '';
-                    width: calc(100% + 1.5rem);
-                    height: calc(100% + 0.25rem);
-
-                    position: absolute;
-                    z-index: -1;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -0%);
-
-                    background-color: $light;
-                    border-radius: $border-regular;
-                    opacity: 0;
-
-                    transition: all 300ms ease-in-out;
-                }
             }
         }
 
@@ -141,31 +138,10 @@ header {
 // ---------------------------- Hover effect ---------------------------- //
 
 .main-nav-item {
-    transition: all 300ms ease-in-out;
-
-    &:last-of-type {
-        &::before {
-            display: none;
-        }
-
-        &:hover {
-            transform: translateY(-5%);
-
-            path {
-                fill: $light;
-            }
-        }
-    }
+    transition: all 100ms ease-in-out;
 
     &:hover {
         color: $dark;
-
-        transition: all 300ms ease-in-out;
-
-        &::before {
-            opacity: 1;
-            transform: translate(-50%, -50%);
-        }
 
         path {
             fill: $dark;

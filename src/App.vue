@@ -1,4 +1,6 @@
 <script setup>
+import { onMounted } from 'vue';
+
 
 const triggerMenu = () => {
   const menu = document.getElementById('menu');
@@ -38,12 +40,44 @@ const triggerMenu = () => {
   }
 }
 
+onMounted(() => {
+  document.querySelectorAll('.desktop .main-nav-item').forEach(item => {
+    item.addEventListener('mouseenter', (e) => {
+        const hoverItem = document.getElementById('hover-item');
+        const rect = e.target.getBoundingClientRect();
+        if (hoverItem.style.width == '0px' || hoverItem.style.width == 0) {
+          hoverItem.style.transition = 'none';
+          hoverItem.style.left = `${rect.left - item.parentNode.getBoundingClientRect().left + 10}px`;
+          setTimeout(() => {
+            hoverItem.style.transition = 'all 150ms ease-in-out';
+            hoverItem.style.width = `${rect.width - 20}px`;
+            hoverItem.style.opacity = 1;
+          }, 0)
+        } else {
+          hoverItem.style.transition = 'all 150ms ease-in-out';
+          hoverItem.style.left = `${rect.left - item.parentNode.getBoundingClientRect().left + 10}px`;
+          hoverItem.style.width = `${rect.width - 20}px`;
+          hoverItem.style.opacity = 1;
+        }
+    });
+  });
+
+  document.querySelector('.desktop').addEventListener('mouseleave', () => {
+      const hoverItem = document.getElementById('hover-item');
+      hoverItem.style.opacity = 0;
+      hoverItem.style.width = 0;
+      console.log(hoverItem.style.width)
+  });
+})
+
+
 </script>
 
 <template>
   <header class="container">
       <nav class="main-nav px-10">
         <ul class="desktop hidden lg:flex">
+          <span id="hover-item"></span>
           <li class="main-nav-item">
             <RouterLink class="nav-text" to="/">Informations</RouterLink>
           </li>
