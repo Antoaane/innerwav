@@ -63,14 +63,11 @@ header {
   display: flex;
   justify-content: end;
 }
-@media screen and (max-width: 1023px) {
-  header .main-nav {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
+header .main-nav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
 }
 header .main-nav .desktop {
   width: max-content;
@@ -79,7 +76,6 @@ header .main-nav .desktop {
 header .main-nav .desktop > .main-nav-item {
   margin: 0 1.5rem;
   position: relative;
-  transition: all 150ms ease-in-out;
 }
 header .main-nav .desktop > .main-nav-item::before {
   content: "";
@@ -95,10 +91,42 @@ header .main-nav .desktop > .main-nav-item::before {
   opacity: 0;
   transition: all 300ms ease-in-out;
 }
-header .main-nav .mobile {
+header .main-nav #burger {
+  width: 2.5rem;
+  height: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+}
+header .main-nav #burger > span {
   width: 100%;
-  height: 100%;
+  height: 0.3rem;
+  background-color: #FFFFFF;
+  border-radius: 0.15rem;
+  transform: translateY(0rem);
+  transform-origin: center;
+  transition: all 300ms ease-in-out;
+}
+header .main-nav #burger > span:nth-child(1) {
+  animation: pulseBun 1.5s ease infinite;
+}
+header .main-nav #burger > span:nth-child(2) {
+  animation: pulseCheese 1.5s ease infinite;
+}
+header .main-nav #burger > span:nth-child(3) {
+  animation: pulseSteak 1.5s ease infinite;
+}
+header .main-nav .mobile {
+  width: 100vw;
+  height: 100vh;
   padding: 1.25rem;
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  transform: scale(0.75);
+  transition: all 300ms ease-in-out;
 }
 @media screen and (min-width: 640px) {
   header .main-nav .mobile {
@@ -125,9 +153,12 @@ header .main-nav .mobile > ul > .main-nav-item:last-of-type {
   margin: 0;
   position: absolute;
   top: 1.75rem;
-  right: 2rem;
+  left: 2rem;
 }
 
+.main-nav-item {
+  transition: all 300ms ease-in-out;
+}
 .main-nav-item:last-of-type::before {
   display: none;
 }
@@ -149,6 +180,153 @@ header .main-nav .mobile > ul > .main-nav-item:last-of-type {
   fill: #200944;
 }
 
+.active-menu {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.active-burger {
+  transform: translate(-0.75rem, 1.75rem);
+  position: relative;
+  z-index: 50;
+}
+@media screen and (min-width: 640px) {
+  .active-burger {
+    transform: translate(0.5rem, 2.5rem);
+  }
+}
+@media screen and (min-width: 768px) {
+  .active-burger {
+    transform: translate(-1.75rem, 2.5rem);
+  }
+}
+
+@keyframes pulseBun {
+  0% {
+    width: 100%;
+  }
+  33% {
+    width: 120%;
+  }
+  66% {
+    width: 105%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes pulseCheese {
+  0% {
+    width: 100%;
+  }
+  33% {
+    width: 90%;
+  }
+  66% {
+    width: 120%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes pulseSteak {
+  0% {
+    width: 100%;
+  }
+  33% {
+    width: 105%;
+  }
+  66% {
+    width: 90%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes activeBun {
+  0% {
+    transform: translateY(0rem);
+  }
+  40% {
+    transform: translateY(calc(1rem - 50%));
+  }
+  60% {
+    transform: translateY(calc(1rem - 50%)) rotate(45deg);
+  }
+  100% {
+    transform: translateY(calc(1rem - 50%)) rotate(45deg);
+  }
+}
+@keyframes activeCheese {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  41% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes activeSteak {
+  0% {
+    transform: translateY(0rem);
+  }
+  40% {
+    transform: translateY(calc(-1rem + 50%));
+  }
+  60% {
+    transform: translateY(calc(-1rem + 50%)) rotate(-45deg);
+  }
+  100% {
+    transform: translateY(calc(-1rem + 50%)) rotate(-45deg);
+  }
+}
+@keyframes unactiveBun {
+  0% {
+    transform: translateY(calc(1rem - 50%)) rotate(45deg);
+  }
+  40% {
+    transform: translateY(calc(1rem - 50%)) rotate(0deg);
+  }
+  60% {
+    transform: translateY(calc(1rem - 50%));
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes unactiveCheese {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  41% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes unactiveSteak {
+  0% {
+    transform: translateY(calc(-1rem + 50%)) rotate(-45deg);
+  }
+  40% {
+    transform: translateY(calc(-1rem + 50%)) rotate(0deg);
+  }
+  60% {
+    transform: translateY(calc(-1rem + 50%));
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .container {
   margin: 0 auto;
 }

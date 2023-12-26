@@ -1,11 +1,49 @@
 <script setup>
 
+const triggerMenu = () => {
+  const menu = document.getElementById('menu');
+  const burger = document.getElementById('burger');
+  const bun = document.getElementById('bun');
+  const cheese = document.getElementById('cheese');
+  const steak = document.getElementById('steak');
+
+  if (menu.classList.contains('active-menu')) {
+    menu.classList.remove('active-menu');
+    setTimeout(() => {
+      menu.classList.remove('flex');
+      menu.classList.add('hidden');
+    }, 300);
+    burger.classList.remove('active-burger');
+
+    bun.style.animation = 'unactiveBun 0.5s ease forwards';
+    cheese.style.animation = 'unactiveCheese 0.5s ease forwards';
+    steak.style.animation = 'unactiveSteak 0.5s ease forwards';
+
+    setTimeout(() => {
+      bun.style.animation = 'pulseBun 1.5s ease infinite';
+      cheese.style.animation = 'pulseCheese 1.5s ease infinite';
+      steak.style.animation = 'pulseSteak 1.5s ease infinite';
+    }, 500);
+  } else {
+    menu.classList.add('flex');
+    menu.classList.remove('hidden');
+    setTimeout(() => {
+      menu.classList.add('active-menu');
+    }, 1);
+    
+    burger.classList.add('active-burger');
+    bun.style.animation = 'activeBun 0.5s ease forwards';
+    cheese.style.animation = 'activeCheese 0.5s ease forwards';
+    steak.style.animation = 'activeSteak 0.5s ease forwards';
+  }
+}
+
 </script>
 
 <template>
   <header class="container">
-      <nav class="main-nav">
-        <ul class="desktop px-10 hidden lg:flex">
+      <nav class="main-nav px-10">
+        <ul class="desktop hidden lg:flex">
           <li class="main-nav-item">
             <RouterLink class="nav-text" to="/">Informations</RouterLink>
           </li>
@@ -32,7 +70,12 @@
             </RouterLink>
           </li>
         </ul>
-        <div class="mobile flex lg:hidden">
+        <ul id="burger" @click=triggerMenu() class="flex lg:hidden">
+          <span id="bun"></span>
+          <span id="cheese"></span>
+          <span id="steak"></span>
+        </ul>
+        <div id="menu" class="mobile hidden lg:hidden">
           <ul>
             <li class="main-nav-item">
               <RouterLink class="nav-text" to="/">Informations</RouterLink>
