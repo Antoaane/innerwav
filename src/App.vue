@@ -79,19 +79,19 @@ onMounted(() => {
         <ul class="desktop hidden lg:flex">
           <span id="hover-item"></span>
           <li class="main-nav-item">
-            <RouterLink class="nav-text" to="/">Informations</RouterLink>
+            <a class="nav-text" to="/">Informations</a>
           </li>
           <li class="main-nav-item">
-            <RouterLink class="nav-text" to="/">Masteriser</RouterLink>
+            <a class="nav-text" to="/">Masteriser</a>
           </li>
           <li class="main-nav-item">
-            <RouterLink class="nav-text" to="/">Nos Réalisations</RouterLink>
+            <a class="nav-text" to="/">Nos Réalisations</a>
           </li>
           <li class="main-nav-item">
-            <RouterLink class="nav-text" to="/">Tarifs</RouterLink>
+            <a class="nav-text" to="/">Tarifs</a>
           </li>
           <li class="main-nav-item">
-            <RouterLink class="nav-text" to="/">Contact</RouterLink>
+            <a class="nav-text" to="/">Contact</a>
           </li>
           <li class="main-nav-item profile">
             <RouterLink class="main-nav-item" to="/">
@@ -109,8 +109,7 @@ onMounted(() => {
           <span id="cheese"></span>
           <span id="steak"></span>
         </ul>
-        <div id="menu" class="mobile hidden lg:hidden">
-          <ul>
+        <ul id="menu" class="mobile hidden lg:hidden">
             <li class="main-nav-item">
               <RouterLink class="nav-text" to="/">Informations</RouterLink>
             </li>
@@ -137,7 +136,6 @@ onMounted(() => {
               </RouterLink>
             </li>
           </ul>
-        </div>
       </nav>
   </header>
 

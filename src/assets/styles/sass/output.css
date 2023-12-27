@@ -2,6 +2,7 @@
 .maint-title {
   font-size: 10rem;
   font-weight: 900;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
@@ -119,44 +120,45 @@ header .main-nav #burger > span:nth-child(3) {
   animation: pulseSteak 1.5s ease infinite;
 }
 header .main-nav .mobile {
-  width: 100vw;
-  height: 100vh;
-  padding: 1.25rem;
+  width: calc(100vw - 2.5rem);
+  height: calc(100vh - 2.5rem);
+  padding: 1rem;
   position: fixed;
-  inset: 0;
+  inset: 1.25rem;
+  z-index: 49;
   opacity: 0;
   transform: scale(0.75);
-  transition: all 300ms ease-in-out;
-}
-@media screen and (min-width: 640px) {
-  header .main-nav .mobile {
-    padding: 2rem;
-  }
-}
-header .main-nav .mobile > ul {
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: linear-gradient(45deg, hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 100%, 0));
+  backdrop-filter: blur(0px);
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 300ms ease-in-out;
 }
-header .main-nav .mobile > ul > .main-nav-item {
+@media screen and (min-width: 640px) {
+  header .main-nav .mobile {
+    width: calc(100vw - 4rem);
+    height: calc(100vh - 4rem);
+    padding: 2rem;
+    inset: 2rem;
+  }
+}
+header .main-nav .mobile > .main-nav-item {
   margin: 5vh 0;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
-header .main-nav .mobile > ul > .main-nav-item:last-of-type {
+header .main-nav .mobile > .main-nav-item:last-of-type {
   margin: 0;
-  position: absolute;
-  top: 1.75rem;
-  left: 2rem;
+  position: fixed;
+  top: 2.75rem;
+  left: 3rem;
 }
 
 .main-nav-item {
+  cursor: pointer;
   transition: all 100ms ease-in-out;
 }
 .main-nav-item:hover {
@@ -169,6 +171,7 @@ header .main-nav .mobile > ul > .main-nav-item:last-of-type {
 .active-menu {
   opacity: 1 !important;
   transform: scale(1) !important;
+  backdrop-filter: blur(30px) !important;
 }
 
 .active-burger {
@@ -317,12 +320,42 @@ header .main-nav .mobile > ul > .main-nav-item:last-of-type {
   margin: 0 auto;
 }
 
-body {
-  background-image: url("../../res/basics/gradiants.svg");
+body .bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+body .bg > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#home-section {
+  width: 100%;
+  height: calc(100vh - 5rem);
+  padding-top: 15vh;
+  display: flex;
+  flex-direction: column;
+}
+#home-section .wave {
+  position: relative;
+}
+#home-section .wave::after {
+  content: "";
+  width: 100vw;
+  height: 200vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-13%, -37%);
+  background-image: url("../../res/basics/wave.svg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
-  min-height: 100vh;
+  z-index: -1;
 }
 
 /*# sourceMappingURL=output.css.map */
