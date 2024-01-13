@@ -26,4 +26,8 @@ body {
             object-fit: cover;
         }
     }
+
+    main {
+        z-index: 1;
+    }
 }

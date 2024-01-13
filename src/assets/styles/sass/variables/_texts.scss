@@ -1,35 +1,35 @@
-.maint-title {
+@mixin big-title {
     font-size: 10rem;
     font-weight: 900;
     line-height: 1.2;
     text-transform: uppercase;
 }
 
-.h1 {
+@mixin h1 {
     font-size: 4rem;
     font-weight: 900;
     text-transform: uppercase;
 }
 
-.h2 {
+@mixin h2 {
     font-size: 3rem;
     font-weight: 300;
     text-transform: uppercase;
 }
 
-.h3 {
+@mixin h3 {
     font-size: 2rem;
     font-weight: 300;
     text-transform: uppercase;
 }
 
-.subtitle-big {
+@mixin subtitle-big {
     font-size: 1.5rem;
     font-weight: 700;
     text-transform: uppercase;
 }
 
-.subtitle {
+@mixin subtitle {
     font-size: 1.5rem;
     font-weight: 600;
     text-transform: uppercase;

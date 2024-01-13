@@ -3,6 +3,14 @@
     color: $light;
 }
 
+.main-title {
+    @include big-title;
+}
+
+.subtitle {
+    @include subtitle-big;
+}
+
 .nav-text {
     @media screen and (min-width: 1024px) and (max-width: 1279px) {
         font-size: 1.125rem;

@@ -8,18 +8,17 @@
 
     .wave {
         position: relative;
+        width: max-content;
 
         &::after {
             content: '';
-            width: 100vw;
-            height: 200vh;
+            width: 60rem;
+            height: 65rem;
             position: absolute;
-            top: 0;
-            left: 0;
-            transform: translate(-13%, -37%);
+            top: -16rem;
+            left: 6.5rem;
             background-image: url('../../res/basics/wave.svg');
-            background-repeat: no-repeat;
-            background-size: contain;
+            background-size: cover;
             background-position: center;
             z-index: -1;
         }

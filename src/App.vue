@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted } from 'vue';
 
-
 const triggerMenu = () => {
   const menu = document.getElementById('menu');
   const burger = document.getElementById('burger');
@@ -43,30 +42,30 @@ const triggerMenu = () => {
 onMounted(() => {
   document.querySelectorAll('.desktop .main-nav-item').forEach(item => {
     item.addEventListener('mouseenter', (e) => {
-        const hoverItem = document.getElementById('hover-item');
-        const rect = e.target.getBoundingClientRect();
-        if (hoverItem.style.width == '0px' || hoverItem.style.width == 0) {
-          hoverItem.style.transition = 'none';
-          hoverItem.style.left = `${rect.left - item.parentNode.getBoundingClientRect().left + 10}px`;
-          setTimeout(() => {
-            hoverItem.style.transition = 'all 150ms ease-in-out';
-            hoverItem.style.width = `${rect.width - 20}px`;
-            hoverItem.style.opacity = 1;
-          }, 0)
-        } else {
+      const hoverItem = document.getElementById('hover-item');
+      const rect = e.currentTarget.getBoundingClientRect();
+      if (hoverItem.style.width == '0px' || hoverItem.style.width == 0) {
+        hoverItem.style.transition = 'none';
+        hoverItem.style.left = `${rect.left - item.parentNode.getBoundingClientRect().left + 10}px`;
+        setTimeout(() => {
           hoverItem.style.transition = 'all 150ms ease-in-out';
-          hoverItem.style.left = `${rect.left - item.parentNode.getBoundingClientRect().left + 10}px`;
           hoverItem.style.width = `${rect.width - 20}px`;
           hoverItem.style.opacity = 1;
-        }
+        }, 0)
+      } else {
+        hoverItem.style.transition = 'all 150ms ease-in-out';
+        hoverItem.style.left = `${rect.left - item.parentNode.getBoundingClientRect().left + 10}px`;
+        hoverItem.style.width = `${rect.width - 20}px`;
+        hoverItem.style.opacity = 1;
+      }
     });
   });
 
   document.querySelector('.desktop').addEventListener('mouseleave', () => {
-      const hoverItem = document.getElementById('hover-item');
-      hoverItem.style.opacity = 0;
-      hoverItem.style.width = 0;
-      console.log(hoverItem.style.width)
+    const hoverItem = document.getElementById('hover-item');
+    hoverItem.style.opacity = 0;
+    hoverItem.style.width = 0;
+    console.log(hoverItem.style.width)
   });
 })
 
@@ -79,29 +78,29 @@ onMounted(() => {
         <ul class="desktop hidden lg:flex">
           <span id="hover-item"></span>
           <li class="main-nav-item">
-            <a class="nav-text" to="/">Informations</a>
+            <a class="nav-text" href="">Informations</a>
           </li>
           <li class="main-nav-item">
-            <a class="nav-text" to="/">Masteriser</a>
+            <a class="nav-text" href="">Nos Réalisations</a>
           </li>
           <li class="main-nav-item">
-            <a class="nav-text" to="/">Nos Réalisations</a>
+            <a class="nav-text" href="">Masteriser</a>
           </li>
           <li class="main-nav-item">
-            <a class="nav-text" to="/">Tarifs</a>
+            <a class="nav-text" href="">Tarifs</a>
           </li>
           <li class="main-nav-item">
-            <a class="nav-text" to="/">Contact</a>
+            <a class="nav-text" href="">Contact</a>
           </li>
           <li class="main-nav-item profile">
-            <RouterLink class="main-nav-item" to="/">
+            <a class="main-nav-item" href="">
               <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path 
                   d="M14.1274 15C12.1849 15 10.522 14.3083 9.13869 12.925C7.75538 11.5417 7.06372 9.8788 7.06372 7.93628C7.06372 5.99376 7.75538 4.33084 9.13869 2.94753C10.522 1.56421 12.1849 0.872559 14.1274 0.872559C16.07 0.872559 17.7329 1.56421 19.1162 2.94753C20.4995 4.33084 21.1912 5.99376 21.1912 7.93628C21.1912 9.8788 20.4995 11.5417 19.1162 12.925C17.7329 14.3083 16.07 15 14.1274 15ZM0 29.1274V24.1828C0 23.1821 0.257531 22.2624 0.772594 21.4236C1.28766 20.5848 1.97196 19.9446 2.82549 19.5031C4.65028 18.5907 6.50451 17.9064 8.38817 17.4502C10.2718 16.994 12.1849 16.7659 14.1274 16.7659C16.07 16.7659 17.9831 16.994 19.8667 17.4502C21.7504 17.9064 23.6046 18.5907 25.4294 19.5031C26.2829 19.9446 26.9672 20.5848 27.4823 21.4236C27.9974 22.2624 28.2549 23.1821 28.2549 24.1828V29.1274H0Z" 
                   fill="white"
                 />
               </svg>
-            </RouterLink>
+            </a>
           </li>
         </ul>
         <ul id="burger" @click=triggerMenu() class="flex lg:hidden">
@@ -110,32 +109,32 @@ onMounted(() => {
           <span id="steak"></span>
         </ul>
         <ul id="menu" class="mobile hidden lg:hidden">
-            <li class="main-nav-item">
-              <RouterLink class="nav-text" to="/">Informations</RouterLink>
-            </li>
-            <li class="main-nav-item">
-              <RouterLink class="nav-text" to="/">Masteriser</RouterLink>
-            </li>
-            <li class="main-nav-item">
-              <RouterLink class="nav-text" to="/">Nos Réalisations</RouterLink>
-            </li>
-            <li class="main-nav-item">
-              <RouterLink class="nav-text" to="/">Tarifs</RouterLink>
-            </li>
-            <li class="main-nav-item">
-              <RouterLink class="nav-text" to="/">Contact</RouterLink>
-            </li>
-            <li class="main-nav-item profile">
-              <RouterLink class="main-nav-item" to="/">
-                <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path 
-                    d="M14.1274 15C12.1849 15 10.522 14.3083 9.13869 12.925C7.75538 11.5417 7.06372 9.8788 7.06372 7.93628C7.06372 5.99376 7.75538 4.33084 9.13869 2.94753C10.522 1.56421 12.1849 0.872559 14.1274 0.872559C16.07 0.872559 17.7329 1.56421 19.1162 2.94753C20.4995 4.33084 21.1912 5.99376 21.1912 7.93628C21.1912 9.8788 20.4995 11.5417 19.1162 12.925C17.7329 14.3083 16.07 15 14.1274 15ZM0 29.1274V24.1828C0 23.1821 0.257531 22.2624 0.772594 21.4236C1.28766 20.5848 1.97196 19.9446 2.82549 19.5031C4.65028 18.5907 6.50451 17.9064 8.38817 17.4502C10.2718 16.994 12.1849 16.7659 14.1274 16.7659C16.07 16.7659 17.9831 16.994 19.8667 17.4502C21.7504 17.9064 23.6046 18.5907 25.4294 19.5031C26.2829 19.9446 26.9672 20.5848 27.4823 21.4236C27.9974 22.2624 28.2549 23.1821 28.2549 24.1828V29.1274H0Z" 
-                    fill="white"
-                  />
-                </svg>
-              </RouterLink>
-            </li>
-          </ul>
+          <li class="main-nav-item">
+            <a class="nav-text" href="">Informations</a>
+          </li>
+          <li class="main-nav-item">
+            <a class="nav-text" href="">Nos Réalisations</a>
+          </li>
+          <li class="main-nav-item">
+            <a class="nav-text" href="">Masteriser</a>
+          </li>
+          <li class="main-nav-item">
+            <a class="nav-text" href="">Tarifs</a>
+          </li>
+          <li class="main-nav-item">
+            <a class="nav-text" href="">Contact</a>
+          </li>
+          <li class="main-nav-item profile">
+            <a class="main-nav-item" href="">
+              <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path 
+                  d="M14.1274 15C12.1849 15 10.522 14.3083 9.13869 12.925C7.75538 11.5417 7.06372 9.8788 7.06372 7.93628C7.06372 5.99376 7.75538 4.33084 9.13869 2.94753C10.522 1.56421 12.1849 0.872559 14.1274 0.872559C16.07 0.872559 17.7329 1.56421 19.1162 2.94753C20.4995 4.33084 21.1912 5.99376 21.1912 7.93628C21.1912 9.8788 20.4995 11.5417 19.1162 12.925C17.7329 14.3083 16.07 15 14.1274 15ZM0 29.1274V24.1828C0 23.1821 0.257531 22.2624 0.772594 21.4236C1.28766 20.5848 1.97196 19.9446 2.82549 19.5031C4.65028 18.5907 6.50451 17.9064 8.38817 17.4502C10.2718 16.994 12.1849 16.7659 14.1274 16.7659C16.07 16.7659 17.9831 16.994 19.8667 17.4502C21.7504 17.9064 23.6046 18.5907 25.4294 19.5031C26.2829 19.9446 26.9672 20.5848 27.4823 21.4236C27.9974 22.2624 28.2549 23.1821 28.2549 24.1828V29.1274H0Z" 
+                  fill="white"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
       </nav>
   </header>
 
