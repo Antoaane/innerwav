@@ -1,13 +1,14 @@
 <template>
-    <div class="work-container">
+    <div class="work-container mr-10">
         <audio :src="beforeAudio" ref="beforeAudio" class="hidden"></audio>
         <audio :src="afterAudio" ref="afterAudio" class="hidden"></audio>
     
-        <div class="player-container">
-            <div class="player-switch" :class="{ 'top-active': isBeforeActive, 'bottom-active': !isBeforeActive }">
-            <button class="btn-switch" :class="{ 'active': isBeforeActive }" @click="triggerPlayer('before')">Avant</button>
-            <button class="btn-switch" :class="{ 'active': !isBeforeActive }" @click="triggerPlayer('after')">Après</button>
-            </div>
+        <div class="player-position" :class="{ 'active': isPlayerActive }">
+            <div class="player-container">
+                <div class="player-switch" :class="{ 'top-active': isBeforeActive, 'bottom-active': !isBeforeActive }"></div>
+                <button class="btn-switch play-before" :class="{ 'active': isBeforeActive }" @click="triggerPlayer('before')">Avant</button>
+                <button class="btn-switch play-after" :class="{ 'active': !isBeforeActive }" @click="triggerPlayer('after')">Après</button>
+            </div>    
         </div>
     
         <div class="cover-container" @click="togglePlayer">
@@ -35,36 +36,23 @@
 
         methods: {
             togglePlayer() {
-                // Bascule l'état d'activation du player : si actif, le désactive, et vice versa.
-                this.isPlayerActive = !this.isPlayerActive;
-
-                // Si le player est maintenant actif :
+                    this.isPlayerActive = !this.isPlayerActive;
                 if (this.isPlayerActive) {
-                    // Joue l'audio 'before'.
                     this.$refs.beforeAudio.play();
-                    // Joue également l'audio 'after'.
                     this.$refs.afterAudio.play();
-                    // Assure que l'audio 'before' n'est pas en mode muet.
                     this.$refs.beforeAudio.muted = false;
-                    // Met l'audio 'after' en mode muet.
                     this.$refs.afterAudio.muted = true;
                 } else {
-                    // Si le player n'est pas actif, réinitialise l'audio 'before'.
                     this.resetAudio(this.$refs.beforeAudio);
-                    // Réinitialise également l'audio 'after'.
                     this.resetAudio(this.$refs.afterAudio);
                 }
             },
             triggerPlayer(type) {
-                // Définit si le mode 'before' est actif basé sur le type passé en argument.
                 this.isBeforeActive = type === 'before';
-                // Met l'audio 'before' en mode muet si le mode 'before' n'est pas actif.
                 this.$refs.beforeAudio.muted = !this.isBeforeActive;
-                // Met l'audio 'after' en mode muet si le mode 'before' est actif.
                 this.$refs.afterAudio.muted = this.isBeforeActive;
             },
             resetAudio(audioEl) {
-                // Arrête la lecture de l'audio et remet à zéro son temps.
                 audioEl.pause();
                 audioEl.currentTime = 0;
             },

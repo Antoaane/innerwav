@@ -4,7 +4,7 @@
 
     position: relative;
 
-    #player-position {
+    .player-position {
         width: 100%;
         height: 100%;
 
@@ -29,7 +29,7 @@
             flex-direction: column;
             justify-content: space-between;
 
-            #player-switch {
+            .player-switch {
                 width: 100%;
                 height: calc(100% - 5rem);
 
@@ -43,11 +43,11 @@
                 @include transition-big;
             }
 
-            #player-switch.top-active {
+            .player-switch.top-active {
                 top: 0;
             }
 
-            #player-switch.bottom-active {
+            .player-switch.bottom-active {
                 top: 5rem;
             }
 
@@ -66,12 +66,12 @@
                 @include transition;
             }
 
-            #play-before{
+            .play-before{
                 padding-bottom: 0.5rem;
                 border-radius: 15px 15px 0px 0px;
             }
 
-            #play-after{
+            .play-after{
                 padding-top: 0.5rem;
                 border-radius: 0px 0px 15px 15px;
             }
@@ -103,16 +103,22 @@
         }
     }
 
-    #player-position.active {
+    .player-position.active {
         height: calc(100% + 10rem);
     }
 
     .cover-container {
         width: 100%;
+        aspect-ratio: 1/1;
+
         position: relative;
 
         .cover-img {
             width: 100%;
+            aspect-ratio: 1/1;
+            
+            object-fit: cover;
+
             transform: scale(1.005) translateX(-0.05%);
 
             border-radius: 15px;
@@ -121,7 +127,7 @@
             cursor: pointer;
         }
 
-        #cover-blur {
+        .cover-blur {
             width: 100%;
             height: 100%;
 
@@ -139,7 +145,7 @@
             @include transition-big;
         }
 
-        #cover-blur.active {
+        .cover-blur.active {
             opacity: 1;
         }
 
