@@ -74,7 +74,7 @@ onMounted(() => {
 
 <template>
   <header class="container">
-      <nav class="main-nav px-10">
+      <nav class="main-nav-fixed px-10">
         <ul class="desktop hidden lg:flex">
           <span id="hover-item"></span>
           <li class="main-nav-item">
