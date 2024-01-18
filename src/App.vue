@@ -69,12 +69,31 @@ onMounted(() => {
   });
 })
 
+// var scrollPoint = false;
+
+function fixedTrigger() {
+  const nav = document.getElementById('desk-nav');
+
+  if (window.scrollY > 200 && nav.classList.contains('main-nav')) {
+    nav.classList.add('main-nav-fixed');
+    nav.classList.remove('main-nav');
+  } 
+  
+  if (window.scrollY <= 200 && nav.classList.contains('main-nav-fixed')) {
+    nav.classList.add('main-nav');
+    nav.classList.remove('main-nav-fixed');
+  }
+}
+
+window.addEventListener('scroll', () => {
+  fixedTrigger()
+})
 
 </script>
 
 <template>
   <header class="container">
-      <nav class="main-nav-fixed px-10">
+      <nav id="desk-nav" class="main-nav">
         <ul class="desktop hidden lg:flex">
           <span id="hover-item"></span>
           <li class="main-nav-item">
