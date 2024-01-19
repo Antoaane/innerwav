@@ -39,7 +39,7 @@ const triggerMenu = () => {
   }
 }
 
-onMounted(() => {
+function hoverItemEffect() {
   document.querySelectorAll('.desktop .main-nav-item').forEach(item => {
     item.addEventListener('mouseenter', (e) => {
       const hoverItem = document.getElementById('hover-item');
@@ -67,23 +67,26 @@ onMounted(() => {
     hoverItem.style.width = 0;
     console.log(hoverItem.style.width)
   });
-})
-
-// var scrollPoint = false;
+}
 
 function fixedTrigger() {
   const nav = document.getElementById('desk-nav');
 
-  if (window.scrollY > 200 && nav.classList.contains('main-nav')) {
+  if (window.scrollY > 500 && nav.classList.contains('main-nav')) {
     nav.classList.add('main-nav-fixed');
     nav.classList.remove('main-nav');
   } 
   
-  if (window.scrollY <= 200 && nav.classList.contains('main-nav-fixed')) {
+  if (window.scrollY <= 500 && nav.classList.contains('main-nav-fixed')) {
     nav.classList.add('main-nav');
     nav.classList.remove('main-nav-fixed');
+    hoverItemEffect();
   }
 }
+
+onMounted(() => {
+  hoverItemEffect();
+})
 
 window.addEventListener('scroll', () => {
   fixedTrigger()
@@ -112,7 +115,7 @@ window.addEventListener('scroll', () => {
             <a class="nav-text" href="">Contact</a>
           </li>
           <li class="main-nav-item profile">
-            <a class="main-nav-item" href="">
+            <a class="nav-text" href="">
               <svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path 
                   d="M14.1274 15C12.1849 15 10.522 14.3083 9.13869 12.925C7.75538 11.5417 7.06372 9.8788 7.06372 7.93628C7.06372 5.99376 7.75538 4.33084 9.13869 2.94753C10.522 1.56421 12.1849 0.872559 14.1274 0.872559C16.07 0.872559 17.7329 1.56421 19.1162 2.94753C20.4995 4.33084 21.1912 5.99376 21.1912 7.93628C21.1912 9.8788 20.4995 11.5417 19.1162 12.925C17.7329 14.3083 16.07 15 14.1274 15ZM0 29.1274V24.1828C0 23.1821 0.257531 22.2624 0.772594 21.4236C1.28766 20.5848 1.97196 19.9446 2.82549 19.5031C4.65028 18.5907 6.50451 17.9064 8.38817 17.4502C10.2718 16.994 12.1849 16.7659 14.1274 16.7659C16.07 16.7659 17.9831 16.994 19.8667 17.4502C21.7504 17.9064 23.6046 18.5907 25.4294 19.5031C26.2829 19.9446 26.9672 20.5848 27.4823 21.4236C27.9974 22.2624 28.2549 23.1821 28.2549 24.1828V29.1274H0Z" 

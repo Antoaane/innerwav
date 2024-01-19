@@ -179,8 +179,10 @@ header {
             padding: 1rem 0;
 
             position: relative;
+            z-index: 50;
 
             background-color: $light;
+            border-radius: 0 0 35px 35px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
             
             @include transition-big;
@@ -194,7 +196,7 @@ header {
 
                 position: absolute;
                 top: 0;
-                left: -5.93rem;
+                left: -3.93rem;
 
                 background-image: url('../../res/basics/respo-nav-corners.svg');
                 background-size: contain;
@@ -211,7 +213,8 @@ header {
 
                 position: absolute;
                 top: 0;
-                right: -5.93rem;
+                right: -3.93rem;
+                z-index: -1;
 
                 background-image: url('../../res/basics/respo-nav-corners.svg');
                 background-size: contain;
@@ -261,9 +264,13 @@ header {
                 }
             }
 
-            &>.main-nav-item.profile {
+            &>.profile {
                 a {
-                    pointer-events: none
+                    pointer-events: none;
+
+                    svg {
+                        transform: scale(0.8);
+                    }
                 }
             }
         }

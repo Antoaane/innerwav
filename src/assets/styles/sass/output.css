@@ -161,7 +161,9 @@ header .main-nav-fixed .desktop {
   width: max-content;
   padding: 1rem 0;
   position: relative;
+  z-index: 50;
   background-color: #FFFFFF;
+  border-radius: 0 0 35px 35px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   transition: all 500ms cubic-bezier(1, 0.05, 0.05, 1);
 }
@@ -172,7 +174,7 @@ header .main-nav-fixed .desktop::before {
   height: 100%;
   position: absolute;
   top: 0;
-  left: -5.93rem;
+  left: -3.93rem;
   background-image: url("../../res/basics/respo-nav-corners.svg");
   background-size: contain;
   background-position: right;
@@ -186,7 +188,8 @@ header .main-nav-fixed .desktop::after {
   transform: scaleX(-1);
   position: absolute;
   top: 0;
-  right: -5.93rem;
+  right: -3.93rem;
+  z-index: -1;
   background-image: url("../../res/basics/respo-nav-corners.svg");
   background-size: contain;
   background-position: right;
@@ -225,8 +228,11 @@ header .main-nav-fixed .desktop > .main-nav-item:hover {
 header .main-nav-fixed .desktop > .main-nav-item:hover path {
   fill: #7476A4;
 }
-header .main-nav-fixed .desktop > .main-nav-item.profile a {
+header .main-nav-fixed .desktop > .profile a {
   pointer-events: none;
+}
+header .main-nav-fixed .desktop > .profile a svg {
+  transform: scale(0.8);
 }
 
 .active-menu {
