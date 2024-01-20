@@ -98,6 +98,12 @@ window.addEventListener('scroll', () => {
   <header class="container">
       <nav id="desk-nav" class="main-nav">
         <ul class="desktop hidden lg:flex">
+          <svg class="fixed-nav-corner left hidden" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1483.82 1000">
+            <path d="m0,0s529.52,0,741.91,500,741.91,500,741.91,500V0H0Z"/>
+          </svg>
+          <svg class="fixed-nav-corner right hidden" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1483.82 1000">
+            <path d="m0,0s529.52,0,741.91,500,741.91,500,741.91,500V0H0Z"/>
+          </svg>
           <span id="hover-item"></span>
           <li class="main-nav-item">
             <a class="nav-text" href="">Informations</a>

@@ -1,5 +1,6 @@
 .work-container {
-    width: 15vw;
+    width: 100%;
+    margin: 5rem 0;
     aspect-ratio: 1/1;
 
     position: relative;
@@ -13,10 +14,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
 
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 15px;
-        background: radial-gradient(75.42% 100% at 0% 50%, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.15) 100%);
-
+        @include glass-effect;
         @include transition-big;
 
         .player-container {
@@ -37,7 +35,7 @@
                 left: 0;
                 z-index: 30;
 
-                border-radius: 15px;
+                border-radius: $rounded-lg;
                 background-color: $light;
 
                 @include transition-big;
@@ -68,12 +66,12 @@
 
             .play-before{
                 padding-bottom: 0.5rem;
-                border-radius: 15px 15px 0px 0px;
+                border-radius: $rounded-lg $rounded-lg 0px 0px;
             }
 
             .play-after{
                 padding-top: 0.5rem;
-                border-radius: 0px 0px 15px 15px;
+                border-radius: 0px 0px $rounded-lg $rounded-lg;
             }
 
             .btn-switch:hover {
@@ -121,7 +119,7 @@
 
             transform: scale(1.005) translateX(-0.05%);
 
-            border-radius: 15px;
+            border-radius: $rounded-lg;
             @include soft-shadow;
 
             cursor: pointer;
@@ -139,7 +137,7 @@
             transform: scale(1.005);
 
             backdrop-filter: blur(20px);
-            border-radius: 15px;
+            border-radius: $rounded-lg;
             border: 1px solid rgba(255, 255, 255, 0.15);
 
             @include transition-big;
