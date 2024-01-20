@@ -36,7 +36,7 @@
 
         methods: {
             togglePlayer() {
-                    this.isPlayerActive = !this.isPlayerActive;
+                this.isPlayerActive = !this.isPlayerActive;
                 if (this.isPlayerActive) {
                     this.$refs.beforeAudio.play();
                     this.$refs.afterAudio.play();
@@ -55,6 +55,7 @@
             resetAudio(audioEl) {
                 audioEl.pause();
                 audioEl.currentTime = 0;
+                this.isBeforeActive = true;
             },
         },
     };
