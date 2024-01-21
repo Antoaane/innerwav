@@ -5,7 +5,7 @@
 }
 
 .main-title {
-  font-size: 10rem;
+  font-size: 9rem;
   font-weight: 900;
   line-height: 1.1;
   text-transform: uppercase;
@@ -109,6 +109,7 @@ header .main-nav #burger > span:nth-child(1) {
   animation: pulseBun 1.5s ease infinite;
 }
 header .main-nav #burger > span:nth-child(2) {
+  height: 0.3125rem;
   animation: pulseCheese 1.5s ease infinite;
 }
 header .main-nav #burger > span:nth-child(3) {
@@ -387,53 +388,67 @@ header .main-nav-fixed .desktop > .profile a svg {
   margin: 0 auto;
 }
 
-body .bg {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-}
-body .bg > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 body main {
   z-index: 1;
 }
 
-#home-section {
+#title-section {
+  position: relative;
+}
+#title-section .bg-title {
   width: 100%;
-  height: calc(100vh - 5rem);
-  padding-top: 15vh;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+#title-section > .container {
+  width: 100%;
+  height: 100vh;
+  padding-top: 20vh;
   display: flex;
   flex-direction: column;
 }
-#home-section .wave {
-  position: relative;
+#title-section > .container .wave {
   width: max-content;
 }
-#home-section .wave::after {
+#title-section > .container .wave::after {
   content: "";
-  width: 60rem;
-  height: 65rem;
+  width: 99vw;
+  height: 100vh;
   position: absolute;
-  top: -16rem;
-  left: 6.5rem;
+  top: 0;
+  left: 0;
   background-image: url("../../res/basics/wave.svg");
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  background-position: 5vw center;
   z-index: -1;
 }
 
-.work-container {
+#works-section {
+  position: relative;
+}
+#works-section .bg-title {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+#works-section > .container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+#works-section > .container .work-container {
   width: 100%;
   margin: 5rem 0;
   aspect-ratio: 1/1;
   position: relative;
 }
-.work-container .player-position {
+#works-section > .container .work-container .player-position {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -446,7 +461,7 @@ body main {
   background: radial-gradient(75.42% 100% at 0% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
   transition: all 500ms cubic-bezier(1, 0.05, 0.05, 1);
 }
-.work-container .player-position .player-container {
+#works-section > .container .work-container .player-position .player-container {
   width: 100%;
   height: 100%;
   position: relative;
@@ -454,7 +469,7 @@ body main {
   flex-direction: column;
   justify-content: space-between;
 }
-.work-container .player-position .player-container .player-switch {
+#works-section > .container .work-container .player-position .player-container .player-switch {
   width: 100%;
   height: calc(100% - 5rem);
   position: absolute;
@@ -464,13 +479,13 @@ body main {
   background-color: #FFFFFF;
   transition: all 500ms cubic-bezier(1, 0.05, 0.05, 1);
 }
-.work-container .player-position .player-container .player-switch.top-active {
+#works-section > .container .work-container .player-position .player-container .player-switch.top-active {
   top: 0;
 }
-.work-container .player-position .player-container .player-switch.bottom-active {
+#works-section > .container .work-container .player-position .player-container .player-switch.bottom-active {
   top: 5rem;
 }
-.work-container .player-position .player-container .btn-switch {
+#works-section > .container .work-container .player-position .player-container .btn-switch {
   width: 100%;
   height: 5.5rem;
   position: relative;
@@ -482,40 +497,40 @@ body main {
   filter: blur(1.5px);
   transition: all 300ms cubic-bezier(1, 0.05, 0.05, 1);
 }
-.work-container .player-position .player-container .play-before {
+#works-section > .container .work-container .player-position .player-container .play-before {
   padding-bottom: 0.5rem;
   border-radius: 1rem 1rem 0px 0px;
 }
-.work-container .player-position .player-container .play-after {
+#works-section > .container .work-container .player-position .player-container .play-after {
   padding-top: 0.5rem;
   border-radius: 0px 0px 1rem 1rem;
 }
-.work-container .player-position .player-container .btn-switch:hover {
+#works-section > .container .work-container .player-position .player-container .btn-switch:hover {
   filter: blur(0px);
   transform: scale(1.1);
   color: #FFFFFF;
 }
-.work-container .player-position .player-container .btn-switch.active {
+#works-section > .container .work-container .player-position .player-container .btn-switch.active {
   font-size: 2rem;
   color: #200944;
   filter: blur(0px);
 }
-.work-container .player-position .player-container .btn-switch.active:hover {
+#works-section > .container .work-container .player-position .player-container .btn-switch.active:hover {
   filter: blur(0px);
   text-shadow: 0px 0px 5px hsla(0, 0%, 100%, 0);
   box-shadow: 0px 0px 5px 5px hsla(0, 0%, 100%, 0);
   transform: scale(1);
   font-size: 2rem;
 }
-.work-container .player-position.active {
+#works-section > .container .work-container .player-position.active {
   height: calc(100% + 10rem);
 }
-.work-container .cover-container {
+#works-section > .container .work-container .cover-container {
   width: 100%;
   aspect-ratio: 1/1;
   position: relative;
 }
-.work-container .cover-container .cover-img {
+#works-section > .container .work-container .cover-container .cover-img {
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
@@ -524,7 +539,7 @@ body main {
   box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
-.work-container .cover-container .cover-blur {
+#works-section > .container .work-container .cover-container .cover-blur {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -537,10 +552,10 @@ body main {
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: all 500ms cubic-bezier(1, 0.05, 0.05, 1);
 }
-.work-container .cover-container .cover-blur.active {
+#works-section > .container .work-container .cover-container .cover-blur.active {
   opacity: 1;
 }
-.work-container .cover-container .play-btn {
+#works-section > .container .work-container .cover-container .play-btn {
   width: 9rem;
   position: absolute;
   top: 50%;
@@ -550,7 +565,7 @@ body main {
   cursor: pointer;
   transition: all 300ms cubic-bezier(1, 0.05, 0.05, 1);
 }
-.work-container .cover-container .play-btn:hover {
+#works-section > .container .work-container .cover-container .play-btn:hover {
   transform: translate(-45%, -50%) scale(1.1);
 }
 

@@ -1,7 +1,8 @@
 <script setup>
 import { onMounted } from 'vue';
+// import _ from 'lodash';
 
-const triggerMenu = () => {
+function triggerMenu() {
   const menu = document.getElementById('menu');
   const burger = document.getElementById('burger');
   const bun = document.getElementById('bun');
@@ -71,16 +72,19 @@ function hoverItemEffect() {
 
 function fixedTrigger() {
   const nav = document.getElementById('desk-nav');
+  const menu = document.getElementById('desk-menu');
 
-  if (window.scrollY > 200 && nav.classList.contains('main-nav')) {
+  if (window.scrollY > 400 && nav.classList.contains('main-nav')) {
     nav.classList.add('main-nav-fixed');
     nav.classList.remove('main-nav');
   } 
   
-  if (window.scrollY <= 200 && nav.classList.contains('main-nav-fixed')) {
-    nav.classList.add('main-nav');
-    nav.classList.remove('main-nav-fixed');
-    hoverItemEffect();
+  if (window.scrollY <= 400 && nav.classList.contains('main-nav-fixed')) {
+        // menu.style.transform = 'scaleY(0)';
+        nav.classList.remove('main-nav-fixed');
+        nav.classList.add('main-nav');
+        // menu.style.transform = 'scaleY(1)';
+        hoverItemEffect();
   }
 }
 
@@ -88,16 +92,20 @@ onMounted(() => {
   hoverItemEffect();
 })
 
+
 window.addEventListener('scroll', () => {
-  fixedTrigger()
+  // _.throttle(() => {
+  //   console.log("yey")}, 
+  // 200);
+  // fixedTrigger();
 })
 
 </script>
 
 <template>
-  <header class="container">
+  <header class="container absolute top-0 left-1/2 -translate-x-1/2">
       <nav id="desk-nav" class="main-nav">
-        <ul class="desktop hidden lg:flex">
+        <ul id="desk-menu" class="desktop hidden lg:flex">
           <svg class="fixed-nav-corner left hidden" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1483.82 1000">
             <path d="m0,0s529.52,0,741.91,500,741.91,500,741.91,500V0H0Z"/>
           </svg>
