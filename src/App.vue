@@ -97,13 +97,13 @@ window.addEventListener('scroll', () => {
   // _.throttle(() => {
   //   console.log("yey")}, 
   // 200);
-  // fixedTrigger();
+  fixedTrigger();
 })
 
 </script>
 
 <template>
-  <header class="container absolute top-0 left-1/2 -translate-x-1/2">
+  <header class="container">
       <nav id="desk-nav" class="main-nav">
         <ul id="desk-menu" class="desktop hidden lg:flex">
           <svg class="fixed-nav-corner left hidden" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1483.82 1000">

@@ -1,6 +1,10 @@
 header {
     height: 5rem;
     padding: 1.25rem 0;
+    margin-bottom: -5rem !important;
+
+    position: relative;
+    z-index: 50;
 
     display: flex;
     justify-content: end;
