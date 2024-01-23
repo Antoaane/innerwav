@@ -467,7 +467,7 @@ body main {
 #presentation-section > .container .content .grid .text h3 {
   margin-bottom: 2rem;
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 900;
   text-transform: uppercase;
   line-height: 1.2;
   text-transform: none;
@@ -487,6 +487,19 @@ body main {
   border-radius: 1rem;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
 }
+#presentation-section > .container .content .grid .img::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  background: radial-gradient(75.42% 100% at 0% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
+}
 #presentation-section > .container .content .grid:nth-child(2n) .text {
   order: 2;
 }
@@ -494,7 +507,7 @@ body main {
   text-align: right;
 }
 #presentation-section > .container .content .grid:nth-child(2n) .text h3 span {
-  -webkit-text-fill-color: #473760;
+  -webkit-text-fill-color: #42305E;
   text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
 }
 #presentation-section > .container .content .grid:nth-child(2n) .text p {
@@ -503,7 +516,12 @@ body main {
 #presentation-section > .container .content .grid:nth-child(2n) .img {
   order: 1;
 }
+#presentation-section > .container .content .grid:nth-child(2) .text h3 span {
+  -webkit-text-fill-color: #301c4d !important;
+  text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
+}
 #presentation-section > .container .content .conclusion p {
+  margin-top: 10rem;
   padding: 0 8rem;
   font-size: 2rem;
   font-weight: 300;

@@ -58,6 +58,19 @@
 
                         box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
                     }
+
+                    &::after {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        z-index: -1;
+
+                        position: absolute;
+                        top: 15px;
+                        left: 15px;
+
+                        @include glass-effect;
+                    }
                 }
             }
 
@@ -70,7 +83,7 @@
                         text-align: right;
 
                         span {
-                            @include text-strokes($light, $medium);
+                            @include text-strokes($light, $soft);
                         }
                     }
 
@@ -84,8 +97,19 @@
                 }
             }
 
+            .grid:nth-child(2) {
+                .text {
+                    h3 {
+                        span {
+                            @include text-strokes($light, $medium !important);
+                        }
+                    }
+                }
+            }
+
             .conclusion {
                 p {
+                    margin-top: 10rem;
                     padding: 0 8rem;
 
                     @include h3;

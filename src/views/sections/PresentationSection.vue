@@ -10,6 +10,7 @@
             <h2>
                 Du sur 
                 <span>
+                    <span class="hidden">mesure</span>
                     <MesureSvg />
                 </span>
             </h2>
@@ -32,7 +33,7 @@
                 <div class="grid">
                     <div class="text">
                         <h3>
-                            Mastering <span>personnalisé à votre</span> portée
+                            Réactivité <span>et</span> Efficacité
                         </h3>
                         <p>
                             Nous comprenons l'importance du temps dans l'industrie musicale. C'est pourquoi nous nous engageons à répondre à vos besoins avec une rapidité exemplaire. 
@@ -48,7 +49,7 @@
                 <div class="grid">
                     <div class="text">
                         <h3>
-                            Mastering <span>personnalisé à votre</span> portée
+                            À l'Écoute <span>de vos</span> besoins
                         </h3>
                         <p>
                             Votre satisfaction est notre priorité absolue. Chez Innerwav, vous bénéficiez d'au moins trois sessions de retours et ajustements sur le mastering de votre titre. 
@@ -64,7 +65,7 @@
                 <div class="grid">
                     <div class="text">
                         <h3>
-                            Mastering <span>personnalisé à votre</span> portée
+                            Excellence <span>sur les plateformes de</span> Streaming
                         </h3>
                         <p>
                             Dans l'univers concurrentiel des plateformes de streaming, il est crucial que votre musique se démarque. 
