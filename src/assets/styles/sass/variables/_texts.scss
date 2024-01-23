@@ -21,6 +21,14 @@
     font-size: 3rem;
     font-weight: 300;
     text-transform: uppercase;
+    line-height: 1.2;
+}
+
+@mixin h2-bold {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
 }
 
 @mixin h3 {
@@ -51,4 +59,14 @@
     font-size: 1.5rem;
     font-weight: 800;
     text-transform: uppercase;
+}
+
+
+@mixin text-strokes($color1, $color2) {
+    -webkit-text-fill-color: $color2;
+    text-shadow:
+        -1px -1px 0 $color1,  
+         1px -1px 0 $color1,
+        -1px  1px 0 $color1,
+         1px  1px 0 $color1;
 }

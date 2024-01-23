@@ -85,23 +85,23 @@ onMounted(() => {
 <template>
     <div id="works-section">
 
-        <img class="bg bg-title" src="../../../src/assets/res/basics/gradiants.svg" alt="innerwav.fr">
+      <div class="bg"></div>
 
-        <div class="container">
-            <div class="splide realisations w-full flex">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        <li class="splide__slide" :key="work.id" v-for="work in works">
-                            <Player
-                                :beforeAudio="work.beforeAudio"
-                                :afterAudio="work.afterAudio"
-                                :coverImage="work.coverImage"
-                            />
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+      <div class="container">
+          <div class="splide realisations w-full flex">
+              <div class="splide__track">
+                  <ul class="splide__list">
+                      <li class="splide__slide" :key="work.id" v-for="work in works">
+                          <Player
+                              :beforeAudio="work.beforeAudio"
+                              :afterAudio="work.afterAudio"
+                              :coverImage="work.coverImage"
+                          />
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
 
     </div>
 </template>

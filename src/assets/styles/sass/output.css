@@ -395,16 +395,23 @@ body main {
   z-index: 1;
 }
 
-#title-section {
-  position: relative;
-}
-#title-section .bg-title {
+.bg {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   position: absolute;
   inset: 0;
   z-index: -1;
+  background-image: url("../../res/basics/gradiant.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.reverse {
+  transform: scaleY(-1);
+}
+
+#title-section {
+  position: relative;
 }
 #title-section > .container {
   width: 100%;
@@ -424,16 +431,89 @@ body main {
   z-index: -1;
 }
 
-#works-section {
+#presentation-section {
+  position: relative;
+  margin-top: -1px;
+  padding: 8rem 0;
+}
+#presentation-section > .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#presentation-section > .container h2 {
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  -webkit-text-fill-color: #200944;
+  text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
+  display: flex;
+}
+#presentation-section > .container h2 .mesure-svg {
+  margin-left: 1rem;
+}
+#presentation-section > .container .content {
+  margin-top: 5rem;
+}
+#presentation-section > .container .content .grid {
+  margin: 5rem 0;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 8rem;
+  align-items: center;
+}
+#presentation-section > .container .content .grid .text {
+  grid-column: span 6/span 6;
+}
+#presentation-section > .container .content .grid .text h3 {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-transform: none;
+}
+#presentation-section > .container .content .grid .text h3 span {
+  -webkit-text-fill-color: #200944;
+  text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
+}
+#presentation-section > .container .content .grid .img {
+  grid-column: span 6/span 6;
   position: relative;
 }
-#works-section .bg-title {
+#presentation-section > .container .content .grid .img img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16/9;
   object-fit: cover;
-  position: absolute;
-  inset: 0;
-  z-index: -1;
+  border-radius: 1rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+}
+#presentation-section > .container .content .grid:nth-child(2n) .text {
+  order: 2;
+}
+#presentation-section > .container .content .grid:nth-child(2n) .text h3 {
+  text-align: right;
+}
+#presentation-section > .container .content .grid:nth-child(2n) .text h3 span {
+  -webkit-text-fill-color: #473760;
+  text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
+}
+#presentation-section > .container .content .grid:nth-child(2n) .text p {
+  text-align: right;
+}
+#presentation-section > .container .content .grid:nth-child(2n) .img {
+  order: 1;
+}
+#presentation-section > .container .content .conclusion p {
+  padding: 0 8rem;
+  font-size: 2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-transform: none;
+  text-align: center;
+}
+
+#works-section {
+  position: relative;
 }
 #works-section > .container {
   height: 100vh;

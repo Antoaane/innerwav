@@ -1,0 +1,98 @@
+#presentation-section{
+    position: relative;
+    margin-top: -1px;
+    padding: 8rem 0;
+
+    &>.container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        h2 {
+            @include h1;
+            @include text-strokes($light, $dark);
+
+            display: flex;
+            
+            .mesure-svg {
+                margin-left: 1rem;
+            }
+        }
+
+        .content {
+            margin-top: 5rem;
+            
+            .grid {
+                margin: 5rem 0;
+
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+                column-gap: 8rem;
+                align-items: center;
+
+                .text {
+                    grid-column: span 6 / span 6;
+
+                    h3 {
+                        margin-bottom: 2rem;
+
+                        @include h2-bold;
+                        text-transform: none;
+                        
+                        span {
+                            @include text-strokes($light, $dark);
+                        }
+                    }
+                }
+
+                .img {
+                    grid-column: span 6 / span 6;
+                    position: relative;
+
+                    img {
+                        width: 100%;
+                        aspect-ratio: 16/9;
+
+                        object-fit: cover;
+
+                        border-radius: $rounded-lg;
+
+                        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }
+
+            .grid:nth-child(2n) {
+                
+                .text {
+                    order: 2;
+
+                    h3 {
+                        text-align: right;
+
+                        span {
+                            @include text-strokes($light, $medium);
+                        }
+                    }
+
+                    p {
+                        text-align: right;
+                    }
+                }
+
+                .img {
+                    order: 1;
+                }
+            }
+
+            .conclusion {
+                p {
+                    padding: 0 8rem;
+
+                    @include h3;
+                    text-transform: none;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

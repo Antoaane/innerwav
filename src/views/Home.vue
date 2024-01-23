@@ -1,5 +1,6 @@
 <script setup>
 import TitleSection from '@/views/sections/TitleSection.vue';
+import PresentationSection from '@/views/sections/PresentationSection.vue';
 import WorksSection from '@/views/sections/WorksSection.vue';
 
 
@@ -9,6 +10,8 @@ import WorksSection from '@/views/sections/WorksSection.vue';
   <main>
 
     <TitleSection />
+
+    <PresentationSection />
 
     <WorksSection />
 
