@@ -391,6 +391,10 @@ header .main-nav-fixed .desktop > .profile a svg {
   margin: 0 auto;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body main {
   z-index: 1;
 }
@@ -420,8 +424,9 @@ body main {
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
-#title-section > .container .wave {
+#title-section > .container .main .wave {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -430,11 +435,47 @@ body main {
   left: -7rem;
   z-index: -1;
 }
+#title-section > .container .secondary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#title-section > .container .secondary h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-transform: none;
+  margin-bottom: 1.5rem;
+}
+#title-section > .container .secondary ul {
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+#title-section > .container .secondary ul li {
+  list-style: none;
+  width: 6rem;
+  aspect-ratio: 1/1;
+  margin: 0 1rem;
+  padding: 1.5rem 0.5rem;
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  background: radial-gradient(75.42% 100% at 0% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+#title-section > .container .secondary ul li img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#title-section > .container .secondary .arrow {
+  margin-bottom: 2rem;
+}
 
 #presentation-section {
   position: relative;
   margin-top: -1px;
-  padding: 8rem 0;
+  padding: 10rem 0 8rem 0;
 }
 #presentation-section > .container {
   display: flex;

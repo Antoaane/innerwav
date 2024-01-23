@@ -1,6 +1,13 @@
-@mixin glass-effect {
+@mixin glass {
     backdrop-filter: blur(30px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: $rounded-lg;
     background: radial-gradient(75.42% 100% at 0% 50%, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.15) 100%);
+}
+
+@mixin glass-less {
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: $rounded-lg;
+    background: radial-gradient(75.42% 100% at 0% 50%, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.05) 100%);
 }

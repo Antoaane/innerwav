@@ -114,10 +114,10 @@ window.addEventListener('scroll', () => {
           </svg>
           <span id="hover-item"></span>
           <li class="main-nav-item">
-            <a class="nav-text" href="">Informations</a>
+            <a class="nav-text" href="#presentation-section">Informations</a>
           </li>
           <li class="main-nav-item">
-            <a class="nav-text" href="">Nos Réalisations</a>
+            <a class="nav-text" href="#works-section">Nos Réalisations</a>
           </li>
           <li class="main-nav-item">
             <a class="nav-text" href="">Masteriser</a>
@@ -146,10 +146,10 @@ window.addEventListener('scroll', () => {
         </ul>
         <ul id="menu" class="mobile hidden lg:hidden">
           <li class="main-nav-item">
-            <a class="nav-text" href="">Informations</a>
+            <a class="nav-text" href="#presentation-section">Informations</a>
           </li>
           <li class="main-nav-item">
-            <a class="nav-text" href="">Nos Réalisations</a>
+            <a class="nav-text" href="#works-section">Nos Réalisations</a>
           </li>
           <li class="main-nav-item">
             <a class="nav-text" href="">Masteriser</a>
