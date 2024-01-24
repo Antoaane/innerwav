@@ -120,13 +120,13 @@ window.addEventListener('scroll', () => {
             <a class="nav-text" href="#works-section">Nos Réalisations</a>
           </li>
           <li class="main-nav-item">
-            <a class="nav-text" href="">Masteriser</a>
-          </li>
-          <li class="main-nav-item">
             <a class="nav-text" href="">Tarifs</a>
           </li>
           <li class="main-nav-item">
             <a class="nav-text" href="">Contact</a>
+          </li>
+          <li class="main-nav-item">
+            <a class="nav-text" href="">Masteriser</a>
           </li>
           <li class="main-nav-item profile">
             <a class="main-nav-item" href="">
@@ -152,13 +152,13 @@ window.addEventListener('scroll', () => {
             <a class="nav-text" href="#works-section">Nos Réalisations</a>
           </li>
           <li class="main-nav-item">
-            <a class="nav-text" href="">Masteriser</a>
-          </li>
-          <li class="main-nav-item">
             <a class="nav-text" href="">Tarifs</a>
           </li>
           <li class="main-nav-item">
             <a class="nav-text" href="">Contact</a>
+          </li>
+          <li class="main-nav-item">
+            <a class="nav-text" href="">Masteriser</a>
           </li>
           <li class="main-nav-item profile">
             <a class="main-nav-item" href="">

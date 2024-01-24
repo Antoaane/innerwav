@@ -1,8 +1,11 @@
 <script setup>
-import Player from '@/components/Player.vue';
 import { onMounted } from 'vue';
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/css';
+
+import Player from '@/components/Player.vue';
+
+import Wave2Svg from '@/components/svgs/Wave2Svg.vue';
 
 const works = [
   {
@@ -83,25 +86,32 @@ onMounted(() => {
 </script>
 
 <template>
-    <div id="works-section">
+  <div id="works-section">
 
-      <div class="bg"></div>
+    <div class="bg"></div>
 
-      <div class="container">
-          <div class="splide realisations w-full flex">
-              <div class="splide__track">
-                  <ul class="splide__list">
-                      <li class="splide__slide" :key="work.id" v-for="work in works">
-                          <Player
-                              :beforeAudio="work.beforeAudio"
-                              :afterAudio="work.afterAudio"
-                              :coverImage="work.coverImage"
-                          />
-                      </li>
-                  </ul>
-              </div>
-          </div>
+    <div class="container">
+
+      <h2>Quelques exemples</h2>
+      <p>Un avant goût de ce que le <strong>fait-main</strong> pourrait apporter à vos titres</p>
+
+      <div class="splide realisations w-full flex">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide" :key="work.id" v-for="work in works">
+              <Player
+                :beforeAudio="work.beforeAudio"
+                :afterAudio="work.afterAudio"
+                :coverImage="work.coverImage"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
 
+      <Wave2Svg />
+
     </div>
+
+  </div>
 </template>

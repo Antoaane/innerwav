@@ -572,12 +572,37 @@ body main {
 }
 
 #works-section {
+  margin-top: -1px;
   position: relative;
 }
 #works-section > .container {
   height: 100vh;
+  position: relative;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+}
+#works-section > .container h2 {
+  width: 100%;
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  display: flex;
+}
+#works-section > .container p {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+#works-section > .container .wave-2 {
+  height: 100%;
+  transform: scale(1.3);
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 30%;
 }
 #works-section > .container .work-container {
   width: 100%;
@@ -693,7 +718,7 @@ body main {
   opacity: 1;
 }
 #works-section > .container .work-container .cover-container .play-btn {
-  width: 9rem;
+  width: 6vw;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -704,6 +729,35 @@ body main {
 }
 #works-section > .container .work-container .cover-container .play-btn:hover {
   transform: translate(-45%, -50%) scale(1.1);
+}
+#works-section > .container .splide__arrow {
+  width: 3rem;
+  height: 3rem;
+  background: none;
+  opacity: 1;
+}
+#works-section > .container .splide__arrow > svg {
+  width: 100%;
+  height: 100%;
+}
+#works-section > .container .splide__arrow > svg > path {
+  fill: #FFFFFF;
+}
+#works-section > .container .splide__arrow--prev {
+  left: -4rem;
+  transition: all 200ms cubic-bezier(1, 0.05, 0.05, 1);
+}
+#works-section > .container .splide__arrow--prev:hover {
+  transform: translateY(-50%) scale(1.1);
+  left: -4.5rem;
+}
+#works-section > .container .splide__arrow--next {
+  right: -4rem;
+  transition: all 200ms cubic-bezier(1, 0.05, 0.05, 1);
+}
+#works-section > .container .splide__arrow--next:hover {
+  transform: translateY(-50%) scale(1.1);
+  right: -4.5rem;
 }
 
 /*# sourceMappingURL=output.css.map */
