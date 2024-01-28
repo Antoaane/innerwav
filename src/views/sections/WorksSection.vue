@@ -92,8 +92,12 @@ onMounted(() => {
 
     <div class="container">
 
-      <h2>Quelques exemples</h2>
-      <p>Un avant goût de ce que le <strong>fait-main</strong> pourrait apporter à vos titres</p>
+      <h2>
+        Quelques exemples
+      </h2>
+      <p class="subtitle">
+        Un avant goût de ce que le <strong>fait-main</strong> pourrait apporter à vos titres
+      </p>
 
       <div class="splide realisations w-full flex">
         <div class="splide__track">

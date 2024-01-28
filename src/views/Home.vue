@@ -2,6 +2,7 @@
 import TitleSection from '@/views/sections/TitleSection.vue';
 import PresentationSection from '@/views/sections/PresentationSection.vue';
 import WorksSection from '@/views/sections/WorksSection.vue';
+import PricingSection from '@/views/sections/PricingSection.vue';
 
 
 </script>
@@ -14,6 +15,8 @@ import WorksSection from '@/views/sections/WorksSection.vue';
     <PresentationSection />
 
     <WorksSection />
+
+    <PricingSection />
 
   </main>
 </template>

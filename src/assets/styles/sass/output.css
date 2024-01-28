@@ -461,7 +461,7 @@ body main {
   backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 1rem;
-  background: radial-gradient(75.42% 100% at 0% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  background: radial-gradient(75.42% 100% at 0% 100%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
 }
 #title-section > .container .secondary ul li img {
   width: 100%;
@@ -539,7 +539,7 @@ body main {
   backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 1rem;
-  background: radial-gradient(75.42% 100% at 0% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
+  background: radial-gradient(75.42% 100% at 0% 100%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
 }
 #presentation-section > .container .content .grid:nth-child(2n) .text {
   order: 2;
@@ -574,9 +574,10 @@ body main {
 #works-section {
   margin-top: -1px;
   position: relative;
+  z-index: 10;
 }
 #works-section > .container {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -590,8 +591,9 @@ body main {
   text-transform: uppercase;
   display: flex;
 }
-#works-section > .container p {
+#works-section > .container .subtitle {
   width: 100%;
+  padding-bottom: 4rem;
   font-size: 1.5rem;
   font-weight: 400;
   text-transform: uppercase;
@@ -758,6 +760,71 @@ body main {
 #works-section > .container .splide__arrow--next:hover {
   transform: translateY(-50%) scale(1.1);
   right: -4.5rem;
+}
+
+#pricing-section {
+  position: relative;
+}
+#pricing-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rem 0;
+}
+#pricing-section .container h2 {
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding-bottom: 4rem;
+}
+#pricing-section .container .grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+#pricing-section .container .grid .column h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+}
+#pricing-section .container .grid .column .card {
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  background: radial-gradient(75.42% 100% at 0% 100%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  margin: 2rem 0;
+}
+#pricing-section .container .grid .column .card table {
+  width: 100%;
+}
+#pricing-section .container .grid .column .card table tbody tr {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+#pricing-section .container .grid .column .card table tbody tr th {
+  grid-column: span 12/span 12;
+  padding: 2rem 1rem;
+  font-size: 1.25rem;
+  font-weight: 100;
+  letter-spacing: 0.1rem;
+  text-align: center;
+}
+#pricing-section .container .grid .column .card table tbody tr td {
+  padding: 1rem;
+}
+#pricing-section .container .grid .column .card table tbody tr .type {
+  grid-column: span 4/span 4;
+  text-align: center;
+}
+#pricing-section .container .grid .column .card table tbody tr .price {
+  grid-column: span 8/span 8;
+  text-align: center;
+}
+#pricing-section .container .grid .column .card table tbody tr td:nth-child(2) {
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+#pricing-section .container .grid .column .card table tbody tr:last-child {
+  border-bottom: none;
 }
 
 /*# sourceMappingURL=output.css.map */

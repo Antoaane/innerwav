@@ -1,9 +1,10 @@
 #works-section {
     margin-top: -1px;
     position: relative;
+    z-index: 10;
 
     &>.container {
-        height: 100vh;
+        min-height: 100vh;
 
         position: relative;
 
@@ -15,12 +16,13 @@
         h2 {
             width: 100%;
             @include h1;
-
+            
             display: flex;
         }
 
-        p {
+        .subtitle {
             width: 100%;
+            padding-bottom: 4rem;
             @include subtitle;
         }
 
@@ -51,7 +53,7 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
 
-                @include glass;
+                @include glass('middle');
                 @include transition-big;
 
                 .player-container {

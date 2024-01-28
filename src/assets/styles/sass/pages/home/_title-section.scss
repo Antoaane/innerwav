@@ -50,7 +50,7 @@
                     margin: 0 1rem;
                     padding: 1.5rem 0.5rem;
 
-                    @include glass-less;
+                    @include glass-less('bottom');
 
                     img {
                         width: 100%;
