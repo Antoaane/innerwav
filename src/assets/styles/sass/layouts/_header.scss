@@ -26,6 +26,10 @@ header {
             align-items: center;
             position: relative;
 
+            #scroll-to-top {
+                display: none;
+            }
+
             #hover-item {
                 width: 0;
                 height: calc(100% - 0.25rem);
@@ -168,6 +172,7 @@ header {
 
 // ---------------------------- FIXED ---------------------------- //
 
+
     .main-nav-fixed {
         width: max-content;
 
@@ -192,6 +197,44 @@ header {
             
             @include transition-big;
             transition: background-color 0ms;
+
+            #scroll-to-top {
+                padding: 0.3rem;
+        
+                position: absolute;
+                top: 65%;
+                left: -4.5rem;
+
+                transform: translateY(-50%);
+        
+                background: $light;
+                border-radius: $rounded-full;
+
+                svg {
+                    width: 2rem;
+                    height: 2rem;
+
+                    border-radius: $rounded-full;
+
+                    @include transition-small;
+        
+                    path {
+                        fill: $dark;
+
+                        @include transition-small;
+                    }
+                }
+
+                &:hover {
+                    svg {
+                        background-color: $dark;
+
+                        path {
+                            fill: $light;
+                        }
+                    }
+                }
+            }
 
             .fixed-nav-corner.left {
                 display: block;

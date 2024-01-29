@@ -6,7 +6,7 @@
         flex-direction: column;
         align-items: center;
 
-        padding: 10rem 0;
+        padding: 5rem 0;
 
         h2 {
             @include h1;
@@ -14,7 +14,12 @@
         }
 
         .grid {
+            width: 70%;
             grid-template-columns: repeat(3, minmax(0, 1fr));
+
+            @media screen and (min-width: $md) {
+                column-gap: 2rem;
+            }
 
             .column {
 
@@ -43,7 +48,7 @@
                                     
                                     font-size: 1.25rem;
                                     font-weight: 100;
-                                    letter-spacing: 0.1rem;
+                                    // letter-spacing: 1px;
                                     text-align: center;
                                 }
 

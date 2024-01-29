@@ -55,6 +55,9 @@ header .main-nav .desktop {
   align-items: center;
   position: relative;
 }
+header .main-nav .desktop #scroll-to-top {
+  display: none;
+}
 header .main-nav .desktop #hover-item {
   width: 0;
   height: calc(100% - 0.25rem);
@@ -173,6 +176,31 @@ header .main-nav-fixed .desktop {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   transition: all 500ms cubic-bezier(1, 0.05, 0.05, 1);
   transition: background-color 0ms;
+}
+header .main-nav-fixed .desktop #scroll-to-top {
+  padding: 0.3rem;
+  position: absolute;
+  top: 65%;
+  left: -4.5rem;
+  transform: translateY(-50%);
+  background: #FFFFFF;
+  border-radius: 9999px;
+}
+header .main-nav-fixed .desktop #scroll-to-top svg {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  transition: all 200ms cubic-bezier(1, 0.05, 0.05, 1);
+}
+header .main-nav-fixed .desktop #scroll-to-top svg path {
+  fill: #200944;
+  transition: all 200ms cubic-bezier(1, 0.05, 0.05, 1);
+}
+header .main-nav-fixed .desktop #scroll-to-top:hover svg {
+  background-color: #200944;
+}
+header .main-nav-fixed .desktop #scroll-to-top:hover svg path {
+  fill: #FFFFFF;
 }
 header .main-nav-fixed .desktop .fixed-nav-corner.left {
   display: block;
@@ -769,7 +797,7 @@ body main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10rem 0;
+  padding: 5rem 0;
 }
 #pricing-section .container h2 {
   font-size: 4rem;
@@ -778,7 +806,13 @@ body main {
   padding-bottom: 4rem;
 }
 #pricing-section .container .grid {
+  width: 70%;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media screen and (min-width: 768px) {
+  #pricing-section .container .grid {
+    column-gap: 2rem;
+  }
 }
 #pricing-section .container .grid .column h3 {
   font-size: 1.5rem;
@@ -806,7 +840,6 @@ body main {
   padding: 2rem 1rem;
   font-size: 1.25rem;
   font-weight: 100;
-  letter-spacing: 0.1rem;
   text-align: center;
 }
 #pricing-section .container .grid .column .card table tbody tr td {
