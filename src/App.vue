@@ -2,6 +2,7 @@
 import { onMounted } from 'vue';
 import { RouterView } from 'vue-router';
 import DoubleArrowUpSvg from './components/svgs/DoubleArrowUpSvg.vue';
+import ProfileSvg from './components/svgs/ProfileSvg.vue';
 
 
 function triggerMenu() {
