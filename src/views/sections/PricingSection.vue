@@ -30,7 +30,7 @@
                         </table>
                     </div>
 
-                    <div class="card">
+                    <div class="card secondary">
                         <table>
                             <tbody>
                                 <tr>
@@ -41,6 +41,18 @@
                                     <td class="price">120€ / titre</td>
                                 </tr>
                                 <tr>
+                                    <td class="type">STEMS</td>
+                                    <td class="price">160€ / titre</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card spacial">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="type">STEMS</td>
                                     <td class="type">STEMS</td>
                                     <td class="price">160€ / titre</td>
                                 </tr>
@@ -71,7 +83,7 @@
                         </table>
                     </div>
 
-                    <div class="card">
+                    <div class="card secondary">
                         <table>
                             <tbody>
                                 <tr>
@@ -112,7 +124,7 @@
                         </table>
                     </div>
 
-                    <div class="card">
+                    <div class="card secondary">
                         <table>
                             <tbody>
                                 <tr>
