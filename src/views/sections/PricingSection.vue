@@ -1,3 +1,23 @@
+<script setup>
+    import { onMounted } from 'vue';
+    // import { gsap } from 'gsap';
+    import TimerFastSvg from '@/components/svgs/TimerFastSvg.vue';
+
+    // onMounted(() => {
+    //     const bright = document.querySelectorAll('.bright');
+
+    //     gsap.to(bright, {
+    //         boxShadow: '0 0 0 0 rgba(255, 255, 255, 0.0)',
+    //         duration: 1,
+    //         repeat: -1,
+    //         yoyo: true,
+    //         ease: 'power2.inOut',
+    //     });
+    // });
+
+</script>
+
+
 <template>
     <div id="pricing-section">
 
@@ -5,14 +25,14 @@
 
         <div class="container">
 
-            <h2>Nos tarifs</h2>
+            <h2>Une offre adaptée</h2>
 
             <div class="grid">
-                <div class="column">
+                <div class="column special">
 
                     <h3>Titre</h3>
 
-                    <div class="card">
+                    <div class="card bright">
                         <table>
                             <tbody>
                                 <tr>
@@ -20,17 +40,17 @@
                                 </tr>
                                 <tr>
                                     <td class="type">L/R</td>
-                                    <td class="price">40€ / titre</td>
+                                    <td class="price special">40€ / titre</td>
                                 </tr>
                                 <tr>
                                     <td class="type">STEMS</td>
-                                    <td class="price">60€ / titre</td>
+                                    <td class="price special">60€ / titre</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <div class="card secondary">
+                    <div class="card secondary bright">
                         <table>
                             <tbody>
                                 <tr>
@@ -48,13 +68,19 @@
                         </table>
                     </div>
 
-                    <div class="card spacial">
+                    <div class="card special bright">
                         <table>
                             <tbody>
                                 <tr>
-                                    <td class="type">STEMS</td>
-                                    <td class="type">STEMS</td>
-                                    <td class="price">160€ / titre</td>
+                                    <td class="picto">
+                                        <TimerFastSvg />
+                                    </td>
+                                    <td class="title">
+                                        Livraison 24h
+                                    </td>
+                                    <td class="price">
+                                        20€
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -143,6 +169,10 @@
                     </div>
                 </div>
             </div>
+
+            <p class="condition">
+                Chez <strong>INNERWAV</strong>™, nous vous garantissons une livraison standard de 48h <b>maximum</b> pour toute commande de mastering sur les singles.
+            </p>
 
         </div>
 

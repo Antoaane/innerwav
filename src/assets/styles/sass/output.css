@@ -490,7 +490,7 @@ body main {
   backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 1rem;
-  background: radial-gradient(75.42% 100% at 0% 100%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  background: radial-gradient(100% 100% at 0% 100%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
 }
 #title-section > .container .secondary ul li img {
   width: 100%;
@@ -568,7 +568,7 @@ body main {
   backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 1rem;
-  background: radial-gradient(75.42% 100% at 0% 100%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
+  background: radial-gradient(100% 100% at 0% 100%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
 }
 #presentation-section > .container .content .grid:nth-child(2n) .text {
   order: 2;
@@ -651,7 +651,7 @@ body main {
   backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 1rem;
-  background: radial-gradient(75.42% 100% at 0% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
+  background: radial-gradient(100% 100% at 0% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
   transition: all 500ms cubic-bezier(1, 0.05, 0.05, 1);
 }
 #works-section > .container .work-container .player-position .player-container {
@@ -825,8 +825,8 @@ body main {
   backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 1rem;
-  background: radial-gradient(75.42% 100% at 0% 100%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
-  margin: 2rem 0;
+  background: radial-gradient(100% 100% at 0% 100%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.075) 100%);
+  margin: 1.5rem 0;
 }
 #pricing-section .container .grid .column .card table {
   width: 100%;
@@ -840,7 +840,7 @@ body main {
   grid-column: span 12/span 12;
   padding: 2rem 0;
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
 }
 #pricing-section .container .grid .column .card table tbody tr td {
@@ -866,6 +866,47 @@ body main {
   font-size: 1.25rem;
   font-weight: 100;
   text-align: center;
+}
+#pricing-section .container .grid .column .card.special tr {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+#pricing-section .container .grid .column .card.special tr td {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#pricing-section .container .grid .column .card.special tr .picto {
+  grid-column: span 3/span 3;
+  text-align: center;
+  border: none;
+}
+#pricing-section .container .grid .column .card.special tr .title {
+  grid-column: span 6/span 6;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+}
+#pricing-section .container .grid .column .card.special tr .price {
+  grid-column: span 3/span 3;
+  text-align: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+#pricing-section .container .grid .column.special .card .price.special {
+  font-weight: 700;
+}
+#pricing-section .container .condition {
+  width: 50%;
+  margin-top: 4rem;
+  font-weight: 200;
+  text-align: center;
+}
+#pricing-section .container .condition strong {
+  font-weight: 900;
+}
+#pricing-section .container .condition b {
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=output.css.map */

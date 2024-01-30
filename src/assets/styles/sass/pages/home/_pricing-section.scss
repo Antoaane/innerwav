@@ -30,7 +30,7 @@
 
                 .card {
                     @include glass-low('bottom');
-                    margin: 2rem 0;
+                    margin: 1.5rem 0;
 
                     table {
                         width: 100%;
@@ -47,7 +47,7 @@
                                     padding: 2rem 0;
                                     
                                     font-size: 1.25rem;
-                                    font-weight: 600;
+                                    font-weight: 700;
                                     text-align: center;
                                 }
 
@@ -90,9 +90,78 @@
                 }
 
                 .card.special {
-                    
+                    tr {
+                        display: grid;
+                        grid-template-columns: repeat(12, minmax(0, 1fr));
+
+                        td {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        .picto {
+                            grid-column: span 3 / span 3;
+                            text-align: center;
+                            border: none;
+                        }
+
+                        .title {
+                            grid-column: span 6 / span 6;
+
+                            text-align: center;
+                            text-transform: uppercase;
+                            font-weight: 700;
+
+                            border: none;
+                        }
+
+                        .price {
+                            grid-column: span 3 / span 3;
+                            text-align: center;
+                            border-left: 1px solid rgba(255, 255, 255, 0.15);
+                        }
+                    }
                 }
+            }
+
+            .column.special {
+
+                .card {
+
+                    .price.special {
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+
+        .condition {
+            width: 50%;
+            margin-top: 4rem;
+
+            font-weight: 200;
+            text-align: center;
+
+            strong {
+                font-weight: 900;
+            }
+
+            b {
+                font-weight: 700;
             }
         }
     }
 }
+
+// @keyframes breathing {
+//     0% {
+//         box-shadow: 0 0 0px 0 rgba(255, 255, 255, 0.0);
+//     }
+//     50% {
+//         box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.15);
+//     }
+//     100% {
+//         box-shadow: 0 0 0px 0 rgba(255, 255, 255, 0.0);
+//     }
+// }
