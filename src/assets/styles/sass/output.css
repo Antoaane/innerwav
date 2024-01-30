@@ -838,9 +838,9 @@ body main {
 }
 #pricing-section .container .grid .column .card table tbody tr th {
   grid-column: span 12/span 12;
-  padding: 2rem 1rem;
+  padding: 2rem 0;
   font-size: 1.25rem;
-  font-weight: 100;
+  font-weight: 600;
   text-align: center;
 }
 #pricing-section .container .grid .column .card table tbody tr td {
@@ -859,6 +859,13 @@ body main {
 }
 #pricing-section .container .grid .column .card table tbody tr:last-child {
   border-bottom: none;
+}
+#pricing-section .container .grid .column .card.secondary th {
+  grid-column: span 12/span 12;
+  padding: 0.75rem 0;
+  font-size: 1.25rem;
+  font-weight: 100;
+  text-align: center;
 }
 
 /*# sourceMappingURL=output.css.map */

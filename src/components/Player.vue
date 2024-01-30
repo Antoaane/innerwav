@@ -18,10 +18,12 @@
         </div>
     </div>
 </template>
-  
+
 <script>
     export default {
         props: {
+            id : Number,
+            activePlayer : Number,
             beforeAudio: String,
             afterAudio: String,
             coverImage: String,
@@ -47,6 +49,13 @@
                     this.resetAudio(this.$refs.afterAudio);
                 }
             },
+            
+            closePlayer() {
+                this.isPlayerActive = false;
+                this.resetAudio(this.$refs.beforeAudio);
+                this.resetAudio(this.$refs.afterAudio);
+            },
+
             triggerPlayer(type) {
                 this.isBeforeActive = type === 'before';
                 this.$refs.beforeAudio.muted = !this.isBeforeActive;
@@ -58,6 +67,13 @@
                 this.isBeforeActive = true;
             },
         },
+
+        watch : {
+            activePlayer() {
+                if (this.activePlayer !== this.id) {
+                    this.closePlayer();
+                }
+            }
+        }
     };
 </script>
-  

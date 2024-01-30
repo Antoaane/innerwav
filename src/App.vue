@@ -124,7 +124,7 @@ window.addEventListener('scroll', () => {
           <a class="nav-text" href="#presentation-section">Informations</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" href="#works-section">Nos Réalisations</a>
+          <a class="nav-text" href="#works-section">Réalisations</a>
         </li>
         <li class="main-nav-item">
           <a class="nav-text" href="#pricing-section">Tarifs</a>
@@ -151,7 +151,7 @@ window.addEventListener('scroll', () => {
           <a class="nav-text" href="#presentation-section">Informations</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" href="#works-section">Nos Réalisations</a>
+          <a class="nav-text" href="#works-section">Réalisations</a>
         </li>
         <li class="main-nav-item">
           <a class="nav-text" href="#pricing-section">Tarifs</a>
