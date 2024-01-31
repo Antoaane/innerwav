@@ -30,7 +30,7 @@
             <div class="grid">
                 <div class="column special">
 
-                    <h3>Titre</h3>
+                    <h3>Single</h3>
 
                     <div class="card bright">
                         <table>
