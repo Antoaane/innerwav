@@ -1,8 +1,8 @@
 <script setup>
-import TitleSection from '@/views/sections/TitleSection.vue';
-import PresentationSection from '@/views/sections/PresentationSection.vue';
-import WorksSection from '@/views/sections/WorksSection.vue';
-import PricingSection from '@/views/sections/PricingSection.vue';
+import TitleSection from '@/views/HomeSections/TitleSection.vue';
+import PresentationSection from '@/views/HomeSections/PresentationSection.vue';
+import WorksSection from '@/views/HomeSections/WorksSection.vue';
+import PricingSection from '@/views/HomeSections/PricingSection.vue';
 
 
 </script>

@@ -57,6 +57,11 @@
 
 @mixin btn {
     font-size: 1.5rem;
+    font-weight: 400;
+}
+
+@mixin btn-medium {
+    font-size: 1.5rem;
     font-weight: 600;
     text-transform: uppercase;
 }
