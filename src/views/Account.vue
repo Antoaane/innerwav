@@ -45,7 +45,9 @@
             </nav>
         </div>
         <div class="content">
-
+            <div>
+                
+            </div>
         </div>
     </div>
 </template>

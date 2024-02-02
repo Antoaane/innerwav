@@ -111,6 +111,11 @@
     .content {
         grid-column: span 6 / span 6;
         height: 100%;
-        padding: 2.5rem 0 5rem 0;
+        padding: 2.5rem 0;
+
+        &>div {
+            height: 100%;
+            @include glass-low('bottom');
+        }
     }
 }

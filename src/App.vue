@@ -1,9 +1,11 @@
 <script setup>
 import { onMounted } from 'vue';
 import { RouterView } from 'vue-router';
+import config from './conf/config.json';
 import DoubleArrowUpSvg from './components/svgs/DoubleArrowUpSvg.vue';
 import ProfileSvg from './components/svgs/ProfileSvg.vue';
 
+console.log(config);
 
 function triggerMenu() {
   const menu = document.getElementById('menu');
@@ -103,6 +105,10 @@ window.addEventListener('scroll', () => {
   fixedTrigger();
 })
 
+function goToAccountByRedirect() {
+  window.location.href = '/account';
+}
+
 </script>
 
 <template>
@@ -121,13 +127,13 @@ window.addEventListener('scroll', () => {
         </svg>
         <span id="hover-item"></span>
         <li class="main-nav-item">
-          <a class="nav-text" href="#presentation-section">Informations</a>
+          <a class="nav-text" :href="config.url + '#presentation-section'">Informations</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" href="#works-section">Réalisations</a>
+          <a class="nav-text" :href="config.url + '#works-section'">Réalisations</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" href="#pricing-section">Tarifs</a>
+          <a class="nav-text" :href="config.url + '#pricing-section'">Tarifs</a>
         </li>
         <li class="main-nav-item">
           <a class="nav-text" href="">Contact</a>
@@ -135,8 +141,8 @@ window.addEventListener('scroll', () => {
         <li class="main-nav-item">
           <a class="nav-text" href="">Masteriser</a>
         </li>
-        <li class="main-nav-item profile">
-          <a class="main-nav-item" href="">
+        <li @click="goToAccountByRedirect()" class="main-nav-item profile">
+          <a class="main-nav-item">
             <ProfileSvg />
           </a>
         </li>
