@@ -136,7 +136,7 @@ function goToAccountByRedirect() {
           <a class="nav-text" :href="config.url + '#pricing-section'">Tarifs</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" href="">Contact</a>
+          <a class="nav-text" :href="config.url + 'contact'">Contact</a>
         </li>
         <li class="main-nav-item">
           <a class="nav-text" href="">Masteriser</a>
