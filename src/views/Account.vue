@@ -1,13 +1,15 @@
 <script setup>
-
+    import Wave3Svg from '@/components/svgs/Wave3Svg.vue';
 </script>
 
 <template>
     <div id="account">
         
         <div class="bg"></div>
+        <Wave3Svg />
 
         <div class="global">
+        
             <div class="title">
                 <h1>
                     Mon compte

@@ -914,8 +914,17 @@ body main {
   height: 100vh;
   margin: 0 auto;
   padding: 5rem 5rem 0 5rem;
+  position: relative;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+#account .wave3 {
+  width: 77.5%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
 }
 #account .global {
   grid-column: span 6/span 6;
