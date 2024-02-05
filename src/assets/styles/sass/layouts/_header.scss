@@ -1,18 +1,26 @@
 header {
     height: 5rem;
-    padding: 1.25rem 0;
+    padding: 1.25rem 2.5rem;
     margin-bottom: -5rem !important;
 
     position: relative;
     z-index: 50;
 
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo{
+        @include transition-big;
+
+        &:hover {
+            transform: scale(1.15) rotate(540deg);
+        }
+    }
 
     .main-nav {
         width: 100%;
         height: 100%;
-        padding: 0 2.5rem;
 
         display: flex;
         justify-content: end;
@@ -30,7 +38,7 @@ header {
                 display: none;
             }
 
-            #hover-item {
+            #hover-item-top {
                 width: 0;
                 height: calc(100% - 2.5rem);
                 position: absolute;
@@ -172,6 +180,13 @@ header {
 
 // ---------------------------- FIXED ---------------------------- //
 
+    .show-fixed-nav {
+        transform: scaleY(1) translateY(0) translateX(-50%);
+    }
+
+    .hide-fixed-nav {
+        transform: scaleY(0.5) translateY(-1051%) translateX(-50%);
+    }
 
     .main-nav-fixed {
         width: max-content;
@@ -183,7 +198,10 @@ header {
         top: 0;
         left: 50%;
         z-index: 50;
-        transform: translateX(-50%);
+
+        transform-origin: top;
+
+        @include transition-big;
 
         .desktop {
             width: max-content;
@@ -199,40 +217,23 @@ header {
             transition: background-color 0ms;
 
             #scroll-to-top {
-                padding: 0.3rem;
-        
                 position: absolute;
-                top: 65%;
-                left: -4.5rem;
-
-                transform: translateY(-50%);
+                top: 1.15rem;
+                left: -4.8rem;
         
-                background: $light;
                 border-radius: $rounded-full;
 
+                @include transition-big;
+
                 svg {
-                    width: 2rem;
-                    height: 2rem;
+                    width: 2.75rem;
+                    height: 2.75rem;
 
                     border-radius: $rounded-full;
-
-                    @include transition-small;
-        
-                    path {
-                        fill: $dark;
-
-                        @include transition-small;
-                    }
                 }
 
                 &:hover {
-                    svg {
-                        background-color: $dark;
-
-                        path {
-                            fill: $light;
-                        }
-                    }
+                    transform: scale(1.15) rotate(540deg);
                 }
             }
 
@@ -244,7 +245,7 @@ header {
 
                 position: absolute;
                 top: 0;
-                left: -3.93rem;
+                left: -4.1rem;
                 z-index: -1;
 
                 path {
@@ -260,7 +261,7 @@ header {
 
                 position: absolute;
                 top: 0;
-                right: -3.93rem;
+                right: -4.1rem;
                 z-index: -1;
 
                 path {
@@ -268,7 +269,7 @@ header {
                 }
             }
 
-            #hover-item {
+            #hover-item-fixed {
                 width: 0;
                 height: calc(100% - 1.5rem);
                 position: absolute;

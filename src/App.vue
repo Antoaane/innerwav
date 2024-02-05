@@ -4,8 +4,7 @@ import { RouterView } from 'vue-router';
 import config from './conf/config.json';
 import DoubleArrowUpSvg from './components/svgs/DoubleArrowUpSvg.vue';
 import ProfileSvg from './components/svgs/ProfileSvg.vue';
-
-console.log(config);
+import Logo from './components/svgs/LogoSvg.vue';
 
 function triggerMenu() {
   const menu = document.getElementById('menu');
@@ -45,10 +44,12 @@ function triggerMenu() {
   }
 }
 
-function hoverItemEffect() {
+function hoverItemTopEffect() {
+  const hoverItem = document.getElementById('hover-item-top');
+  const menu = document.getElementById('nav-list-top')
+
   document.querySelectorAll('.desktop .main-nav-item').forEach(item => {
     item.addEventListener('mouseenter', (e) => {
-      const hoverItem = document.getElementById('hover-item');
       const rect = e.currentTarget.getBoundingClientRect();
       if (hoverItem.style.width == '0px' || hoverItem.style.width == 0) {
         hoverItem.style.transition = 'none';
@@ -67,8 +68,54 @@ function hoverItemEffect() {
     });
   });
 
-  document.querySelector('.desktop').addEventListener('mouseleave', () => {
-    const hoverItem = document.getElementById('hover-item');
+  menu.addEventListener('mouseleave', () => {
+    const hoverItem = document.getElementById('hover-item-top');
+    hoverItem.style.opacity = 0;
+    hoverItem.style.width = 0;
+    console.log(hoverItem.style.width)
+  });
+
+  window.addEventListener('scroll', () => {
+    const hoverItem = document.getElementById('hover-item-top');
+    hoverItem.style.opacity = 0;
+    hoverItem.style.width = 0;
+    console.log(hoverItem.style.width)
+  });
+}
+
+function hoverItemFixedEffect() {
+  const hoverItem = document.getElementById('hover-item-fixed');
+  const menu = document.getElementById('nav-list-fixed')
+
+  document.querySelectorAll('.desktop .main-nav-item').forEach(item => {
+    item.addEventListener('mouseenter', (e) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      if (hoverItem.style.width == '0px' || hoverItem.style.width == 0) {
+        hoverItem.style.transition = 'none';
+        hoverItem.style.left = `${rect.left - item.parentNode.getBoundingClientRect().left + 10}px`;
+        setTimeout(() => {
+          hoverItem.style.transition = 'all 150ms ease-in-out';
+          hoverItem.style.width = `${rect.width - 20}px`;
+          hoverItem.style.opacity = 1;
+        }, 0)
+      } else {
+        hoverItem.style.transition = 'all 150ms ease-in-out';
+        hoverItem.style.left = `${rect.left - item.parentNode.getBoundingClientRect().left + 10}px`;
+        hoverItem.style.width = `${rect.width - 20}px`;
+        hoverItem.style.opacity = 1;
+      }
+    });
+  });
+
+  menu.addEventListener('mouseleave', () => {
+    const hoverItem = document.getElementById('hover-item-fixed');
+    hoverItem.style.opacity = 0;
+    hoverItem.style.width = 0;
+    console.log(hoverItem.style.width)
+  });
+
+  window.addEventListener('scroll', () => {
+    const hoverItem = document.getElementById('hover-item-fixed');
     hoverItem.style.opacity = 0;
     hoverItem.style.width = 0;
     console.log(hoverItem.style.width)
@@ -76,34 +123,34 @@ function hoverItemEffect() {
 }
 
 function fixedTrigger() {
-  const nav = document.getElementById('desk-nav');
-  const menu = document.getElementById('desk-menu');
+  const fNav = document.getElementById('fixed-nav');
 
-  if (window.scrollY > 400 && nav.classList.contains('main-nav')) {
-    nav.classList.add('main-nav-fixed');
-    nav.classList.remove('main-nav');
+  if (window.scrollY > 400 && fNav.classList.contains('hide-fixed-nav')) {
+    fNav.classList.remove('hide-fixed-nav');
+    fNav.classList.add('show-fixed-nav');
+    console.log('fixed');
   } 
   
-  if (window.scrollY <= 400 && nav.classList.contains('main-nav-fixed')) {
-        // menu.style.transform = 'scaleY(0)';
-        nav.classList.remove('main-nav-fixed');
-        nav.classList.add('main-nav');
-        // menu.style.transform = 'scaleY(1)';
-        hoverItemEffect();
+  if (window.scrollY <= 400 && fNav.classList.contains('show-fixed-nav')) {
+    fNav.classList.remove('show-fixed-nav');
+    fNav.classList.add('hide-fixed-nav');
+    console.log('unfixed');
   }
 }
 
 onMounted(() => {
-  hoverItemEffect();
+  hoverItemTopEffect();
+  hoverItemFixedEffect();
 })
 
 
 window.addEventListener('scroll', () => {
-  // _.throttle(() => {
-  //   console.log("yey")}, 
-  // 200);
   fixedTrigger();
 })
+
+function scrollToTop() {
+  window.scrollTo(0, 0);
+}
 
 function goToAccountByRedirect() {
   window.location.href = '/account';
@@ -114,18 +161,13 @@ function goToAccountByRedirect() {
 <template>
   <header class="container">
 
-    <nav id="desk-nav" class="main-nav">
-      <ul id="desk-menu" class="desktop hidden lg:flex">
-        <a id="scroll-to-top" href="#title-section">
-          <DoubleArrowUpSvg />
-        </a>
-        <svg class="fixed-nav-corner left hidden" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1483.82 1000">
-          <path d="m0,0s529.52,0,741.91,500,741.91,500,741.91,500V0H0Z"/>
-        </svg>
-        <svg class="fixed-nav-corner right hidden" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1483.82 1000">
-          <path d="m0,0s529.52,0,741.91,500,741.91,500,741.91,500V0H0Z"/>
-        </svg>
-        <span id="hover-item"></span>
+    <a class="logo" href="/">
+      <Logo />
+    </a>
+
+    <nav id="nav" class="main-nav">
+      <ul id="nav-list-top" class="desktop hidden lg:flex">
+        <span id="hover-item-top"></span>
         <li class="main-nav-item">
           <a class="nav-text" :href="config.url + '#presentation-section'">Informations</a>
         </li>
@@ -170,6 +212,41 @@ function goToAccountByRedirect() {
         </li>
         <li class="main-nav-item profile">
           <a class="main-nav-item" href="">
+            <ProfileSvg />
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <nav id="fixed-nav" class="main-nav-fixed hide-fixed-nav">
+      <ul id="nav-list-fixed" class="desktop hidden lg:flex">
+        <button @click="scrollToTop()" id="scroll-to-top" class="logo">
+          <Logo />
+        </button>
+        <svg class="fixed-nav-corner left hidden" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1483.82 1000">
+          <path d="m0,0s529.52,0,741.91,500,741.91,500,741.91,500V0H0Z"/>
+        </svg>
+        <svg class="fixed-nav-corner right hidden" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1483.82 1000">
+          <path d="m0,0s529.52,0,741.91,500,741.91,500,741.91,500V0H0Z"/>
+        </svg>
+        <span id="hover-item-fixed"></span>
+        <li class="main-nav-item">
+          <a class="nav-text" :href="config.url + '#presentation-section'">Informations</a>
+        </li>
+        <li class="main-nav-item">
+          <a class="nav-text" :href="config.url + '#works-section'">Réalisations</a>
+        </li>
+        <li class="main-nav-item">
+          <a class="nav-text" :href="config.url + '#pricing-section'">Tarifs</a>
+        </li>
+        <li class="main-nav-item">
+          <a class="nav-text" :href="config.url + 'contact'">Contact</a>
+        </li>
+        <li class="main-nav-item">
+          <a class="nav-text" href="">Masteriser</a>
+        </li>
+        <li @click="goToAccountByRedirect()" class="main-nav-item profile">
+          <a class="main-nav-item">
             <ProfileSvg />
           </a>
         </li>
