@@ -1,16 +1,9 @@
 #account {
-    max-width: 1930px;
     height: 100vh;
-    margin: 0 auto;
-    padding: 5rem 5rem 0 5rem;
-
     position: relative;
 
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    
     .wave3 {
-        width: 77.5%;
+        width: 75%;
         height: 100vh;
 
         position: absolute;
@@ -19,64 +12,100 @@
         left: 0;
     }
 
-    .global {
-        grid-column: span 6 / span 6;
+    .container {
+        padding: 5rem 5rem 0 5rem;
         height: 100%;
-        padding: 2.5rem 0 5rem 0;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-
-
-
-        .title {
-
-            h1 {
-                @include h1;
-            }
-
-            p {
-                @include subtitle-big;
-                text-transform: none;
-            }
-        }
-
-        nav {   
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+    
+        .global {
+            grid-column: span 5 / span 5;
             height: 100%;
-            margin-top: 1rem;
-
+            padding: 2.5rem 0 5rem 0;
+    
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-
-            ul {
-
-                li {
+            align-items: flex-start;
+    
+            .title {
+    
+                h1 {
+                    @include h1;
+                }
+    
+                p {
+                    @include subtitle-big;
+                    text-transform: none;
+                }
+            }
+    
+            nav {   
+                height: 100%;
+    
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+    
+                ul {
+    
+                    li {
+                        width: max-content;
+                        margin: 3rem 0;
+                        position: relative;
+                        @include btn;
+                        @include transition;
+    
+                        &::before {
+                            content: '';
+                            width: 0;
+                            height: calc(100% + 0.5rem);
+    
+                            position: absolute;
+                            top: 50%;
+                            left: -1rem;
+                            transform: translateY(-50%);
+                            z-index: -1;
+    
+                            border-radius: $rounded-md;
+                            background-color: $light;
+                            
+                            @include transition;
+                        }
+    
+                        &:hover {
+                            color: $dark;
+                            
+                            &::before {
+                                width: calc(100% + 2rem);
+                            }
+                        }
+                    }
+                }
+    
+                button {
                     width: max-content;
-                    margin: 3rem 0;
                     position: relative;
-                    @include btn;
                     @include transition;
-
+    
                     &::before {
                         content: '';
                         width: 0;
                         height: calc(100% + 0.5rem);
-
+    
                         position: absolute;
                         top: 50%;
                         left: -1rem;
                         transform: translateY(-50%);
                         z-index: -1;
-
+    
                         border-radius: $rounded-md;
                         background-color: $light;
                         
                         @include transition;
                     }
-
+    
                     &:hover {
                         color: $dark;
                         
@@ -85,49 +114,22 @@
                         }
                     }
                 }
-            }
-
-            button {
-                width: max-content;
-                position: relative;
-                @include transition;
-
+    
                 &::before {
                     content: '';
-                    width: 0;
-                    height: calc(100% + 0.5rem);
-
-                    position: absolute;
-                    top: 50%;
-                    left: -1rem;
-                    transform: translateY(-50%);
-                    z-index: -1;
-
-                    border-radius: $rounded-md;
-                    background-color: $light;
-                    
-                    @include transition;
-                }
-
-                &:hover {
-                    color: $dark;
-                    
-                    &::before {
-                        width: calc(100% + 2rem);
-                    }
                 }
             }
         }
-    }
-
-    .content {
-        grid-column: span 6 / span 6;
-        height: 100%;
-        padding: 2.5rem 0;
-
-        &>div {
+    
+        .content {
+            grid-column: span 7 / span 7;
             height: 100%;
-            @include glass-low('bottom');
+            padding: 2.5rem 0;
+    
+            &>div {
+                height: 100%;
+                @include glass-low('bottom');
+            }
         }
     }
 }

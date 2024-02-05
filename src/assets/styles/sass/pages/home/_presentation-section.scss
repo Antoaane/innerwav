@@ -10,7 +10,6 @@
         
         h2 {
             @include h1;
-            @include text-strokes($light, $dark);
 
             display: flex;
             

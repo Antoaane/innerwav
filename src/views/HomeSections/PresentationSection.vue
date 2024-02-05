@@ -1,6 +1,6 @@
-<script setup>
+<!-- <script setup>
     import MesureSvg from '@/components/svgs/MesureSvg.vue';
-</script>
+</script> -->
 
 <template>
     <div id="presentation-section">
@@ -8,11 +8,7 @@
 
         <div class="container">
             <h2>
-                Du sur 
-                <span>
-                    <span class="hidden">mesure</span>
-                    <MesureSvg />
-                </span>
+                Du sur mesure
             </h2>
             <div class="content">
                 <div class="grid">
