@@ -243,7 +243,7 @@ function goToAccountByRedirect() {
           <a class="nav-text" :href="config.url + 'contact'">Contact</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" href="">Masteriser</a>
+          <a class="nav-text" :href="config.url + 'masteriser'">Masteriser</a>
         </li>
         <li @click="goToAccountByRedirect()" class="main-nav-item profile">
           <a class="main-nav-item">
