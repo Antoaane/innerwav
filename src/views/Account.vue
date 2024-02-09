@@ -24,12 +24,12 @@
                 <nav>
                     <ul>
                         <li>
-                            <RouterLink to="/account">
+                            <RouterLink to="/account/infos">
                                 Informations personnelles
                             </RouterLink>
                         </li>
                         <li>
-                            <RouterLink to="/account">
+                            <RouterLink to="/account/orders">
                                 Mes commandes
                             </RouterLink>
                         </li>
@@ -54,7 +54,7 @@
 
             <div class="content">
                 <div>
-                    
+                    <RouterView />
                 </div>
             </div>    
 
