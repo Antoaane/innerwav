@@ -9,6 +9,7 @@ $spacing : 0.75rem;
         
         .order-global {
             padding: $spacing;
+            margin-bottom: calc($spacing * 0.75);
             background-color: $light;
             border-radius: $rounded-lg;
 
@@ -80,9 +81,11 @@ $spacing : 0.75rem;
         }
 
         .order-version {
+            margin-left: 2rem;
+            margin-bottom: calc($spacing * 0.75);
+
             background-color: $light;
             border-radius: $rounded-md;
-            margin-left: 2rem;
 
             .version-global {
                 padding: $spacing;
@@ -96,6 +99,7 @@ $spacing : 0.75rem;
                     width: 100%;
 
                     display: flex;
+                    align-items: center;
                     justify-content: space-between;
 
                     div {
@@ -115,22 +119,62 @@ $spacing : 0.75rem;
                         color: $dark;
                     }
                 }
+
+                .arrow {
+                    padding: 0 calc($spacing / 2) 0 calc($spacing * 1.5);
+                    transform: scale(0.75);
+    
+                    path {
+                        fill: $dark;
+                    }
+                }
             }
 
             .version-feedback {
                 padding: $spacing;
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                column-gap: $spacing;
 
                 .feedback {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    grid-column: span 6 / span 6;
 
                     p {
                         color: $dark;
+                        margin-bottom: $spacing;
+                    }
+
+                    textarea {
+                        resize: none;
+                        width: 100%;
+                        height: 100%;
+                        min-height: 5rem;
+                        padding: 1rem;
+
+                        color: $dark;
+                        border-radius: $rounded-md;
+
+                        background-color: darken($light, 7.5%);
                     }
                 }
 
                 .edited {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    
+                    grid-column: span 6 / span 6;
                     
                     p {
                         color: $dark;
+                    }
+
+                    p:nth-child(1) {
+                        margin-bottom: $spacing;
                     }
                 }
             }

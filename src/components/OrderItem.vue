@@ -40,45 +40,45 @@
                 <ArrowSvg />
             </div>
         </div>
-        <div class="order-version">
-            <div v-for="version in order.versions" :key="version.id">
-                <div class="version-global">
-                    <div class="version-status"></div>
-                    <div class="global-version-infos">
+        <div class="order-version" v-for="version in order.versions" :key="version.id">
+            <div class="version-global">
+                <div class="version-status"></div>
+                <div class="global-version-infos">
+                    <p>
+                        {{ version.date }}
+                    </p>
+                    <p>
+                        Version - {{ version.id }}
+                    </p>
+                    <div>
+                        <a href="#">
+                            Télécharger
+                        </a>
                         <p>
-                            {{ version.date }}
+                            {{ version.price }} €
                         </p>
-                        <p>
-                            Version - {{ version.id }}
-                        </p>
-                        <div>
-                            <a href="#">
-                                Télécharger
-                            </a>
-                            <p>
-                                {{ version.price }} €
-                            </p>
-                        </div>
-                    </div>
-                    <div class="arrow">
-                        <ArrowSvg />
                     </div>
                 </div>
-                <div class="version-feedback">
-                    <div class="feedback">
-                        <p>
-                            Vos retours :
-                        </p>
-                        <input type="textarea">
-                    </div>
-                    <div class="edited">
-                        <p>
-                            Modifications apportées :
-                        </p>
-                        <p>
-                            {{ version.edited }}
-                        </p>
-                    </div>
+                <div class="arrow">
+                    <ArrowSvg />
+                </div>
+            </div>
+            <div class="version-feedback">
+                <div class="feedback">
+                    <p>
+                        Vos retours :
+                    </p>
+                    <textarea 
+                        v-model="version.feedback"
+                    ></textarea>
+                </div>
+                <div class="edited">
+                    <p>
+                        Modifications apportées :
+                    </p>
+                    <p>
+                        {{ version.edited }}
+                    </p>
                 </div>
             </div>
         </div>
