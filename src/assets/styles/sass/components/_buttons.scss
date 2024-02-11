@@ -1,0 +1,15 @@
+@mixin btn-sm($color, $bg){
+    background-color: $bg;
+    color: $color;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: $rounded-full;
+    border: none;
+    cursor: pointer;
+    @include transition;
+
+    &:hover {
+        background-color: $primary;
+        @include soft-shadow;
+    }
+}

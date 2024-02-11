@@ -18,12 +18,12 @@ const router = createRouter({
       component: Account,
       children: [
         {
-          path: '', // Chemin vide pour le composant "Account" par défaut
+          path: '',
           name: 'account',
-          component: AccountInfos, // Composant par défaut pour "/account"
+          component: AccountInfos,
         },
         {
-          path: 'infos', // Chemin relatif à "/account"
+          path: 'infos',
           name: 'account-infos',
           component: AccountInfos,
         },

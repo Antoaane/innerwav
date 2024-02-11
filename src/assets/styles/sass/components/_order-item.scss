@@ -1,0 +1,139 @@
+$spacing : 0.75rem;
+
+.orders-container {
+    min-height: 100%;
+    padding: $spacing;
+
+    .order-item {
+        margin-bottom: calc($spacing + 0.05rem);
+        
+        .order-global {
+            padding: $spacing;
+            background-color: $light;
+            border-radius: $rounded-lg;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            
+            .global-status {
+                width: 15px;
+                aspect-ratio: 1 / 1;
+                margin-right: $spacing;
+
+                background-color: $primary;
+                border-radius: $rounded-full;
+                border: 3px $primary solid;
+            }
+
+            .global-status.obsolete {
+                background-color: $obsolete;
+            }
+
+            .global-status.progressing {
+                background-color: $progressing;
+            }
+
+            .global-status.completed {
+                background-color: $completed;
+            }
+
+            .global-status.finished {
+                background-color: $finished;
+                border: none;
+            }
+
+            .global-order-infos {
+                width: 100%;
+
+                display: flex;
+                justify-content: space-between;
+
+                p {
+                    color: $dark;
+                }
+
+                p:nth-child(1) { // DATE
+                    width: 33.333%;
+                }
+
+                p:nth-child(2) { // NAME
+                    width: 33.333%;
+                    text-align: center;
+                }
+
+                p:nth-child(3) { // PRICE
+                    width: 33.333%;
+                    text-align: right;
+                }
+            }
+
+            .arrow {
+                padding: 0 calc($spacing / 2) 0 calc($spacing * 1.5);
+                transform: scale(0.75);
+
+                path {
+                    fill: $dark;
+                }
+            }
+        }
+
+        .order-version {
+            background-color: $light;
+            border-radius: $rounded-md;
+            margin-left: 2rem;
+
+            .version-global {
+                padding: $spacing;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+
+                .global-version-infos {
+                    width: 100%;
+
+                    display: flex;
+                    justify-content: space-between;
+
+                    div {
+                        display: flex;
+                        align-items: center;
+
+                        a {
+                            @include btn-sm($light, $dark);
+                        }
+
+                        p {
+                            margin: 0 $spacing;
+                        }
+                    }
+                    
+                    p {
+                        color: $dark;
+                    }
+                }
+            }
+
+            .version-feedback {
+                padding: $spacing;
+
+                .feedback {
+
+                    p {
+                        color: $dark;
+                    }
+                }
+
+                .edited {
+                    
+                    p {
+                        color: $dark;
+                    }
+                }
+            }
+        }
+    }
+}
