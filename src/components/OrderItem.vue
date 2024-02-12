@@ -32,17 +32,20 @@
                 <p>
                     {{ order.name }}
                 </p>
-                <p>
-                    {{ order.price }} €
-                </p>
-            </div>
-            <div class="arrow">
-                <ArrowSvg />
+                <div class="arrow">
+                    <ArrowSvg />
+                </div>
             </div>
         </div>
         <div class="order-version" v-for="version in order.versions" :key="version.id">
             <div class="version-global">
-                <div class="version-status"></div>
+                <div class="version-status"
+                    :class="version.status === 1 ? 'progressing' 
+                          : version.status === 2 ? 'completed' 
+                          : version.status === 3 ? 'finished'
+                          : version.status === 4 ? 'canceled'
+                          : ''"
+                ></div>
                 <div class="global-version-infos">
                     <p>
                         {{ version.date }}
@@ -51,12 +54,9 @@
                         Version - {{ version.id }}
                     </p>
                     <div>
-                        <a href="#">
+                        <a :href="version.link">
                             Télécharger
                         </a>
-                        <p>
-                            {{ version.price }} €
-                        </p>
                     </div>
                 </div>
                 <div class="arrow">
@@ -68,9 +68,15 @@
                     <p>
                         Vos retours :
                     </p>
+                    
                     <textarea 
+                        rows="3"
+                        v-if="version.feedback === ''"
                         v-model="version.feedback"
                     ></textarea>
+                    <p v-else>
+                        {{ version.feedback }}
+                    </p>
                 </div>
                 <div class="edited">
                     <p>

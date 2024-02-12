@@ -33,7 +33,7 @@
                     price: 0,
                     date: '25/03/2024',
                     link: '',
-                    feedback : "C'est parfait, merci beaucoup !",
+                    feedback : "",
                     edited : "J'ai pris en compte votre remarque et j'ai retravaillé les basses pour les rendre légèrement moins présentes. J'espère que cela vous conviendra.",
                     status: 3,
                 }
