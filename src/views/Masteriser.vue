@@ -7,5 +7,8 @@
 
         <div class="bg"></div>
 
+        <div class="container">
+            <RouterView />
+        </div>
     </div>
 </template>

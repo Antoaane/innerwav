@@ -36,7 +36,7 @@
                         <img src="../../../src/assets/res/logos/FUGA.svg" alt="FUGA">
                     </li>
                     <li>
-                        <img src="../../../src/assets/res/logos/Sony.svg" alt="Sony">
+                        <img src="../../../src/assets/res/logos/sony-music.png" alt="Sony">
                     </li>
                 </ul>
                 <a href="#presentation-section" class="arrow">

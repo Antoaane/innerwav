@@ -1,0 +1,29 @@
+.checkout {
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    .recap {
+        grid-column: span 6 / span 6;
+    }
+
+    .checkout-section {
+        height: 100%;
+        grid-column: span 6 / span 6;
+        padding: 3rem 0;
+
+        display: flex;
+        align-items: center;
+
+        #paypal-checkout {
+            min-width: 75%;
+            margin: 0 auto;
+            padding: 1.5rem;
+
+            @include glass('middle');
+            background: radial-gradient(100% 100% at 0% 50%, rgba(255, 255, 255, 0.60) 0%, rgba(255, 255, 255, 0.40) 100%);
+        }
+    }
+}
+
