@@ -219,7 +219,19 @@ $spacing : 0.75rem;
                         margin-bottom: $spacing;
                     }
 
-                    textarea {
+                    // p:last-child {
+                    //     width: 100%;
+                    //     height: 100%;
+                    //     min-height: 5rem;
+                    //     padding: 0.5rem 1rem;
+
+                    //     color: $dark;
+                    //     border-radius: $rounded-md;
+
+                    //     background-color: darken($light, 7.5%);
+                    // }
+
+                    textarea, p:last-child {
                         resize: none;
                         width: 100%;
                         height: 100%;

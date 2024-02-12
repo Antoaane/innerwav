@@ -181,7 +181,7 @@ function goToAccountByRedirect() {
           <a class="nav-text" :href="config.url + 'contact'">Contact</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" href="">Masteriser</a>
+          <a class="nav-text" href="/masteriser">Masteriser</a>
         </li>
         <li @click="goToAccountByRedirect()" class="main-nav-item profile">
           <a class="main-nav-item">
@@ -205,13 +205,13 @@ function goToAccountByRedirect() {
           <a class="nav-text" href="#pricing-section">Tarifs</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" href="">Contact</a>
+          <a class="nav-text" :href="config.url + 'contact'">Contact</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" href="">Masteriser</a>
+          <a class="nav-text" href="/masteriser">Masteriser</a>
         </li>
-        <li class="main-nav-item profile">
-          <a class="main-nav-item" href="">
+        <li @click="goToAccountByRedirect()" class="main-nav-item profile">
+          <a class="main-nav-item">
             <ProfileSvg />
           </a>
         </li>

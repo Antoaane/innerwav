@@ -178,7 +178,7 @@
   color: #200944;
   margin-bottom: 0.75rem;
 }
-.orders-container .order-item .order-version .version-feedback .feedback textarea {
+.orders-container .order-item .order-version .version-feedback .feedback textarea, .orders-container .order-item .order-version .version-feedback .feedback p:last-child {
   resize: none;
   width: 100%;
   height: 100%;
@@ -1088,6 +1088,11 @@ body main {
 }
 #pricing-section .container .condition b {
   font-weight: 700;
+}
+
+#masteriser {
+  position: relative;
+  height: 100vh;
 }
 
 #account {
