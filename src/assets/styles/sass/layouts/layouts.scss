@@ -8,10 +8,6 @@
 
 .container {
     margin: 0 auto;
-    @media screen and (min-width: $lg) {
-        padding: 0;
-    }
-
     padding: 0 5rem;
 }
 

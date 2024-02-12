@@ -1,28 +1,7 @@
-<template>
-    <div class="work-container mr-10">
-        <audio :src="beforeAudio" ref="beforeAudio" class="hidden"></audio>
-        <audio :src="afterAudio" ref="afterAudio" class="hidden"></audio>
-    
-        <div class="player-position" :class="{ 'active': isPlayerActive }">
-            <div class="player-container">
-                <div class="player-switch" :class="{ 'top-active': isBeforeActive, 'bottom-active': !isBeforeActive }"></div>
-                <button class="btn-switch play-before" :class="{ 'active': isBeforeActive }" @click="triggerPlayer('before')">Avant</button>
-                <button class="btn-switch play-after" :class="{ 'active': !isBeforeActive }" @click="triggerPlayer('after')">Après</button>
-            </div>    
-        </div>
-    
-        <div class="cover-container" @click="togglePlayer">
-            <img :src="coverImage" class="cover-img">
-            <div class="cover-blur" :class="{ 'active': isPlayerActive }"></div>
-            <img class="play-btn" src="../assets/res/pictos/play.svg">
-        </div>
-    </div>
-</template>
-
 <script>
     export default {
         props: {
-            id : Number,
+            id: Number,
             activePlayer : Number,
             beforeAudio: String,
             afterAudio: String,
@@ -77,3 +56,24 @@
         }
     };
 </script>
+
+<template>
+    <div class="work-container mr-10">
+        <audio :src="beforeAudio" ref="beforeAudio" class="hidden"></audio>
+        <audio :src="afterAudio" ref="afterAudio" class="hidden"></audio>
+    
+        <div class="player-position" :class="{ 'active': isPlayerActive }">
+            <div class="player-container">
+                <div class="player-switch" :class="{ 'top-active': isBeforeActive, 'bottom-active': !isBeforeActive }"></div>
+                <button class="btn-switch play-before" :class="{ 'active': isBeforeActive }" @click="triggerPlayer('before')">Avant</button>
+                <button class="btn-switch play-after" :class="{ 'active': !isBeforeActive }" @click="triggerPlayer('after')">Après</button>
+            </div>    
+        </div>
+    
+        <div class="cover-container" @click="togglePlayer()">
+            <img :src="coverImage" class="cover-img">
+            <div class="cover-blur" :class="{ 'active': isPlayerActive }"></div>
+            <img class="play-btn" src="../assets/res/pictos/play.svg">
+        </div>
+    </div>
+</template>

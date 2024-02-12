@@ -85,7 +85,7 @@
             ]
         },
         {
-            id: 3,
+            id: 4,
             date: '04/02/2025',
             name: 'Led by Ancient Light',
             price: 663,
@@ -112,14 +112,23 @@
             ]
         },
     ]);
+
+    const activeOrderId = ref(null);
+
+    function setActiveOrder(id) {
+        activeOrderId.value = id;
+    }
 </script>
 
 <template>
     <div class="orders-container">
         <OrderItem 
-            v-for="order in orders" 
+            v-for="order in orders"
             :key="order.id" 
+            :id="order.id"
             :order="order"
+            @click="setActiveOrder(order.id)"
+            :activeOrder="activeOrderId"
         />
     </div>
 </template>

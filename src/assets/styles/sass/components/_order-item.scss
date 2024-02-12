@@ -10,13 +10,16 @@ $spacing : 0.75rem;
         .order-global {
             padding: $spacing;
             margin-bottom: calc($spacing * 0.75);
+
             background-color: $light;
             border-radius: $rounded-lg;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
+            
             cursor: pointer;
+            @include transition-big;
             
             .global-status {
                 width: 15px;
@@ -75,11 +78,35 @@ $spacing : 0.75rem;
         }
 
         .order-version {
+            // height: 0px;
             margin-left: 2rem;
             margin-bottom: calc($spacing * 0.75);
+            transform: scaleY(1);
 
             background-color: $light;
             border-radius: $rounded-md;
+
+            // &.open {
+            //     transform: scaleY(1);
+            //     height: auto;
+
+            //     .version-global {
+            //         // padding: $spacing;
+    
+            //         .global-version-infos {    
+            //             div {
+    
+            //                 p {
+            //                     margin: 0 $spacing;
+            //                 }
+            //             }
+            //         }
+    
+            //         .arrow {
+            //             // padding: 0 calc($spacing / 2) 0 calc($spacing * 1.5);
+            //         }
+            //     }
+            // }
 
             .version-global {
                 padding: $spacing;
@@ -150,10 +177,35 @@ $spacing : 0.75rem;
             }
 
             .version-feedback {
+                // height: 0;
                 padding: $spacing;
+                transform: scaleY(1);
+                
                 display: grid;
                 grid-template-columns: repeat(12, 1fr);
                 column-gap: calc($spacing * 2);
+
+                // &.open {
+                //     transform: scaleY(1);
+                //     height: auto;
+
+                //     .feedback {
+                //         p {
+                //             margin-bottom: $spacing;
+                //         }
+    
+                //         textarea {
+                //             // padding: 0.5rem 1rem;
+                //         }
+                //     }
+    
+                //     .edited {
+                        
+                //         p:nth-child(1) {
+                //             margin-bottom: $spacing;
+                //         }
+                //     }
+                // }
 
                 .feedback {
                     display: flex;
