@@ -13,3 +13,19 @@
         @include soft-shadow;
     }
 }
+
+@mixin btn-md($color, $bg){
+    background-color: $bg;
+    color: $color;
+    text-decoration: none;
+    padding: 0.5rem 2rem;
+    border-radius: $rounded-md;
+    border: none;
+    cursor: pointer;
+    @include transition;
+
+    &:hover {
+        background-color: $primary;
+        @include soft-shadow;
+    }
+}

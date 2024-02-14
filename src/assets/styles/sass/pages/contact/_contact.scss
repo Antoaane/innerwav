@@ -1,0 +1,61 @@
+#contact {
+    height: 100vh;
+    padding-top: 5rem;
+
+    position: relative;
+
+    .container {
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &>form {
+            @media screen and (min-width: $md){
+                min-width: 40rem;   
+            }
+
+            &>div {
+                display: flex;
+                flex-direction: column;
+
+                label {
+                    width: max-content;
+                    padding: 0.15rem 1rem;
+                    margin: 0.5rem 0 0.5rem 2rem;
+
+                    position: relative;
+                    z-index: 50;
+                    transform: translateY(75%);
+
+                    color: $dark;
+
+                    border-radius: $rounded-md;
+                    background: $light;
+                }
+
+                input, textarea {
+                    @include glass('bottom');
+                    padding: 0.7rem 1rem;
+                }
+
+                input:focus +label, textarea:focus +label {
+                    transform: translateY(0);
+                    background: $primary;
+                    color: $light;
+                }
+
+                textarea {
+                    min-height: 10rem;
+                }
+
+                input[type="submit"] {
+                    width: max-content;
+                    margin: 1.5rem auto 0 auto;
+                    @include btn-md($dark, $light);
+                }
+            }
+        }
+    }
+}
