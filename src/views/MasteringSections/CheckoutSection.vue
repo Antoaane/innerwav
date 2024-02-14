@@ -1,10 +1,14 @@
 <script>
+import { ref } from 'vue'
+
+    const price = '0.1';
+
     paypal.Buttons({
         createOrder: function(data, actions) {
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: '0.01'
+                        value: price
                     }
                 }]
             });
