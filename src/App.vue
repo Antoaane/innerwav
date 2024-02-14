@@ -72,14 +72,12 @@ function hoverItemTopEffect() {
     const hoverItem = document.getElementById('hover-item-top');
     hoverItem.style.opacity = 0;
     hoverItem.style.width = 0;
-    console.log(hoverItem.style.width)
   });
 
   window.addEventListener('scroll', () => {
     const hoverItem = document.getElementById('hover-item-top');
     hoverItem.style.opacity = 0;
     hoverItem.style.width = 0;
-    console.log(hoverItem.style.width)
   });
 }
 
@@ -111,14 +109,12 @@ function hoverItemFixedEffect() {
     const hoverItem = document.getElementById('hover-item-fixed');
     hoverItem.style.opacity = 0;
     hoverItem.style.width = 0;
-    console.log(hoverItem.style.width)
   });
 
   window.addEventListener('scroll', () => {
     const hoverItem = document.getElementById('hover-item-fixed');
     hoverItem.style.opacity = 0;
     hoverItem.style.width = 0;
-    console.log(hoverItem.style.width)
   });
 }
 

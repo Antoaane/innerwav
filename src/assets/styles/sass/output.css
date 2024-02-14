@@ -233,7 +233,7 @@ header .main-nav .desktop #scroll-to-top {
 }
 header .main-nav .desktop #hover-item-top {
   width: 0;
-  height: calc(100% - 2.5rem);
+  height: 100%;
   position: absolute;
   z-index: -1;
   top: 50%;
@@ -1248,9 +1248,16 @@ body main {
 }
 #contact .container {
   height: 100%;
+  padding-top: 4rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+}
+#contact .container h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   #contact .container > form {
@@ -1259,18 +1266,19 @@ body main {
 }
 #contact .container > form > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 #contact .container > form > div label {
   width: max-content;
   padding: 0.15rem 1rem;
-  margin: 0.5rem 0 0.5rem 2rem;
+  margin: 0.1rem 0 0.5rem 2rem;
   position: relative;
   z-index: 50;
   transform: translateY(75%);
   color: #200944;
   border-radius: 0.5rem;
   background: #FFFFFF;
+  transition: all 500ms cubic-bezier(0.8, 0, 0.2, 1);
 }
 #contact .container > form > div input, #contact .container > form > div textarea {
   backdrop-filter: blur(30px);
@@ -1279,13 +1287,18 @@ body main {
   background: radial-gradient(100% 100% at 0% 100%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
   padding: 0.7rem 1rem;
 }
+#contact .container > form > div input:focus, #contact .container > form > div textarea:focus {
+  outline: none;
+}
 #contact .container > form > div input:focus + label, #contact .container > form > div textarea:focus + label {
-  transform: translateY(0);
-  background: #99A0E0;
+  margin: 0.1rem 0 0.5rem 1rem;
+  transform: translateY(20%);
+  background: transparent;
   color: #FFFFFF;
 }
 #contact .container > form > div textarea {
   min-height: 10rem;
+  resize: none;
 }
 #contact .container > form > div input[type=submit] {
   width: max-content;
@@ -1302,6 +1315,9 @@ body main {
 #contact .container > form > div input[type=submit]:hover {
   background-color: #99A0E0;
   box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.25);
+}
+#contact .container > form .filled label {
+  transform: translateY(50%);
 }
 
 /*# sourceMappingURL=output.css.map */
