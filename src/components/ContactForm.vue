@@ -11,22 +11,22 @@
 <template>
     <form action="">
 
-        <div :class="{ 'filled' : name !== ''}">
+        <div>
             <input id="name" name="name" type="text" autocomplete="none" v-model="name">
             <label for="name">Votre nom :</label>
         </div>
 
-        <div :class="{ 'filled' : artistName !== ''}">
+        <div>
             <input id="artist-name" name="artist-name" type="text" v-model="artistName">
             <label for="artist-name">Votre nom de scène :</label>
         </div>
 
-        <div :class="{ 'filled' : email !== ''}">
+        <div>
             <input id="email" name="email" type="email" v-model="email">
             <label for="email">Votre email :</label>
         </div>
 
-        <div :class="{ 'filled' : message !== ''}">
+        <div>
             <textarea id="message" name="message" v-model="message"></textarea>
             <label for="message">Votre message :</label>
         </div>

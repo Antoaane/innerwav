@@ -29,16 +29,18 @@
                 label {
                     width: max-content;
                     padding: 0.15rem 1rem;
-                    margin: 0.1rem 0 0.5rem 2rem;
 
                     position: relative;
                     z-index: 50;
-                    transform: translateY(75%);
+                    
+                    margin: 0.1rem 0 0.5rem 1rem;
+                    transform: translateY(20%);
 
-                    color: $dark;
+                    background: transparent;
+                    color: $light;
 
                     border-radius: $rounded-md;
-                    background: $light;
+                    background: transparent;
 
                     @include transition-big;
                 }
@@ -53,12 +55,11 @@
                 }
 
                 input:focus +label, textarea:focus +label {
-                    margin: 0.1rem 0 0.5rem 1rem;
-                    transform: translateY(20%);
+                    margin: 0.1rem 0 0.5rem 2rem;
+                    transform: translateY(55%);
 
-                    background: transparent;
-
-                    color: $light;
+                    color: $dark;
+                    background: $light;
                 }
 
                 textarea {
@@ -70,13 +71,6 @@
                     width: max-content;
                     margin: 1.5rem auto 0 auto;
                     @include btn-md($dark, $light);
-                }
-            }
-
-            .filled {
-
-                label {
-                    transform: translateY(50%);
                 }
             }
         }
