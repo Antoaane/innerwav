@@ -2,7 +2,7 @@
 import { onMounted } from 'vue';
 import { RouterView } from 'vue-router';
 import config from './conf/config.json';
-import DoubleArrowUpSvg from './components/svgs/DoubleArrowUpSvg.vue';
+import ArrowSvg from './components/svgs/ArrowSvg.vue';
 import ProfileSvg from './components/svgs/ProfileSvg.vue';
 import Logo from './components/svgs/LogoSvg.vue';
 
@@ -120,16 +120,19 @@ function hoverItemFixedEffect() {
 
 function fixedTrigger() {
   const fNav = document.getElementById('fixed-nav');
+  const scrollToTop = document.getElementById('scroll-to-top');
 
   if (window.scrollY > 400 && fNav.classList.contains('hide-fixed-nav')) {
     fNav.classList.remove('hide-fixed-nav');
     fNav.classList.add('show-fixed-nav');
+    scrollToTop.style.opacity = '1';
     console.log('fixed');
   } 
   
   if (window.scrollY <= 400 && fNav.classList.contains('show-fixed-nav')) {
     fNav.classList.remove('show-fixed-nav');
     fNav.classList.add('hide-fixed-nav');
+    scrollToTop.style.opacity = '0';
     console.log('unfixed');
   }
 }
@@ -214,11 +217,13 @@ function goToAccountByRedirect() {
       </ul>
     </nav>
 
+    <button @click="scrollToTop()" id="scroll-to-top" class="logo">
+      <ArrowSvg />
+      <Logo />
+    </button>
+
     <nav id="fixed-nav" class="main-nav-fixed hide-fixed-nav">
       <ul id="nav-list-fixed" class="desktop hidden lg:flex">
-        <button @click="scrollToTop()" id="scroll-to-top" class="logo">
-          <Logo />
-        </button>
         <svg class="fixed-nav-corner left hidden" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1483.82 1000">
           <path d="m0,0s529.52,0,741.91,500,741.91,500,741.91,500V0H0Z"/>
         </svg>
