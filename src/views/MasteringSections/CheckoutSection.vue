@@ -1,6 +1,4 @@
-<script>
-import { ref } from 'vue'
-
+<script setup>
     const price = '0.1';
 
     paypal.Buttons({
@@ -23,9 +21,7 @@ import { ref } from 'vue'
 
 <template>
     <div class="checkout">
-
         <div class="recap">
-        
         </div>
 
         <div class="checkout-section">

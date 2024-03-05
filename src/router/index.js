@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Masteriser from '../views/Masteriser.vue'
-import CheckoutSection from '../views/MasteringSections/CheckoutSection.vue'
 import Account from '../views/Account.vue'
 import AccountInfos from '../views/AccountSections/PersonalInfos.vue'
 import Orders from '../views/AccountSections/Orders.vue'
@@ -17,19 +16,8 @@ const router = createRouter({
     },
     {
       path: '/masteriser',
-      component: Masteriser,
-      children: [
-        {
-          path: '',
-          name: 'masteriser',
-          component: CheckoutSection,
-        },
-        {
-          path: 'checkout',
-          name: 'checkout',
-          component: CheckoutSection,
-        }
-      ],
+      name: 'masteriser',
+      component: Masteriser
     },
     {
       path: '/account',

@@ -1,4 +1,5 @@
-<script>
+<script setup>
+import CheckoutSection from './MasteringSections/CheckoutSection.vue'
 
 </script>
 
@@ -8,7 +9,7 @@
         <div class="bg"></div>
 
         <div class="container">
-            <RouterView />
+            <CheckoutSection />
         </div>
     </div>
 </template>

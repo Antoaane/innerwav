@@ -34,13 +34,9 @@ header {
             align-items: center;
             position: relative;
 
-            #scroll-to-top {
-                display: none;
-            }
-
             #hover-item-top {
                 width: 0;
-                height: 100%;
+                height: 60%;
                 position: absolute;
                 z-index: -1;
                 top: 50%;
@@ -193,6 +189,8 @@ header {
         bottom: 2.5rem;
         right: 2.5rem;
         z-index: 50;
+
+        opacity: 0;
 
         display: flex;
         flex-direction: column;
