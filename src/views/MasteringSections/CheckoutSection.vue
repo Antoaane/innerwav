@@ -1,4 +1,6 @@
 <script setup>
+    import FileInput from '../../components/FileInput.vue';
+
     const price = '0.1';
 
     paypal.Buttons({
@@ -21,7 +23,24 @@
 
 <template>
     <div class="checkout">
-        <div class="recap">
+        <div class="upload-section">
+            <div class="general-infos">
+                <div>
+                    <div class="cover">
+                        <FileInput 
+                            :placeholder="'Ajouter une image'" 
+                            :accept="'image/*'"
+                            :button="false"
+                        />
+                    </div>
+                    <div class="infos">
+
+                    </div>
+                </div>
+            </div>
+            <div class="tracks">
+
+            </div>
         </div>
 
         <div class="checkout-section">

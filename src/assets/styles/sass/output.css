@@ -201,6 +201,86 @@
   margin-bottom: 0.75rem;
 }
 
+.file-input {
+  padding: 0.5rem;
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+}
+.file-input .drag-drop-area {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #200944;
+  border-radius: 0.5rem;
+  text-align: center;
+  color: #200944;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 300ms cubic-bezier(0.8, 0, 0.2, 1);
+}
+.file-input .drag-drop-area.highlight {
+  border-color: #99A0E0;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);
+}
+.file-input .drag-drop-area p {
+  padding: 0 1rem;
+  color: #200944;
+}
+.file-input .drag-drop-area ul {
+  list-style-type: none;
+  padding: 0;
+}
+.file-input .drag-drop-area ul li {
+  margin: 5px 0;
+  color: #200944;
+  font-size: 0.9rem;
+}
+.file-input .drag-drop-area ul li button {
+  background-color: #FF7A7A;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 300ms cubic-bezier(0.8, 0, 0.2, 1);
+  margin-left: 0.5rem;
+  padding: 0.125rem 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.file-input .drag-drop-area ul li button:hover {
+  background-color: #ff4747;
+  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.25);
+}
+.file-input .file-input-label {
+  background-color: #99A0E0;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 0.25rem 1rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 300ms cubic-bezier(0.8, 0, 0.2, 1);
+  width: 100%;
+  padding: 0 0.25rem;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+.file-input .file-input-label:hover {
+  background-color: #200944;
+  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.25);
+}
+
 header {
   height: 5rem;
   margin-bottom: -5rem !important;
@@ -1123,12 +1203,33 @@ body main {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
-.checkout .recap {
-  grid-column: span 6/span 6;
+.checkout .upload-section {
+  grid-column: span 8/span 8;
+}
+.checkout .upload-section .general-infos > div {
+  padding: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  background: radial-gradient(100% 100% at 0% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
+  border-radius: 1.5rem;
+}
+.checkout .upload-section .general-infos > div .cover {
+  grid-column: span 2/span 2;
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+}
+.checkout .upload-section .general-infos > div .cover .drag-drop-area {
+  aspect-ratio: 1/1;
+}
+.checkout .upload-section .general-infos > div .infos {
+  grid-column: span 8/span 8;
 }
 .checkout .checkout-section {
   height: 100%;
-  grid-column: span 6/span 6;
+  grid-column: span 4/span 4;
   padding: 3rem 0;
   display: flex;
   align-items: center;

@@ -1,4 +1,4 @@
-@mixin btn-sm($color, $bg){
+@mixin btn-sm($color, $bg, $hover){
     background-color: $bg;
     color: $color;
     text-decoration: none;
@@ -9,17 +9,33 @@
     @include transition;
 
     &:hover {
-        background-color: $primary;
+        background-color: $hover;
         @include soft-shadow;
     }
 }
 
-@mixin btn-md($color, $bg){
+@mixin btn-md($color, $bg, $hover){
     background-color: $bg;
     color: $color;
     text-decoration: none;
     padding: 0.5rem 2rem;
     border-radius: $rounded-md;
+    border: none;
+    cursor: pointer;
+    @include transition;
+
+    &:hover {
+        background-color: $hover;
+        @include soft-shadow;
+    }
+}
+
+@mixin btn-secondary-lg($color, $bg){
+    background-color: $bg;
+    color: $color;
+    text-decoration: none;
+    padding: 1rem 3rem;
+    border-radius: $rounded-lg;
     border: none;
     cursor: pointer;
     @include transition;

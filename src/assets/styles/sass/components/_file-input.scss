@@ -1,0 +1,75 @@
+.file-input {
+    padding: 0.5rem;
+
+    background-color: $light;
+    border-radius: $rounded-lg;
+
+    .drag-drop-area {
+        width: 100%;
+
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border: 2px dashed $dark;
+        border-radius: $rounded-md;
+
+        text-align: center;
+        color: $dark;
+
+        cursor: pointer;
+        overflow: hidden;
+        @include transition;
+
+        &.highlight {
+            border-color: $primary;
+
+            @include shadow;
+        }
+
+        p {
+            padding: 0 1rem;
+            color: $dark;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+
+            li {
+                margin: 5px 0;
+                color: $dark; 
+                font-size: 0.9rem;
+
+                button {
+                    @include btn-md($light, $obsolete, darken($obsolete, 10%));
+                    margin-left: 0.5rem;
+                    padding: 0.125rem 0.5rem;
+
+                    font-size: 1rem;
+                    font-weight: 600;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+
+    .file-input-label {
+        @include btn-sm($light, $primary, $dark);
+        width: 100%;
+        padding: 0 0.25rem;
+        margin-top: 0.5rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: $rounded-md;
+
+        color: white;
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+}

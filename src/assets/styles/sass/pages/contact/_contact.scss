@@ -70,7 +70,7 @@
                 input[type="submit"] {
                     width: max-content;
                     margin: 1.5rem auto 0 auto;
-                    @include btn-md($dark, $light);
+                    @include btn-md($dark, $light, $primary);
                 }
             }
         }

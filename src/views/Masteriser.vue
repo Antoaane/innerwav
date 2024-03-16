@@ -1,5 +1,6 @@
 <script setup>
 import CheckoutSection from './MasteringSections/CheckoutSection.vue'
+import QuestionComponent from './MasteringSections/QuestionComponent.vue';
 
 </script>
 
@@ -9,6 +10,9 @@ import CheckoutSection from './MasteringSections/CheckoutSection.vue'
         <div class="bg"></div>
 
         <div class="track">
+            <div class="container tab">
+                <QuestionComponent />
+            </div>
             <div class="container tab">
                 <CheckoutSection />
             </div>
