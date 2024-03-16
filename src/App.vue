@@ -160,9 +160,9 @@ function goToAccountByRedirect() {
 <template>
   <header class="container">
 
-    <a class="logo" href="/">
+    <!-- <a class="logo" href="/">
       <Logo />
-    </a>
+    </a> -->
 
     <nav id="nav" class="main-nav">
       <ul id="nav-list-top" class="desktop hidden lg:flex">

@@ -8,8 +8,10 @@ import CheckoutSection from './MasteringSections/CheckoutSection.vue'
 
         <div class="bg"></div>
 
-        <div class="container">
-            <CheckoutSection />
+        <div class="track">
+            <div class="container tab">
+                <CheckoutSection />
+            </div>
         </div>
     </div>
 </template>
