@@ -21,7 +21,7 @@
 
             </div>
             <div class="secondary">
-                <h3>Ils nous font confiance</h3>
+                <!-- <h3>Ils nous font confiance</h3>
                 <ul class="partenaires">
                     <li>
                         <img src="../../../src/assets/res/logos/believe.svg" alt="believe">
@@ -38,7 +38,7 @@
                     <li>
                         <img src="../../../src/assets/res/logos/sony-music.png" alt="Sony">
                     </li>
-                </ul>
+                </ul> -->
                 <a href="#presentation-section" class="arrow">
                     <ArrowDownSvg />
                 </a>
