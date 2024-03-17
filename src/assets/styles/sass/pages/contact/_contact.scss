@@ -48,13 +48,9 @@
                 input, textarea {
                     @include glass('bottom');
                     padding: 0.7rem 1rem;
-
-                    &:focus {
-                        outline: none;
-                    }
                 }
 
-                input:focus +label, textarea:focus +label {
+                input:focus + label, textarea:focus + label {
                     margin: 0.1rem 0 0.5rem 2rem;
                     transform: translateY(55%);
 

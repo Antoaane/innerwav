@@ -10,7 +10,8 @@
         .general-infos {
 
             &>div {
-                padding: 0.75rem;
+                padding: $spacing;
+                gap: $spacing;
 
                 display: grid;
                 grid-template-columns: repeat(10, minmax(0, 1fr));
@@ -18,7 +19,7 @@
                 @include glass('middle');
                 border-radius: $rounded-xl;
 
-                .cover {
+                &>.cover {
                     grid-column: span 2 / span 2;
                     background-color: $light;
 
@@ -29,8 +30,15 @@
                     }
                 }
 
-                .infos {
+                &>.infos {
                     grid-column: span 8 / span 8;
+
+                    display: flex;
+                    flex-direction: column;
+
+                    &>:nth-child(1) {
+                        margin-bottom: $spacing;
+                    }
                 }
             }
         }

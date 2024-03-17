@@ -7,14 +7,13 @@
     .drag-drop-area {
         width: 100%;
 
-        position: relative;
-
         display: flex;
         justify-content: center;
         align-items: center;
 
         border: 2px dashed $dark;
         border-radius: $rounded-md;
+        background-color: $zone;
 
         text-align: center;
         color: $dark;
@@ -23,7 +22,17 @@
         overflow: hidden;
         @include transition;
 
+        &:hover {
+            //transform: scale(1.0125);
+
+            background-color: $light;
+            border-color: $primary;
+
+            @include shadow;
+        }
+
         &.highlight {
+            background-color: $light;
             border-color: $primary;
 
             @include shadow;
@@ -71,5 +80,64 @@
         color: white;
         font-size: 1.75rem;
         line-height: 1.2;
+    }
+}
+
+.text-input {
+    padding: 0.5rem;
+
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+
+    background-color: $light;
+    border-radius: $rounded-lg;
+
+    &.max {
+        flex-grow: 1;
+    }
+
+    &>div {
+        grid-column: span 4 / span 4;
+
+        label {
+            width: 100%;
+            padding: 0.5rem;
+
+            display: flex;
+            align-content: center;
+
+            @include label;
+            color: $dark;
+            text-align: left;
+
+            &.cover {
+                padding: 0.125rem 0.5rem 0 0.5rem;
+            }
+        }
+    }
+
+    input, textarea {
+        grid-column: span 8 / span 8;
+        width: 100%;
+
+        border-radius: $rounded-md;
+        background-color: $zone;
+
+        color: $soft;
+    }
+
+    input {
+        padding: 0 1rem;
+    }
+
+    textarea {
+        height: 100%;
+        padding: 0.35rem 1rem;
+
+        resize: none;
+    }
+
+    .cover {
+        grid-column: span 12 / span 12 !important;
     }
 }

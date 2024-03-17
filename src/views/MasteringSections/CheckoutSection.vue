@@ -1,5 +1,6 @@
 <script setup>
     import FileInput from '../../components/FileInput.vue';
+    import TextInput from '../../components/TextInput.vue';
 
     const price = '0.1';
 
@@ -34,7 +35,15 @@
                         />
                     </div>
                     <div class="infos">
-
+                        <TextInput
+                            :label="'Nom de l\'album :'"
+                            :type="'text'"
+                        />
+                        <TextInput
+                            :label="' Référence musicale globale :'"
+                            :type="'textarea'"
+                            :max="true"
+                        />
                     </div>
                 </div>
             </div>
