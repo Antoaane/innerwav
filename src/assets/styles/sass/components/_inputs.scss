@@ -29,6 +29,10 @@
             border-color: $primary;
 
             @include shadow;
+
+            p {
+                color: $primary;
+            }
         }
 
         &.highlight {
@@ -36,11 +40,17 @@
             border-color: $primary;
 
             @include shadow;
+
+            p {
+                color: $primary;
+            }
         }
 
         p {
             padding: 0 1rem;
             color: $dark;
+
+            @include transition;
         }
 
         ul {
