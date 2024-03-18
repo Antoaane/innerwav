@@ -23,6 +23,8 @@
         }
     });
 
+    const emit = defineEmits(['updateFiles']);
+
     const openFileChooser = () => {
         document.getElementById('fileInput').click();
     };
@@ -45,6 +47,14 @@
 
     const handleChange = e => {
         addFiles(e.target.files);
+
+        const files = e.target.files;
+        if (files.length > 0) {
+            emit('updateFiles', files);
+        }
+
+        console.log(Array.from(files));
+
         e.target.value = ''; // Reset input après sélection, permet d'ajouter les mêmes fichiers si nécessaire
     };
 
@@ -56,7 +66,8 @@
         }
     };
 
-    const removeFile = fileName => {
+    const removeFile = (e, fileName) => {
+        e.stopPropagation();
         uploadedFiles.value = uploadedFiles.value.filter(file => file.name !== fileName);
     };
 
@@ -83,7 +94,7 @@
             <ul v-if="uploadedFiles.length">
                 <li v-for="file in uploadedFiles" :key="file.name">
                     {{ truncateText(file.name, 14) }}
-                    <button @click="removeFile(file.name)">-</button>
+                    <button @click="removeFile($event, file.name)">-</button>
                 </li>
             </ul>
             <p v-else>

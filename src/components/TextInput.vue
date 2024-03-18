@@ -1,6 +1,5 @@
 <script setup>
     import { ref } from 'vue';
-    import { defineProps, defineEmits } from 'vue';
 
     const props = defineProps({
         label: {
@@ -21,12 +20,12 @@
         }
     });
 
-    const truncateText = (text, maxLength) => {
-        if (text.length > maxLength) {
-            return text.substring(0, maxLength) + "...";
-        }
-        return text;
-    };
+    const emit = defineEmits(['updateText']);
+    const textInput = ref('');
+
+    function onInput(event) {
+        emit('updateText', event.target.value);
+    }
 
 </script>
 
@@ -38,7 +37,7 @@
                 {{ props.label }}
             </label>
         </div>
-        <input v-if="type == 'text'" type="text" id="text" :class="{'cover': aspect == 'cover'}">
-        <textarea v-if="type == 'textarea'" id="textarea" :class="{'cover': aspect == 'cover'}"></textarea>
+        <input id="text" v-if="type == 'text'" type="text" v-model="textInput" @input="onInput" :class="{'cover': aspect == 'cover'}">
+        <textarea id="textarea" v-if="type == 'textarea'" v-model="textInput" @input="onInput" :class="{'cover': aspect == 'cover'}"></textarea>
     </div>
 </template>

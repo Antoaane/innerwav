@@ -23,8 +23,6 @@
         @include transition;
 
         &:hover {
-            //transform: scale(1.0125);
-
             background-color: $light;
             border-color: $primary;
 

@@ -1,6 +1,11 @@
 <script setup>
+    import { ref } from 'vue';
     import FileInput from '../../components/FileInput.vue';
     import TextInput from '../../components/TextInput.vue';
+
+    const coverImage = ref([]);
+    const albumName = ref('');
+    const globalReference = ref('');
 
     const price = '0.1';
 
@@ -20,6 +25,26 @@
             });
         }
     }).render('#paypal-checkout');
+
+    function getCoverImage(e) {
+        for (let i = 0; i < e.length; i++) {
+            coverImage.value.push(e[i]);
+        }
+    }
+
+    function getAlbumName(e) {
+        albumName.value = e;
+    }
+
+    function getGlobalReference(e) {
+        globalReference.value = e;
+    }
+
+    function upload() {
+        console.log(coverImage.value);
+        console.log(albumName.value);
+        console.log(globalReference.value);
+    }
 </script>
 
 <template>
@@ -31,21 +56,31 @@
                         <FileInput 
                             :placeholder="'Ajouter une image'" 
                             :accept="'image/*'"
+                            :multiple="true"
                             :button="false"
+                            @updateFiles="getCoverImage"
                         />
                     </div>
                     <div class="infos">
                         <TextInput
                             :label="'Nom de l\'album :'"
                             :type="'text'"
+                            @updateText="getAlbumName"
                         />
                         <TextInput
                             :label="' Référence musicale globale :'"
                             :type="'textarea'"
                             :max="true"
+                            @updateText="getGlobalReference"
                         />
                     </div>
                 </div>
+                <button
+                    class="upload-button"
+                    @click="upload"
+                >
+                    Upload
+                </button>
             </div>
             <div class="tracks">
 
