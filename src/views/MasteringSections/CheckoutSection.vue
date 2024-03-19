@@ -8,6 +8,8 @@
     const albumName = ref('');
     const globalReference = ref('');
 
+    const tracks = ref([]);
+
     const price = '0.1';
 
     paypal.Buttons({
@@ -41,16 +43,24 @@
         globalReference.value = e;
     }
 
-    function upload() {
-        console.log(coverImage.value);
-        console.log(albumName.value);
-        console.log(globalReference.value);
+    // function upload() {
+    //     console.log(coverImage.value);
+    //     console.log(albumName.value);
+    //     console.log(globalReference.value);
+    // }
+
+    function addTrack() {
+        tracks.value.push(tracks.value.length + 1);
+    }
+
+    function deleteTrack(i) {
+        
     }
 </script>
 
 <template>
     <div class="checkout">
-        
+
         <div class="upload-section">
             <div class="general-infos">
 
@@ -83,8 +93,18 @@
             </div>
 
             <div class="tracks">
-                <TrackForm />
+                <div v-for="i in tracks" :key="i">
+                    <TrackForm />
+                    <button
+                        class="remove-track"
+                        @click="deleteTrack(i)"
+                    >
+                        -
+                    </button>
+                </div>
             </div>
+
+            <button @click="addTrack()">+</button>
         </div>
 
         <div class="checkout-section">

@@ -43,6 +43,47 @@
                 }
             }
         }
+
+        .tracks {
+            margin-bottom: $spacing;
+            
+            display: flex;
+            flex-direction: column;
+
+            &>div {
+                margin-bottom: $spacing;
+                position: relative;
+            }
+
+            &>:last-child {
+                margin-bottom: 0;
+            }
+
+            .remove-track {
+                position: absolute;
+                top: 0;
+                right: -2rem;
+            }
+        }
+
+        &>button {
+            width: 100%;
+
+            @include glass('middle');
+            border-radius: $rounded-xl;
+
+            font-size: 1.75rem;
+            line-height: 1.2;
+
+            @include transition;
+
+            &:hover {
+                background-color: $primary;
+
+                font-weight: 500;
+                color: $soft;
+            }
+        }
     }
 
     .checkout-section {
