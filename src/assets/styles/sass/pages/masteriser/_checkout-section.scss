@@ -8,6 +8,7 @@
         grid-column: span 8 / span 8;
 
         .general-infos {
+            margin-bottom: $spacing;
 
             &>div {
                 padding: $spacing;

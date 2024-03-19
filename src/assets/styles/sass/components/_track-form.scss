@@ -1,0 +1,27 @@
+.track-form-al-ep {
+    height: 10rem;
+    padding: $spacing;
+    gap: $spacing;
+
+    display: grid;
+    grid-template-columns: repeat(20, minmax(0, 1fr));
+
+    @include glass('middle');
+    border-radius: $rounded-xl;
+
+    &>:nth-child(1) {   // METADATAS
+        grid-column: span 4 / span 4;
+    } 
+    
+    &>:nth-child(2) {   // TRACK REFS
+        grid-column: span 8 / span 8;
+    }
+
+    &>:nth-child(3) {   // FILE 1
+        grid-column: span 4 / span 4;
+    }
+
+    &>:nth-child(4) {   // FILE 2
+        grid-column: span 4 / span 4;
+    }
+}

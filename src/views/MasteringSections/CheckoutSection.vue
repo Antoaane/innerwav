@@ -2,6 +2,7 @@
     import { ref } from 'vue';
     import FileInput from '../../components/FileInput.vue';
     import TextInput from '../../components/TextInput.vue';
+    import TrackForm from '../../components/TrackForm.vue';
 
     const coverImage = ref([]);
     const albumName = ref('');
@@ -49,8 +50,10 @@
 
 <template>
     <div class="checkout">
+        
         <div class="upload-section">
             <div class="general-infos">
+
                 <div>
                     <div class="cover">
                         <FileInput 
@@ -61,6 +64,7 @@
                             @updateFiles="getCoverImage"
                         />
                     </div>
+
                     <div class="infos">
                         <TextInput
                             :label="'Nom de l\'album :'"
@@ -75,15 +79,11 @@
                         />
                     </div>
                 </div>
-                <button
-                    class="upload-button"
-                    @click="upload"
-                >
-                    Upload
-                </button>
-            </div>
-            <div class="tracks">
 
+            </div>
+
+            <div class="tracks">
+                <TrackForm />
             </div>
         </div>
 

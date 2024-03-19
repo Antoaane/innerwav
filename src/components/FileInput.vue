@@ -103,6 +103,7 @@
             <input v-if="multiple" type="file" id="fileInput" @change="handleChange" multiple hidden>
             <input v-else type="file" :accept="accept" id="fileInput" @change="handleChange" hidden>
         </div>
+
         <label v-if="button" for="fileInput" class="file-input-label">+</label>
     </div>
 </template>

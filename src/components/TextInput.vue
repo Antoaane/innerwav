@@ -31,13 +31,11 @@
 
 
 <template>
-    <div :class="{'text-input': true, 'max': max}">
-        <div>
-            <label :class="{'cover': aspect == 'cover'}">
-                {{ props.label }}
-            </label>
-        </div>
-        <input id="text" v-if="type == 'text'" type="text" v-model="textInput" @input="onInput" :class="{'cover': aspect == 'cover'}">
-        <textarea id="textarea" v-if="type == 'textarea'" v-model="textInput" @input="onInput" :class="{'cover': aspect == 'cover'}"></textarea>
+    <div :class="{'text-input': true, 'max': max, 'cover': aspect == 'cover'}">
+        <label>
+            {{ props.label }}
+        </label>
+        <input id="text" v-if="type == 'text'" type="text" v-model="textInput" @input="onInput">
+        <textarea id="textarea" v-if="type == 'textarea'" v-model="textInput" @input="onInput"></textarea>
     </div>
 </template>
