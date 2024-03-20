@@ -43,12 +43,6 @@
         globalReference.value = e;
     }
 
-    // function upload() {
-    //     console.log(coverImage.value);
-    //     console.log(albumName.value);
-    //     console.log(globalReference.value);
-    // }
-
     function addTrack() {
         tracks.value.push(tracks.value.length + 1);
     }

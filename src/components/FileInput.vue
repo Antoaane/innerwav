@@ -25,8 +25,11 @@
 
     const emit = defineEmits(['updateFiles']);
 
+    const dropArea = ref(null);
+    const fileInput = ref(null);
+
     const openFileChooser = () => {
-        document.getElementById('fileInput').click();
+        fileInput.value.click();
     };
 
     const handleDragOver = e => {
@@ -52,8 +55,6 @@
         if (files.length > 0) {
             emit('updateFiles', files);
         }
-
-        console.log(Array.from(files));
 
         e.target.value = ''; // Reset input après sélection, permet d'ajouter les mêmes fichiers si nécessaire
     };
@@ -84,7 +85,7 @@
 <template>
     <div class="file-input">
         <div
-            id="drop-area"
+            ref="drop-area"
             @click="openFileChooser"
             @dragover.prevent="handleDragOver"
             @dragleave.prevent="handleDragLeave"
@@ -100,8 +101,8 @@
             <p v-else>
                 {{ placeholder }}
             </p>
-            <input v-if="multiple" type="file" id="fileInput" @change="handleChange" multiple hidden>
-            <input v-else type="file" :accept="accept" id="fileInput" @change="handleChange" hidden>
+            <input v-if="multiple" type="file" ref="fileInput" @change="handleChange" multiple hidden>
+            <input v-else type="file" :accept="accept" ref="fileInput" @change="handleChange" hidden>
         </div>
 
         <label v-if="button" for="fileInput" class="file-input-label">+</label>
