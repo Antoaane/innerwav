@@ -8,7 +8,7 @@
     const albumName = ref('');
     const globalReference = ref('');
 
-    const tracks = ref([]);
+    const tracks = ref([1]);
 
     const price = '0.1';
 
@@ -43,12 +43,19 @@
         globalReference.value = e;
     }
 
-    function addTrack() {
-        tracks.value.push(tracks.value.length + 1);
+    function addTrack(n = 0) {
+        if (!tracks.value.includes(tracks.value.length + 1 + n)) {
+            tracks.value.push(tracks.value.length + 1 + n);
+            console.log(tracks.value);
+        } else {
+            addTrack(n + 1);
+        }
     }
 
     function deleteTrack(i) {
-        
+        if (tracks.value.length > 1) {
+            tracks.value = tracks.value.filter(track => track !== i);
+        }
     }
 </script>
 

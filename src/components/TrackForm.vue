@@ -2,6 +2,9 @@
     import { ref } from 'vue';
     import FileInput from './FileInput.vue';
     import TextInput from './TextInput.vue';
+    import axios from 'axios';
+
+    const baseUrl = import.meta.env.VITE_BASE_URL;
 
     const metadatas = ref([]);
     const specificReference = ref('');
@@ -24,32 +27,51 @@
         instrumental.value = e;
     }
 
-    function upload() {
-        console.log(coverImage.value);
-        console.log(albumName.value);
-        console.log(globalReference.value);
+    async function sendData() {
+        const formData = new FormData();
+        formData.append('metadatas', metadatas.value[0]);
+        formData.append('specificReference', specificReference.value);
+        formData.append('voiceMelody', voiceMelody.value[0]);
+        formData.append('instrumental', instrumental.value[0]);
+
+        axios.post(`${baseUrl}/api/track`, formData, {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token'), 
+                'Content-Type': 'multipart/form-data'
+            }
+        })
     }
+
+    // function upload() {
+    //     console.log(coverImage.value);
+    //     console.log(albumName.value);
+    //     console.log(globalReference.value);
+    // }
 </script>
 
 <template>
     <div class="track-form-al-ep">
         <FileInput 
-            :placeholder="'Ajouter les metadatas'" 
+            :placeholder="'Ajouter les metadatas'"
+            @updateFiles="getMetadatas"
         />
         <TextInput 
             :label="'Référence musicale spécifique :'"
             :type="'textarea'"
             :max="true"
             :aspect="'cover'"
+            @updateText="getSpecificReference"
         />
         <FileInput 
             :placeholder="'Ajouter la voix/mélodie'"
             :accept="'.wav, .mp3'"
+            @updateFiles="getVoiceMelody"
         />
         <FileInput 
             :placeholder="'Ajouter l\'instrumentale'"
             :accept="'.wav, .mp3'"
+            @updateFiles="getInstrumental"
         />
     </div>
-    <button @click="upload">Upload</button>
+    <!-- <button @click="upload">Upload</button> -->
 </template>
