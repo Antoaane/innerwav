@@ -12,33 +12,33 @@ import Wave2Svg from '@/components/svgs/Wave2Svg.vue';
 const works = ref([
   {
     id: 0,
-    beforeAudio : `${baseUrl}/src/assets/res/realisations/larme-de-sel/before.mp3`,
-    afterAudio : `${baseUrl}/src/assets/res/realisations/larme-de-sel/after.mp3`,
-    coverImage : `${baseUrl}/src/assets/res/realisations/larme-de-sel/cover.jpg`,
+    beforeAudio : '/assets/realisations/larme-de-sel/before.mp3',
+    afterAudio : '/assets/realisations/larme-de-sel/after.mp3',
+    coverImage : '/assets/realisations/larme-de-sel/cover.jpg',
   },
   {
     id: 1,
-    beforeAudio : `${baseUrl}/src/assets/res/realisations/parle-pas-de-lfaire/before.mp3`,
-    afterAudio : `${baseUrl}/src/assets/res/realisations/parle-pas-de-lfaire/after.mp3`,
-    coverImage : `${baseUrl}/src/assets/res/realisations/parle-pas-de-lfaire/cover.jpg`,
+    beforeAudio : '/assets/realisations/parle-pas-de-lfaire/before.mp3',
+    afterAudio : '/assets/realisations/parle-pas-de-lfaire/after.mp3',
+    coverImage : '/assets/realisations/parle-pas-de-lfaire/cover.jpg',
   },
   {
     id: 2,
-    beforeAudio : `${baseUrl}/src/assets/res/realisations/vraiment-a-part/before.mp3`,
-    afterAudio : `${baseUrl}/src/assets/res/realisations/vraiment-a-part/after.mp3`,
-    coverImage : `${baseUrl}/src/assets/res/realisations/vraiment-a-part/cover.jpg`,
+    beforeAudio : '/assets/realisations/vraiment-a-part/before.mp3',
+    afterAudio : '/assets/realisations/vraiment-a-part/after.mp3',
+    coverImage : '/assets/realisations/vraiment-a-part/cover.jpg',
   },
   {
     id: 3,
-    beforeAudio : `${baseUrl}/src/assets/res/realisations/pedra/before.mp3`,
-    afterAudio : `${baseUrl}/src/assets/res/realisations/pedra/after.mp3`,
-    coverImage : `${baseUrl}/src/assets/res/realisations/pedra/cover.jpg`,
+    beforeAudio : '/assets/realisations/pedra/before.mp3',
+    afterAudio : '/assets/realisations/pedra/after.mp3',
+    coverImage : '/assets/realisations/pedra/cover.jpg',
   },
   {
     id: 4,
-    beforeAudio : `${baseUrl}/src/assets/res/realisations/moi-et-moi/before.mp3`,
-    afterAudio : `${baseUrl}/src/assets/res/realisations/moi-et-moi/after.mp3`,
-    coverImage : `${baseUrl}/src/assets/res/realisations/moi-et-moi/cover.jpg`,
+    beforeAudio : '/assets/realisations/moi-et-moi/before.mp3',
+    afterAudio : '/assets/realisations/moi-et-moi/after.mp3',
+    coverImage : '/assets/realisations/moi-et-moi/cover.jpg',
   }
 ]);
 
@@ -86,9 +86,9 @@ onMounted(() => {
                         <li class="splide__slide" v-for="work in works" :key="work.id">
                             <Player 
                                 :id="work.id" 
-                                :beforeAudio="work.beforeAudio" 
-                                :afterAudio="work.afterAudio" 
-                                :coverImage="work.coverImage"
+                                :beforeAudio="baseUrl + work.beforeAudio" 
+                                :afterAudio="baseUrl + work.afterAudio" 
+                                :coverImage="baseUrl + work.coverImage"
                                 @click="setActivePlayer(work.id)"
                                 :activePlayer="activePlayerId"
                             />
