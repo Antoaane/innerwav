@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/css';
@@ -11,33 +12,33 @@ import Wave2Svg from '@/components/svgs/Wave2Svg.vue';
 const works = ref([
   {
     id: 0,
-    beforeAudio : 'src/assets/res/realisations/larme-de-sel/before.mp3',
-    afterAudio : 'src/assets/res/realisations/larme-de-sel/after.mp3',
-    coverImage : 'src/assets/res/realisations/larme-de-sel/cover.jpg',
+    beforeAudio : `${baseUrl}/src/assets/res/realisations/larme-de-sel/before.mp3`,
+    afterAudio : `${baseUrl}/src/assets/res/realisations/larme-de-sel/after.mp3`,
+    coverImage : `${baseUrl}/src/assets/res/realisations/larme-de-sel/cover.jpg`,
   },
   {
     id: 1,
-    beforeAudio : 'src/assets/res/realisations/parle-pas-de-lfaire/before.mp3',
-    afterAudio : 'src/assets/res/realisations/parle-pas-de-lfaire/after.mp3',
-    coverImage : 'src/assets/res/realisations/parle-pas-de-lfaire/cover.jpg',
+    beforeAudio : `${baseUrl}/src/assets/res/realisations/parle-pas-de-lfaire/before.mp3`,
+    afterAudio : `${baseUrl}/src/assets/res/realisations/parle-pas-de-lfaire/after.mp3`,
+    coverImage : `${baseUrl}/src/assets/res/realisations/parle-pas-de-lfaire/cover.jpg`,
   },
   {
     id: 2,
-    beforeAudio : 'src/assets/res/realisations/vraiment-a-part/before.mp3',
-    afterAudio : 'src/assets/res/realisations/vraiment-a-part/after.mp3',
-    coverImage : 'src/assets/res/realisations/vraiment-a-part/cover.jpg',
+    beforeAudio : `${baseUrl}/src/assets/res/realisations/vraiment-a-part/before.mp3`,
+    afterAudio : `${baseUrl}/src/assets/res/realisations/vraiment-a-part/after.mp3`,
+    coverImage : `${baseUrl}/src/assets/res/realisations/vraiment-a-part/cover.jpg`,
   },
   {
     id: 3,
-    beforeAudio : 'src/assets/res/realisations/pedra/before.mp3',
-    afterAudio : 'src/assets/res/realisations/pedra/after.mp3',
-    coverImage : 'src/assets/res/realisations/pedra/cover.jpg',
+    beforeAudio : `${baseUrl}/src/assets/res/realisations/pedra/before.mp3`,
+    afterAudio : `${baseUrl}/src/assets/res/realisations/pedra/after.mp3`,
+    coverImage : `${baseUrl}/src/assets/res/realisations/pedra/cover.jpg`,
   },
   {
     id: 4,
-    beforeAudio : 'src/assets/res/realisations/moi-et-moi/before.mp3',
-    afterAudio : 'src/assets/res/realisations/moi-et-moi/after.mp3',
-    coverImage : 'src/assets/res/realisations/moi-et-moi/cover.jpg',
+    beforeAudio : `${baseUrl}/src/assets/res/realisations/moi-et-moi/before.mp3`,
+    afterAudio : `${baseUrl}/src/assets/res/realisations/moi-et-moi/after.mp3`,
+    coverImage : `${baseUrl}/src/assets/res/realisations/moi-et-moi/cover.jpg`,
   }
 ]);
 
