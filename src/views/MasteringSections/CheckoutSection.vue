@@ -8,27 +8,11 @@
     const albumName = ref('');
     const globalReference = ref('');
 
-    const tracks = ref([1]);
+    const tracks = ref([0]);
 
-    const price = '0.1';
+    const childComponents = ref([]);
 
-    paypal.Buttons({
-        createOrder: function(data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    amount: {
-                        value: price
-                    }
-                }]
-            });
-        },
-        onApprove: function(data, actions) {
-            return actions.order.capture().then(function(details) {
-                alert('Transaction completed by ' + details.payer.name.given_name);
-            });
-        }
-    }).render('#paypal-checkout');
-
+    // ------------------------ GET ALBUM INFOS ------------------------
     function getCoverImage(e) {
         for (let i = 0; i < e.length; i++) {
             coverImage.value.push(e[i]);
@@ -43,6 +27,8 @@
         globalReference.value = e;
     }
 
+
+    // ------------------------- HANDLE TRACKS -------------------------
     function addTrack(n = 0) {
         if (!tracks.value.includes(tracks.value.length + 1 + n)) {
             tracks.value.push(tracks.value.length + 1 + n);
@@ -52,11 +38,46 @@
         }
     }
 
-    function deleteTrack(i) {
+    function deleteTrack(item) {
         if (tracks.value.length > 1) {
-            tracks.value = tracks.value.filter(track => track !== i);
+            tracks.value = tracks.value.filter(track => track !== item);
         }
     }
+
+    // -------------------------- PUSH TRACKS --------------------------
+    const setTrackRef = (el) => {
+        console.log('voici la track', el);
+        if (el) {
+            childComponents.value.push(el)
+        }
+    }
+
+    async function pushTracks() {
+        console.log(childComponents.value);
+        // for (const childComponent of childComponents.value) {
+        //     await childComponent.sendData()
+        //     console.log('pushed');
+        // }
+    }
+
+
+    // ------------------------ PAYPAL CHECKOUT ------------------------
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '0.1'
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Transaction completed by ' + details.payer.name.given_name);
+            });
+        }
+    }).render('#paypal-checkout');
 </script>
 
 <template>
@@ -94,11 +115,13 @@
             </div>
 
             <div class="tracks">
-                <div v-for="i in tracks" :key="i">
-                    <TrackForm />
+                <div v-for="item in tracks" :key="item">
+                    <TrackForm 
+                        :ref="setTrackRef"
+                    />
                     <button
                         class="remove-track"
-                        @click="deleteTrack(i)"
+                        @click="deleteTrack(item)"
                     >
                         -
                     </button>
@@ -106,6 +129,7 @@
             </div>
 
             <button @click="addTrack()">+</button>
+            <!-- <button @click="pushTracks">Push</button> -->
         </div>
 
         <div class="checkout-section">

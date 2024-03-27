@@ -1,8 +1,8 @@
 <script setup>
-    import { ref } from 'vue';
+    import { ref, defineExpose } from 'vue';
+    import axios from 'axios';
     import FileInput from './FileInput.vue';
     import TextInput from './TextInput.vue';
-    import axios from 'axios';
 
     const baseUrl = import.meta.env.VITE_BASE_URL;
 
@@ -27,6 +27,7 @@
         instrumental.value = e;
     }
 
+    defineExpose({ sendData })
     async function sendData() {
         const formData = new FormData();
         formData.append('metadatas', metadatas.value[0]);
@@ -39,6 +40,12 @@
                 'Authorization': 'Bearer ' + localStorage.getItem('token'), 
                 'Content-Type': 'multipart/form-data'
             }
+        })
+        .catch(error => {
+            console.log('yessay');
+        })
+        .then(response => {
+            console.log(response);
         })
     }
 

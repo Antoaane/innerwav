@@ -1,10 +1,10 @@
 <script setup>
 import { onMounted } from 'vue';
 import { RouterView } from 'vue-router';
-import config from './conf/config.json';
 import ArrowSvg from './components/svgs/ArrowSvg.vue';
 import ProfileSvg from './components/svgs/ProfileSvg.vue';
 import Logo from './components/svgs/LogoSvg.vue';
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 function triggerMenu() {
   const menu = document.getElementById('menu');
@@ -168,16 +168,16 @@ function goToAccountByRedirect() {
       <ul id="nav-list-top" class="desktop hidden lg:flex">
         <span id="hover-item-top"></span>
         <li class="main-nav-item">
-          <a class="nav-text" :href="config.url + '#presentation-section'">Informations</a>
+          <a class="nav-text" :href="baseUrl + '#presentation-section'">Informations</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="config.url + '#works-section'">Réalisations</a>
+          <a class="nav-text" :href="baseUrl + '#works-section'">Réalisations</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="config.url + '#pricing-section'">Tarifs</a>
+          <a class="nav-text" :href="baseUrl + '#pricing-section'">Tarifs</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="config.url + 'contact'">Contact</a>
+          <a class="nav-text" :href="baseUrl + 'contact'">Contact</a>
         </li>
         <li class="main-nav-item">
           <a class="nav-text" href="/masteriser">Masteriser</a>
@@ -204,7 +204,7 @@ function goToAccountByRedirect() {
           <a class="nav-text" href="#pricing-section">Tarifs</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="config.url + 'contact'">Contact</a>
+          <a class="nav-text" :href="baseUrl + 'contact'">Contact</a>
         </li>
         <li class="main-nav-item">
           <a class="nav-text" href="/masteriser">Masteriser</a>
@@ -232,19 +232,19 @@ function goToAccountByRedirect() {
         </svg>
         <span id="hover-item-fixed"></span>
         <li class="main-nav-item">
-          <a class="nav-text" :href="config.url + '#presentation-section'">Informations</a>
+          <a class="nav-text" :href="baseUrl + '#presentation-section'">Informations</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="config.url + '#works-section'">Réalisations</a>
+          <a class="nav-text" :href="baseUrl + '#works-section'">Réalisations</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="config.url + '#pricing-section'">Tarifs</a>
+          <a class="nav-text" :href="baseUrl + '#pricing-section'">Tarifs</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="config.url + 'contact'">Contact</a>
+          <a class="nav-text" :href="baseUrl + 'contact'">Contact</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="config.url + 'masteriser'">Masteriser</a>
+          <a class="nav-text" :href="baseUrl + 'masteriser'">Masteriser</a>
         </li>
         <li @click="goToAccountByRedirect()" class="main-nav-item profile">
           <a class="main-nav-item">
