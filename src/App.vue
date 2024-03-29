@@ -226,7 +226,6 @@ function goToAccountByRedirect() {
 
     <button @click="scrollToTop()" id="scroll-to-top" class="logo">
       <ArrowSvg />
-      <Logo />
     </button>
 
     <nav id="fixed-nav" class="main-nav-fixed hide-fixed-nav">
@@ -253,10 +252,25 @@ function goToAccountByRedirect() {
         <li class="main-nav-item">
           <a class="nav-text" :href="baseUrl + '/masteriser'">Masteriser</a>
         </li>
-        <li @click="goToAccountByRedirect()" class="main-nav-item profile">
-          <a class="main-nav-item">
-            <ProfileSvg />
-          </a>
+        <li class="main-nav-item profile">
+          <span @click="goToAccountByRedirect()">
+            <a class="main-nav-item">
+              <ProfileSvg />
+            </a>
+          </span>
+
+          <div class="hidden">
+            <div>
+              <a :href="baseUrl + '/account'">Mon compte</a>
+              <a :href="baseUrl + '/logout'">Déconnexion</a>
+            </div>
+          </div>
+          <div class="account-not-logged">
+            <div>
+              <a :href="baseUrl + '/register'">Inscription</a>
+              <a :href="baseUrl + '/login'">Connexion</a>
+            </div>
+          </div>
         </li>
       </ul>
     </nav>

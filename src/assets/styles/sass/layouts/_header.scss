@@ -372,12 +372,57 @@ header {
             }
 
             &>.profile {
-                a {
-                    pointer-events: none;
+                cursor: default;
 
-                    svg {
-                        transform: scale(0.8);
+                &>span {
+                    cursor: pointer;
+
+                    a {
+                        pointer-events: none;
+
+                        svg {
+                            transform: scale(0.8);
+                        }
                     }
+                }
+
+                .account-not-logged {
+                    padding-left: 3rem;
+
+                    position: absolute;
+                    top: 50%;
+                    left: 100%;
+                    transform: translateY(calc(-50% - 1rem));
+
+                    opacity: 0;
+
+                    pointer-events: none;
+                    @include transition;
+
+                    div {
+                        padding: calc($spacing - 0.25rem);
+                        gap: $spacing;
+
+                        display: flex;
+                        align-items: center;
+
+                        // @include glass('bottom');
+
+                        a:nth-child(1) {
+                            @include btn-sm($dark, $light, $dark, $light);
+                        }
+
+                        a:nth-child(2) {
+                            @include btn-tertiary-lg;
+                            margin: auto 2rem;
+                        }
+                    }
+                }
+
+                &:hover .account-not-logged {
+                    opacity: 1;
+                    transform: translateY(-50%);
+                    pointer-events: all;
                 }
             }
         }
