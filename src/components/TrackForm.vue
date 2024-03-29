@@ -4,7 +4,7 @@
     import FileInput from './FileInput.vue';
     import TextInput from './TextInput.vue';
 
-    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     const metadatas = ref([]);
     const specificReference = ref('');
@@ -35,7 +35,7 @@
         formData.append('voiceMelody', voiceMelody.value[0]);
         formData.append('instrumental', instrumental.value[0]);
 
-        axios.post(`${baseUrl}/api/track`, formData, {
+        axios.post(`${apiUrl}/track`, formData, {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('token'), 
                 'Content-Type': 'multipart/form-data'

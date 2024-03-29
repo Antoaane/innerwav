@@ -45,19 +45,18 @@
     }
 
     // -------------------------- PUSH TRACKS --------------------------
-    const setTrackRef = (el) => {
-        console.log('voici la track', el);
-        if (el) {
+    function setTrackRef(el) {
+        if (el && !childComponents.value.includes(el)) {
             childComponents.value.push(el)
         }
     }
 
     async function pushTracks() {
-        console.log(childComponents.value);
-        // for (const childComponent of childComponents.value) {
-        //     await childComponent.sendData()
-        //     console.log('pushed');
-        // }
+        // console.log(childComponents.value);
+        for (const childComponent of childComponents.value) {
+            await childComponent.sendData()
+            console.log('pushed');
+        }
     }
 
 
@@ -115,13 +114,13 @@
             </div>
 
             <div class="tracks">
-                <div v-for="item in tracks" :key="item">
+                <div v-for="track in tracks" :key="track">
                     <TrackForm 
                         :ref="setTrackRef"
                     />
                     <button
                         class="remove-track"
-                        @click="deleteTrack(item)"
+                        @click="deleteTrack(track)"
                     >
                         -
                     </button>
@@ -129,7 +128,7 @@
             </div>
 
             <button @click="addTrack()">+</button>
-            <!-- <button @click="pushTracks">Push</button> -->
+            <button @click="pushTracks">Push</button>
         </div>
 
         <div class="checkout-section">
