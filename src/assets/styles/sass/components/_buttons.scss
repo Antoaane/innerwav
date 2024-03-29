@@ -1,47 +1,91 @@
-@mixin btn-sm($color, $bg, $hover){
-    background-color: $bg;
+@mixin btn-sm($color : $dark, $bg : $light, $hover : $primary, $colorHover : $color){
+    padding: 0.25rem 1rem;
+
     color: $color;
     text-decoration: none;
-    padding: 0.25rem 1rem;
+    
+    background-color: $bg;
     border-radius: $rounded-full;
     border: none;
+
     cursor: pointer;
     @include transition;
 
     &:hover {
+        color: $colorHover;
         background-color: $hover;
-        @include soft-shadow;
+        @include ghost-shadow;
     }
 }
 
-@mixin btn-md($color, $bg, $hover){
-    background-color: $bg;
+@mixin btn-md($color : $dark, $bg : $light, $hover : $primary, $colorHover: $color){
+    padding: 0.5rem 2rem;
+
     color: $color;
     text-decoration: none;
-    padding: 0.5rem 2rem;
+    
+    background-color: $bg;
     border-radius: $rounded-md;
     border: none;
+
     cursor: pointer;
     @include transition;
 
     &:hover {
+        color: $colorHover;
         background-color: $hover;
-        @include soft-shadow;
+        @include ghost-shadow;
     }
 }
 
-@mixin btn-secondary-lg($color, $bg){
-    background-color: $bg;
+@mixin btn-secondary-lg($color : $dark, $bg : $light, $hover : $primary, $colorHover: $color){
+    padding: 1rem 3rem;
+
     color: $color;
     text-decoration: none;
-    padding: 1rem 3rem;
+
+    background-color: $bg;
     border-radius: $rounded-lg;
     border: none;
+
     cursor: pointer;
     @include transition;
 
     &:hover {
-        background-color: $primary;
-        @include soft-shadow;
+        color: $colorHover;
+        background-color: $hover;
+        @include ghost-shadow;
+    }
+}
+
+@mixin btn-tertiary-lg($color : $light, $colorHover: $primary){
+    padding: 0.25rem 0rem;
+
+    position: relative;
+
+    color: $color;
+    text-decoration: none;
+    
+    border-radius: $rounded-lg;
+    border: none;
+
+    cursor: pointer;
+    @include transition;
+
+    &::after {
+        content: '';
+        width: 0%;
+        height: 1px;
+
+        position: absolute;
+        bottom: 3px;
+        left: 0;
+        
+        background-color: $color;
+        @include transition;
+    }
+
+    &:hover::after {
+        width: 100%;
     }
 }

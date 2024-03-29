@@ -160,10 +160,6 @@ function goToAccountByRedirect() {
 <template>
   <header class="container">
 
-    <!-- <a class="logo" href="/">
-      <Logo />
-    </a> -->
-
     <nav id="nav" class="main-nav">
       <ul id="nav-list-top" class="desktop hidden lg:flex">
         <span id="hover-item-top"></span>
@@ -182,10 +178,21 @@ function goToAccountByRedirect() {
         <li class="main-nav-item">
           <a class="nav-text" href="/masteriser">Masteriser</a>
         </li>
-        <li @click="goToAccountByRedirect()" class="main-nav-item profile">
-          <a class="main-nav-item">
-            <ProfileSvg />
-          </a>
+        <li class="main-nav-item profile">
+          <span @click="goToAccountByRedirect()">
+            <a class="main-nav-item" href="/account">
+              <ProfileSvg />
+            </a>
+          </span>
+          
+          <div class="hidden">
+            <a :href="baseUrl + '/account'">Mon compte</a>
+            <a :href="baseUrl + '/logout'">Déconnexion</a>
+          </div>
+          <div class="account-not-logged">
+            <a :href="baseUrl + '/register'">Inscription</a>
+            <a :href="baseUrl + '/login'">Connexion</a>
+          </div>
         </li>
       </ul>
       <ul id="burger" @click=triggerMenu() class="flex lg:hidden">

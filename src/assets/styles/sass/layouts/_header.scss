@@ -71,9 +71,48 @@ header {
             }
 
             &>.main-nav-item.profile {
-                cursor: pointer;
-                a {
-                    pointer-events: none
+                position: relative;
+                cursor: default;
+
+                &>span {
+                    cursor: pointer;
+
+                    a {
+                        pointer-events: none
+                    }
+                }
+
+                .account-not-logged {
+                    padding: $spacing;
+                    gap: $spacing;
+
+                    position: absolute;
+                    top: 100%;
+                    transform: translateY(-1rem);
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    opacity: 0;
+                    @include glass('bottom');
+
+                    pointer-events: none;
+                    @include transition;
+
+                    a:nth-child(1) {
+                        @include btn-md($light, $primary, $light, $primary);
+                    }
+
+                    a:nth-child(2) {
+                        @include btn-tertiary-lg;
+                    }
+                }
+
+                &:hover .account-not-logged {
+                    opacity: 1;
+                    transform: translateY(0);
+                    pointer-events: all;
                 }
             }
         }
