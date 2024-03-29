@@ -400,16 +400,13 @@ header {
                     @include transition;
 
                     div {
-                        padding: calc($spacing - 0.25rem);
                         gap: $spacing;
 
                         display: flex;
                         align-items: center;
 
-                        // @include glass('bottom');
-
                         a:nth-child(1) {
-                            @include btn-sm($dark, $light, $dark, $light);
+                            @include btn-sm($dark, $light, $primary, $light);
                         }
 
                         a:nth-child(2) {
