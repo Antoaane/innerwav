@@ -82,7 +82,7 @@ header {
                     }
                 }
 
-                .account-not-logged {
+                .account-submenu {
                     padding: $spacing;
                     gap: $spacing;
 
@@ -101,6 +101,7 @@ header {
                     @include transition;
 
                     a:nth-child(1) {
+                        width: max-content;
                         @include btn-md($light, $primary, $light, $primary);
                     }
 
@@ -109,7 +110,7 @@ header {
                     }
                 }
 
-                &:hover .account-not-logged {
+                &:hover .account-submenu {
                     opacity: 1;
                     transform: translateY(0);
                     pointer-events: all;
@@ -386,7 +387,7 @@ header {
                     }
                 }
 
-                .account-not-logged {
+                .account-submenu {
                     padding-left: 3rem;
 
                     position: absolute;
@@ -406,6 +407,7 @@ header {
                         align-items: center;
 
                         a:nth-child(1) {
+                            width: max-content;
                             @include btn-sm($dark, $light, $primary, $light);
                         }
 
@@ -416,7 +418,7 @@ header {
                     }
                 }
 
-                &:hover .account-not-logged {
+                &:hover .account-submenu {
                     opacity: 1;
                     transform: translateY(-50%);
                     pointer-events: all;

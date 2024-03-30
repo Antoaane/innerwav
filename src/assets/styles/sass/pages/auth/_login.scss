@@ -1,8 +1,9 @@
-#contact {
+#login {
+    @media screen and (min-width: $md){
+        min-width: 40rem;
+    }
     height: 100vh;
     padding-top: 5rem;
-
-    position: relative;
 
     .container {
         height: 100%;
@@ -17,24 +18,37 @@
             margin-bottom: 1rem;
         }
 
-        &>form {
-            @media screen and (min-width: $md){
-                min-width: 40rem;   
+        &>div {
+            min-width: $sm;
+            margin-top: 5vh;
+
+            .double-input-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+
+                &>div {
+                    margin: 0 !important;
+                }
             }
 
-            &>div {
+            .input-container {
+                margin: 2rem 0;
+
+                position: relative;
+
                 display: flex;
                 flex-direction: column-reverse;
 
                 label {
                     width: max-content;
-                    padding: 0.15rem 1rem;
-
-                    position: relative;
-                    z-index: 50;
-                    
+                    padding: 0.15rem 0;
                     margin: 0.1rem 0 0.5rem 1rem;
-                    transform: translateY(20%);
+
+                    position: absolute;
+                    z-index: 50;
+                    top: 50%;
+                    transform: translateY(-50%);
 
                     background: transparent;
                     color: $light;
@@ -43,23 +57,27 @@
                     background: transparent;
 
                     @include transition-big;
+                    pointer-events: none;
 
                     &.filled {
-                        opacity: 0 !important;
+                        opacity: 0;
                     }
                 }
 
                 input, textarea {
                     @include glass('bottom');
-                    padding: 0.5rem 1rem;
+                    padding: 0.7rem 1rem;
                 }
 
                 input:focus + label, textarea:focus + label {
-                    margin: 0.1rem 0 0.5rem 2rem;
-                    transform: translateY(45%);
+                    padding: 0.15rem 1rem;
+                    margin: 0.1rem 0 0.5rem 1.5rem;
+                    transform: translateY(-160%);
 
                     color: $dark;
                     background: $light;
+
+                    opacity: 1;
                 }
 
                 textarea {
@@ -72,6 +90,12 @@
                     margin: 1.5rem auto 0 auto;
                     @include btn-md($dark, $light, $primary);
                 }
+            }
+
+            button {
+                margin: 2rem auto 0 auto;
+                display: block;
+                @include btn-md($dark, $light, $primary, $light);
             }
         }
     }

@@ -1,10 +1,25 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { RouterView } from 'vue-router';
+import axios from 'axios';
+
 import ArrowSvg from './components/svgs/ArrowSvg.vue';
 import ProfileSvg from './components/svgs/ProfileSvg.vue';
-import Logo from './components/svgs/LogoSvg.vue';
 const baseUrl = import.meta.env.VITE_BASE_URL;
+
+const logged = ref();
+
+if (localStorage.getItem('token')) {
+  logged.value = true;
+} else {
+  logged.value = false;
+}
+console.log(logged.value);
+
+function disconnect() {
+  localStorage.removeItem('token');
+  window.location.href = '/';
+}
 
 function triggerMenu() {
   const menu = document.getElementById('menu');
@@ -185,11 +200,11 @@ function goToAccountByRedirect() {
             </a>
           </span>
           
-          <div class="hidden">
+          <div :class="{'account-submenu' : true, '!hidden' : !logged}">
             <a :href="baseUrl + '/account'">Mon compte</a>
-            <a :href="baseUrl + '/logout'">Déconnexion</a>
+            <a @click="disconnect()">Déconnexion</a>
           </div>
-          <div class="account-not-logged">
+          <div :class="{'account-submenu' : true, '!hidden' : logged}">
             <a :href="baseUrl + '/register'">Inscription</a>
             <a :href="baseUrl + '/login'">Connexion</a>
           </div>
@@ -259,13 +274,13 @@ function goToAccountByRedirect() {
             </a>
           </span>
 
-          <div class="hidden">
+          <div :class="{'account-submenu' : true, '!hidden' : !logged}">
             <div>
               <a :href="baseUrl + '/account'">Mon compte</a>
-              <a :href="baseUrl + '/logout'">Déconnexion</a>
+              <a @click="disconnect()">Déconnexion</a>
             </div>
           </div>
-          <div class="account-not-logged">
+          <div :class="{'account-submenu' : true, '!hidden' : logged}">
             <div>
               <a :href="baseUrl + '/register'">Inscription</a>
               <a :href="baseUrl + '/login'">Connexion</a>
