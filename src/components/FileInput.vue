@@ -1,9 +1,6 @@
 <script setup>
     import { ref } from 'vue';
 
-    const uploadedFiles = ref([]);
-    const isHighlighted = ref(false);
-
     const props = defineProps({
         placeholder: {
             type: String,
@@ -22,6 +19,9 @@
             default: true
         }
     });
+
+    const uploadedFiles = ref([]);
+    const isHighlighted = ref(false);
 
     const emit = defineEmits(['updateFiles']);
 
@@ -61,7 +61,7 @@
 
     const addFiles = files => {
         for (const file of files) {
-            if (!uploadedFiles.value.find(f => f.name === file.name)) {
+            if (!uploadedFiles.value.find(f => f.name === file.name) && multiple.value === true) {
                 uploadedFiles.value.push(file);
             }
         }
@@ -105,6 +105,6 @@
             <input v-else type="file" :accept="accept" ref="fileInput" @change="handleChange" hidden>
         </div>
 
-        <label v-if="button" for="fileInput" class="file-input-label">+</label>
+        <label @click="openFileChooser" v-if="button" for="fileInput" class="file-input-label">+</label>
     </div>
 </template>

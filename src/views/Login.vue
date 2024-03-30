@@ -18,7 +18,7 @@ function sendData() {
     formData.append('email', email.value);
     formData.append('password', password.value);
 
-    axios.post(`${apiUrl}/login`, formData, {
+    axios.post(`${apiUrl}/api/login`, formData, {
         headers: {
             'Content-Type': 'multipart/form-data',
             'Accept': 'application/json'

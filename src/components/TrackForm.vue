@@ -5,11 +5,14 @@
     import TextInput from './TextInput.vue';
 
     const apiUrl = import.meta.env.VITE_API_URL;
+    axios.defaults.withCredentials = true;
 
     const metadatas = ref([]);
     const specificReference = ref('');
     const voiceMelody = ref([]);
     const instrumental = ref([]);
+
+    const orderId = '6e6371d0-33cd-4460-9cac-5632de3faa6b';
 
     function getMetadatas(e) {
         metadatas.value = e;
@@ -30,30 +33,38 @@
     defineExpose({ sendData })
     async function sendData() {
         const formData = new FormData();
-        formData.append('metadatas', metadatas.value[0]);
-        formData.append('specificReference', specificReference.value);
-        formData.append('voiceMelody', voiceMelody.value[0]);
-        formData.append('instrumental', instrumental.value[0]);
+        formData.append('metadata', metadatas.value[0]);
+        formData.append('spec_ref', specificReference.value);
+        formData.append('voice', voiceMelody.value[0]);
+        formData.append('prod', instrumental.value[0]);
 
-        axios.post(`${apiUrl}/track`, formData, {
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem('token'), 
-                'Content-Type': 'multipart/form-data'
-            }
-        })
-        .catch(error => {
-            console.log('yessay');
-        })
-        .then(response => {
-            console.log(response);
-        })
+        console.log('formData', formData);
+
+        axios.get(`${apiUrl}/sanctum/csrf-cookie`).then(response => {
+            axios.post(`${apiUrl}/api/order/upload/${orderId}`, formData, {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token'), 
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                console.log(error.response.data);
+            })
+            .then(response => {
+                console.log(response);
+            })
+        });
     }
 
-    // function upload() {
-    //     console.log(coverImage.value);
-    //     console.log(albumName.value);
-    //     console.log(globalReference.value);
-    // }
+    function upload() {
+        console.log('metadatas', metadatas.value);
+        console.log('specificReference', specificReference.value);
+        console.log('voiceMelody', voiceMelody.value);
+        console.log('instrumental', instrumental.value);
+
+        sendData();
+    }
 </script>
 
 <template>
@@ -80,5 +91,5 @@
             @updateFiles="getInstrumental"
         />
     </div>
-    <!-- <button @click="upload">Upload</button> -->
+    <button @click="upload">Upload</button>
 </template>

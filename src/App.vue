@@ -1,7 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { RouterView } from 'vue-router';
-import axios from 'axios';
 
 import ArrowSvg from './components/svgs/ArrowSvg.vue';
 import ProfileSvg from './components/svgs/ProfileSvg.vue';
@@ -14,7 +13,6 @@ if (localStorage.getItem('token')) {
 } else {
   logged.value = false;
 }
-console.log(logged.value);
 
 function disconnect() {
   localStorage.removeItem('token');
@@ -179,7 +177,7 @@ function goToAccountByRedirect() {
       <ul id="nav-list-top" class="desktop hidden lg:flex">
         <span id="hover-item-top"></span>
         <li class="main-nav-item">
-          <a class="nav-text" :href="baseUrl + '/#presentation-section'">Informations</a>
+          <a class="nav-text" :href="baseUrl + '/'">Accueil</a>
         </li>
         <li class="main-nav-item">
           <a class="nav-text" :href="baseUrl + '/#works-section'">Réalisations</a>
@@ -217,19 +215,19 @@ function goToAccountByRedirect() {
       </ul>
       <ul id="menu" class="mobile hidden lg:hidden">
         <li class="main-nav-item">
-          <a class="nav-text" href="#presentation-section">Informations</a>
+          <a class="nav-text" :href="baseUrl + '/'">Accueil</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" href="#works-section">Réalisations</a>
+          <a class="nav-text" :href="baseUrl + '/#works-section'">Réalisations</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" href="#pricing-section">Tarifs</a>
+          <a class="nav-text" :href="baseUrl + '/#pricing-section'">Tarifs</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="baseUrl + 'contact'">Contact</a>
+          <a class="nav-text" :href="baseUrl + '/contact'">Contact</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" href="/masteriser">Masteriser</a>
+          <a class="nav-text" :href="baseUrl + '/masteriser'">Masteriser</a>
         </li>
         <li @click="goToAccountByRedirect()" class="main-nav-item profile">
           <a class="main-nav-item">
@@ -253,7 +251,7 @@ function goToAccountByRedirect() {
         </svg>
         <span id="hover-item-fixed"></span>
         <li class="main-nav-item">
-          <a class="nav-text" :href="baseUrl + '/#presentation-section'">Informations</a>
+          <a class="nav-text" :href="baseUrl + '/'">Accueil</a>
         </li>
         <li class="main-nav-item">
           <a class="nav-text" :href="baseUrl + '/#works-section'">Réalisations</a>
