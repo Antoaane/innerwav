@@ -20,7 +20,8 @@
         }
     });
 
-    const uploadedFiles = ref([]);
+    const uploadedFiles = props.multiple ? ref([]) : ref(null);
+
     const isHighlighted = ref(false);
 
     const emit = defineEmits(['updateFiles']);
@@ -45,26 +46,54 @@
     const handleDrop = e => {
         e.preventDefault();
         isHighlighted.value = false;
-        addFiles(e.dataTransfer.files);
+
+        if (props.multiple) {
+            addFiles(e.dataTransfer.files);
+
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                emit('updateFiles', files);
+            }
+        } else {
+            addFiles(e.dataTransfer.files[0]);
+
+            if (e.dataTransfer.files.length > 0) {
+                emit('updateFiles', e.dataTransfer.files[0]);
+            }
+        }
     };
 
     const handleChange = e => {
-        addFiles(e.target.files);
+        if (props.multiple) {
+            addFiles(e.target.files);
 
-        const files = e.target.files;
-        if (files.length > 0) {
-            emit('updateFiles', files);
+            const files = e.target.files;
+            if (files.length > 0) {
+                emit('updateFiles', files);
+            }
+        } else {
+            addFiles(e.target.files[0]);
+
+            if (e.target.files.length > 0) {
+                emit('updateFiles', e.target.files[0]);
+            }
         }
-
-        e.target.value = ''; // Reset input après sélection, permet d'ajouter les mêmes fichiers si nécessaire
+        
+        e.target.value = '';
     };
 
     const addFiles = files => {
-        for (const file of files) {
-            if (!uploadedFiles.value.find(f => f.name === file.name) && multiple.value === true) {
-                uploadedFiles.value.push(file);
+        if (props.multiple) {
+            for (const file of files) {
+                if (!uploadedFiles.value.find(f => f.name === file.name)) {
+                    uploadedFiles.value.push(file);
+                }
             }
+        } else {
+            uploadedFiles.value = files;
+            console.log(files);
         }
+        
     };
 
     const removeFile = (e, fileName) => {
@@ -92,16 +121,28 @@
             @drop.prevent="handleDrop"
             :class="{'drag-drop-area': true, 'highlight': isHighlighted}"
         >
-            <ul v-if="uploadedFiles.length">
-                <li v-for="file in uploadedFiles" :key="file.name">
-                    {{ truncateText(file.name, 14) }}
-                    <button @click="removeFile($event, file.name)">-</button>
-                </li>
-            </ul>
-            <p v-else>
-                {{ placeholder }}
-            </p>
-            <input v-if="multiple" type="file" ref="fileInput" @change="handleChange" multiple hidden>
+            <template v-if="props.multiple">
+                <ul v-if="uploadedFiles.length">
+                    <li v-for="file in uploadedFiles" :key="file.name">
+                        {{ truncateText(file.name, 14) }}
+                        <button @click="removeFile($event, file.name)">-</button>
+                    </li>
+                </ul>
+                <p v-else>
+                    {{ placeholder }}
+                </p>
+            </template>
+            <template v-else>
+                <ul v-if="uploadedFiles">
+                    <li>
+                        {{ truncateText(uploadedFiles.name, 14) }}
+                        <button @click="uploadedFiles = null">-</button>
+                    </li>
+                </ul>
+                <p v-else>{{ placeholder }}</p>
+            </template>
+            
+            <input v-if="props.multiple" type="file" ref="fileInput" @change="handleChange" multiple hidden>
             <input v-else type="file" :accept="accept" ref="fileInput" @change="handleChange" hidden>
         </div>
 
