@@ -28,7 +28,7 @@
     }
 
 
-    // ------------------------- HANDLE TRACKS -------------------------
+    // ---------------------- HANDLE TRACK NUMBER ----------------------
     function addTrack(n = 0) {
         if (!tracks.value.includes(tracks.value.length + 1 + n)) {
             tracks.value.push(tracks.value.length + 1 + n);
@@ -52,7 +52,6 @@
     }
 
     async function pushTracks() {
-        // console.log(childComponents.value);
         for (const childComponent of childComponents.value) {
             await childComponent.sendData()
             console.log('pushed');
@@ -128,6 +127,7 @@
             </div>
 
             <button @click="addTrack()">+</button>
+            <br><br>
             <button @click="pushTracks">Push</button>
         </div>
 

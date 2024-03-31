@@ -25,8 +25,9 @@
     async function sendData() {
         formData.value.append('spec_ref', specificReference.value);
 
-        axios.get(`${apiUrl}/sanctum/csrf-cookie`).then(response => {
-            axios.post(`${apiUrl}/api/order/upload/${orderId}`,
+        try {
+            await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
+            const response = await axios.post(`${apiUrl}/api/order/upload/${orderId}`,
                 formData.value,
                 {
                     headers: {
@@ -35,15 +36,11 @@
                         'Accept': 'application/json'
                     }
                 }
-            )
-            .catch(error => {
-                console.log(error);
-                console.log(error.response.data);
-            })
-            .then(response => {
-                console.log(response);
-            })
-        });
+            );
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
     }
 </script>
 
@@ -71,5 +68,5 @@
             @updateFiles="addFileToFormData('prod', $event)"
         />
     </div>
-    <button @click="sendData">Upload</button>
+    <!-- <button @click="sendData">Upload</button> -->
 </template>
