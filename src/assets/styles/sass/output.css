@@ -1432,12 +1432,51 @@ body main {
 
 #masteriser {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  padding: 5rem 0;
 }
-#masteriser .container {
-  margin: 0 auto;
-  padding-top: 5rem;
+#masteriser #track {
+  max-width: fit-content;
+  overflow-x: hidden;
   height: 100%;
+}
+#masteriser #track #train {
+  width: max-content;
+  display: flex;
+  height: 100%;
+}
+#masteriser #track #train .tab {
+  width: calc(100vw - 10px);
+  height: 100%;
+}
+#masteriser #track #train .tab .container {
+  height: 100%;
+}
+#masteriser #track #train .question .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#masteriser #track #train .question .container .options button {
+  min-width: 15rem;
+  margin: 1rem 3vw;
+  padding: 1rem 4rem;
+  color: #200944;
+  text-decoration: none;
+  background-color: #FFFFFF;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 300ms cubic-bezier(0.8, 0, 0.2, 1);
+}
+#masteriser #track #train .question .container .options button:hover {
+  color: #FFFFFF;
+  background-color: #99A0E0;
+  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.125);
 }
 
 .checkout {
@@ -1718,7 +1757,7 @@ body main {
   transition: all 300ms cubic-bezier(0.8, 0, 0.2, 1);
 }
 #contact .container > form > div input[type=submit]:hover {
-  color: #200944;
+  color: #FFFFFF;
   background-color: #99A0E0;
   box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.125);
 }
@@ -1814,7 +1853,7 @@ body main {
   transition: all 300ms cubic-bezier(0.8, 0, 0.2, 1);
 }
 #login .container > div .input-container input[type=submit]:hover {
-  color: #200944;
+  color: #FFFFFF;
   background-color: #99A0E0;
   box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.125);
 }

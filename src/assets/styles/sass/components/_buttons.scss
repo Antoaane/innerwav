@@ -1,4 +1,4 @@
-@mixin btn-sm($color : $dark, $bg : $light, $hover : $primary, $colorHover : $color){
+@mixin btn-sm($color : $dark, $bg : $light, $hover : $primary, $colorHover : $light){
     padding: 0.25rem 1rem;
 
     color: $color;
@@ -18,7 +18,7 @@
     }
 }
 
-@mixin btn-md($color : $dark, $bg : $light, $hover : $primary, $colorHover: $color){
+@mixin btn-md($color : $dark, $bg : $light, $hover : $primary, $colorHover: $light){
     padding: 0.5rem 2rem;
 
     color: $color;
@@ -27,6 +27,28 @@
     background-color: $bg;
     border-radius: $rounded-md;
     border: none;
+
+    cursor: pointer;
+    @include transition;
+
+    &:hover {
+        color: $colorHover;
+        background-color: $hover;
+        @include ghost-shadow;
+    }
+}
+
+@mixin btn-lg($color : $dark, $bg : $light, $hover : $primary, $colorHover: $light){
+    padding: 1rem 4rem;
+
+    color: $color;
+    text-decoration: none;
+    
+    background-color: $bg;
+    border-radius: $rounded-md;
+    border: none;
+
+    @include btn-medium;
 
     cursor: pointer;
     @include transition;

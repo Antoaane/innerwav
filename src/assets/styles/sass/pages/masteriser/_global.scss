@@ -1,10 +1,46 @@
 #masteriser {
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
+    padding: 5rem 0;
 
-    .container {
-        margin: 0 auto;
-        padding-top: 5rem;
+
+    #track {
+        max-width: fit-content;
+        overflow-x: hidden;
         height: 100%;
+
+        #train {
+            width: max-content;
+            display: flex;
+            height: 100%;
+
+            .tab {
+                width: calc(100vw - 10px);
+                height: 100%;
+
+                .container {
+                    height: 100%;
+                }
+            }
+
+            .question {
+
+                .container {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    .options {
+
+                        button {
+                            min-width: 15rem;
+                            margin: 1rem 3vw;
+                            @include btn-lg;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
