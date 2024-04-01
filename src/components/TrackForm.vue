@@ -6,11 +6,10 @@
 
     const apiUrl = import.meta.env.VITE_API_URL;
     axios.defaults.withCredentials = true;
+    const orderId = '6e6371d0-33cd-4460-9cac-5632de3faa6b';
 
     const specificReference = ref('');
     const formData = ref(new FormData());
-
-    const orderId = '6e6371d0-33cd-4460-9cac-5632de3faa6b';
 
     function getSpecificReference(e) {
         specificReference.value = e;

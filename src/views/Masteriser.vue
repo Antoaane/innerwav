@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, defineComponent } from 'vue';
 import CheckoutSection from './MasteringSections/CheckoutSection.vue'
 import QuestionsComponent from './MasteringSections/QuestionsComponent.vue';
 
@@ -35,7 +35,9 @@ function scrollPrev() {
 
         <div id="track">
             <div id="train">
-                <QuestionsComponent />
+                <QuestionsComponent 
+                    @answered="scrollNext"
+                />
                 <div class="tab">
                     <div class="container">
                         <CheckoutSection />
