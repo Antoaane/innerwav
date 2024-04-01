@@ -1,14 +1,18 @@
 <script setup>
-import { ref } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 import axios from 'axios';
-import { defineEmits } from 'vue';
-
-const emit = defineEmits(['answered']);
 
 const apiUrl = import.meta.env.VITE_API_URL;
 axios.defaults.withCredentials = true;
-const orderId = '6e6371d0-33cd-4460-9cac-5632de3faa6b';
 
+const props = defineProps({
+    orderId: {
+        type: String,
+        required: true
+    }
+});
+
+const emit = defineEmits(['answered']);
 async function update(field, type) {
     emit('answered');
     
@@ -19,7 +23,7 @@ async function update(field, type) {
 
     try {
         await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
-        const response = await axios.patch(`${apiUrl}/api/order/update/${orderId}`,
+        const response = await axios.patch(`${apiUrl}/api/order/update/${props.orderId}`,
             data,
             {
                 headers: {

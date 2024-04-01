@@ -4,6 +4,13 @@
     import TextInput from '../../components/TextInput.vue';
     import TrackForm from '../../components/TrackForm.vue';
 
+    const props = defineProps({
+        orderId: {
+            type: String,
+            required: true
+        }
+    });
+
     const coverImage = ref([]);
     const albumName = ref('');
     const globalReference = ref('');
@@ -115,6 +122,7 @@
             <div class="tracks">
                 <div v-for="track in tracks" :key="track">
                     <TrackForm 
+                        :orderId="props.orderId"
                         :ref="setTrackRef"
                     />
                     <button

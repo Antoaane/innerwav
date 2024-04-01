@@ -1,9 +1,15 @@
 <script setup>
-import { ref, defineComponent } from 'vue';
+import { ref } from 'vue';
+import axios from 'axios';
+
 import CheckoutSection from './MasteringSections/CheckoutSection.vue'
-import QuestionsComponent from './MasteringSections/QuestionsComponent.vue';
+import QuestionsSection from './MasteringSections/QuestionsSection.vue';
+
+const apiUrl = import.meta.env.VITE_API_URL;
+axios.defaults.withCredentials = true;
 
 const scrollLevel = ref(0);
+const orderId = ref('');
 
 function scrollNext() {
     scrollLevel.value = scrollLevel.value + window.innerWidth;
@@ -24,23 +30,54 @@ function scrollPrev() {
     });
 }
 
+
+async function startNewOrder() {
+    console.log(localStorage.getItem('token'));
+
+    try {
+        await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
+        console.log('csrf-ok');
+        const response = await axios.post(`${apiUrl}/api/order/start`, {},
+            {
+                headers: {
+                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                    'Accept': 'application/json',
+                }
+            }
+        );
+        console.log(response);
+        orderId.value = response.data.order;
+        scrollNext();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 </script>
 
 <template>
     <div id="masteriser">
 
-        <h1 class="absolute -z-10 opacity-0">Masteriser</h1>
-
         <div class="bg"></div>
 
         <div id="track">
             <div id="train">
-                <QuestionsComponent 
+                <div class="tab">
+                    <div class="container">
+                        <h1>Commander un master, c'est très simple</h1>
+                        <p>Vous êtes sur le point de masteriser votre projet musical. Pour cela, nous avons besoin de quelques informations.</p>
+                        <button @click="startNewOrder()">C'est parti !</button>
+                    </div>
+                </div>
+                <QuestionsSection 
+                    :orderId="orderId"
                     @answered="scrollNext"
                 />
                 <div class="tab">
                     <div class="container">
-                        <CheckoutSection />
+                        <CheckoutSection 
+                            :orderId="orderId"
+                        />
                     </div>
                 </div>
             </div>

@@ -6,7 +6,12 @@
 
     const apiUrl = import.meta.env.VITE_API_URL;
     axios.defaults.withCredentials = true;
-    const orderId = '6e6371d0-33cd-4460-9cac-5632de3faa6b';
+    const props = defineProps({
+        orderId: {
+            type: String,
+            required: true
+        }
+    });
 
     const specificReference = ref('');
     const formData = ref(new FormData());
@@ -26,7 +31,7 @@
 
         try {
             await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
-            const response = await axios.post(`${apiUrl}/api/order/upload/${orderId}`,
+            const response = await axios.post(`${apiUrl}/api/order/upload/${props.orderId}`,
                 formData.value,
                 {
                     headers: {
