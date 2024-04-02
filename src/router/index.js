@@ -1,11 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Contact from '../views/Contact.vue'
+import Login from '../views/Login.vue'
 import Masteriser from '../views/Masteriser.vue'
+import Checkout from '../views/Checkout.vue'
 import Account from '../views/Account.vue'
 import AccountInfos from '../views/AccountSections/PersonalInfos.vue'
 import Orders from '../views/AccountSections/Orders.vue'
-import Contact from '../views/Contact.vue'
-import Login from '../views/Login.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,9 +17,25 @@ const router = createRouter({
       component: Home
     },
     {
+      path: '/contact',
+      name: 'contact',
+      component: Contact
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
       path: '/masteriser',
       name: 'masteriser',
       component: Masteriser
+    },
+    {
+      path: '/checkout/:id',
+      name: 'checkout',
+      component: Checkout,
+      props: true
     },
     {
       path: '/account',
@@ -40,16 +57,6 @@ const router = createRouter({
           component: Orders,
         }
       ],
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: Contact
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: Login
     }
   ]
 })

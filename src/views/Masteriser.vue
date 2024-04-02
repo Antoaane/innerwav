@@ -2,7 +2,6 @@
 import { ref } from 'vue';
 import axios from 'axios';
 
-import CheckoutSection from './MasteringSections/CheckoutSection.vue'
 import QuestionsSection from './MasteringSections/QuestionsSection.vue';
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -73,13 +72,6 @@ async function startNewOrder() {
                     :orderId="orderId"
                     @answered="scrollNext"
                 />
-                <div class="tab">
-                    <div class="container">
-                        <CheckoutSection 
-                            :orderId="orderId"
-                        />
-                    </div>
-                </div>
             </div>
         </div>
 

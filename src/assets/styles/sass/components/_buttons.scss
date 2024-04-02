@@ -56,7 +56,9 @@
     &:hover {
         color: $colorHover;
         background-color: $hover;
-        @include ghost-shadow;
+        transform: translateY(-0.5rem);
+
+        @include soft-shadow;
     }
 }
 
