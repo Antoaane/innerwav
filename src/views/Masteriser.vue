@@ -8,8 +8,13 @@ import UploadSection from './MasteringSections/UploadSection.vue';
 const apiUrl = import.meta.env.VITE_API_URL;
 axios.defaults.withCredentials = true;
 
-const scrollLevel = ref(0);
 const orderId = ref('');
+const uploadSection = ref(null);
+const scrollLevel = ref(0);
+
+function setUploadSection(el) {
+    uploadSection.value = el;
+}
 
 function scrollNext() {
     scrollLevel.value = scrollLevel.value + window.innerWidth;
@@ -18,6 +23,8 @@ function scrollNext() {
         left: scrollLevel.value,
         behavior: 'smooth'
     });
+
+    triggerUploadSection();
 }
 function scrollPrev() {
     if (scrollLevel.value > 0) {
@@ -51,6 +58,10 @@ async function startNewOrder() {
     }
 }
 
+function triggerUploadSection() {
+    uploadSection.value.getOrderInfos();
+}
+
 </script>
 
 <template>
@@ -72,6 +83,7 @@ async function startNewOrder() {
                     @answered="scrollNext"
                 />
                 <UploadSection 
+                    :ref="setUploadSection"
                     :orderId="orderId"
                 />
             </div>

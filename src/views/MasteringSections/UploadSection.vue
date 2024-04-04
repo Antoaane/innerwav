@@ -1,5 +1,6 @@
 <script setup>
     import { ref } from 'vue';
+    import axios from 'axios';
     import FileInput from '../../components/FileInput.vue';
     import TextInput from '../../components/TextInput.vue';
     import TrackForm from '../../components/TrackForm.vue';
@@ -10,6 +11,13 @@
             required: true
         }
     });
+    const order = ref([{
+        project_type : '',
+        file_type : '',
+        support : ''
+    }]);
+
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     const coverImage = ref([]);
     const albumName = ref('');
@@ -17,7 +25,31 @@
 
     const tracks = ref([0]);
 
-    const childComponents = ref([]);
+    const trackFormComponents = ref([]);
+
+
+    // ------------------------ GET ORDER INFOS ------------------------
+    defineExpose({ getOrderInfos })
+    async function getOrderInfos() {
+        try {
+            await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
+            const response = await axios.get(`${apiUrl}/api/order/${props.orderId}`,
+                {
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                        'Accept': 'application/json'
+                    }
+                }
+            );
+            console.log(response);
+            order.value.project_type = response.data.order.project_type;
+            order.value.file_type = response.data.order.file_type;
+            order.value.support = response.data.order.support;
+            console.log(order);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
     // ------------------------ GET ALBUM INFOS ------------------------
@@ -54,14 +86,14 @@
 
     // -------------------------- PUSH TRACKS --------------------------
     function setTrackRef(el) {
-        if (el && !childComponents.value.includes(el)) {
-            childComponents.value.push(el)
+        if (el && !trackFormComponents.value.includes(el)) {
+            trackFormComponents.value.push(el)
         }
     }
 
     async function pushTracks() {
-        for (const childComponent of childComponents.value) {
-            await childComponent.sendData()
+        for (const trackFormComponent of trackFormComponents.value) {
+            await trackFormComponent.sendData()
             console.log('pushed');
         }
     }

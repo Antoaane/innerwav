@@ -11,6 +11,7 @@ const logged = ref();
 if (localStorage.getItem('token')) {
   logged.value = true;
 } else {
+  console.log('no token');
   logged.value = false;
 }
 

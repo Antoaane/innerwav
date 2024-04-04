@@ -10,15 +10,15 @@ const email = ref('');
 const password = ref('');
 // const passwordConfirm = ref('');
 
-function sendData() {
-    console.log(email);
-    console.log(password);
+async function sendData() {
+    // console.log(email);
+    // console.log(password);
 
     const formData = new FormData();
     formData.append('email', email.value);
     formData.append('password', password.value);
 
-    axios.post(`${apiUrl}/api/login`, formData, {
+    await axios.post(`${apiUrl}/api/login`, formData, {
         headers: {
             'Content-Type': 'multipart/form-data',
             'Accept': 'application/json'
@@ -29,6 +29,7 @@ function sendData() {
         alert('Identifiants incorrects');
     })
     .then(response => {
+        // console.log(response.data.access_token);
         localStorage.setItem('token', response.data.access_token);
         window.history.back();
     })

@@ -13,7 +13,6 @@ const props = defineProps({
 
 const emit = defineEmits(['answered']);
 async function update(field, type) {
-    emit('answered');
     
     const data = {
         "fieldsToUpdate": [field],
@@ -33,6 +32,7 @@ async function update(field, type) {
             }
         );
         console.log(response);
+        emit('answered');
     } catch (error) {
         console.log(error);
     }
