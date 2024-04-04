@@ -1,5 +1,5 @@
 <script setup>
-    import { ref, defineExpose } from 'vue';
+    import { ref } from 'vue';
     import axios from 'axios';
     import FileInput from './FileInput.vue';
     import TextInput from './TextInput.vue';

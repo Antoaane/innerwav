@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import axios from 'axios';
 
 import QuestionsSection from './MasteringSections/QuestionsSection.vue';
+import UploadSection from './MasteringSections/UploadSection.vue';
 
 const apiUrl = import.meta.env.VITE_API_URL;
 axios.defaults.withCredentials = true;
@@ -31,8 +32,6 @@ function scrollPrev() {
 
 
 async function startNewOrder() {
-    console.log(localStorage.getItem('token'));
-
     try {
         await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
         console.log('csrf-ok');
@@ -71,6 +70,9 @@ async function startNewOrder() {
                 <QuestionsSection 
                     :orderId="orderId"
                     @answered="scrollNext"
+                />
+                <UploadSection 
+                    :orderId="orderId"
                 />
             </div>
         </div>
