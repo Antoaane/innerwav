@@ -7,9 +7,19 @@
     const apiUrl = import.meta.env.VITE_API_URL;
     axios.defaults.withCredentials = true;
     const props = defineProps({
-        orderId: {
+        orderId : {
             type: String,
             required: true
+        },
+        fileType : {
+            type: String,
+            required: true,
+            default: 'stems'
+        },
+        support : {
+            type: String,
+            required: true,
+            default: 'str'
         }
     });
 
@@ -49,11 +59,44 @@
 </script>
 
 <template>
-    <div class="track-form-al-ep">
+    <div v-if="fileType === 'stems' && support === 'strcd'" class="track-form-stems-strcd">
         <FileInput 
+            v-if="props.support === 'strcd'"
             :placeholder="'Ajouter les metadatas'"
             @updateFiles="addFileToFormData('metadata', $event)"
         />
+        <TextInput 
+            :label="'Référence musicale spécifique :'"
+            :type="'textarea'"
+            :max="true"
+            :aspect="'cover'"
+            @updateText="getSpecificReference"
+        />
+        <FileInput 
+            :placeholder="'Ajouter la voix/mélodie'"
+            :accept="'.wav, .mp3'"
+            @updateFiles="addFileToFormData('voice', $event)"
+        />
+        <FileInput 
+            :placeholder="'Ajouter l\'instrumentale'"
+            :accept="'.wav, .mp3'"
+            @updateFiles="addFileToFormData('prod', $event)"
+        />
+    </div>
+
+    <div v-else-if="fileType === 'stems' && support === 'str'" class="track-form-stems-str">
+        <div>
+            <TextInput 
+                :label="'Nom du titre :'"
+                :type="'text'"
+                @updateText="getSpecificReference"
+            />
+            <TextInput 
+                :label="'Nom de(s) (l\')artiste(s) :'"
+                :type="'text'"
+                @updateText="getAlbumName"
+            />
+        </div>
         <TextInput 
             :label="'Référence musicale spécifique :'"
             :type="'textarea'"

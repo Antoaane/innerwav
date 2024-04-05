@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios';
+import { loadingState } from '../states/loadingState';
 
 import QuestionsSection from './MasteringSections/QuestionsSection.vue';
 import UploadSection from './MasteringSections/UploadSection.vue';
@@ -39,9 +40,10 @@ function scrollPrev() {
 
 
 async function startNewOrder() {
+    loadingState.value = true;
     try {
         await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
-        console.log('csrf-ok');
+        // console.log('csrf-ok');
         const response = await axios.post(`${apiUrl}/api/order/start`, {},
             {
                 headers: {
@@ -55,6 +57,8 @@ async function startNewOrder() {
         scrollNext();
     } catch (error) {
         console.log(error);
+    } finally {
+        loadingState.value = false;
     }
 }
 

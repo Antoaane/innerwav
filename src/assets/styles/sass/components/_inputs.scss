@@ -9,6 +9,7 @@
 
     .drag-drop-area {
         width: 100%;
+        min-height : 5rem;
         flex-grow: 1;
 
         display: flex;
@@ -129,7 +130,7 @@
     }
 
     input {
-        padding: 0 1rem;
+        padding: 0.35rem 1rem;
     }
 
     textarea {

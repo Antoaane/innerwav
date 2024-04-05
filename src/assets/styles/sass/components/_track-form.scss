@@ -1,4 +1,4 @@
-.track-form-al-ep {
+.track-form-stems-strcd {
     height: 10rem;
     padding: $spacing;
     gap: $spacing;
@@ -23,5 +23,37 @@
 
     &>:nth-child(4) {   // FILE 2
         grid-column: span 4 / span 4;
+    }
+}
+
+.track-form-stems-str {
+    height: max-content;
+    padding: $spacing;
+    gap: $spacing;
+
+    display: grid;
+    grid-template-columns: repeat(20, minmax(0, 1fr));
+
+    @include glass('middle');
+    border-radius: $rounded-xl;
+
+    &>:nth-child(1) {   // TITRE & ARTISTE
+        grid-column: span 20 / span 20;
+
+        &>:nth-child(1) {   // TITRE
+            margin-bottom: $spacing;
+        }
+    } 
+    
+    &>:nth-child(2) {   // TRACK REFS
+        grid-column: span 10 / span 10;
+    }
+
+    &>:nth-child(3) {   // FILE 1
+        grid-column: span 5 / span 5;
+    }
+
+    &>:nth-child(4) {   // FILE 2
+        grid-column: span 5 / span 5;
     }
 }

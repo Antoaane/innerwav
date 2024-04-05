@@ -43,15 +43,6 @@ async function update(field, type) {
     }
 }
 
-function activeLoading() {
-    loadingState.value = true;
-
-    setTimeout(() => {
-        loadingState.value = false;
-    }, 2000);
-    console.log(loadingState.value);
-}
-
 </script>
 
 <template>
@@ -68,7 +59,7 @@ function activeLoading() {
                 <button @click="update('project_type', 'album')">Album</button>
             </div>
             <div class="spec-2">
-                <div><button @click="activeLoading()">Loading</button></div>
+                <div></div>
                 <div></div>
                 <div></div>
             </div>

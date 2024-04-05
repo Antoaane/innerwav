@@ -139,6 +139,12 @@
 
                 <div class="tracks">
                     <div v-for="track in tracks" :key="track">
+                        <!-- <TrackForm 
+                            :orderId="props.orderId"
+                            :fileType="order.value.file_type"
+                            :support="order.value.support"
+                            :ref="setTrackRef"
+                        /> -->
                         <TrackForm 
                             :orderId="props.orderId"
                             :ref="setTrackRef"
