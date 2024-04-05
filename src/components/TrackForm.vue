@@ -14,7 +14,7 @@
         fileType : {
             type: String,
             required: true,
-            default: 'stems'
+            default: 'multi'
         },
         support : {
             type: String,
@@ -80,13 +80,33 @@
         <FileInput 
             :placeholder="'Ajouter la voix/mélodie'"
             :accept="'.wav, .mp3'"
-            :multiple="true"
             @updateFiles="addFileToFormData('voice', $event)"
         />
         <FileInput 
             :placeholder="'Ajouter l\'instrumentale'"
             :accept="'.wav, .mp3'"
             @updateFiles="addFileToFormData('prod', $event)"
+        />
+    </div>
+
+    <div v-else-if="fileType === 'multi' && support === 'strcd'" class="track-form-multi-strcd">
+        <FileInput 
+            v-if="props.support === 'strcd'"
+            :placeholder="'Ajouter les metadatas'"
+            @updateFiles="addFileToFormData('metadata', $event)"
+        />
+        <TextInput 
+            :label="'Référence musicale spécifique :'"
+            :type="'textarea'"
+            :max="true"
+            :aspect="'cover'"
+            @updateText="getSpecificReference"
+        />
+        <FileInput 
+            :placeholder="'Ajouter le(s) fichier(s) audio'"
+            :accept="'.wav, .mp3'"
+            :multiple="true"
+            @updateFiles="addFileToFormData('voice', $event)"
         />
     </div>
 

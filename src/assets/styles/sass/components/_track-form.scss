@@ -26,6 +26,30 @@
     }
 }
 
+.track-form-multi-strcd {
+    height: 10rem;
+    padding: $spacing;
+    gap: $spacing;
+
+    display: grid;
+    grid-template-columns: repeat(20, minmax(0, 1fr));
+
+    @include glass('middle');
+    border-radius: $rounded-xl;
+
+    &>:nth-child(1) {   // METADATAS
+        grid-column: span 4 / span 4;
+    } 
+    
+    &>:nth-child(2) {   // TRACK REFS
+        grid-column: span 12 / span 12;
+    }
+
+    &>:nth-child(3) {   // FILE 1
+        grid-column: span 4 / span 4;
+    }
+}
+
 .track-form-stems-str {
     height: max-content;
     padding: $spacing;
