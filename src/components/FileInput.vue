@@ -96,9 +96,14 @@
         
     };
 
-    const removeFile = (e, fileName) => {
+    const removeFiles = (e, fileName = '') => {
         e.stopPropagation();
-        uploadedFiles.value = uploadedFiles.value.filter(file => file.name !== fileName);
+
+        if (props.multiple) {
+            uploadedFiles.value = uploadedFiles.value.filter(file => file.name !== fileName);
+        } else {
+            uploadedFiles.value = null;
+        }
     };
 
     const truncateText = (text, maxLength) => {
@@ -125,7 +130,7 @@
                 <ul v-if="uploadedFiles.length">
                     <li v-for="file in uploadedFiles" :key="file.name">
                         {{ truncateText(file.name, 14) }}
-                        <button @click="removeFile($event, file.name)">-</button>
+                        <button @click="removeFiles($event, file.name)">-</button>
                     </li>
                 </ul>
                 <p v-else>
@@ -136,7 +141,7 @@
                 <ul v-if="uploadedFiles">
                     <li>
                         {{ truncateText(uploadedFiles.name, 14) }}
-                        <button @click="uploadedFiles = null">-</button>
+                        <button @click="removeFiles($event)">-</button>
                     </li>
                 </ul>
                 <p v-else>{{ placeholder }}</p>

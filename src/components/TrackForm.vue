@@ -19,7 +19,7 @@
         support : {
             type: String,
             required: true,
-            default: 'str'
+            default: 'strcd'
         }
     });
 
@@ -80,6 +80,7 @@
         <FileInput 
             :placeholder="'Ajouter la voix/mélodie'"
             :accept="'.wav, .mp3'"
+            :multiple="true"
             @updateFiles="addFileToFormData('voice', $event)"
         />
         <FileInput 
