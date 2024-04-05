@@ -57,15 +57,45 @@ body {
     justify-content: center;
     align-items: center;
 
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0.3);
 
-    @include transition-big;
+    &.sleeping {
+        animation: fadeOutOverlay 0.5s forwards;
+    }
 
     &.active {
+        animation: fadeInOverlay 0.5s forwards;
+    }
+}
+
+@keyframes fadeInOverlay {
+    0% {
+        z-index: -9999;
+        opacity: 0;
+    }
+    1% {
+        z-index: 9999;
+        opacity: 0;
+    }
+
+    100% {
         z-index: 9999;
         opacity: 1;
+    }
+}
 
-        @include transition-big;
+@keyframes fadeOutOverlay {
+    0% {
+        z-index: 9999;
+        opacity: 1;
+    }
+    99% {
+        z-index: 9999;
+        opacity: 0;
+    }
+
+    100% {
+        z-index: -9999;
+        opacity: 0;
     }
 }

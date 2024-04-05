@@ -44,11 +44,11 @@ async function update(field, type) {
 }
 
 function activeLoading() {
-    if (loadingState.value === true) {
+    loadingState.value = true;
+
+    setTimeout(() => {
         loadingState.value = false;
-    } else {
-        loadingState.value = true;
-    }
+    }, 2000);
     console.log(loadingState.value);
 }
 
