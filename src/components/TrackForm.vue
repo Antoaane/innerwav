@@ -23,11 +23,18 @@
         }
     });
 
-    const specificReference = ref('');
     const formData = ref(new FormData());
 
+    function getTrackName(e) {
+        formData.value.append('name', e);
+    }
+
+    function getArtistsNames(e) {
+        formData.value.append('artists', e);
+    }
+
     function getSpecificReference(e) {
-        specificReference.value = e;
+        formData.value.append('spec_ref', e);
     }
 
     function addFileToFormData(name, file) {
@@ -37,8 +44,6 @@
 
     defineExpose({ sendData })
     async function sendData() {
-        formData.value.append('spec_ref', specificReference.value);
-
         try {
             await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
             const response = await axios.post(`${apiUrl}/api/order/upload/${props.orderId}`,
@@ -89,12 +94,12 @@
             <TextInput 
                 :label="'Nom du titre :'"
                 :type="'text'"
-                @updateText="getSpecificReference"
+                @updateText="getTrackName"
             />
             <TextInput 
                 :label="'Nom de(s) (l\')artiste(s) :'"
                 :type="'text'"
-                @updateText="getAlbumName"
+                @updateText="getArtistsNames"
             />
         </div>
         <TextInput 
