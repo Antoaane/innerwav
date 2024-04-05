@@ -51,6 +51,7 @@
             });
         }
     }).render('#paypal-checkout');
+
 </script>
 
 <template>

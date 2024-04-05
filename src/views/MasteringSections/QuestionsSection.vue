@@ -1,4 +1,5 @@
 <script setup>
+import { loadingState } from '../../states/loadingState';
 import axios from 'axios';
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -11,9 +12,11 @@ const props = defineProps({
     }
 });
 
+
 const emit = defineEmits(['answered']);
 async function update(field, type) {
-    
+    loadingState.value = true;
+
     const data = {
         "fieldsToUpdate": [field],
         [field] : type
@@ -35,7 +38,18 @@ async function update(field, type) {
         emit('answered');
     } catch (error) {
         console.log(error);
+    } finally {
+        loadingState.value = false;
     }
+}
+
+function activeLoading() {
+    if (loadingState.value === true) {
+        loadingState.value = false;
+    } else {
+        loadingState.value = true;
+    }
+    console.log(loadingState.value);
 }
 
 </script>
@@ -54,7 +68,7 @@ async function update(field, type) {
                 <button @click="update('project_type', 'album')">Album</button>
             </div>
             <div class="spec-2">
-                <div></div>
+                <div><button @click="activeLoading()">Loading</button></div>
                 <div></div>
                 <div></div>
             </div>

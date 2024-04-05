@@ -17,14 +17,14 @@ function setUploadSection(el) {
 }
 
 function scrollNext() {
+    triggerUploadSection();
+
     scrollLevel.value = scrollLevel.value + window.innerWidth;
 
     document.getElementById('track').scrollTo({
         left: scrollLevel.value,
         behavior: 'smooth'
     });
-
-    triggerUploadSection();
 }
 function scrollPrev() {
     if (scrollLevel.value > 0) {

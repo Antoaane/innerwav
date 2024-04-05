@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import { RouterView } from 'vue-router';
+import { loadingState } from './states/loadingState';
+import LoadingOverlay from './components/LoadingOverlay.vue';
 
 import ArrowSvg from './components/svgs/ArrowSvg.vue';
 import ProfileSvg from './components/svgs/ProfileSvg.vue';
@@ -19,6 +21,7 @@ function disconnect() {
   localStorage.removeItem('token');
   window.location.href = '/';
 }
+
 
 function triggerMenu() {
   const menu = document.getElementById('menu');
@@ -295,4 +298,6 @@ function goToAccountByRedirect() {
   
   <footer>
   </footer>
+
+  <LoadingOverlay :isLoading="loadingState" />
 </template>
