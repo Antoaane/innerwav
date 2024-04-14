@@ -13,13 +13,13 @@
         },
         fileType : {
             type: String,
-            required: true,
-            default: 'multi'
+            // required: true,
+            default: 'stems'
         },
         support : {
             type: String,
-            required: true,
-            default: 'strcd'
+            // required: true,
+            default: 'str'
         }
     });
 
@@ -40,6 +40,10 @@
     function addFileToFormData(name, file) {
         formData.value.append(name, file);
         console.log(name, file);
+    }
+
+    function addMultipleFilesToFormData(files) {
+        formData.value.append('stems[]', files);
     }
 
     defineExpose({ sendData })
@@ -106,7 +110,7 @@
             :placeholder="'Ajouter le(s) fichier(s) audio'"
             :accept="'.wav, .mp3'"
             :multiple="true"
-            @updateFiles="addFileToFormData('voice', $event)"
+            @updateFiles="addMultipleFilesToFormData($event)"
         />
     </div>
 

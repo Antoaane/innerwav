@@ -43,7 +43,7 @@ async function startNewOrder() {
     loadingState.value = true;
     try {
         await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
-        // console.log('csrf-ok');
+        console.log('csrf-ok');
         const response = await axios.post(`${apiUrl}/api/order/start`, {},
             {
                 headers: {
