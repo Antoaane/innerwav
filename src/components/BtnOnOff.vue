@@ -13,7 +13,10 @@
 </script>
 
 <template>
-    <div class="btn-onoff">
-        <div @click="toggle()"></div>
+    <div
+        @click="toggle()" 
+        :class="{'btn-onoff' : true, 'active' : state === 'on'}"
+    >
+        <div></div>
     </div>
 </template>

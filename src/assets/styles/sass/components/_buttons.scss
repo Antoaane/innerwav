@@ -117,7 +117,7 @@
 
 .btn-bad {
     width: 100%;
-    height: 2rem;
+    height: 2.5rem;
 
     display: flex;
     justify-content: center;
@@ -138,20 +138,34 @@
 }
 
 .btn-onoff {
+    width: 100%;
     padding: 0.25rem;
-    display: flex;
-    justify-content: start;
-    align-items: center;
 
+    border-radius: $rounded-full !important;
     @include glass('bottom');
-    border-radius: $rounded-full;
+
+    @include transition;
 
     &>div {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 2rem;
+        height: 2rem;
 
-        background-color: $light;
+        transform: translateX(0);
+
+        background-color: rgba($light, 0.5);
         border-radius: $rounded-full;
+        border: 1px solid $light;
+
         @include transition;
+    }
+
+    &.active {
+        // @include glass('bottom', 0.30, $completed);
+
+        &>div {
+            // background-color: $completed;
+            background-color: $light;
+            transform: translateX(100%);
+        }
     }
 }

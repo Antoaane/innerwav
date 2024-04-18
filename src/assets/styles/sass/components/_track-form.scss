@@ -32,7 +32,8 @@
         justify-content: space-between;
 
         p {
-            
+            text-align: center;
+            @include label;
         }
     }
 }
