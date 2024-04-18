@@ -424,16 +424,16 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
   border-radius: 1.5rem;
 }
 .track-form-stems-strcd > :nth-child(1) {
-  grid-column: span 4/span 4;
+  grid-column: span 3/span 3;
 }
 .track-form-stems-strcd > :nth-child(2) {
-  grid-column: span 6/span 6;
+  grid-column: span 9/span 9;
 }
 .track-form-stems-strcd > :nth-child(3) {
-  grid-column: span 4/span 4;
+  grid-column: span 3/span 3;
 }
 .track-form-stems-strcd > :nth-child(4) {
-  grid-column: span 4/span 4;
+  grid-column: span 3/span 3;
 }
 .track-form-stems-strcd .option-panel {
   grid-column: span 2/span 2;
