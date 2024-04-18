@@ -3,6 +3,8 @@
     import axios from 'axios';
     import FileInput from './FileInput.vue';
     import TextInput from './TextInput.vue';
+    import BtnBad from './BtnBad.vue';
+    import BtnOnOff from './BtnOnOff.vue';
 
     const apiUrl = import.meta.env.VITE_API_URL;
     axios.defaults.withCredentials = true;
@@ -65,6 +67,10 @@
             console.log(error);
         }
     }
+
+    function deleteTrack() {
+        emit('deleteTrack');
+    }
 </script>
 
 <template>
@@ -91,6 +97,15 @@
             :accept="'.wav, .mp3'"
             @updateFiles="addFileToFormData('prod', $event)"
         />
+        <div class="option-panel">
+            <BtnBad
+                @click="deleteTrack()" 
+            />
+            <BtnOnOff />
+            <p>
+                STEMS
+            </p>
+        </div>
     </div>
 
     <div v-else-if="fileType === 'multi' && support === 'strcd'" class="track-form-multi-strcd">

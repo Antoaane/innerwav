@@ -29,7 +29,7 @@
                 }
 
                 .card {
-                    @include glass-low('bottom');
+                    @include glass('bottom', 0.20);
                     margin: 1.5rem 0;
 
                     table {

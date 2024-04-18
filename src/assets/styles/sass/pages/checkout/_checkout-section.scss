@@ -1,2 +1,110 @@
+.checkout {
+    height: 100%;
+    padding: 5rem 0;
 
+    &>.container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+
+        .upload-section {
+            grid-column: span 8 / span 8;
+
+            .general-infos {
+                margin-bottom: $spacing;
+
+                &>div {
+                    padding: $spacing;
+                    gap: $spacing;
+
+                    display: grid;
+                    grid-template-columns: repeat(10, minmax(0, 1fr));
+
+                    @include glass('middle');
+                    border-radius: $rounded-xl;
+
+                    &>.cover {
+                        grid-column: span 2 / span 2;
+                        background-color: $light;
+
+                        border-radius: $rounded-lg;
+
+                        .drag-drop-area {
+                            aspect-ratio: 1 / 1;
+                        }
+                    }
+
+                    &>.infos {
+                        grid-column: span 8 / span 8;
+
+                        display: flex;
+                        flex-direction: column;
+
+                        &>:nth-child(1) {
+                            margin-bottom: $spacing;
+                        }
+                    }
+                }
+            }
+
+            .tracks {
+                margin-bottom: $spacing;
+                
+                display: flex;
+                flex-direction: column;
+
+                &>div {
+                    margin-bottom: $spacing;
+                    position: relative;
+                }
+
+                &>:last-child {
+                    margin-bottom: 0;
+                }
+
+                .remove-track {
+                    position: absolute;
+                    top: 0;
+                    right: -2rem;
+                }
+            }
+
+            &>button {
+                width: 100%;
+
+                @include glass('middle');
+                border-radius: $rounded-xl;
+
+                font-size: 1.75rem;
+                line-height: 1.2;
+
+                @include transition;
+
+                &:hover {
+                    background-color: $primary;
+
+                    font-weight: 500;
+                    color: $soft;
+                }
+            }
+        }
+
+        .checkout-section {
+            height: 100%;
+            grid-column: span 4 / span 4;
+            padding: 3rem 0;
+
+            display: flex;
+            align-items: center;
+
+            #paypal-checkout {
+                min-width: 75%;
+                margin: 0 auto;
+                padding: 1.5rem;
+
+                @include glass('middle');
+                background: radial-gradient(100% 100% at 0% 50%, rgba(255, 255, 255, 0.60) 0%, rgba(255, 255, 255, 0.40) 100%);
+            }
+        }
+    }
+}
 

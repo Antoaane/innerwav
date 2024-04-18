@@ -128,7 +128,7 @@
 
                 overflow-y: auto;
 
-                @include glass-low('bottom');
+                @include glass('bottom', 0.20);
                 border-radius: $rounded-xl;
             }
         }

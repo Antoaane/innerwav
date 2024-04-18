@@ -87,28 +87,6 @@
                 background-color: $light;
                 border-radius: $rounded-md;
 
-                // &.open {
-                //     transform: scaleY(1);
-                //     height: auto;
-
-                //     .version-global {
-                //         // padding: $spacing;
-        
-                //         .global-version-infos {    
-                //             div {
-        
-                //                 p {
-                //                     margin: 0 $spacing;
-                //                 }
-                //             }
-                //         }
-        
-                //         .arrow {
-                //             // padding: 0 calc($spacing / 2) 0 calc($spacing * 1.5);
-                //         }
-                //     }
-                // }
-
                 .version-global {
                     padding: $spacing;
 
@@ -186,28 +164,6 @@
                     grid-template-columns: repeat(12, 1fr);
                     column-gap: calc($spacing * 2);
 
-                    // &.open {
-                    //     transform: scaleY(1);
-                    //     height: auto;
-
-                    //     .feedback {
-                    //         p {
-                    //             margin-bottom: $spacing;
-                    //         }
-        
-                    //         textarea {
-                    //             // padding: 0.5rem 1rem;
-                    //         }
-                    //     }
-        
-                    //     .edited {
-                            
-                    //         p:nth-child(1) {
-                    //             margin-bottom: $spacing;
-                    //         }
-                    //     }
-                    // }
-
                     .feedback {
                         display: flex;
                         flex-direction: column;
@@ -219,18 +175,6 @@
                             color: $dark;
                             margin-bottom: $spacing;
                         }
-
-                        // p:last-child {
-                        //     width: 100%;
-                        //     height: 100%;
-                        //     min-height: 5rem;
-                        //     padding: 0.5rem 1rem;
-
-                        //     color: $dark;
-                        //     border-radius: $rounded-md;
-
-                        //     background-color: darken($light, 7.5%);
-                        // }
 
                         textarea, p:last-child {
                             resize: none;

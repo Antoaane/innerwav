@@ -174,12 +174,6 @@
                                 :orderId="props.orderId"
                                 :ref="setTrackRef"
                             />
-                            <button
-                                class="remove-track"
-                                @click="deleteTrack(track)"
-                            >
-                                X
-                            </button>
                         </div>
                     </TransitionGroup>
                 </div>

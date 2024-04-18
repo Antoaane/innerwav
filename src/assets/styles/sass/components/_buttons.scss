@@ -114,3 +114,44 @@
         width: 100%;
     }
 }
+
+.btn-bad {
+    width: 100%;
+    height: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include glass('bottom', 0.50, $bad);
+    border-radius: $rounded-full;
+
+    @include transition;
+
+    path {
+        fill: $light;
+    }
+
+    &:hover {
+        background-color: $bad;
+    }
+}
+
+.btn-onoff {
+    padding: 0.25rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    @include glass('bottom');
+    border-radius: $rounded-full;
+
+    &>div {
+        width: 1.5rem;
+        height: 1.5rem;
+
+        background-color: $light;
+        border-radius: $rounded-full;
+        @include transition;
+    }
+}
