@@ -102,50 +102,54 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
 .orders-container .order-item .order-global .global-order-infos .arrow path {
   fill: #200944;
 }
-.orders-container .order-item .order-version {
+.orders-container .order-item > div {
+  overflow: hidden;
+  margin-bottom: -0.5rem;
+}
+.orders-container .order-item > div .order-version {
   margin-left: 2rem;
   margin-bottom: 0.5625rem;
   transform: scaleY(1);
   background-color: #FFFFFF;
   border-radius: 0.5rem;
 }
-.orders-container .order-item .order-version .version-global {
+.orders-container .order-item > div .order-version .version-global {
   padding: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
 }
-.orders-container .order-item .order-version .version-global .version-status {
+.orders-container .order-item > div .order-version .version-global .version-status {
   width: 15px;
   aspect-ratio: 1/1;
   margin-right: 0.75rem;
   background-color: #99A0E0;
   border-radius: 9999px;
 }
-.orders-container .order-item .order-version .version-global .version-status.obsolete {
+.orders-container .order-item > div .order-version .version-global .version-status.obsolete {
   background-color: #FF7A7A;
 }
-.orders-container .order-item .order-version .version-global .version-status.progressing {
+.orders-container .order-item > div .order-version .version-global .version-status.progressing {
   background-color: #ffd877;
 }
-.orders-container .order-item .order-version .version-global .version-status.completed {
+.orders-container .order-item > div .order-version .version-global .version-status.completed {
   background-color: #99F6C4;
 }
-.orders-container .order-item .order-version .version-global .version-status.finished {
+.orders-container .order-item > div .order-version .version-global .version-status.finished {
   background-color: #7dc6fb;
 }
-.orders-container .order-item .order-version .version-global .global-version-infos {
+.orders-container .order-item > div .order-version .version-global .global-version-infos {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.orders-container .order-item .order-version .version-global .global-version-infos div {
+.orders-container .order-item > div .order-version .version-global .global-version-infos div {
   display: flex;
   align-items: center;
 }
-.orders-container .order-item .order-version .version-global .global-version-infos div a {
+.orders-container .order-item > div .order-version .version-global .global-version-infos div a {
   padding: 0.25rem 1rem;
   color: #FFFFFF;
   text-decoration: none;
@@ -155,42 +159,42 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
   cursor: pointer;
   transition: all 300ms cubic-bezier(0.8, 0, 0.2, 1);
 }
-.orders-container .order-item .order-version .version-global .global-version-infos div a:hover {
+.orders-container .order-item > div .order-version .version-global .global-version-infos div a:hover {
   color: #FFFFFF;
   background-color: #99A0E0;
   box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.125);
 }
-.orders-container .order-item .order-version .version-global .global-version-infos div p {
+.orders-container .order-item > div .order-version .version-global .global-version-infos div p {
   margin: 0 0.75rem;
 }
-.orders-container .order-item .order-version .version-global .global-version-infos p {
+.orders-container .order-item > div .order-version .version-global .global-version-infos p {
   color: #200944;
 }
-.orders-container .order-item .order-version .version-global .arrow {
+.orders-container .order-item > div .order-version .version-global .arrow {
   padding: 0 0.375rem 0 1.125rem;
   transform: scale(0.75);
 }
-.orders-container .order-item .order-version .version-global .arrow path {
+.orders-container .order-item > div .order-version .version-global .arrow path {
   fill: #200944;
 }
-.orders-container .order-item .order-version .version-feedback {
+.orders-container .order-item > div .order-version .version-feedback {
   padding: 0.75rem;
   transform: scaleY(1);
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: 1.5rem;
 }
-.orders-container .order-item .order-version .version-feedback .feedback {
+.orders-container .order-item > div .order-version .version-feedback .feedback {
   display: flex;
   flex-direction: column;
   align-items: center;
   grid-column: span 6/span 6;
 }
-.orders-container .order-item .order-version .version-feedback .feedback p {
+.orders-container .order-item > div .order-version .version-feedback .feedback p {
   color: #200944;
   margin-bottom: 0.75rem;
 }
-.orders-container .order-item .order-version .version-feedback .feedback textarea, .orders-container .order-item .order-version .version-feedback .feedback p:last-child {
+.orders-container .order-item > div .order-version .version-feedback .feedback textarea, .orders-container .order-item > div .order-version .version-feedback .feedback p:last-child {
   resize: none;
   width: 100%;
   height: 100%;
@@ -200,16 +204,16 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
   border-radius: 0.5rem;
   background-color: #ececec;
 }
-.orders-container .order-item .order-version .version-feedback .edited {
+.orders-container .order-item > div .order-version .version-feedback .edited {
   display: flex;
   flex-direction: column;
   align-items: center;
   grid-column: span 6/span 6;
 }
-.orders-container .order-item .order-version .version-feedback .edited p {
+.orders-container .order-item > div .order-version .version-feedback .edited p {
   color: #200944;
 }
-.orders-container .order-item .order-version .version-feedback .edited p:nth-child(1) {
+.orders-container .order-item > div .order-version .version-feedback .edited p:nth-child(1) {
   margin-bottom: 0.75rem;
 }
 
@@ -1532,66 +1536,17 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   height: 100vh;
   padding: 5rem 0;
 }
-#masteriser #track {
-  max-width: fit-content;
-  overflow-x: hidden;
-  height: 100%;
-}
-#masteriser #track #train {
-  width: max-content;
+#masteriser > .container {
   display: flex;
-  height: 100%;
-}
-#masteriser #track #train .tab {
-  width: 100vw;
-  height: 100%;
-}
-#masteriser #track #train .tab .container {
-  height: 100%;
-}
-#masteriser #track #train .question .container {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
-#masteriser #track #train .question .container .options button {
-  min-width: 15rem;
-  margin: 1rem 3vw;
-  padding: 1rem 4rem;
-  color: #200944;
-  text-decoration: none;
-  background-color: #FFFFFF;
-  border-radius: 0.5rem;
-  border: none;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 300ms cubic-bezier(0.8, 0, 0.2, 1);
+#masteriser > .container > div {
+  width: 66.6666666667%;
 }
-#masteriser #track #train .question .container .options button:hover {
-  color: #FFFFFF;
-  background-color: #99A0E0;
-  transform: translateY(-0.5rem);
-  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.25);
-}
-
-.checkout {
-  height: 100%;
-  padding: 5rem 0;
-}
-.checkout > .container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-}
-.checkout > .container .upload-section {
-  grid-column: span 8/span 8;
-}
-.checkout > .container .upload-section .general-infos {
+#masteriser > .container > div .general-infos {
   margin-bottom: 0.75rem;
 }
-.checkout > .container .upload-section .general-infos > div {
+#masteriser > .container > div .general-infos > div {
   padding: 0.75rem;
   gap: 0.75rem;
   display: grid;
@@ -1603,40 +1558,36 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   background: radial-gradient(100% 100% at 0% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%);
   border-radius: 1.5rem;
 }
-.checkout > .container .upload-section .general-infos > div > .cover {
+#masteriser > .container > div .general-infos > div > .cover {
   grid-column: span 2/span 2;
   background-color: #FFFFFF;
   border-radius: 1rem;
 }
-.checkout > .container .upload-section .general-infos > div > .cover .drag-drop-area {
+#masteriser > .container > div .general-infos > div > .cover .drag-drop-area {
   aspect-ratio: 1/1;
 }
-.checkout > .container .upload-section .general-infos > div > .infos {
+#masteriser > .container > div .general-infos > div > .infos {
   grid-column: span 8/span 8;
   display: flex;
   flex-direction: column;
 }
-.checkout > .container .upload-section .general-infos > div > .infos > :nth-child(1) {
+#masteriser > .container > div .general-infos > div > .infos > :nth-child(1) {
   margin-bottom: 0.75rem;
 }
-.checkout > .container .upload-section .tracks {
+#masteriser > .container > div .tracks {
   margin-bottom: 0.75rem;
   display: flex;
   flex-direction: column;
 }
-.checkout > .container .upload-section .tracks > div {
+#masteriser > .container > div .tracks > div {
   margin-bottom: 0.75rem;
   position: relative;
+  overflow: hidden;
 }
-.checkout > .container .upload-section .tracks > :last-child {
+#masteriser > .container > div .tracks > :last-child {
   margin-bottom: 0;
 }
-.checkout > .container .upload-section .tracks .remove-track {
-  position: absolute;
-  top: 0;
-  right: -2rem;
-}
-.checkout > .container .upload-section > button {
+#masteriser > .container > div > button {
   width: 100%;
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
@@ -1648,19 +1599,19 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   line-height: 1.2;
   transition: all 300ms cubic-bezier(0.8, 0, 0.2, 1);
 }
-.checkout > .container .upload-section > button:hover {
+#masteriser > .container > div > button:hover {
   background-color: #99A0E0;
   font-weight: 500;
   color: #42305E;
 }
-.checkout > .container .checkout-section {
+#masteriser > .container .checkout-section {
   height: 100%;
   grid-column: span 4/span 4;
   padding: 3rem 0;
   display: flex;
   align-items: center;
 }
-.checkout > .container .checkout-section #paypal-checkout {
+#masteriser > .container .checkout-section #paypal-checkout {
   min-width: 75%;
   margin: 0 auto;
   padding: 1.5rem;

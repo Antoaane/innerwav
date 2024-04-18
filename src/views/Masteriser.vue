@@ -1,70 +1,132 @@
 <script setup>
-import { ref } from 'vue';
-import axios from 'axios';
-import { loadingState } from '../states/loadingState';
+    import { ref } from 'vue';
+    import axios from 'axios';
+    import FileInput from '../components/FileInput.vue';
+    import TextInput from '../components/TextInput.vue';
+    import TrackForm from '../components/TrackForm.vue';
 
-import QuestionsSection from './MasteringSections/QuestionsSection.vue';
-import UploadSection from './MasteringSections/UploadSection.vue';
-
-const apiUrl = import.meta.env.VITE_API_URL;
-axios.defaults.withCredentials = true;
-
-const orderId = ref('');
-const uploadSection = ref(null);
-const scrollLevel = ref(0);
-
-function setUploadSection(el) {
-    uploadSection.value = el;
-}
-
-function scrollNext() {
-    triggerUploadSection();
-
-    scrollLevel.value = scrollLevel.value + window.innerWidth;
-
-    document.getElementById('track').scrollTo({
-        left: scrollLevel.value,
-        behavior: 'smooth'
+    const props = defineProps({
+        orderId: {
+            type: String,
+            required: true
+        }
     });
-}
-function scrollPrev() {
-    if (scrollLevel.value > 0) {
-        scrollLevel.value = scrollLevel.value - window.innerWidth;
-    }
+    const order = ref([{
+        project_type : '',
+        file_type : '',
+        support : ''
+    }]);
 
-    document.getElementById('track').scrollTo({
-        left: scrollLevel.value,
-        behavior: 'smooth'
-    });
-}
+    const apiUrl = import.meta.env.VITE_API_URL;
+
+    const coverImage = ref([]);
+    const albumName = ref('');
+    const globalReference = ref('');
+
+    const tracks = ref([0]);
+
+    const trackFormComponents = ref([]);
 
 
-async function startNewOrder() {
-    loadingState.value = true;
-    try {
-        await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
-        console.log('csrf-ok');
-        const response = await axios.post(`${apiUrl}/api/order/start`, {},
-            {
-                headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
-                    'Accept': 'application/json',
+    // ------------------------ GET ORDER INFOS ------------------------
+    // defineExpose({ getOrderInfos })
+    // async function getOrderInfos() {
+    //     try {
+    //         await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
+    //         const response = await axios.get(`${apiUrl}/api/order/${props.orderId}`,
+    //             {
+    //                 headers: {
+    //                     'Authorization': 'Bearer ' + localStorage.getItem('token'),
+    //                     'Accept': 'application/json'
+    //                 }
+    //             }
+    //         );
+    //         console.log(response);
+    //         order.value.project_type = response.data.order.project_type;
+    //         order.value.file_type = response.data.order.file_type;
+    //         order.value.support = response.data.order.support;
+    //         console.log(order);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
+
+
+    // ------------------------ SET ORDER INFOS ------------------------
+    async function update(field, type) {
+        loadingState.value = true;
+
+        const data = {
+            "fieldsToUpdate": [field],
+            [field] : type
+        };
+
+        try {
+            await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
+            const response = await axios.patch(`${apiUrl}/api/order/update/${props.orderId}`,
+                data,
+                {
+                    headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }
                 }
-            }
-        );
-        console.log(response);
-        orderId.value = response.data.order;
-        scrollNext();
-    } catch (error) {
-        console.log(error);
-    } finally {
-        loadingState.value = false;
+            );
+            console.log(response);
+            emit('answered');
+        } catch (error) {
+            console.log(error);
+        } finally {
+            loadingState.value = false;
+        }
     }
-}
 
-function triggerUploadSection() {
-    uploadSection.value.getOrderInfos();
-}
+    // ------------------------ GET ALBUM INFOS ------------------------
+    function getCoverImage(e) {
+        for (let i = 0; i < e.length; i++) {
+            coverImage.value.push(e[i]);
+        }
+    }
+
+    function getAlbumName(e) {
+        albumName.value = e;
+    }
+
+    function getGlobalReference(e) {
+        globalReference.value = e;
+    }
+
+
+    // ---------------------- HANDLE TRACK NUMBER ----------------------
+    function addTrack(n = 0) {
+        if (!tracks.value.includes(tracks.value.length + 1 + n)) {
+            tracks.value.push(tracks.value.length + 1 + n);
+            console.log(tracks.value);
+        } else {
+            addTrack(n + 1);
+        }
+    }
+
+    function deleteTrack(item) {
+        if (tracks.value.length > 1) {
+            tracks.value = tracks.value.filter(track => track !== item);
+        }
+    }
+
+    // -------------------------- PUSH TRACKS --------------------------
+    function setTrackRef(el) {
+        if (el && !trackFormComponents.value.includes(el)) {
+            trackFormComponents.value.push(el)
+        }
+    }
+
+    async function pushTracks() {
+        for (const trackFormComponent of trackFormComponents.value) {
+            await trackFormComponent.sendData()
+            console.log('pushed');
+        }
+    }
 
 </script>
 
@@ -73,29 +135,91 @@ function triggerUploadSection() {
 
         <div class="bg"></div>
 
-        <div id="track">
-            <div id="train">
-                <div class="tab">
-                    <div class="container">
-                        <h1>Commander un master, c'est très simple</h1>
-                        <p>Vous êtes sur le point de masteriser votre projet musical. Pour cela, nous avons besoin de quelques informations.</p>
-                        <button @click="startNewOrder()">C'est parti !</button>
-                    </div>
-                </div>
-                <QuestionsSection 
-                    :orderId="orderId"
-                    @answered="scrollNext"
-                />
-                <UploadSection 
-                    :ref="setUploadSection"
-                    :orderId="orderId"
-                />
-            </div>
-        </div>
+        <div class="container">
+            <div>
+                <div class="general-infos">
 
-        <div class="absolute z-50 bottom-20 left-1/2 -translate-x-1/2">
-            <button @click="scrollPrev" class="p-2 rounded-full shadow-lg">Prev</button>
-            <button @click="scrollNext" class="p-2 rounded-full shadow-lg">Next</button>
+                    <div>
+                        <div class="cover">
+                            <FileInput 
+                                :placeholder="'Ajouter une image'" 
+                                :accept="'image/*'"
+                                :multiple="true"
+                                :button="false"
+                                @updateFiles="getCoverImage"
+                            />
+                        </div>
+
+                        <div class="infos">
+                            <TextInput
+                                :label="'Nom de l\'album :'"
+                                :type="'text'"
+                                @updateText="getAlbumName"
+                            />
+                            <TextInput
+                                :label="' Référence musicale globale :'"
+                                :type="'textarea'"
+                                :max="true"
+                                @updateText="getGlobalReference"
+                            />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tracks">
+                    <TransitionGroup>
+                        <div v-for="track in tracks" :key="track">
+                            <TrackForm 
+                                :orderId="props.orderId"
+                                :ref="setTrackRef"
+                            />
+                            <button
+                                class="remove-track"
+                                @click="deleteTrack(track)"
+                            >
+                                X
+                            </button>
+                        </div>
+                    </TransitionGroup>
+                </div>
+
+                <button @click="addTrack()">+</button>
+                <br><br>
+                <button @click="pushTracks">Push</button>
+            </div>
         </div>
     </div>
 </template>
+
+<style scoped>
+    .track-enter-active,
+    .track-leave-active {
+        transition: all 0.5s;
+    }
+
+    .track-enter-from,
+    .track-leave-to {
+        max-height: 0;
+    }
+
+    .track-enter-to,
+    .track-leave-from {
+        max-height: 400px;
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+        transition: all 0.5s;
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+        max-height: 0;
+    }
+
+    .v-enter-to,
+    .v-leave-from {
+        max-height: 400px;
+    }
+</style>

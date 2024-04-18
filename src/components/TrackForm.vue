@@ -19,7 +19,7 @@
         support : {
             type: String,
             // required: true,
-            default: 'str'
+            default: 'strcd'
         }
     });
 

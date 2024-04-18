@@ -29,28 +29,58 @@
 
 
     // ------------------------ GET ORDER INFOS ------------------------
-    defineExpose({ getOrderInfos })
-    async function getOrderInfos() {
+    // defineExpose({ getOrderInfos })
+    // async function getOrderInfos() {
+    //     try {
+    //         await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
+    //         const response = await axios.get(`${apiUrl}/api/order/${props.orderId}`,
+    //             {
+    //                 headers: {
+    //                     'Authorization': 'Bearer ' + localStorage.getItem('token'),
+    //                     'Accept': 'application/json'
+    //                 }
+    //             }
+    //         );
+    //         console.log(response);
+    //         order.value.project_type = response.data.order.project_type;
+    //         order.value.file_type = response.data.order.file_type;
+    //         order.value.support = response.data.order.support;
+    //         console.log(order);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
+
+
+    // ------------------------ SET ORDER INFOS ------------------------
+    async function update(field, type) {
+        loadingState.value = true;
+
+        const data = {
+            "fieldsToUpdate": [field],
+            [field] : type
+        };
+
         try {
             await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
-            const response = await axios.get(`${apiUrl}/api/order/${props.orderId}`,
+            const response = await axios.patch(`${apiUrl}/api/order/update/${props.orderId}`,
+                data,
                 {
                     headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                        'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     }
                 }
             );
             console.log(response);
-            order.value.project_type = response.data.order.project_type;
-            order.value.file_type = response.data.order.file_type;
-            order.value.support = response.data.order.support;
-            console.log(order);
+            emit('answered');
         } catch (error) {
             console.log(error);
+        } finally {
+            loadingState.value = false;
         }
     }
-
 
     // ------------------------ GET ALBUM INFOS ------------------------
     function getCoverImage(e) {
@@ -138,24 +168,20 @@
                 </div>
 
                 <div class="tracks">
-                    <div v-for="track in tracks" :key="track">
-                        <!-- <TrackForm 
-                            :orderId="props.orderId"
-                            :fileType="order.value.file_type"
-                            :support="order.value.support"
-                            :ref="setTrackRef"
-                        /> -->
-                        <TrackForm 
-                            :orderId="props.orderId"
-                            :ref="setTrackRef"
-                        />
-                        <button
-                            class="remove-track"
-                            @click="deleteTrack(track)"
-                        >
-                            -
-                        </button>
-                    </div>
+                    <TransitionGroup name="track" tag="div" class="tracks-container">
+                        <div v-for="track in tracks" :key="track" class="track-item">
+                            <TrackForm 
+                                :orderId="props.orderId"
+                                :ref="setTrackRef"
+                            />
+                            <button
+                                class="remove-track"
+                                @click="deleteTrack(track)"
+                            >
+                                -
+                            </button>
+                        </div>
+                    </TransitionGroup>
                 </div>
 
                 <button @click="addTrack()">+</button>
@@ -165,3 +191,27 @@
         </div>
     </div>
 </template>
+
+<style scoped>
+    .v-enter-active,
+    .v-leave-active {
+        transition: all 0.5s;
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+        max-height: 0;
+    }
+
+    .v-enter-to,
+    .v-leave-from {
+        max-height: 400px;
+    }
+
+    .track-enter-active, .track-leave-active {
+        transition: opacity 0.5s;
+    }
+    .track-enter, .track-leave-to /* .track-fade-leave-active in <2.1.8 */ {
+        opacity: 0;
+    }
+</style>

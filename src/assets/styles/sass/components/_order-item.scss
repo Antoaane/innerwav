@@ -75,187 +75,191 @@
             }
         }
 
-        .order-version {
-            // height: 0px;
-            margin-left: 2rem;
-            margin-bottom: calc($spacing * 0.75);
-            transform: scaleY(1);
-
-            background-color: $light;
-            border-radius: $rounded-md;
-
-            // &.open {
-            //     transform: scaleY(1);
-            //     height: auto;
-
-            //     .version-global {
-            //         // padding: $spacing;
-    
-            //         .global-version-infos {    
-            //             div {
-    
-            //                 p {
-            //                     margin: 0 $spacing;
-            //                 }
-            //             }
-            //         }
-    
-            //         .arrow {
-            //             // padding: 0 calc($spacing / 2) 0 calc($spacing * 1.5);
-            //         }
-            //     }
-            // }
-
-            .version-global {
-                padding: $spacing;
-
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                cursor: pointer;
-
-                .version-status {
-                    width: 15px;
-                    aspect-ratio: 1 / 1;
-                    margin-right: $spacing;
-    
-                    background-color: $primary;
-                    border-radius: $rounded-full;
-                }
-    
-                .version-status.obsolete {
-                    background-color: $obsolete;
-                }
-    
-                .version-status.progressing {
-                    background-color: $progressing;
-                }
-    
-                .version-status.completed {
-                    background-color: $completed;
-                }
-    
-                .version-status.finished {
-                    background-color: $finished;
-                }
-
-                .global-version-infos {
-                    width: 100%;
-
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-
-                    div {
-                        display: flex;
-                        align-items: center;
-
-                        a {
-                            @include btn-sm($light, $dark, $primary);
-                        }
-
-                        p {
-                            margin: 0 $spacing;
-                        }
-                    }
-                    
-                    p {
-                        color: $dark;
-                    }
-                }
-
-                .arrow {
-                    padding: 0 calc($spacing / 2) 0 calc($spacing * 1.5);
-                    transform: scale(0.75);
-    
-                    path {
-                        fill: $dark;
-                    }
-                }
-            }
-
-            .version-feedback {
-                // height: 0;
-                padding: $spacing;
+        &>div {
+            overflow: hidden;
+            margin-bottom: -0.5rem;
+            
+            .order-version {
+                margin-left: 2rem;
+                margin-bottom: calc($spacing * 0.75);
                 transform: scaleY(1);
-                
-                display: grid;
-                grid-template-columns: repeat(12, 1fr);
-                column-gap: calc($spacing * 2);
+
+                background-color: $light;
+                border-radius: $rounded-md;
 
                 // &.open {
                 //     transform: scaleY(1);
                 //     height: auto;
 
-                //     .feedback {
-                //         p {
-                //             margin-bottom: $spacing;
+                //     .version-global {
+                //         // padding: $spacing;
+        
+                //         .global-version-infos {    
+                //             div {
+        
+                //                 p {
+                //                     margin: 0 $spacing;
+                //                 }
+                //             }
                 //         }
-    
-                //         textarea {
-                //             // padding: 0.5rem 1rem;
-                //         }
-                //     }
-    
-                //     .edited {
-                        
-                //         p:nth-child(1) {
-                //             margin-bottom: $spacing;
+        
+                //         .arrow {
+                //             // padding: 0 calc($spacing / 2) 0 calc($spacing * 1.5);
                 //         }
                 //     }
                 // }
 
-                .feedback {
+                .version-global {
+                    padding: $spacing;
+
                     display: flex;
-                    flex-direction: column;
                     align-items: center;
+                    justify-content: space-between;
+                    cursor: pointer;
 
-                    grid-column: span 6 / span 6;
-
-                    p {
-                        color: $dark;
-                        margin-bottom: $spacing;
+                    .version-status {
+                        width: 15px;
+                        aspect-ratio: 1 / 1;
+                        margin-right: $spacing;
+        
+                        background-color: $primary;
+                        border-radius: $rounded-full;
+                    }
+        
+                    .version-status.obsolete {
+                        background-color: $obsolete;
+                    }
+        
+                    .version-status.progressing {
+                        background-color: $progressing;
+                    }
+        
+                    .version-status.completed {
+                        background-color: $completed;
+                    }
+        
+                    .version-status.finished {
+                        background-color: $finished;
                     }
 
-                    // p:last-child {
-                    //     width: 100%;
-                    //     height: 100%;
-                    //     min-height: 5rem;
-                    //     padding: 0.5rem 1rem;
-
-                    //     color: $dark;
-                    //     border-radius: $rounded-md;
-
-                    //     background-color: darken($light, 7.5%);
-                    // }
-
-                    textarea, p:last-child {
-                        resize: none;
+                    .global-version-infos {
                         width: 100%;
-                        height: 100%;
-                        min-height: 5rem;
-                        padding: 0.5rem 1rem;
 
-                        color: $dark;
-                        border-radius: $rounded-md;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
 
-                        background-color: darken($light, 7.5%);
+                        div {
+                            display: flex;
+                            align-items: center;
+
+                            a {
+                                @include btn-sm($light, $dark, $primary);
+                            }
+
+                            p {
+                                margin: 0 $spacing;
+                            }
+                        }
+                        
+                        p {
+                            color: $dark;
+                        }
+                    }
+
+                    .arrow {
+                        padding: 0 calc($spacing / 2) 0 calc($spacing * 1.5);
+                        transform: scale(0.75);
+        
+                        path {
+                            fill: $dark;
+                        }
                     }
                 }
 
-                .edited {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
+                .version-feedback {
+                    // height: 0;
+                    padding: $spacing;
+                    transform: scaleY(1);
                     
-                    grid-column: span 6 / span 6;
-                    
-                    p {
-                        color: $dark;
+                    display: grid;
+                    grid-template-columns: repeat(12, 1fr);
+                    column-gap: calc($spacing * 2);
+
+                    // &.open {
+                    //     transform: scaleY(1);
+                    //     height: auto;
+
+                    //     .feedback {
+                    //         p {
+                    //             margin-bottom: $spacing;
+                    //         }
+        
+                    //         textarea {
+                    //             // padding: 0.5rem 1rem;
+                    //         }
+                    //     }
+        
+                    //     .edited {
+                            
+                    //         p:nth-child(1) {
+                    //             margin-bottom: $spacing;
+                    //         }
+                    //     }
+                    // }
+
+                    .feedback {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        grid-column: span 6 / span 6;
+
+                        p {
+                            color: $dark;
+                            margin-bottom: $spacing;
+                        }
+
+                        // p:last-child {
+                        //     width: 100%;
+                        //     height: 100%;
+                        //     min-height: 5rem;
+                        //     padding: 0.5rem 1rem;
+
+                        //     color: $dark;
+                        //     border-radius: $rounded-md;
+
+                        //     background-color: darken($light, 7.5%);
+                        // }
+
+                        textarea, p:last-child {
+                            resize: none;
+                            width: 100%;
+                            height: 100%;
+                            min-height: 5rem;
+                            padding: 0.5rem 1rem;
+
+                            color: $dark;
+                            border-radius: $rounded-md;
+
+                            background-color: darken($light, 7.5%);
+                        }
                     }
 
-                    p:nth-child(1) {
-                        margin-bottom: $spacing;
+                    .edited {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        
+                        grid-column: span 6 / span 6;
+                        
+                        p {
+                            color: $dark;
+                        }
+
+                        p:nth-child(1) {
+                            margin-bottom: $spacing;
+                        }
                     }
                 }
             }

@@ -67,12 +67,31 @@
                 </div>
             </div>
         </div>
-        <div v-if="isOrderActive === true">
-            <VersionItem 
-                v-for="version in order.versions"
-                :key="version.id"
-                :version="version"
-            />
-        </div>
+        <Transition>
+            <div v-if="isOrderActive === true">
+                <VersionItem 
+                    v-for="version in order.versions"
+                    :key="version.id"
+                    :version="version"
+                />
+            </div>
+        </Transition>
     </div>
 </template>
+
+<style scoped>
+    .v-enter-active,
+    .v-leave-active {
+        transition: all 0.5s;
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+        max-height: 0;
+    }
+
+    .v-enter-to,
+    .v-leave-from {
+        max-height: 400px;
+    }
+</style>
