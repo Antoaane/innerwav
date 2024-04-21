@@ -136,6 +136,9 @@
         <div class="bg"></div>
 
         <div class="container">
+
+            <h1></h1>
+
             <div>
                 <div class="general-infos">
 
@@ -188,21 +191,6 @@
 </template>
 
 <style scoped>
-    .track-enter-active,
-    .track-leave-active {
-        transition: all 0.5s;
-    }
-
-    .track-enter-from,
-    .track-leave-to {
-        max-height: 0;
-    }
-
-    .track-enter-to,
-    .track-leave-from {
-        max-height: 400px;
-    }
-
     .v-enter-active,
     .v-leave-active {
         transition: all 0.5s;

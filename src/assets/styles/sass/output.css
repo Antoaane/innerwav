@@ -432,11 +432,13 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
 .track-form-stems-strcd > :nth-child(2) {
   grid-column: span 13/span 13;
 }
-.track-form-stems-strcd > :nth-child(3) {
-  grid-column: span 5/span 5;
+.track-form-stems-strcd .stems {
+  grid-column: span 10/span 10;
+  display: flex;
+  gap: 0.75rem;
 }
-.track-form-stems-strcd > :nth-child(4) {
-  grid-column: span 5/span 5;
+.track-form-stems-strcd .stems > div {
+  flex-basis: 50%;
 }
 .track-form-stems-strcd .option-panel {
   grid-column: span 2/span 2;
@@ -1598,7 +1600,7 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
 
 #masteriser {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   padding: 5rem 0;
 }
 #masteriser > .container {

@@ -31,8 +31,8 @@
     function update(field, type) {
         console.log(field, type);
 
-        if (field === 'fileType' && type === true) {
-            fileType.value = 'stems';
+        if (field === 'fileType') {
+            fileType.value = type === true ? 'stems' : 'stereo';
         } else if (field === 'support' && type === true) {
             support.value = 'strcd';
         }
@@ -101,16 +101,27 @@
             :aspect="'cover'"
             @update-text="getSpecificReference"
         />
-        <FileInput 
-            :placeholder="'Ajouter la voix/mélodie'"
-            :accept="'.wav, .mp3'"
-            @update-files="addFileToFormData('voice', $event)"
-        />
-        <FileInput 
-            :placeholder="'Ajouter l\'instrumentale'"
-            :accept="'.wav, .mp3'"
-            @update-files="addFileToFormData('prod', $event)"
-        />
+        <TransitionGroup>
+            <div class="stems" v-if="fileType === 'stems'">
+                <FileInput
+                    :placeholder="'Ajouter la voix/mélodie'"
+                    :accept="'.wav, .mp3'"
+                    @update-files="addFileToFormData('voice', $event)"
+                />
+                <FileInput
+                    :placeholder="'Ajouter l\'instrumentale'"
+                    :accept="'.wav, .mp3'"
+                    @update-files="addFileToFormData('prod', $event)"
+                />
+            </div>
+            <div class="stereo" v-else>
+                <FileInput
+                    :placeholder="'Ajouter le fichier stéréo'"
+                    :accept="'.wav, .mp3'"
+                    @update-files="addFileToFormData('stereo', $event)"
+                />
+            </div>
+        </TransitionGroup>
         <div class="option-panel">
             <BtnBad
                 @click="triggerDelete()" 
@@ -156,3 +167,20 @@
         />
     </div> -->
 </template>
+
+<style scoped>
+    .v-enter-active,
+    .v-leave-active {
+        transition: all 0.5s;
+    }
+
+    .v-enter-from,
+    .v-leave-to {
+        max-width: 0;
+    }
+
+    .v-enter-to,
+    .v-leave-from {
+        max-width: 700px;
+    }
+</style>

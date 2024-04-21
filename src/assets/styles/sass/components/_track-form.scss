@@ -16,13 +16,16 @@
         grid-column: span 13 / span 13;
     }
 
-    &>:nth-child(3) {   // FILE 1
-        grid-column: span 5 / span 5;
-    }
+    .stems {
+        grid-column: span 10 / span 10;
+        display: flex;
+        gap: $spacing;
 
-    &>:nth-child(4) {   // FILE 2
-        grid-column: span 5 / span 5;
+        &>div {   // FILE 1
+            flex-basis: 50%;
+        }
     }
+    
 
     .option-panel {
         grid-column: span 2 / span 2;

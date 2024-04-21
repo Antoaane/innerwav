@@ -139,14 +139,14 @@ function fixedTrigger() {
   const fNav = document.getElementById('fixed-nav');
   const scrollToTop = document.getElementById('scroll-to-top');
 
-  if (window.scrollY > 400 && fNav.classList.contains('hide-fixed-nav')) {
+  if (window.scrollY > 250 && fNav.classList.contains('hide-fixed-nav')) {
     fNav.classList.remove('hide-fixed-nav');
     fNav.classList.add('show-fixed-nav');
     scrollToTop.style.opacity = '1';
     console.log('fixed');
   } 
   
-  if (window.scrollY <= 400 && fNav.classList.contains('show-fixed-nav')) {
+  if (window.scrollY <= 250 && fNav.classList.contains('show-fixed-nav')) {
     fNav.classList.remove('show-fixed-nav');
     fNav.classList.add('hide-fixed-nav');
     scrollToTop.style.opacity = '0';
@@ -179,7 +179,9 @@ function goToAccountByRedirect() {
 
     <nav id="nav" class="main-nav">
       <ul id="nav-list-top" class="desktop hidden lg:flex">
+
         <span id="hover-item-top"></span>
+
         <li class="main-nav-item">
           <a class="nav-text" :href="baseUrl + '/'">Accueil</a>
         </li>
@@ -211,12 +213,15 @@ function goToAccountByRedirect() {
             <a :href="baseUrl + '/login'">Connexion</a>
           </div>
         </li>
+
       </ul>
+      
       <ul id="burger" @click=triggerMenu() class="flex lg:hidden">
         <span id="bun"></span>
         <span id="cheese"></span>
         <span id="steak"></span>
       </ul>
+
       <ul id="menu" class="mobile hidden lg:hidden">
         <li class="main-nav-item">
           <a class="nav-text" :href="baseUrl + '/'">Accueil</a>
@@ -247,13 +252,16 @@ function goToAccountByRedirect() {
 
     <nav id="fixed-nav" class="main-nav-fixed hide-fixed-nav">
       <ul id="nav-list-fixed" class="desktop hidden lg:flex">
+
         <svg class="fixed-nav-corner left hidden" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1483.82 1000">
           <path d="m0,0s529.52,0,741.91,500,741.91,500,741.91,500V0H0Z"/>
         </svg>
         <svg class="fixed-nav-corner right hidden" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1483.82 1000">
           <path d="m0,0s529.52,0,741.91,500,741.91,500,741.91,500V0H0Z"/>
         </svg>
+
         <span id="hover-item-fixed"></span>
+
         <li class="main-nav-item">
           <a class="nav-text" :href="baseUrl + '/'">Accueil</a>
         </li>
@@ -270,6 +278,7 @@ function goToAccountByRedirect() {
           <a class="nav-text" :href="baseUrl + '/masteriser'">Masteriser</a>
         </li>
         <li class="main-nav-item profile">
+
           <span @click="goToAccountByRedirect()">
             <a class="main-nav-item">
               <ProfileSvg />
@@ -282,19 +291,24 @@ function goToAccountByRedirect() {
               <a @click="disconnect()">Déconnexion</a>
             </div>
           </div>
+
           <div :class="{'account-submenu' : true, '!hidden' : logged}">
             <div>
               <a :href="baseUrl + '/register'">Inscription</a>
               <a :href="baseUrl + '/login'">Connexion</a>
             </div>
           </div>
+
         </li>
+
       </ul>
     </nav>
 
   </header>
 
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
   
   <footer>
   </footer>
