@@ -393,11 +393,11 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
   color: #42305E;
 }
 .text-input input {
-  padding: 0.35rem 1rem;
+  padding: 0.35rem 0.7rem;
 }
 .text-input textarea {
   height: 100%;
-  padding: 0.35rem 1rem;
+  padding: 0.35rem 0.7rem;
   resize: none;
 }
 .text-input.max {
@@ -415,7 +415,6 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
 }
 
 .track-form-stems-strcd {
-  height: 10rem;
   padding: 0.75rem;
   gap: 0.75rem;
   display: grid;
@@ -1616,7 +1615,7 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   padding: 0.75rem;
   gap: 0.75rem;
   display: grid;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
+  grid-template-columns: repeat(30, minmax(0, 1fr));
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -1625,7 +1624,7 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   border-radius: 1.5rem;
 }
 #masteriser > .container > div .general-infos > div > .cover {
-  grid-column: span 2/span 2;
+  grid-column: span 5/span 5;
   background-color: #FFFFFF;
   border-radius: 1rem;
 }
@@ -1633,7 +1632,7 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   aspect-ratio: 1/1;
 }
 #masteriser > .container > div .general-infos > div > .infos {
-  grid-column: span 8/span 8;
+  grid-column: span 25/span 25;
   display: flex;
   flex-direction: column;
 }

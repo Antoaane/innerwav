@@ -26,7 +26,7 @@
     });
 
     const fileType = ref('stereo');
-    const support = ref('str');
+    const support = ref('strcd');
 
     function update(field, type) {
         console.log(field, type);
