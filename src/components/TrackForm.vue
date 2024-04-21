@@ -44,10 +44,6 @@
         console.log(name, file);
     }
 
-    function addMultipleFilesToFormData(files) {
-        formData.value.append('stems[]', files);
-    }
-
     defineExpose({ sendData })
     async function sendData() {
         try {
@@ -68,38 +64,40 @@
         }
     }
 
-    function deleteTrack() {
-        emit('deleteTrack');
+    const emit = defineEmits(['trigger-delete']);
+    function triggerDelete() {
+        emit('trigger-delete');
+        console.log('delete');
     }
 </script>
 
 <template>
-    <div v-if="fileType === 'stems' && support === 'strcd'" class="track-form-stems-strcd">
+    <div class="track-form-stems-strcd">
         <FileInput 
             v-if="props.support === 'strcd'"
             :placeholder="'Ajouter les metadatas'"
-            @updateFiles="addFileToFormData('metadata', $event)"
+            @update-files="addFileToFormData('metadata', $event)"
         />
         <TextInput 
             :label="'Référence musicale spécifique :'"
             :type="'textarea'"
             :max="true"
             :aspect="'cover'"
-            @updateText="getSpecificReference"
+            @update-text="getSpecificReference"
         />
         <FileInput 
             :placeholder="'Ajouter la voix/mélodie'"
             :accept="'.wav, .mp3'"
-            @updateFiles="addFileToFormData('voice', $event)"
+            @update-files="addFileToFormData('voice', $event)"
         />
         <FileInput 
             :placeholder="'Ajouter l\'instrumentale'"
             :accept="'.wav, .mp3'"
-            @updateFiles="addFileToFormData('prod', $event)"
+            @update-files="addFileToFormData('prod', $event)"
         />
         <div class="option-panel">
             <BtnBad
-                @click="deleteTrack()" 
+                @click="triggerDelete()" 
             />
             <BtnOnOff />
             <p>
@@ -108,38 +106,17 @@
         </div>
     </div>
 
-    <div v-else-if="fileType === 'multi' && support === 'strcd'" class="track-form-multi-strcd">
-        <FileInput 
-            v-if="props.support === 'strcd'"
-            :placeholder="'Ajouter les metadatas'"
-            @updateFiles="addFileToFormData('metadata', $event)"
-        />
-        <TextInput 
-            :label="'Référence musicale spécifique :'"
-            :type="'textarea'"
-            :max="true"
-            :aspect="'cover'"
-            @updateText="getSpecificReference"
-        />
-        <FileInput 
-            :placeholder="'Ajouter le(s) fichier(s) audio'"
-            :accept="'.wav, .mp3'"
-            :multiple="true"
-            @updateFiles="addMultipleFilesToFormData($event)"
-        />
-    </div>
-
-    <div v-else-if="fileType === 'stems' && support === 'str'" class="track-form-stems-str">
+    <!-- <div v-else-if="fileType === 'stems' && support === 'str'" class="track-form-stems-str">
         <div>
             <TextInput 
                 :label="'Nom du titre :'"
                 :type="'text'"
-                @updateText="getTrackName"
+                @update-text="getTrackName"
             />
             <TextInput 
                 :label="'Nom de(s) (l\')artiste(s) :'"
                 :type="'text'"
-                @updateText="getArtistsNames"
+                @update-text="getArtistsNames"
             />
         </div>
         <TextInput 
@@ -147,18 +124,17 @@
             :type="'textarea'"
             :max="true"
             :aspect="'cover'"
-            @updateText="getSpecificReference"
+            @update-text="getSpecificReference"
         />
         <FileInput 
             :placeholder="'Ajouter la voix/mélodie'"
             :accept="'.wav, .mp3'"
-            @updateFiles="addFileToFormData('voice', $event)"
+            @update-files="addFileToFormData('voice', $event)"
         />
         <FileInput 
             :placeholder="'Ajouter l\'instrumentale'"
             :accept="'.wav, .mp3'"
-            @updateFiles="addFileToFormData('prod', $event)"
+            @update-files="addFileToFormData('prod', $event)"
         />
-    </div>
-    <!-- <button @click="sendData">Upload</button> -->
+    </div> -->
 </template>

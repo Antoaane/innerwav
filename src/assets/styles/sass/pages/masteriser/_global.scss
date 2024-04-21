@@ -4,6 +4,7 @@
     padding: 5rem 0;
 
     &>.container {
+        max-width: $xl;
         height: 100%;
 
         display: flex;

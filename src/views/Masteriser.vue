@@ -146,7 +146,7 @@
                                 :accept="'image/*'"
                                 :multiple="true"
                                 :button="false"
-                                @updateFiles="getCoverImage"
+                                @update-files="getCoverImage"
                             />
                         </div>
 
@@ -154,13 +154,13 @@
                             <TextInput
                                 :label="'Nom de l\'album :'"
                                 :type="'text'"
-                                @updateText="getAlbumName"
+                                @update-text="getAlbumName"
                             />
                             <TextInput
                                 :label="' Référence musicale globale :'"
                                 :type="'textarea'"
                                 :max="true"
-                                @updateText="getGlobalReference"
+                                @update-text="getGlobalReference"
                             />
                         </div>
                     </div>
@@ -173,6 +173,7 @@
                             <TrackForm 
                                 :orderId="props.orderId"
                                 :ref="setTrackRef"
+                                @trigger-delete="deleteTrack(track)"
                             />
                         </div>
                     </TransitionGroup>

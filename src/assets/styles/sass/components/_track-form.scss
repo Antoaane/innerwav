@@ -4,25 +4,25 @@
     gap: $spacing;
 
     display: grid;
-    grid-template-columns: repeat(20, minmax(0, 1fr));
+    grid-template-columns: repeat(30, minmax(0, 1fr));
 
     @include glass('middle');
     border-radius: $rounded-xl;
 
     &>:nth-child(1) {   // METADATAS
-        grid-column: span 3 / span 3;
+        grid-column: span 5 / span 5;
     } 
     
     &>:nth-child(2) {   // TRACK REFS
-        grid-column: span 9 / span 9;
+        grid-column: span 13 / span 13;
     }
 
     &>:nth-child(3) {   // FILE 1
-        grid-column: span 3 / span 3;
+        grid-column: span 5 / span 5;
     }
 
     &>:nth-child(4) {   // FILE 2
-        grid-column: span 3 / span 3;
+        grid-column: span 5 / span 5;
     }
 
     .option-panel {
@@ -32,6 +32,8 @@
         justify-content: space-between;
 
         p {
+            margin-top: -0.5rem;
+            margin-bottom: 0.3rem;
             text-align: center;
             @include label;
         }

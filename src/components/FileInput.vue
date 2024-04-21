@@ -24,7 +24,7 @@
 
     const isHighlighted = ref(false);
 
-    const emit = defineEmits(['updateFiles']);
+    const emit = defineEmits(['update-files']);
 
     const dropArea = ref(null);
     const fileInput = ref(null);
@@ -52,13 +52,13 @@
 
             const files = e.dataTransfer.files;
             if (files.length > 0) {
-                emit('updateFiles', files);
+                emit('update-files', files);
             }
         } else {
             addFiles(e.dataTransfer.files[0]);
 
             if (e.dataTransfer.files.length > 0) {
-                emit('updateFiles', e.dataTransfer.files[0]);
+                emit('update-files', e.dataTransfer.files[0]);
             }
         }
     };
@@ -69,13 +69,13 @@
 
             const files = e.target.files;
             if (files.length > 0) {
-                emit('updateFiles', files);
+                emit('update-files', files);
             }
         } else {
             addFiles(e.target.files[0]);
 
             if (e.target.files.length > 0) {
-                emit('updateFiles', e.target.files[0]);
+                emit('update-files', e.target.files[0]);
             }
         }
         

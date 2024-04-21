@@ -8,7 +8,7 @@
     const props = defineProps({
         orderId: {
             type: String,
-            required: true
+            // required: true
         }
     });
     const order = ref([{
@@ -109,6 +109,8 @@
     }
 
     function deleteTrack(item) {
+        console.log('delete track');
+
         if (tracks.value.length > 1) {
             tracks.value = tracks.value.filter(track => track !== item);
         }
@@ -126,6 +128,12 @@
             await trackFormComponent.sendData()
             console.log('pushed');
         }
+    }
+
+
+
+    function testFunction() {
+        console.log('testFunction');
     }
 
 </script>
@@ -173,13 +181,8 @@
                             <TrackForm 
                                 :orderId="props.orderId"
                                 :ref="setTrackRef"
+                                @trigger-delete="testFunction"
                             />
-                            <button
-                                class="remove-track"
-                                @click="deleteTrack(track)"
-                            >
-                                -
-                            </button>
                         </div>
                     </TransitionGroup>
                 </div>

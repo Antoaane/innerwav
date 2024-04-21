@@ -20,11 +20,11 @@
         }
     });
 
-    const emit = defineEmits(['updateText']);
+    const emit = defineEmits(['update-text']);
     const textInput = ref('');
 
     function onInput(event) {
-        emit('updateText', event.target.value);
+        emit('update-text', event.target.value);
     }
 
 </script>
