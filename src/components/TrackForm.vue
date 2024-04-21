@@ -13,17 +13,33 @@
             type: String,
             required: true
         },
-        fileType : {
-            type: String,
-            // required: true,
-            default: 'stems'
-        },
-        support : {
-            type: String,
-            // required: true,
-            default: 'strcd'
-        }
+        // fileType : {
+        //     type: String,
+        //     // required: true,
+        //     default: 'stems'
+        // },
+        // support : {
+        //     type: String,
+        //     // required: true,
+        //     default: 'strcd'
+        // }
     });
+
+    const fileType = ref('stereo');
+    const support = ref('str');
+
+    function update(field, type) {
+        console.log(field, type);
+
+        if (field === 'fileType' && type === true) {
+            fileType.value = 'stems';
+        } else if (field === 'support' && type === true) {
+            support.value = 'strcd';
+        }
+
+        console.log(fileType.value, support.value);
+    }
+
 
     const formData = ref(new FormData());
 
@@ -74,7 +90,7 @@
 <template>
     <div class="track-form-stems-strcd">
         <FileInput 
-            v-if="props.support === 'strcd'"
+            v-if="support === 'strcd'"
             :placeholder="'Ajouter les metadatas'"
             @update-files="addFileToFormData('metadata', $event)"
         />
@@ -99,7 +115,9 @@
             <BtnBad
                 @click="triggerDelete()" 
             />
-            <BtnOnOff />
+            <BtnOnOff 
+                @state="update('fileType', $event)"
+            />
             <p>
                 STEMS
             </p>

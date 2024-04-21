@@ -1,21 +1,19 @@
 <script setup>
     import { ref } from 'vue';
 
-    const state = ref('off');
+    const state = ref(false);
+    const emit = defineEmits(['state']);
     
     function toggle() {
-        state.value = state.value === 'on' ? 'off' : 'on';
+        state.value = state.value === true ? false : true;
+        emit('state', state.value);
     }
-
-    defineExpose({
-        state
-    });
 </script>
 
 <template>
     <div
         @click="toggle()" 
-        :class="{'btn-onoff' : true, 'active' : state === 'on'}"
+        :class="{'btn-onoff' : true, 'active' : state === true}"
     >
         <div></div>
     </div>
