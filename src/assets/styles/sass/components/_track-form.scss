@@ -2,33 +2,48 @@
     padding: $spacing;
     gap: $spacing;
 
-    display: grid;
-    grid-template-columns: repeat(30, minmax(0, 1fr));
+    display: flex;
 
     @include glass('middle');
     border-radius: $rounded-xl;
 
     &>:nth-child(1) {   // METADATAS
-        grid-column: span 5 / span 5;
+        flex-basis: 15.9%;
     } 
     
     &>:nth-child(2) {   // TRACK REFS
-        grid-column: span 13 / span 13;
+        flex-basis: auto;
     }
 
-    .stems {
-        grid-column: span 10 / span 10;
+    .upload {
+        flex-basis: auto;
+        width: max-content;
         display: flex;
-        gap: $spacing;
 
-        &>div {   // FILE 1
-            flex-basis: 50%;
+        .stems {
+            width: 28.5rem;
+            display: flex;
+            gap: $spacing;
+            overflow: hidden;
+
+            &>div {
+                flex-basis: 50%;
+            }
+        }
+        
+        .stereo {
+            overflow: hidden;
+
+            &>div {
+                width: 14rem;
+            }
         }
     }
+
     
 
     .option-panel {
-        grid-column: span 2 / span 2;
+        flex-basis: 5%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;

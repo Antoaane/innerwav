@@ -15,7 +15,6 @@
         &>div {
 
             .general-infos {
-                margin-bottom: $spacing;
 
                 &>div {
                     padding: $spacing;
@@ -52,24 +51,19 @@
             }
 
             .tracks {
-                margin-bottom: $spacing;
-                
                 display: flex;
                 flex-direction: column;
 
                 &>div {
-                    margin-bottom: $spacing;
+                    margin-top: $spacing;
                     position: relative;
                     overflow: hidden;
-                }
-
-                &>:last-child {
-                    margin-bottom: 0;
                 }
             }
 
             &>button {
                 width: 100%;
+                margin-top: $spacing;
 
                 @include glass('middle');
                 border-radius: $rounded-xl;

@@ -23,7 +23,7 @@
     const albumName = ref('');
     const globalReference = ref('');
 
-    const tracks = ref([0]);
+    const tracks = ref([0, 1, 2]);
 
     const trackFormComponents = ref([]);
 
@@ -109,7 +109,7 @@
     }
 
     function deleteTrack(item) {
-        if (tracks.value.length > 1) {
+        if (tracks.value.length > 3) {
             tracks.value = tracks.value.filter(track => track !== item);
         }
     }
@@ -198,11 +198,13 @@
 
     .v-enter-from,
     .v-leave-to {
+        margin-top: 0 !important;
         max-height: 0;
     }
 
     .v-enter-to,
     .v-leave-from {
-        max-height: 400px;
+        margin-top: 0.75rem !important;
+        max-height: 200px;
     }
 </style>

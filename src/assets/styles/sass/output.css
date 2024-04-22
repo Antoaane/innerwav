@@ -417,8 +417,7 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
 .track-form-stems-strcd {
   padding: 0.75rem;
   gap: 0.75rem;
-  display: grid;
-  grid-template-columns: repeat(30, minmax(0, 1fr));
+  display: flex;
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -427,21 +426,33 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
   border-radius: 1.5rem;
 }
 .track-form-stems-strcd > :nth-child(1) {
-  grid-column: span 5/span 5;
+  flex-basis: 15.9%;
 }
 .track-form-stems-strcd > :nth-child(2) {
-  grid-column: span 13/span 13;
+  flex-basis: auto;
 }
-.track-form-stems-strcd .stems {
-  grid-column: span 10/span 10;
+.track-form-stems-strcd .upload {
+  flex-basis: auto;
+  width: max-content;
+  display: flex;
+}
+.track-form-stems-strcd .upload .stems {
+  width: 28.5rem;
   display: flex;
   gap: 0.75rem;
+  overflow: hidden;
 }
-.track-form-stems-strcd .stems > div {
+.track-form-stems-strcd .upload .stems > div {
   flex-basis: 50%;
 }
+.track-form-stems-strcd .upload .stereo {
+  overflow: hidden;
+}
+.track-form-stems-strcd .upload .stereo > div {
+  width: 14rem;
+}
 .track-form-stems-strcd .option-panel {
-  grid-column: span 2/span 2;
+  flex-basis: 5%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1610,9 +1621,6 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   justify-content: center;
   overflow-y: auto;
 }
-#masteriser > .container > div .general-infos {
-  margin-bottom: 0.75rem;
-}
 #masteriser > .container > div .general-infos > div {
   padding: 0.75rem;
   gap: 0.75rem;
@@ -1642,20 +1650,17 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   margin-bottom: 0.75rem;
 }
 #masteriser > .container > div .tracks {
-  margin-bottom: 0.75rem;
   display: flex;
   flex-direction: column;
 }
 #masteriser > .container > div .tracks > div {
-  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
   position: relative;
   overflow: hidden;
 }
-#masteriser > .container > div .tracks > :last-child {
-  margin-bottom: 0;
-}
 #masteriser > .container > div > button {
   width: 100%;
+  margin-top: 0.75rem;
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.15);
