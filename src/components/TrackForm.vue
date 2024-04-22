@@ -179,10 +179,12 @@
     .v-enter-from,
     .v-leave-to {
         max-width: 0;
+        opacity: 0;
     }
 
     .v-enter-to,
     .v-leave-from {
-        max-width: 25vw;
+        max-width: 22.5rem;
+        opacity: 1;
     }
 </style>

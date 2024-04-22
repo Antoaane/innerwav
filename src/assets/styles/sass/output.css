@@ -437,7 +437,7 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
   display: flex;
 }
 .track-form-stems-strcd .upload .stems {
-  width: 28.5rem;
+  width: 22.5rem;
   display: flex;
   gap: 0.75rem;
   overflow: hidden;
@@ -449,10 +449,10 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
   overflow: hidden;
 }
 .track-form-stems-strcd .upload .stereo > div {
-  width: 14rem;
+  width: 11rem;
 }
 .track-form-stems-strcd .option-panel {
-  flex-basis: 5%;
+  width: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
