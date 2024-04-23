@@ -103,7 +103,6 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
 }
 
 .btn-select {
-  margin: 1.25rem;
   position: relative;
 }
 .btn-select > button {
@@ -1711,11 +1710,26 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   overflow-y: auto;
 }
 #masteriser > .container h1 {
-  margin-top: 3.5rem;
+  margin: 3.5rem 0;
   font-size: 3rem;
   font-weight: 900;
   text-transform: uppercase;
   line-height: 1.2;
+}
+#masteriser > .container > div .order-options {
+  margin: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+}
+#masteriser > .container > div .order-options > div {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+#masteriser > .container > div .order-options > div p {
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 #masteriser > .container > div .general-infos > div {
   padding: 0.75rem;

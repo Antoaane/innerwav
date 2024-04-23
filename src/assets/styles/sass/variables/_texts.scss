@@ -37,6 +37,18 @@
     text-transform: uppercase;
 }
 
+@mixin h3-bold {
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+@mixin h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+
 @mixin subtitle-black {
     font-size: 1.5rem;
     font-weight: 900;

@@ -5,6 +5,7 @@
     import TextInput from '../components/TextInput.vue';
     import TrackForm from '../components/TrackForm.vue';
     import BtnSelect from '../components/BtnSelect.vue';
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     const props = defineProps({
         orderId: {
@@ -19,8 +20,6 @@
         support : ''
     }]);
 
-    const apiUrl = import.meta.env.VITE_API_URL;
-
     const coverImage = ref([]);
     const albumName = ref('');
     const globalReference = ref('');
@@ -30,37 +29,13 @@
     const trackFormComponents = ref([]);
 
 
-    // ------------------------ GET ORDER INFOS ------------------------
-    // defineExpose({ getOrderInfos })
-    // async function getOrderInfos() {
-    //     try {
-    //         await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
-    //         const response = await axios.get(`${apiUrl}/api/order/${props.orderId}`,
-    //             {
-    //                 headers: {
-    //                     'Authorization': 'Bearer ' + localStorage.getItem('token'),
-    //                     'Accept': 'application/json'
-    //                 }
-    //             }
-    //         );
-    //         console.log(response);
-    //         order.value.project_type = response.data.order.project_type;
-    //         order.value.file_type = response.data.order.file_type;
-    //         order.value.support = response.data.order.support;
-    //         console.log(order);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-
-
     // ------------------------ SET ORDER INFOS ------------------------
-    async function update(field, type) {
+    async function update(fields, type) {
         loadingState.value = true;
 
         const data = {
-            "fieldsToUpdate": [field],
-            [field] : type
+            "fieldsToUpdate": [fields],
+            [fields] : type
         };
 
         try {
@@ -143,11 +118,25 @@
 
             <div>
 
-                <BtnSelect 
-                    :width="'9rem'"
-                    :options="['Single', 'EP', 'Album']"
-                    @selection=""
-                />
+                <div class="order-options">
+                    <div>
+                        <p>Je fait masteriser un </p>
+                        <BtnSelect 
+                            :width="'9rem'"
+                            :options="['Single', 'EP', 'Album']"
+                            @selection=""
+                        />
+                    </div>
+                    <div>
+                        <p>Je publie mon projet en </p>
+                        <BtnSelect 
+                            :width="'13rem'"
+                            :options="['Streaming', 'Streaming & CD']"
+                            @selection=""
+                        />
+                    </div>
+                </div>
+                
 
                 <div class="general-infos">
 

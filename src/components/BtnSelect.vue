@@ -10,7 +10,7 @@
         },
         options : {
             type: Array,
-            // required: true
+            required: true
         },
         defaultOption : {
             type: String,
