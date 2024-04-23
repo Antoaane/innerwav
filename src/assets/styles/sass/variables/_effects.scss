@@ -2,33 +2,35 @@
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 }
 
-@mixin shadow {
-    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);
+@mixin ghost-shadow($color : black) {
+    box-shadow: 1px 2px 15px rgba($color, 0.125);
 }
 
-@mixin soft-shadow {
-    box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.25);
+@mixin soft-shadow($color : black) {
+    box-shadow: 1px 2px 15px rgba($color, 0.25);
 }
 
-@mixin ghost-shadow {
-    box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.125);
+@mixin shadow($color : black) {
+    box-shadow: 1px 2px 10px rgba($color, 0.4);
 }
 
-@mixin no-text-shadow {
-    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+@mixin no-text-shadow($color : black) {
+    text-shadow: 0px 0px 0px rgba($color, 0);
 }
 
-@mixin text-shadow {
-    text-shadow: 1px 2px 15px rgba(0, 0, 0, 1);
+
+@mixin ghost-text-shadow($color : black) {
+    text-shadow: 1px 2px 15px rgba($color, 0.25);
 }
 
-@mixin soft-text-shadow {
-    text-shadow: 1px 2px 15px rgba(0, 0, 0, 0.5);
+@mixin soft-text-shadow($color : black) {
+    text-shadow: 1px 2px 15px rgba($color, 0.5);
 }
 
-@mixin ghost-text-shadow {
-    text-shadow: 1px 2px 15px rgba(0, 0, 0, 0.25);
+@mixin text-shadow($color : black) {
+    text-shadow: 1px 2px 15px rgba($color, 1);
 }
+
 
 @mixin glass($position, $opacity : 0.30, $color : $light) {
     backdrop-filter: blur(30px);

@@ -102,7 +102,7 @@
             @update-text="getSpecificReference"
         />
         <div class="upload">
-            <TransitionGroup>
+            <TransitionGroup name="file-type">
                 <div class="stems" v-if="fileType === 'stems'">
                     <FileInput
                         :placeholder="'Ajouter la voix/mélodie'"
@@ -136,54 +136,22 @@
             </p>
         </div>
     </div>
-
-    <!-- <div v-else-if="fileType === 'stems' && support === 'str'" class="track-form-stems-str">
-        <div>
-            <TextInput 
-                :label="'Nom du titre :'"
-                :type="'text'"
-                @update-text="getTrackName"
-            />
-            <TextInput 
-                :label="'Nom de(s) (l\')artiste(s) :'"
-                :type="'text'"
-                @update-text="getArtistsNames"
-            />
-        </div>
-        <TextInput 
-            :label="'Référence musicale spécifique :'"
-            :type="'textarea'"
-            :max="true"
-            :aspect="'cover'"
-            @update-text="getSpecificReference"
-        />
-        <FileInput 
-            :placeholder="'Ajouter la voix/mélodie'"
-            :accept="'.wav, .mp3'"
-            @update-files="addFileToFormData('voice', $event)"
-        />
-        <FileInput 
-            :placeholder="'Ajouter l\'instrumentale'"
-            :accept="'.wav, .mp3'"
-            @update-files="addFileToFormData('prod', $event)"
-        />
-    </div> -->
 </template>
 
 <style scoped>
-    .v-enter-active,
-    .v-leave-active {
+    .file-type-enter-active,
+    .file-type-leave-active {
         transition: all 0.5s;
     }
 
-    .v-enter-from,
-    .v-leave-to {
+    .file-type-enter-from,
+    .file-type-leave-to {
         max-width: 0;
         opacity: 0;
     }
 
-    .v-enter-to,
-    .v-leave-from {
+    .file-type-enter-to,
+    .file-type-leave-from {
         max-width: 22.5rem;
         opacity: 1;
     }

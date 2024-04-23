@@ -4,6 +4,7 @@
     import FileInput from '../components/FileInput.vue';
     import TextInput from '../components/TextInput.vue';
     import TrackForm from '../components/TrackForm.vue';
+    import BtnSelect from '../components/BtnSelect.vue';
 
     const props = defineProps({
         orderId: {
@@ -11,6 +12,7 @@
             required: true
         }
     });
+
     const order = ref([{
         project_type : '',
         file_type : '',
@@ -137,9 +139,16 @@
 
         <div class="container">
 
-            <h1></h1>
+            <h1>Ajoutez vos pistes</h1>
 
             <div>
+
+                <BtnSelect 
+                    :width="'9rem'"
+                    :options="['Single', 'EP', 'Album']"
+                    @selection=""
+                />
+
                 <div class="general-infos">
 
                     <div>
@@ -170,17 +179,17 @@
 
                 </div>
 
-                <div class="tracks">
-                    <TransitionGroup>
-                        <div v-for="track in tracks" :key="track">
+                <ul class="tracks">
+                    <TransitionGroup name="tracklist">
+                        <li v-for="track in tracks" :key="track">
                             <TrackForm 
                                 :orderId="props.orderId"
                                 :ref="setTrackRef"
                                 @trigger-delete="deleteTrack(track)"
                             />
-                        </div>
+                        </li>
                     </TransitionGroup>
-                </div>
+                </ul>
 
                 <button @click="addTrack()">+</button>
                 <br><br>
@@ -191,20 +200,21 @@
 </template>
 
 <style scoped>
-    .v-enter-active,
-    .v-leave-active {
+    .tracklist-move,
+    .tracklist-enter-active,
+    .tracklist-leave-active {
         transition: all 0.25s;
     }
 
-    .v-enter-from,
-    .v-leave-to {
+    .tracklist-enter-from,
+    .tracklist-leave-to {
         margin-top: 0 !important;
         max-height: 0;
         opacity: 0;
     }
 
-    .v-enter-to,
-    .v-leave-from {
+    .tracklist-enter-to,
+    .tracklist-leave-from {
         margin-top: 0.75rem !important;
         max-height: 200px;
         opacity: 1;

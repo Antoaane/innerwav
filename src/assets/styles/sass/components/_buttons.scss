@@ -123,7 +123,7 @@
     justify-content: center;
     align-items: center;
 
-    @include glass('bottom', 0.50, $bad);
+    @include glass('bottom', 0.8, $bad);
     border-radius: $rounded-full;
 
     @include transition;
@@ -134,6 +134,7 @@
 
     &:hover {
         background-color: $bad;
+        @include soft-shadow($bad);
     }
 }
 
@@ -172,5 +173,119 @@
             background-color: $light;
             left: calc(100% - 2.15rem);
         }
+
+        &:hover {
+            &>div {
+                background-color: rgba($light, 0.75);
+            }
+        }
+    }
+
+    &:hover {
+        &>div {
+            @include shadow($light);
+        }
+    }
+}
+
+.btn-select {
+    margin: $spacing-md;
+
+    position: relative;
+
+    &>button {
+        width: 100%;
+        padding: 0.5rem 1.5rem;
+
+        display: flex;
+        justify-content: space-between;
+
+        color: $dark;
+
+        background-color: $light;
+        border-radius: $rounded-md;
+        border: none;
+
+        cursor: pointer;
+        @include transition;
+
+        .arrow {
+            margin-left: 0.5rem;
+            margin-right: -0.3rem;
+
+            transform: rotate(90deg) scale(0.75);
+            
+            path {
+                fill: $dark;
+            }
+        }
+    }
+    
+    .option-list {
+        width: 100%;
+        max-height: 0;
+        padding: 0 $spacing-sm;
+
+        position: absolute;
+        top: 120%;
+        left: 0;
+        z-index: 100;
+
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-sm;
+
+        opacity: 0;
+
+        @include glass('middle');
+        border-radius: $rounded-lg;
+        @include soft-shadow;
+
+        overflow-y: auto;
+        @include transition;
+
+        &::-webkit-scrollbar {
+            width: 0px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background-color: transparent;
+        }
+        
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        &.active {
+            display: flex;
+        }
+
+        &>button {
+            padding: 0.15rem 1.5rem;
+
+            color: $dark;
+            background-color: $light;
+
+            border-radius: $rounded-md;
+            border: none;
+
+            cursor: pointer;
+            @include transition;
+
+            &:hover {
+                color: $light;
+                background-color: $primary;
+            }
+        }
+
+        &.active {
+            max-height: 30vh;
+            padding: $spacing-sm $spacing-sm;
+            opacity: 1;
+        }
+    }
+
+    &:hover {
+        @include ghost-shadow;
     }
 }
