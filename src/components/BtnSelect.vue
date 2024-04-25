@@ -1,5 +1,9 @@
+<script>
+    let id = 0;
+</script>
+
 <script setup>
-    import { ref } from 'vue';
+    import { onMounted, ref } from 'vue';
     import ArrowSvg from './svgs/ArrowSvg.vue';
 
     const props = defineProps({
@@ -20,7 +24,13 @@
 
     const selected = ref(props.defaultOption ? props.defaultOption : props.options[0]);
     const emit = defineEmits(['selection']);
+
+    const uniqueElementId = ref(id++);
     const optionList = ref(null);
+
+    onMounted(() => {
+        optionList.value = document.getElementById('select-' + uniqueElementId.value);
+    });
 
     function select(option) {
         selected.value = option;
@@ -28,19 +38,23 @@
         optionList.value.classList.remove('active');
     }
 
-    function dropDown() {
+    function toggleDropDown() {
         optionList.value.classList.toggle('active');
+    }
+
+    function disableDropDown() {
+        optionList.value.classList.remove('active');
     }
 
 </script>
 
 <template>
-    <div class="btn-select" :style="{ width: props.width }">
-        <button @click="dropDown()">
+    <div class="btn-select" :style="{ width: props.width }" v-click-outside="disableDropDown">
+        <button @click="toggleDropDown">
             {{ selected }}
             <ArrowSvg />
         </button>
-        <div ref="optionList" class="option-list">
+        <div :id="'select-' + uniqueElementId" class="option-list">
             <button v-for="option in props.options" :key="option" @click="select(option)">
                 {{ option }}
             </button>
