@@ -1,5 +1,5 @@
 .track {
-    // padding: 0 6rem;
+    padding: 0 6rem;
     position: relative;
 
     .track-form {
@@ -41,10 +41,8 @@
         }
 
         .upload {
-            margin-right: $spacing;
-            width: max-content;
-
             flex-basis: auto;
+            width: max-content;
             display: flex;
 
             .stems {
@@ -68,24 +66,29 @@
                 }
             }
         }
+    }
 
-        .option-panel {
-            width: 4rem;
+    .option-panel {
+        width: 4rem;
+        height: 100%;
     
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            gap: $spacing-md;
-    
-            .btn-bad {
-                margin-left: auto;
-            }
-    
-            p {
-                margin-top: $spacing-xs;
-                text-align: center;
-                @include label;
-            }
+        position: absolute;
+        top: 0;
+        right: calc(2rem - $spacing);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: $spacing-md;
+
+        .btn-bad {
+            margin-left: -$spacing-sm;
+        }
+
+        p {
+            margin-top: $spacing-xs;
+            text-align: center;
+            @include label;
         }
     }
 }

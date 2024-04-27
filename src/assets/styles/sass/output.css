@@ -46,16 +46,11 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
 }
 
 .btn-bad {
-  width: 100%;
+  width: 2.5rem;
   height: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 0, 0, 0.15);
-  border-radius: 1rem;
-  background: radial-gradient(100% 100% at 0% 100%, rgba(255, 0, 0, 0.8) 0%, rgba(255, 0, 0, 0.4) 150%);
   border-radius: 9999px;
   transition: all 300ms cubic-bezier(0.8, 0, 0.2, 1);
 }
@@ -500,7 +495,10 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
   flex-grow: 1;
 }
 
-.track-form-stems-strcd {
+.track {
+  position: relative;
+}
+.track .track-form {
   padding: 0.75rem;
   display: flex;
   backdrop-filter: blur(30px);
@@ -510,12 +508,12 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
   background: radial-gradient(100% 100% at 0% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 150%);
   border-radius: 1.5rem;
 }
-.track-form-stems-strcd .strcd {
+.track .track-form .strcd {
   width: 12.5rem;
   margin-right: 0.75rem;
   overflow: hidden;
 }
-.track-form-stems-strcd .str {
+.track .track-form .str {
   width: 24rem;
   margin-right: 0.75rem;
   display: flex;
@@ -523,103 +521,54 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
   gap: 0.75rem;
   overflow: hidden;
 }
-.track-form-stems-strcd > :nth-child(2) {
+.track .track-form > :nth-child(2) {
   margin-right: 0.75rem;
   flex-basis: auto;
   display: flex;
 }
-.track-form-stems-strcd .spec-ref {
+.track .track-form .spec-ref {
   margin-right: 0.75rem;
   flex-grow: 1;
   display: flex;
 }
-.track-form-stems-strcd .upload {
+.track .track-form .upload {
   margin-right: 0.75rem;
-  flex-basis: auto;
   width: max-content;
+  flex-basis: auto;
   display: flex;
 }
-.track-form-stems-strcd .upload .stems {
+.track .track-form .upload .stems {
   width: 22.5rem;
   display: flex;
   gap: 0.75rem;
   overflow: hidden;
 }
-.track-form-stems-strcd .upload .stems > div {
+.track .track-form .upload .stems > div {
   flex-basis: 50%;
   height: 100%;
 }
-.track-form-stems-strcd .upload .stereo {
+.track .track-form .upload .stereo {
   overflow: hidden;
 }
-.track-form-stems-strcd .upload .stereo > div {
+.track .track-form .upload .stereo > div {
   width: 11rem;
   height: 100%;
 }
-.track-form-stems-strcd .option-panel {
+.track .track-form .option-panel {
   width: 4rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1.25rem;
 }
-.track-form-stems-strcd .option-panel p {
-  margin-top: -0.75rem;
-  margin-bottom: 0.3rem;
+.track .track-form .option-panel .btn-bad {
+  margin-left: auto;
+}
+.track .track-form .option-panel p {
+  margin-top: 0.25rem;
   text-align: center;
   font-size: 1rem;
   font-weight: 500;
-}
-
-.track-form-multi-strcd {
-  height: 10rem;
-  padding: 0.75rem;
-  gap: 0.75rem;
-  display: grid;
-  grid-template-columns: repeat(20, minmax(0, 1fr));
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 1rem;
-  background: radial-gradient(100% 100% at 0% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 150%);
-  border-radius: 1.5rem;
-}
-.track-form-multi-strcd > :nth-child(1) {
-  grid-column: span 4/span 4;
-}
-.track-form-multi-strcd > :nth-child(2) {
-  grid-column: span 12/span 12;
-}
-.track-form-multi-strcd > :nth-child(3) {
-  grid-column: span 4/span 4;
-}
-
-.track-form-stems-str {
-  height: max-content;
-  padding: 0.75rem;
-  gap: 0.75rem;
-  display: grid;
-  grid-template-columns: repeat(20, minmax(0, 1fr));
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 1rem;
-  background: radial-gradient(100% 100% at 0% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 150%);
-  border-radius: 1.5rem;
-}
-.track-form-stems-str > :nth-child(1) {
-  grid-column: span 20/span 20;
-}
-.track-form-stems-str > :nth-child(1) > :nth-child(1) {
-  margin-bottom: 0.75rem;
-}
-.track-form-stems-str > :nth-child(2) {
-  grid-column: span 10/span 10;
-}
-.track-form-stems-str > :nth-child(3) {
-  grid-column: span 5/span 5;
-}
-.track-form-stems-str > :nth-child(4) {
-  grid-column: span 5/span 5;
 }
 
 .container {
@@ -1735,6 +1684,9 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   text-transform: uppercase;
   line-height: 1.2;
 }
+#masteriser > .container > div {
+  width: 100%;
+}
 #masteriser > .container > div .order-options {
   margin: 1.25rem;
   display: flex;
@@ -1787,7 +1739,7 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   position: relative;
   overflow: hidden;
 }
-#masteriser > .container > div > button {
+#masteriser > .container > div .add-track-button > button {
   width: 100%;
   margin-top: 0.75rem;
   backdrop-filter: blur(30px);
@@ -1800,28 +1752,10 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   line-height: 1.2;
   transition: all 300ms cubic-bezier(0.8, 0, 0.2, 1);
 }
-#masteriser > .container > div > button:hover {
+#masteriser > .container > div .add-track-button > button:hover {
   background-color: #99A0E0;
   font-weight: 500;
   color: #42305E;
-}
-#masteriser > .container .checkout-section {
-  height: 100%;
-  grid-column: span 4/span 4;
-  padding: 3rem 0;
-  display: flex;
-  align-items: center;
-}
-#masteriser > .container .checkout-section #paypal-checkout {
-  min-width: 75%;
-  margin: 0 auto;
-  padding: 1.5rem;
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 1rem;
-  background: radial-gradient(100% 100% at 0% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 150%);
-  background: radial-gradient(100% 100% at 0% 50%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.4) 100%);
 }
 
 .checkout {

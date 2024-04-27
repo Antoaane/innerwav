@@ -71,71 +71,84 @@
 </script>
 
 <template>
-    <div class="track-form-stems-strcd">
-    <TransitionGroup name="support">
-        <div v-if="props.support === 'str'" class="str">
-            <TextInput 
-                :label="'Titre du morceau :'"
-                :max="true"
-                :aspect="'cover'"
-                @update-text="getTrackName"
-            />
-            <TextInput 
-                :label="'Nom de(s) artiste(s) :'"
-                :max="true"
-                :aspect="'cover'"
-                @update-text="getTrackName"
-            />
-        </div>
-        <div v-else-if="props.support === 'strcd'" class="strcd">
-            <FileInput
-                :placeholder="'Ajouter les metadatas'"
-                @update-files="addFileToFormData('metadata', $event)"
-            />
-        </div>
-    </TransitionGroup>
-        <div class="spec-ref">
-            <TextInput 
-                :label="'Référence musicale spécifique :'"
-                :type="'textarea'"
-                :max="true"
-                :aspect="'cover'"
-                @update-text="getSpecificReference"
-            />    
-        </div>
-        <div class="upload">
-            <TransitionGroup name="file-type">
-                <div class="stems" v-if="fileType === 'stems'">
-                    <FileInput
-                        :placeholder="'Ajouter la voix/mélodie'"
-                        :accept="'.wav, .mp3'"
-                        @update-files="addFileToFormData('voice', $event)"
-                    />
-                    <FileInput
-                        :placeholder="'Ajouter l\'instrumentale'"
-                        :accept="'.wav, .mp3'"
-                        @update-files="addFileToFormData('prod', $event)"
-                    />
-                </div>
-                <div class="stereo" v-else>
-                    <FileInput
-                        :placeholder="'Ajouter un fichier stéréo'"
-                        :accept="'.wav, .mp3'"
-                        @update-files="addFileToFormData('stereo', $event)"
-                    />
-                </div>
-            </TransitionGroup>
-        </div>
-        <div class="option-panel">
+    <div class="track">
+        <div class="track-form">
+        <TransitionGroup name="support">
+            <div v-if="props.support === 'str'" class="str">
+                <TextInput 
+                    :label="'Titre du morceau :'"
+                    :max="true"
+                    :aspect="'cover'"
+                    @update-text="getTrackName"
+                />
+
+                <TextInput 
+                    :label="'Nom de(s) artiste(s) :'"
+                    :max="true"
+                    :aspect="'cover'"
+                    @update-text="getTrackName"
+                />
+            </div>
+
+            <div v-else-if="props.support === 'strcd'" class="strcd">
+                <FileInput
+                    :placeholder="'Ajouter les metadatas'"
+                    @update-files="addFileToFormData('metadata', $event)"
+                />
+            </div>
+        </TransitionGroup>
+
+            <div class="spec-ref">
+                <TextInput 
+                    :label="'Référence musicale spécifique :'"
+                    :type="'textarea'"
+                    :max="true"
+                    :aspect="'cover'"
+                    @update-text="getSpecificReference"
+                />    
+            </div>
+
+            <div class="upload">
+                <TransitionGroup name="file-type">
+                    <div class="stems" v-if="fileType === 'stems'">
+                        <FileInput
+                            :placeholder="'Ajouter la voix/mélodie'"
+                            :accept="'.wav, .mp3'"
+                            @update-files="addFileToFormData('voice', $event)"
+                        />
+
+                        <FileInput
+                            :placeholder="'Ajouter l\'instrumentale'"
+                            :accept="'.wav, .mp3'"
+                            @update-files="addFileToFormData('prod', $event)"
+                        />
+                    </div>
+
+                    <div class="stereo" v-else>
+                        <FileInput
+                            :placeholder="'Ajouter un fichier stéréo'"
+                            :accept="'.wav, .mp3'"
+                            @update-files="addFileToFormData('stereo', $event)"
+                        />
+                    </div>
+                </TransitionGroup>
+            </div>
+
+            <div class="option-panel">
             <BtnBad
                 @click="triggerDelete()" 
             />
-            <BtnOnOff 
-                @state="fileType = fileType === 'stems' ? 'stereo' : 'stems'"
-            />
-            <p>
-                STEMS
-            </p>
+
+            <div>
+                <BtnOnOff 
+                    @state="fileType = fileType === 'stems' ? 'stereo' : 'stems'"
+                />
+                
+                <p>
+                    STEMS
+                </p>
+            </div>
+        </div>
         </div>
     </div>
 </template>

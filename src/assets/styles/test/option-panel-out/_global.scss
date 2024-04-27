@@ -41,7 +41,7 @@
             }
 
             .general-infos {
-                // padding: 0 6rem;
+                padding: 0 6rem;
 
                 &>div {
                     padding: $spacing;
@@ -89,7 +89,7 @@
             }
 
             .add-track-button {
-                // padding: 0 6rem;
+                padding: 0 6rem;
 
                 &>button {
                     width: 100%;
@@ -110,6 +110,24 @@
                         color: $soft;
                     }
                 }
+            }
+        }
+
+        .checkout-section {
+            height: 100%;
+            grid-column: span 4 / span 4;
+            padding: 3rem 0;
+
+            display: flex;
+            align-items: center;
+
+            #paypal-checkout {
+                min-width: 75%;
+                margin: 0 auto;
+                padding: 1.5rem;
+
+                @include glass('middle');
+                background: radial-gradient(100% 100% at 0% 50%, rgba(255, 255, 255, 0.60) 0%, rgba(255, 255, 255, 0.40) 100%);
             }
         }
     }

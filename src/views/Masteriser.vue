@@ -71,7 +71,6 @@
 
     function getSupport(e) {
         order.value.support = e;
-        console.log(order.value.support);
     }
 
     function getCoverImage(e) {
@@ -163,13 +162,12 @@
                     </div>
                 </div>
                 
-
-                <div class="general-infos">
-
+            <Transition name="general-infos">
+                <div v-if="order.project_type === 'ep' ||order.project_type === 'album'" class="general-infos">
                     <div>
                         <div class="cover">
                             <FileInput 
-                                :placeholder="'Ajouter une image'" 
+                                :placeholder="order.project_type === 'ep' ? 'Ajouter la cover de l\'EP' : 'Ajouter la cover de l\'album'" 
                                 :accept="'image/*'"
                                 :multiple="true"
                                 :button="false"
@@ -179,10 +177,11 @@
 
                         <div class="infos">
                             <TextInput
-                                :label="'Nom de l\'album :'"
+                                :label="order.project_type === 'ep' ? 'Nom de l\'EP' : 'Nom de l\'album :'"
                                 :type="'text'"
                                 @update-text="getAlbumName($event)"
                             />
+
                             <TextInput
                                 :label="' Référence musicale globale :'"
                                 :type="'textarea'"
@@ -191,10 +190,10 @@
                             />
                         </div>
                     </div>
-
                 </div>
+            </Transition>
 
-                <ul v-if="order" class="tracks">
+                <ul class="tracks">
                     <TransitionGroup name="tracklist">
                         <li v-for="track in tracks" :key="track">
                             <TrackForm 
@@ -208,7 +207,10 @@
                     </TransitionGroup>
                 </ul>
 
-                <button @click="addTrack()">+</button>
+                <div class="add-track-button">
+                    <button @click="addTrack()">+</button>
+                </div>
+                
                 <br><br>
                 <button @click="pushTracks">Push</button>
             </div>
@@ -234,6 +236,24 @@
     .tracklist-leave-from {
         margin-top: 0.75rem !important;
         max-height: 200px;
+        opacity: 1;
+    }
+
+    .general-infos-move,
+    .general-infos-enter-active,
+    .general-infos-leave-active {
+        transition: all 0.5s;
+    }
+
+    .general-infos-enter-from,
+    .general-infos-leave-to {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    .general-infos-enter-to,
+    .general-infos-leave-from {
+        max-height: 15rem;
         opacity: 1;
     }
 </style>
