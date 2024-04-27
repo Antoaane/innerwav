@@ -13,33 +13,16 @@
             type: String,
             required: true
         },
-        // fileType : {
-        //     type: String,
-        //     // required: true,
-        //     default: 'stems'
-        // },
-        // support : {
-        //     type: String,
-        //     // required: true,
-        //     default: 'strcd'
-        // }
+        support : {
+            type: String,
+            required: true
+        }
     });
 
+    console.log(props.support);
+
     const fileType = ref('stereo');
-    const support = ref('strcd');
-
-    function update(field, type) {
-        console.log(field, type);
-
-        if (field === 'fileType') {
-            fileType.value = type === true ? 'stems' : 'stereo';
-        } else if (field === 'support' && type === true) {
-            support.value = 'strcd';
-        }
-
-        console.log(fileType.value, support.value);
-    }
-
+    const support = props.support;
 
     const formData = ref(new FormData());
 
@@ -89,18 +72,37 @@
 
 <template>
     <div class="track-form-stems-strcd">
-        <FileInput 
-            v-if="support === 'strcd'"
-            :placeholder="'Ajouter les metadatas'"
-            @update-files="addFileToFormData('metadata', $event)"
-        />
-        <TextInput 
-            :label="'Référence musicale spécifique :'"
-            :type="'textarea'"
-            :max="true"
-            :aspect="'cover'"
-            @update-text="getSpecificReference"
-        />
+    <TransitionGroup name="support">
+        <div v-if="props.support === 'str'" class="str">
+            <TextInput 
+                :label="'Titre du morceau :'"
+                :max="true"
+                :aspect="'cover'"
+                @update-text="getTrackName"
+            />
+            <TextInput 
+                :label="'Nom de(s) artiste(s) :'"
+                :max="true"
+                :aspect="'cover'"
+                @update-text="getTrackName"
+            />
+        </div>
+        <div v-else-if="props.support === 'strcd'" class="strcd">
+            <FileInput
+                :placeholder="'Ajouter les metadatas'"
+                @update-files="addFileToFormData('metadata', $event)"
+            />
+        </div>
+    </TransitionGroup>
+        <div class="spec-ref">
+            <TextInput 
+                :label="'Référence musicale spécifique :'"
+                :type="'textarea'"
+                :max="true"
+                :aspect="'cover'"
+                @update-text="getSpecificReference"
+            />    
+        </div>
         <div class="upload">
             <TransitionGroup name="file-type">
                 <div class="stems" v-if="fileType === 'stems'">
@@ -129,7 +131,7 @@
                 @click="triggerDelete()" 
             />
             <BtnOnOff 
-                @state="update('fileType', $event)"
+                @state="fileType = fileType === 'stems' ? 'stereo' : 'stems'"
             />
             <p>
                 STEMS
@@ -153,6 +155,27 @@
     .file-type-enter-to,
     .file-type-leave-from {
         max-width: 22.5rem;
+        opacity: 1;
+    }
+
+    .support-enter-active,
+    .support-leave-active {
+        transition: all 0.5s;
+    }
+
+    .support-enter-from,
+    .support-leave-to {
+        max-width: 0;
+        max-height: 0;
+        margin-right: 0;
+        opacity: 0;
+    }
+
+    .support-enter-to,
+    .support-leave-from {
+        max-width: 24rem;
+        max-height: 15rem;
+        margin-right: 0.75rem;
         opacity: 1;
     }
 </style>

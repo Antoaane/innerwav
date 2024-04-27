@@ -1,21 +1,43 @@
 .track-form-stems-strcd {
     padding: $spacing;
-    gap: $spacing;
 
     display: flex;
 
     @include glass('middle');
     border-radius: $rounded-xl;
 
-    &>:nth-child(1) {   // METADATAS
-        flex-basis: 15.9%;
+    .strcd {   // METADATAS
+        width: 12.5rem;
+        margin-right: $spacing;
+
+        overflow: hidden;
+    } 
+
+    .str {   // TITLE & ARTIST
+        width: 24rem;
+        margin-right: $spacing;
+
+        display: flex;
+        flex-direction: column;
+        gap: $spacing;
+
+        overflow: hidden;
     } 
     
-    &>:nth-child(2) {   // TRACK REFS
+    &>:nth-child(2) {  // TRACK REFS
+        margin-right: $spacing;
         flex-basis: auto;
+        display: flex;
+    }
+
+    .spec-ref {  // TRACK REFS
+        margin-right: $spacing;
+        flex-grow: 1;
+        display: flex;
     }
 
     .upload {
+        margin-right: $spacing;
         flex-basis: auto;
         width: max-content;
         display: flex;
@@ -28,6 +50,7 @@
 
             &>div {
                 flex-basis: 50%;
+                height: 100%;
             }
         }
         
@@ -36,20 +59,19 @@
 
             &>div {
                 width: 11rem;
+                height: 100%;
             }
         }
     }
-
-    
 
     .option-panel {
         width: 4rem;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        gap: $spacing-md;
 
         p {
-            margin-top: -0.5rem;
+            margin-top: -$spacing;
             margin-bottom: 0.3rem;
             text-align: center;
             @include label;

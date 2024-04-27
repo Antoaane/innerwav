@@ -16,13 +16,10 @@
             type: Array,
             required: true
         },
-        defaultOption : {
-            type: String,
-            required: false,
-        }
     });
 
-    const selected = ref(props.defaultOption ? props.defaultOption : props.options[0]);
+    const selectedOption = ref(props.options[0].optionName);
+    const selectedValue = ref(props.options[0].optionValue);
     const emit = defineEmits(['selection']);
 
     const uniqueElementId = ref(id++);
@@ -33,8 +30,9 @@
     });
 
     function select(option) {
-        selected.value = option;
-        emit('selection', selected.value);
+        selectedOption.value = option.optionName;
+        selectedValue.value = option.optionValue;
+        emit('selection', selectedValue.value);
         optionList.value.classList.remove('active');
     }
 
@@ -51,12 +49,12 @@
 <template>
     <div class="btn-select" :style="{ width: props.width }" v-click-outside="disableDropDown">
         <button @click="toggleDropDown">
-            {{ selected }}
+            {{ selectedOption }}
             <ArrowSvg />
         </button>
         <div :id="'select-' + uniqueElementId" class="option-list">
             <button v-for="option in props.options" :key="option" @click="select(option)">
-                {{ option }}
+                {{ option.optionName }}
             </button>
         </div>
     </div>

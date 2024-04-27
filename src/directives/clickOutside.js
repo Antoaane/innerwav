@@ -1,6 +1,5 @@
 export const clickOutsideDirective = {
   beforeMount(el, binding) {
-    console.log(el);
     el.clickOutsideEvent = function(event) {
       // Vérifier si le clic a été effectué en dehors de l'élément et si la directive a une expression
       if (!(el === event.target || el.contains(event.target))) {

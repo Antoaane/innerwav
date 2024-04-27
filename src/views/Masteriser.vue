@@ -14,11 +14,10 @@
         }
     });
 
-    const order = ref([{
-        project_type : '',
-        file_type : '',
-        support : ''
-    }]);
+    const order = ref([]);
+    order.value.project_type = 'single';
+    order.value.support = 'str';
+    console.log(order.value);
 
     const coverImage = ref([]);
     const albumName = ref('');
@@ -29,13 +28,16 @@
     const trackFormComponents = ref([]);
 
 
-    // ------------------------ SET ORDER INFOS ------------------------
-    async function update(fields, type) {
+
+    // ------------------------ PUSH ORDER INFOS ------------------------
+
+    async function pushOrderInfos() {
         loadingState.value = true;
 
         const data = {
-            "fieldsToUpdate": [fields],
-            [fields] : type
+            "fieldsToUpdate": ["project_type", "support"],
+            "project_type": order.value.project_type,
+            "support": order.value.support,
         };
 
         try {
@@ -51,7 +53,6 @@
                 }
             );
             console.log(response);
-            emit('answered');
         } catch (error) {
             console.log(error);
         } finally {
@@ -59,7 +60,20 @@
         }
     }
 
-    // ------------------------ GET ALBUM INFOS ------------------------
+
+
+    // ------------------------ GET POJECT INFOS ------------------------
+
+    function getProjectType(e) {
+        order.value.project_type = e;
+        console.log(order.value.project_type);
+    }
+
+    function getSupport(e) {
+        order.value.support = e;
+        console.log(order.value.support);
+    }
+
     function getCoverImage(e) {
         for (let i = 0; i < e.length; i++) {
             coverImage.value.push(e[i]);
@@ -75,7 +89,9 @@
     }
 
 
+
     // ---------------------- HANDLE TRACK NUMBER ----------------------
+
     function addTrack(n = 0) {
         if (!tracks.value.includes(tracks.value.length + 1 + n)) {
             tracks.value.push(tracks.value.length + 1 + n);
@@ -91,7 +107,10 @@
         }
     }
 
+
+
     // -------------------------- PUSH TRACKS --------------------------
+
     function setTrackRef(el) {
         if (el && !trackFormComponents.value.includes(el)) {
             trackFormComponents.value.push(el)
@@ -123,16 +142,23 @@
                         <p>Je fait masteriser un </p>
                         <BtnSelect 
                             :width="'9rem'"
-                            :options="['Single', 'EP', 'Album']"
-                            @selection=""
+                            :options="[
+                                { optionName: 'Single', optionValue: 'single' },
+                                { optionName: 'EP', optionValue: 'ep' },
+                                { optionName: 'Album', optionValue: 'album' }
+                            ]"
+                            @selection="getProjectType($event)"
                         />
                     </div>
                     <div>
                         <p>Je publie mon projet en </p>
                         <BtnSelect 
                             :width="'13rem'"
-                            :options="['Streaming', 'Streaming & CD']"
-                            @selection=""
+                            :options="[
+                                { optionName: 'Streaming', optionValue: 'str' },
+                                { optionName: 'Streaming & CD', optionValue: 'strcd' }
+                            ]"
+                            @selection="getSupport($event)"
                         />
                     </div>
                 </div>
@@ -147,7 +173,7 @@
                                 :accept="'image/*'"
                                 :multiple="true"
                                 :button="false"
-                                @update-files="getCoverImage"
+                                @update-files="getCoverImage($event)"
                             />
                         </div>
 
@@ -155,24 +181,26 @@
                             <TextInput
                                 :label="'Nom de l\'album :'"
                                 :type="'text'"
-                                @update-text="getAlbumName"
+                                @update-text="getAlbumName($event)"
                             />
                             <TextInput
                                 :label="' Référence musicale globale :'"
                                 :type="'textarea'"
                                 :max="true"
-                                @update-text="getGlobalReference"
+                                @update-text="getGlobalReference($event)"
                             />
                         </div>
                     </div>
 
                 </div>
 
-                <ul class="tracks">
+                <ul v-if="order" class="tracks">
                     <TransitionGroup name="tracklist">
                         <li v-for="track in tracks" :key="track">
                             <TrackForm 
-                                :orderId="props.orderId"
+                                :orderId="order.value"
+                                :projectType="order.project_type"
+                                :support="order.support"
                                 :ref="setTrackRef"
                                 @trigger-delete="deleteTrack(track)"
                             />
