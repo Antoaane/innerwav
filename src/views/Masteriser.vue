@@ -28,7 +28,6 @@
     const trackFormComponents = ref([]);
 
 
-
     // ------------------------ PUSH ORDER INFOS ------------------------
 
     async function pushOrderInfos() {
@@ -66,6 +65,7 @@
 
     function getProjectType(e) {
         order.value.project_type = e;
+        setMinimumTracks(order.value.project_type)
         console.log(order.value.project_type);
     }
 
@@ -106,6 +106,23 @@
         }
     }
 
+    function setMinimumTracks(projectType) {
+        const trackNumber = tracks.value.length;
+        const setMinimumTracks = {
+            'single': 1,
+            'ep': 2,
+            'album': 5
+        };
+
+        if (trackNumber < setMinimumTracks[projectType]) {
+            for (let i = trackNumber; i < setMinimumTracks[projectType]; i++) {
+                addTrack(i);
+            }
+        } else if (projectType === 'single' && trackNumber > 1) {
+            tracks.value.splice(0, trackNumber - 1);
+        }
+    }
+
 
 
     // -------------------------- PUSH TRACKS --------------------------
@@ -122,6 +139,7 @@
             console.log('pushed');
         }
     }
+
 
 </script>
 
@@ -163,9 +181,9 @@
                 </div>
                 
             <Transition name="general-infos">
-                <div v-if="order.project_type === 'ep' ||order.project_type === 'album'" class="general-infos">
+                <div v-if="order.project_type === 'ep' || order.project_type === 'album'" class="general-infos">
                     <div>
-                        <div class="cover">
+                        <div v-if="order.support === 'strcd'" class="cover">
                             <FileInput 
                                 :placeholder="order.project_type === 'ep' ? 'Ajouter la cover de l\'EP' : 'Ajouter la cover de l\'album'" 
                                 :accept="'image/*'"
@@ -207,18 +225,37 @@
                     </TransitionGroup>
                 </ul>
 
-                <div class="add-track-button">
+            <Transition name="btn">
+                <div v-if="order.project_type != 'single'" class="add-track-button">
                     <button @click="addTrack()">+</button>
                 </div>
+            </Transition>
                 
                 <br><br>
-                <button @click="pushTracks">Push</button>
+                <button @click="setMinimumTracks('album')">Push</button>
             </div>
         </div>
     </div>
 </template>
 
 <style scoped>
+    .btn-move,
+    .btn-enter-active,
+    .btn-leave-active {
+        transition: all 0.25s;
+    }
+
+    .btn-enter-from,
+    .btn-leave-to {
+        opacity: 0;
+    }
+
+    .btn-enter-to,
+    .btn-leave-from {
+        opacity: 1;
+    }
+
+
     .tracklist-move,
     .tracklist-enter-active,
     .tracklist-leave-active {
@@ -238,6 +275,7 @@
         max-height: 200px;
         opacity: 1;
     }
+
 
     .general-infos-move,
     .general-infos-enter-active,

@@ -1,17 +1,18 @@
 <script setup>
     import { ref } from 'vue';
     import axios from 'axios';
+
     import FileInput from './FileInput.vue';
     import TextInput from './TextInput.vue';
     import BtnBad from './BtnBad.vue';
     import BtnOnOff from './BtnOnOff.vue';
 
     const apiUrl = import.meta.env.VITE_API_URL;
-    axios.defaults.withCredentials = true;
+
     const props = defineProps({
         orderId : {
             type: String,
-            required: true
+            required: false
         },
         support : {
             type: String,
@@ -19,10 +20,9 @@
         }
     });
 
-    console.log(props.support);
+    axios.defaults.withCredentials = true;
 
     const fileType = ref('stereo');
-    const support = props.support;
 
     const formData = ref(new FormData());
 
@@ -79,14 +79,14 @@
                     :label="'Titre du morceau :'"
                     :max="true"
                     :aspect="'cover'"
-                    @update-text="getTrackName"
+                    @update-text="getTrackName()"
                 />
 
                 <TextInput 
                     :label="'Nom de(s) artiste(s) :'"
                     :max="true"
                     :aspect="'cover'"
-                    @update-text="getTrackName"
+                    @update-text="getArtistsNames()"
                 />
             </div>
 

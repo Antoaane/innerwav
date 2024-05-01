@@ -41,20 +41,18 @@
             }
 
             .general-infos {
-                // padding: 0 6rem;
 
                 &>div {
                     padding: $spacing;
                     gap: $spacing;
 
-                    display: grid;
-                    grid-template-columns: repeat(30, minmax(0, 1fr));
+                    display: flex;
 
                     @include glass('middle');
                     border-radius: $rounded-xl;
 
                     &>.cover {
-                        grid-column: span 5 / span 5;
+                        flex-basis: calc(100% / 6);
                         background-color: $light;
 
                         border-radius: $rounded-lg;
@@ -65,7 +63,7 @@
                     }
 
                     &>.infos {
-                        grid-column: span 25 / span 25;
+                        flex-grow: 1;
 
                         display: flex;
                         flex-direction: column;

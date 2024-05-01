@@ -26,7 +26,6 @@
 
     const emit = defineEmits(['update-files']);
 
-    const dropArea = ref(null);
     const fileInput = ref(null);
 
     const openFileChooser = () => {
