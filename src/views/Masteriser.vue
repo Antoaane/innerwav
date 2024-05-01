@@ -183,6 +183,7 @@
             <Transition name="general-infos">
                 <div v-if="order.project_type === 'ep' || order.project_type === 'album'" class="general-infos">
                     <div>
+                    <Transition name="cover">
                         <div v-if="order.support === 'strcd'" class="cover">
                             <FileInput 
                                 :placeholder="order.project_type === 'ep' ? 'Ajouter la cover de l\'EP' : 'Ajouter la cover de l\'album'" 
@@ -192,6 +193,7 @@
                                 @update-files="getCoverImage($event)"
                             />
                         </div>
+                    </Transition>
 
                         <div class="infos">
                             <TextInput
@@ -239,21 +241,41 @@
 </template>
 
 <style scoped>
-    .btn-move,
-    .btn-enter-active,
-    .btn-leave-active {
-        transition: all 0.25s;
+    .general-infos-move,
+    .general-infos-enter-active,
+    .general-infos-leave-active {
+        transition: all 0.5s;
     }
-
-    .btn-enter-from,
-    .btn-leave-to {
+    .general-infos-enter-from,
+    .general-infos-leave-to {
+        max-height: 0;
         opacity: 0;
     }
-
-    .btn-enter-to,
-    .btn-leave-from {
+    .general-infos-enter-to,
+    .general-infos-leave-from {
+        max-height: 15rem;
         opacity: 1;
     }
+
+
+
+    .cover-enter-active,
+    .cover-leave-active {
+        transition: all 0.5s;
+    }
+    .cover-enter-from,
+    .cover-leave-to {
+        max-width: 0;
+        margin-right: 0 !important;
+        opacity: 0;
+    }
+    .cover-enter-to,
+    .cover-leave-from {
+        max-width: 15rem;
+        margin-right: 0.75rem;
+        opacity: 1;
+    }
+
 
 
     .tracklist-move,
@@ -261,14 +283,12 @@
     .tracklist-leave-active {
         transition: all 0.25s;
     }
-
     .tracklist-enter-from,
     .tracklist-leave-to {
         margin-top: 0 !important;
         max-height: 0;
         opacity: 0;
     }
-
     .tracklist-enter-to,
     .tracklist-leave-from {
         margin-top: 0.75rem !important;
@@ -277,21 +297,18 @@
     }
 
 
-    .general-infos-move,
-    .general-infos-enter-active,
-    .general-infos-leave-active {
-        transition: all 0.5s;
-    }
 
-    .general-infos-enter-from,
-    .general-infos-leave-to {
-        max-height: 0;
+    .btn-move,
+    .btn-enter-active,
+    .btn-leave-active {
+        transition: all 0.25s;
+    }
+    .btn-enter-from,
+    .btn-leave-to {
         opacity: 0;
     }
-
-    .general-infos-enter-to,
-    .general-infos-leave-from {
-        max-height: 15rem;
+    .btn-enter-to,
+    .btn-leave-from {
         opacity: 1;
     }
 </style>

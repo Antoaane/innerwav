@@ -48,6 +48,21 @@
     font-weight: 500;
 }
 
+@mixin h4-bold {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+@mixin h5 {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+@mixin h5-bold {
+    font-size: 1.25rem;
+    font-weight: 900;
+}
+
 
 @mixin subtitle-black {
     font-size: 1.5rem;

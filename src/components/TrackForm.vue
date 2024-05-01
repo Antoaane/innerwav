@@ -180,7 +180,7 @@
     .support-leave-to {
         max-width: 0;
         max-height: 0;
-        margin-right: 0;
+        margin-right: 0 !important;
         opacity: 0;
     }
 

@@ -36,6 +36,21 @@
 
                     p {
                         @include h4;
+                        font-weight: 400;
+                    }
+
+                    &>div {
+                        &>button {
+                            @include h5-bold;
+                        }
+                    }
+                    
+
+                    .option-list {
+                        
+                        button {
+                            font-weight: 600;
+                        }
                     }
                 }
             }
@@ -44,7 +59,6 @@
 
                 &>div {
                     padding: $spacing;
-                    gap: $spacing;
 
                     display: flex;
 
@@ -52,6 +66,7 @@
                     border-radius: $rounded-xl;
 
                     &>.cover {
+                        margin-right: $spacing;
                         flex-basis: calc(100% / 6);
                         background-color: $light;
 
