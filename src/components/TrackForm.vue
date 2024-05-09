@@ -14,6 +14,10 @@
             type: String,
             required: false
         },
+        projectType : {
+            type: String,
+            required: false
+        },
         support : {
             type: String,
             required: true
@@ -135,7 +139,7 @@
             </div>
 
             <div class="option-panel">
-            <BtnBad
+            <BtnBad v-if="props.projectType !== 'single'"
                 @click="triggerDelete()" 
             />
 
