@@ -23,6 +23,7 @@
     const albumName = ref('');
     const globalReference = ref('');
 
+    const minimumTracks = ref(1);
     const tracks = ref([0]);
 
     const trackFormComponents = ref([]);
@@ -101,21 +102,23 @@
     }
 
     function deleteTrack(item) {
-        if (tracks.value.length > 1) {
+        if (tracks.value.length > minimumTracks.value) {
             tracks.value = tracks.value.filter(track => track !== item);
         }
     }
 
     function setMinimumTracks(projectType) {
         const trackNumber = tracks.value.length;
-        const setMinimumTracks = {
+        const minimumTracksTab = {
             'single': 1,
             'ep': 2,
             'album': 5
         };
 
-        if (trackNumber < setMinimumTracks[projectType]) {
-            for (let i = trackNumber; i < setMinimumTracks[projectType]; i++) {
+        minimumTracks.value = minimumTracksTab[projectType];
+
+        if (trackNumber < minimumTracksTab[projectType]) {
+            for (let i = trackNumber; i < minimumTracksTab[projectType]; i++) {
                 addTrack(i);
             }
         } else if (projectType === 'single' && trackNumber > 1) {
@@ -170,7 +173,7 @@
                     <div>
                         <p>Je publie mon projet en </p>
                         <BtnSelect 
-                            :width="'13rem'"
+                            :width="'16rem'"
                             :options="[
                                 { optionName: 'Streaming', optionValue: 'str' },
                                 { optionName: 'Streaming & CD', optionValue: 'strcd' }
@@ -234,7 +237,7 @@
             </Transition>
                 
                 <br><br>
-                <button @click="setMinimumTracks('album')">Push</button>
+                <button @click="pushTracks()">Push</button>
             </div>
         </div>
     </div>
