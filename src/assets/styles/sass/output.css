@@ -349,6 +349,8 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
 }
 
 .file-input {
+  height: 100%;
+  max-height: 8.6rem;
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -1726,10 +1728,14 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   background-color: #FFFFFF;
   border-radius: 1rem;
 }
+#masteriser > .container > div .general-infos > div > .cover div {
+  max-height: none;
+}
 #masteriser > .container > div .general-infos > div > .cover .drag-drop-area {
   aspect-ratio: 1/1;
 }
 #masteriser > .container > div .general-infos > div > .infos {
+  min-height: 12rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;

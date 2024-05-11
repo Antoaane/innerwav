@@ -26,7 +26,7 @@
 
     axios.defaults.withCredentials = true;
 
-    const fileType = ref('stereo');
+    const fileType = ref('lr');
 
     const formData = ref(new FormData());
 
@@ -128,11 +128,11 @@
                         />
                     </div>
 
-                    <div class="stereo" v-else>
+                    <div class="lr" v-else>
                         <FileInput
                             :placeholder="'Ajouter un fichier stéréo'"
                             :accept="'.wav, .mp3'"
-                            @update-files="addFileToFormData('stereo', $event)"
+                            @update-files="addFileToFormData('lr', $event)"
                         />
                     </div>
                 </TransitionGroup>
@@ -145,7 +145,7 @@
 
             <div>
                 <BtnOnOff 
-                    @state="fileType = fileType === 'stems' ? 'stereo' : 'stems'"
+                    @state="fileType = fileType === 'stems' ? 'lr' : 'stems'"
                 />
                 
                 <p>

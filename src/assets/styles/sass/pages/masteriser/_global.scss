@@ -72,12 +72,17 @@
 
                         border-radius: $rounded-lg;
 
+                        div {
+                            max-height: none;
+                        }
+
                         .drag-drop-area {
                             aspect-ratio: 1 / 1;
                         }
                     }
 
                     &>.infos {
+                        min-height: 12rem;
                         flex-grow: 1;
 
                         display: flex;
