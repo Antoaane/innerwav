@@ -8,6 +8,7 @@
     import BtnOnOff from './BtnOnOff.vue';
 
     const apiUrl = import.meta.env.VITE_API_URL;
+    axios.defaults.withCredentials = true;
 
     const props = defineProps({
         orderId : {
@@ -24,27 +25,36 @@
         }
     });
 
-    axios.defaults.withCredentials = true;
 
     const fileType = ref('lr');
 
     const formData = ref(new FormData());
+    const track = ref([]);
 
-    function getTrackName(e) {
-        formData.value.append('name', e);
+    function addToFormData(name, e) {
+        if (formData.value.has(name)) {
+            formData.value.delete(name);
+        }
+        formData.value.append(name, e);
+        
+        track.value[name] = e;
+        
+        console.log(track.value);
+        for (let pair of formData.value.entries()) {
+            console.log(pair[0] + ': ' + pair[1]);
+        }
     }
 
-    function getArtistsNames(e) {
-        formData.value.append('artists', e);
-    }
-
-    function getSpecificReference(e) {
-        formData.value.append('spec_ref', e);
-    }
-
-    function addFileToFormData(name, file) {
-        formData.value.append(name, file);
-        console.log(name, file);
+    function cleanFormData() {
+        if (track.value.voice || track.value.prod) {
+            formData.value.delete('voice');
+            formData.value.delete('prod');
+            track.value.voice = null;
+            track.value.prod = null;
+        } else {
+            formData.value.delete('lr');
+            track.value.lr = null;
+        }
     }
 
     defineExpose({ sendData })
@@ -83,21 +93,21 @@
                     :label="'Titre du morceau :'"
                     :max="true"
                     :aspect="'cover'"
-                    @update-text="getTrackName()"
+                    @update-text="addToFormData('spec_ref', $event)"
                 />
 
                 <TextInput 
                     :label="'Nom de(s) artiste(s) :'"
                     :max="true"
                     :aspect="'cover'"
-                    @update-text="getArtistsNames()"
+                    @update-text="addToFormData('artists', $event)"
                 />
             </div>
 
             <div v-else-if="props.support === 'strcd'" class="strcd">
                 <FileInput
                     :placeholder="'Ajouter les metadatas'"
-                    @update-files="addFileToFormData('metadata', $event)"
+                    @update-files="addToFormData('metadata', $event)"
                 />
             </div>
         </TransitionGroup>
@@ -108,8 +118,8 @@
                     :type="'textarea'"
                     :max="true"
                     :aspect="'cover'"
-                    @update-text="getSpecificReference"
-                />    
+                    @update-text="addToFormData('spec_ref', $event)"
+                />
             </div>
 
             <div class="upload">
@@ -118,13 +128,13 @@
                         <FileInput
                             :placeholder="'Ajouter la voix/mélodie'"
                             :accept="'.wav, .mp3'"
-                            @update-files="addFileToFormData('voice', $event)"
+                            @update-files="addToFormData('voice', $event)"
                         />
 
                         <FileInput
                             :placeholder="'Ajouter l\'instrumentale'"
                             :accept="'.wav, .mp3'"
-                            @update-files="addFileToFormData('prod', $event)"
+                            @update-files="addToFormData('prod', $event)"
                         />
                     </div>
 
@@ -132,7 +142,7 @@
                         <FileInput
                             :placeholder="'Ajouter un fichier stéréo'"
                             :accept="'.wav, .mp3'"
-                            @update-files="addFileToFormData('lr', $event)"
+                            @update-files="addToFormData('lr', $event)"
                         />
                     </div>
                 </TransitionGroup>
@@ -146,6 +156,7 @@
             <div>
                 <BtnOnOff 
                     @state="fileType = fileType === 'stems' ? 'lr' : 'stems'"
+                    @click="cleanFormData()"
                 />
                 
                 <p>

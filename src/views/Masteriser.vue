@@ -14,13 +14,14 @@
         }
     });
 
+    const formData = ref(new FormData());
     const order = ref([]);
     order.value.project_type = 'single';
     order.value.support = 'str';
     console.log(order.value);
 
     const coverImage = ref([]);
-    const albumName = ref('');
+    const projectName = ref('');
     const globalReference = ref('');
 
     const minimumTracks = ref(1);
@@ -60,32 +61,17 @@
         }
     }
 
-
+    
 
     // ------------------------ GET POJECT INFOS ------------------------
 
-    function getProjectType(e) {
-        order.value.project_type = e;
-        setMinimumTracks(order.value.project_type)
-        console.log(order.value.project_type);
-    }
+    function addToFormData(name, e) {
+        formData.value.append(name, e);
+        order.value[name] = e;
 
-    function getSupport(e) {
-        order.value.support = e;
-    }
-
-    function getCoverImage(e) {
-        for (let i = 0; i < e.length; i++) {
-            coverImage.value.push(e[i]);
+        if (name === 'project_type') {
+            setMinimumTracks(order.value.project_type)
         }
-    }
-
-    function getAlbumName(e) {
-        albumName.value = e;
-    }
-
-    function getGlobalReference(e) {
-        globalReference.value = e;
     }
 
 
@@ -137,6 +123,9 @@
     }
 
     async function pushTracks() {
+
+        await pushOrderInfos();
+
         for (const trackFormComponent of trackFormComponents.value) {
             await trackFormComponent.sendData()
             console.log('pushed');
@@ -167,7 +156,7 @@
                                 { optionName: 'EP', optionValue: 'ep' },
                                 { optionName: 'Album', optionValue: 'album' }
                             ]"
-                            @selection="getProjectType($event)"
+                            @selection="addToFormData('project_type', $event)"
                         />
                     </div>
                     <div>
@@ -178,11 +167,11 @@
                                 { optionName: 'Streaming', optionValue: 'str' },
                                 { optionName: 'Streaming & CD', optionValue: 'strcd' }
                             ]"
-                            @selection="getSupport($event)"
+                            @selection="addToFormData('support', $event)"
                         />
                     </div>
                 </div>
-                
+
             <Transition name="general-infos">
                 <div v-if="order.project_type === 'ep' || order.project_type === 'album'" class="general-infos">
                     <div>
@@ -193,7 +182,7 @@
                                 :accept="'image/*'"
                                 :multiple="true"
                                 :button="false"
-                                @update-files="getCoverImage($event)"
+                                @update-files="addToFormData('cover_img', $event)"
                             />
                         </div>
                     </Transition>
@@ -202,14 +191,14 @@
                             <TextInput
                                 :label="order.project_type === 'ep' ? 'Nom de l\'EP' : 'Nom de l\'album :'"
                                 :type="'text'"
-                                @update-text="getAlbumName($event)"
+                                @update-text="addToFormData('project_name', $event)"
                             />
 
                             <TextInput
                                 :label="' Référence musicale globale :'"
                                 :type="'textarea'"
                                 :max="true"
-                                @update-text="getGlobalReference($event)"
+                                @update-text="addToFormData('global_ref', $event)"
                             />
                         </div>
                     </div>
@@ -217,17 +206,17 @@
             </Transition>
 
                 <ul class="tracks">
-                    <TransitionGroup name="tracklist">
-                        <li v-for="track in tracks" :key="track">
-                            <TrackForm 
-                                :orderId="order.value"
-                                :projectType="order.project_type"
-                                :support="order.support"
-                                :ref="setTrackRef"
-                                @trigger-delete="deleteTrack(track)"
-                            />
-                        </li>
-                    </TransitionGroup>
+                <TransitionGroup name="tracklist">
+                    <li v-for="track in tracks" :key="track">
+                        <TrackForm 
+                            :orderId="order.value"
+                            :projectType="order.project_type"
+                            :support="order.support"
+                            :ref="setTrackRef"
+                            @trigger-delete="deleteTrack(track)"
+                        />
+                    </li>
+                </TransitionGroup>
                 </ul>
 
             <Transition name="btn">

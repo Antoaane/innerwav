@@ -90,7 +90,6 @@
             }
         } else {
             uploadedFiles.value = files;
-            console.log(files);
         }
         
     };
