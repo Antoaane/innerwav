@@ -25,10 +25,12 @@
         }
     });
 
-
-    const fileType = ref('lr');
+    console.log(props.orderId);
 
     const formData = ref(new FormData());
+    const fileType = ref('lr');
+    formData.value.append('file_type', fileType.value);
+
     const track = ref([]);
 
     function addToFormData(name, e) {
@@ -36,13 +38,14 @@
             formData.value.delete(name);
         }
         formData.value.append(name, e);
-        
         track.value[name] = e;
         
         console.log(track.value);
         for (let pair of formData.value.entries()) {
             console.log(pair[0] + ': ' + pair[1]);
         }
+
+        triggerProjectName();
     }
 
     function cleanFormData() {
@@ -77,10 +80,13 @@
         }
     }
 
-    const emit = defineEmits(['trigger-delete']);
+    const emit = defineEmits(['trigger-delete', 'trigger-project-name']);
     function triggerDelete() {
         emit('trigger-delete');
         console.log('delete');
+    }
+    function triggerProjectName() {
+        emit('trigger-project-name', track.value.track_name);
     }
 </script>
 
@@ -93,7 +99,7 @@
                     :label="'Titre du morceau :'"
                     :max="true"
                     :aspect="'cover'"
-                    @update-text="addToFormData('spec_ref', $event)"
+                    @update-text="addToFormData('track_name', $event)"
                 />
 
                 <TextInput 
@@ -155,7 +161,7 @@
 
             <div>
                 <BtnOnOff 
-                    @state="fileType = fileType === 'stems' ? 'lr' : 'stems'"
+                    @state="addToFormData('file_type', fileType === 'lr' ? 'stems' : 'lr') && fileType === 'lr' ? fileType = 'stems' : fileType = 'lr'"
                     @click="cleanFormData()"
                 />
                 

@@ -1,28 +1,25 @@
 <script setup>
     import { ref } from 'vue';
     import axios from 'axios';
+    import { loadingState } from '../states/loadingState';
+    import LoadingOverlay from '../components/LoadingOverlay.vue';
     import FileInput from '../components/FileInput.vue';
     import TextInput from '../components/TextInput.vue';
     import TrackForm from '../components/TrackForm.vue';
     import BtnSelect from '../components/BtnSelect.vue';
     const apiUrl = import.meta.env.VITE_API_URL;
 
-    const props = defineProps({
-        orderId: {
-            type: String,
-            required: true
-        }
-    });
-
-    const formData = ref(new FormData());
     const order = ref([]);
+    order.value.id = 'no id yet';
+    order.value.project_name = 'Project test name';
     order.value.project_type = 'single';
     order.value.support = 'str';
-    console.log(order.value);
 
-    const coverImage = ref([]);
-    const projectName = ref('');
-    const globalReference = ref('');
+    console.log(order.value.id);
+
+    const formData = ref(new FormData());
+    formData.value.append('project_type', order.value.project_type);
+    formData.value.append('support', order.value.support);
 
     const minimumTracks = ref(1);
     const tracks = ref([0]);
@@ -30,21 +27,37 @@
     const trackFormComponents = ref([]);
 
 
+
+
+    // ------------------------ GET POJECT INFOS ------------------------
+
+    function addToFormData(name, e) {
+        if (formData.value.has(name)) {
+            formData.value.delete(name);
+        }
+        formData.value.append(name, e);
+        order.value[name] = e;
+
+        if (name === 'project_type') {
+            setMinimumTracks(order.value.project_type)
+        }
+    }
+
+
+
     // ------------------------ PUSH ORDER INFOS ------------------------
 
     async function pushOrderInfos() {
         loadingState.value = true;
 
-        const data = {
-            "fieldsToUpdate": ["project_type", "support"],
-            "project_type": order.value.project_type,
-            "support": order.value.support,
-        };
+        for (let pair of formData.value.entries()) {
+            console.log(pair[0] + ': ' + pair[1]);
+        }
 
         try {
             await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
-            const response = await axios.patch(`${apiUrl}/api/order/update/${props.orderId}`,
-                data,
+            const response = await axios.post(`${apiUrl}/api/order/start`,
+                formData.value,
                 {
                     headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem('token'),
@@ -54,23 +67,11 @@
                 }
             );
             console.log(response);
+            order.value.id = response.data.order.order_id;
         } catch (error) {
             console.log(error);
         } finally {
             loadingState.value = false;
-        }
-    }
-
-    
-
-    // ------------------------ GET POJECT INFOS ------------------------
-
-    function addToFormData(name, e) {
-        formData.value.append(name, e);
-        order.value[name] = e;
-
-        if (name === 'project_type') {
-            setMinimumTracks(order.value.project_type)
         }
     }
 
@@ -209,11 +210,12 @@
                 <TransitionGroup name="tracklist">
                     <li v-for="track in tracks" :key="track">
                         <TrackForm 
-                            :orderId="order.value"
+                            :orderId="order.id"
                             :projectType="order.project_type"
                             :support="order.support"
                             :ref="setTrackRef"
                             @trigger-delete="deleteTrack(track)"
+                            @trigger-project-name="addToFormData('project_name', $event)"
                         />
                     </li>
                 </TransitionGroup>
@@ -229,6 +231,7 @@
                 <button @click="pushTracks()">Push</button>
             </div>
         </div>
+        <LoadingOverlay />
     </div>
 </template>
 
