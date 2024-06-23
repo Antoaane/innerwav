@@ -161,7 +161,7 @@
 
             <div>
                 <BtnOnOff 
-                    @state="addToFormData('file_type', fileType === 'lr' ? 'stems' : 'lr') && fileType === 'lr' ? fileType = 'stems' : fileType = 'lr'"
+                    @state="addToFormData('file_type', fileType === 'lr' ? 'stems' : 'lr'); fileType = fileType === 'lr' ? 'stems' : 'lr'"
                     @click="cleanFormData()"
                 />
                 
