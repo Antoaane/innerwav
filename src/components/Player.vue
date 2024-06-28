@@ -73,7 +73,7 @@
         <div class="cover-container" @click="togglePlayer()">
             <img :src="coverImage" class="cover-img">
             <div class="cover-blur" :class="{ 'active': isPlayerActive }"></div>
-            <img class="play-btn" src="../assets/res/pictos/play.svg">
+            <img class="play-btn" src="/res/pictos/play.svg">
         </div>
     </div>
 </template>

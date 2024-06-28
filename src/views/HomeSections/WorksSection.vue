@@ -86,9 +86,9 @@ onMounted(() => {
                         <li class="splide__slide" v-for="work in works" :key="work.id">
                             <Player 
                                 :id="work.id" 
-                                :beforeAudio="baseUrl + work.beforeAudio" 
-                                :afterAudio="baseUrl + work.afterAudio" 
-                                :coverImage="baseUrl + work.coverImage"
+                                :beforeAudio="work.beforeAudio" 
+                                :afterAudio="work.afterAudio" 
+                                :coverImage="work.coverImage"
                                 @click="setActivePlayer(work.id)"
                                 :activePlayer="activePlayerId"
                             />

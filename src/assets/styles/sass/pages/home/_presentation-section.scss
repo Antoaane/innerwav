@@ -3,117 +3,50 @@
     margin-top: -1px;
     padding: 10rem 0 8rem 0;
 
-    &>.container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-        h2 {
-            @include h1;
+    &>div {
 
-            display: flex;
-            
-            .mesure-svg {
-                margin-left: 1rem;
+        &>.container{
+            padding-bottom: 5rem;
+
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+
+            h2 {
+                @include h3-bold;
+                margin-bottom: 2rem;
             }
-        }
-
-        .content {
-            margin-top: 3rem;
             
-            .grid {
-                margin: 5rem 0;
-
-                grid-template-columns: repeat(12, minmax(0, 1fr));
-                column-gap: 8rem;
-                align-items: center;
-
-                .text {
-                    grid-column: span 6 / span 6;
-
-                    h3 {
-                        margin-bottom: 2rem;
-
-                        @include h2-bold;
-                        text-transform: none;
-                        
-                        span {
-                            @include text-strokes($light, $dark);
-                        }
-                    }
-                }
-
-                .img {
-                    grid-column: span 6 / span 6;
-                    position: relative;
-
-                    img {
-                        width: 100%;
-                        aspect-ratio: 16/9;
-
-                        object-fit: cover;
-
-                        border-radius: $rounded-lg;
-
-                        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
-                    }
-
-                    &::after {
-                        content: "";
-                        width: 100%;
-                        height: 100%;
-                        z-index: -1;
-
-                        position: absolute;
-                        top: 15px;
-                        left: 15px;
-
-                        @include glass('bottom');
-                    }
-                }
-            }
-
-            .grid:nth-child(2n) {
+            div {
+                grid-column: span 6;
                 
-                .text {
-                    order: 2;
+                &.text {
+                    padding-right: 6rem;
 
-                    h3 {
-                        text-align: right;
-
-                        span {
-                            @include text-strokes($light, $soft);
-                        }
-                    }
-
-                    p {
-                        text-align: right;
-                    }
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
                 }
-
-                .img {
-                    order: 1;
+                
+                &.img {
+                    @include glass('middle', 0.2);
                 }
             }
 
-            .grid:nth-child(2) {
-                .text {
-                    h3 {
-                        span {
-                            @include text-strokes($light, $medium !important);
-                        }
+            &#section-2 {
+                div {
+                    grid-column: span 6;
+                    
+                    &.text {
+                        padding-right: 6rem;
+    
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
                     }
-                }
-            }
-
-            .conclusion {
-                p {
-                    margin-top: 10rem;
-                    padding: 0 8rem;
-
-                    @include h3;
-                    text-transform: none;
-                    text-align: center;
+                    
+                    &.img {
+                        @include glass('middle', 0.2);
+                    }
                 }
             }
         }

@@ -6,78 +6,32 @@
     <div id="presentation-section">
         <div class="bg reverse"></div>
 
-        <div class="container">
-            <h2>
-                Du sur mesure
-            </h2>
-            <div class="content">
-                <div class="grid">
-                    <div class="text">
-                        <h3>
-                            Mastering <span>personnalisé à votre</span> portée
-                        </h3>
-                        <p>
-                            Chez Innerwav, nous sommes fiers de vous offrir une expérience unique de mastering, orchestrée par notre équipe d'ingénieurs du son de haut niveau. 
-                            <br><br>
-                            Notre spécialité ? Un mastering sur mesure, adapté précisément à votre vision artistique et à votre style unique.
-                        </p>
-                    </div>
-                    <div class="img">
-                        <img src="../../../src/assets/res/presentation/img-1.jpg" alt="">
-                    </div>
-                </div>
-                <div class="grid">
-                    <div class="text">
-                        <h3>
-                            Réactivité <span>et</span> Efficacité
-                        </h3>
-                        <p>
-                            Nous comprenons l'importance du temps dans l'industrie musicale. C'est pourquoi nous nous engageons à répondre à vos besoins avec une rapidité exemplaire. 
-                            <br><br>
-                            Pour un single, nous vous garantissons une livraison en un maximum de 48 heures*, vous assurant ainsi de rester dans le rythme effréné du monde musical.
-                        </p>
-                    </div>
-                    
-                    <div class="img">
-                        <img src="../../../src/assets/res/presentation/img-2.jpg" alt="">
-                    </div>
-                </div>
-                <div class="grid">
-                    <div class="text">
-                        <h3>
-                            À l'Écoute <span>de vos</span> besoins
-                        </h3>
-                        <p>
-                            Votre satisfaction est notre priorité absolue. Chez Innerwav, vous bénéficiez d'au moins trois sessions de retours et ajustements sur le mastering de votre titre. 
-                            <br><br>
-                            Nous valorisons vos commentaires et travaillons avec vous main dans la main pour peaufiner chaque détail jusqu'à atteindre la perfection.
-                        </p>
-                    </div>
-                    
-                    <div class="img">
-                        <img src="../../../src/assets/res/presentation/img-3.jpg" alt="">
-                    </div>
-                </div>
-                <div class="grid">
-                    <div class="text">
-                        <h3>
-                            Excellence <span>sur les plateformes de</span> Streaming
-                        </h3>
-                        <p>
-                            Dans l'univers concurrentiel des plateformes de streaming, il est crucial que votre musique se démarque. 
-                            <br><br>
-                            Notre service de mastering veille à ce que votre titre respecte les normes de loudness actuelles, maximisant ainsi son impact et sa compétitivité une fois publié.
-                        </p>
-                    </div>
-                    
-                    <div class="img">
-                        <img src="../../../src/assets/res/presentation/img-4.jpg" alt="">
-                    </div>
-                </div>
-                <div class="conclusion">
+        <div>
+            <div id="section-1" class="container">
+                <div class="text">
+                    <h2>Un rendu rapide</h2>
                     <p>
-                        Chez Innerwav, nous sommes dédiés à faire briller votre musique avec la plus haute qualité de mastering. Donnez à votre titre la chance de se distinguer.
+                        Nous nous engageons à répondre à vos besoins <strong>avec rapidité</strong> en garantissant une première version de votre mastering en <strong>un maximum de 48 heures</strong> pour un single.
+                        <br><br>
+                        Nous vous offrons également la possibilité de faire passer <strong>votre commande en priorité</strong> et de recevoir une première version en <strong>24 heures</strong>.
                     </p>
+                </div>
+                <div class="img">
+                    <img src="/res/presentation/img-1.png" alt="">
+                </div>
+            </div>
+
+            <div id="section-2" class="container">
+                <div class="text">
+                    <h2>Un rendu rapide</h2>
+                    <p>
+                        Nous nous engageons à répondre à vos besoins <strong>avec rapidité</strong> en garantissant une première version de votre mastering en <strong>un maximum de 48 heures</strong> pour un single.
+                        <br>
+                        Nous vous offrons également la possibilité de faire passer <strong>votre commande en priorité</strong> et de recevoir une première version en <strong>24 heures</strong>.
+                    </p>
+                </div>
+                <div class="img">
+                    <img src="/res/presentation/img-1.png" alt="">
                 </div>
             </div>
         </div>

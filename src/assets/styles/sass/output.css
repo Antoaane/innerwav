@@ -597,7 +597,7 @@ body main {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-image: url("../../res/basics/gradiant.jpg");
+  background-image: url("/res/basics/gradiant.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -1259,97 +1259,48 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   margin-top: -1px;
   padding: 10rem 0 8rem 0;
 }
-#presentation-section > .container {
+#presentation-section > div > .container {
+  padding-bottom: 5rem;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+#presentation-section > div > .container h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+#presentation-section > div > .container div {
+  grid-column: span 6;
+}
+#presentation-section > div > .container div.text {
+  padding-right: 6rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
-#presentation-section > .container h2 {
-  font-size: 4rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  display: flex;
-}
-#presentation-section > .container h2 .mesure-svg {
-  margin-left: 1rem;
-}
-#presentation-section > .container .content {
-  margin-top: 3rem;
-}
-#presentation-section > .container .content .grid {
-  margin: 5rem 0;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: 8rem;
-  align-items: center;
-}
-#presentation-section > .container .content .grid .text {
-  grid-column: span 6/span 6;
-}
-#presentation-section > .container .content .grid .text h3 {
-  margin-bottom: 2rem;
-  font-size: 3rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  line-height: 1.2;
-  text-transform: none;
-}
-#presentation-section > .container .content .grid .text h3 span {
-  -webkit-text-fill-color: #200944;
-  text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
-}
-#presentation-section > .container .content .grid .img {
-  grid-column: span 6/span 6;
-  position: relative;
-}
-#presentation-section > .container .content .grid .img img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 1rem;
-  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
-}
-#presentation-section > .container .content .grid .img::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  position: absolute;
-  top: 15px;
-  left: 15px;
+#presentation-section > div > .container div.img {
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 1rem;
-  background: radial-gradient(100% 100% at 0% 100%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 150%);
+  background: radial-gradient(100% 100% at 0% 50%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 150%);
 }
-#presentation-section > .container .content .grid:nth-child(2n) .text {
-  order: 2;
+#presentation-section > div > .container#section-2 div {
+  grid-column: span 6;
 }
-#presentation-section > .container .content .grid:nth-child(2n) .text h3 {
-  text-align: right;
+#presentation-section > div > .container#section-2 div.text {
+  padding-right: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-#presentation-section > .container .content .grid:nth-child(2n) .text h3 span {
-  -webkit-text-fill-color: #42305E;
-  text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
-}
-#presentation-section > .container .content .grid:nth-child(2n) .text p {
-  text-align: right;
-}
-#presentation-section > .container .content .grid:nth-child(2n) .img {
-  order: 1;
-}
-#presentation-section > .container .content .grid:nth-child(2) .text h3 span {
-  -webkit-text-fill-color: #301c4d !important;
-  text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
-}
-#presentation-section > .container .content .conclusion p {
-  margin-top: 10rem;
-  padding: 0 8rem;
-  font-size: 2rem;
-  font-weight: 300;
-  text-transform: uppercase;
-  text-transform: none;
-  text-align: center;
+#presentation-section > div > .container#section-2 div.img {
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  background: radial-gradient(100% 100% at 0% 50%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 150%);
 }
 
 #works-section {
