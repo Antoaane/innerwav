@@ -6,21 +6,22 @@
     &>div {
 
         &>.container{
-            padding-bottom: 5rem;
+            margin-bottom: 5rem;
 
             display: grid;
             grid-template-columns: repeat(12, 1fr);
+            gap: 6rem;
 
             h2 {
-                @include h3-bold;
+                @include h2-bold;
                 margin-bottom: 2rem;
             }
             
-            div {
+            &>div {
                 grid-column: span 6;
                 
                 &.text {
-                    padding-right: 6rem;
+                    padding-left: 3rem;
 
                     display: flex;
                     flex-direction: column;
@@ -33,19 +34,144 @@
             }
 
             &#section-2 {
-                div {
+                @include glass('middle', 0.2);
+                border-radius: $rounded-xxl;
+                padding: 2rem;
+
+                &>div {
                     grid-column: span 6;
                     
                     &.text {
-                        padding-right: 6rem;
-    
+                        padding-right: 3rem;
+                        padding-left: 0;
+                        
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
+
+                        a {
+                            width: max-content;
+                            margin-top: 2rem;
+                            @include btn-md($light, $primary, $light, $primary);
+                        }
                     }
                     
                     &.img {
-                        @include glass('middle', 0.2);
+                        backdrop-filter: none;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            &#section-3 {
+                max-width: 100%;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                gap: 3rem;
+
+                .testimonies {
+                    width: 100%;
+                    margin-bottom: 3rem;
+
+                    .splide__track {
+
+                        .splide__list {
+
+                            .splide__slide {
+                                height: max-content;
+
+                                display: flex;
+                                align-items: center;
+                                gap: 3rem;
+
+                                &>.img {
+                                    aspect-ratio: 1/1;
+                                    height: 15rem;
+
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+
+                                        border-radius: $rounded-xxl;
+                                    }
+                                }
+
+                                &>.text {
+                                    height: max-content;
+
+                                    .name {
+                                        @include h3-bold;
+                                    }
+
+                                    .type {
+                                        margin-bottom: 0.5rem;
+
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 0.5rem;
+
+                                        p {
+                                            @include h4-light;
+                                        }
+                                    }
+
+                                    .testimony {
+                                        height: max-content;
+                                    }
+                                }
+
+                                &>.line {
+                                    width: 1px;
+                                    height: 10rem;
+                                    margin-left: 2rem;
+
+                                    background-color: $light;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &#section-4 {
+
+                &>div {
+                    
+                    &.text {
+                        grid-column: span 7;
+
+                        padding-right: 3rem;
+                        padding-left: 0;
+                        
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        a {
+                            width: max-content;
+                            margin-top: 2rem;
+                            @include btn-md($light, $primary, $light, $primary);
+                        }
+                    }
+                    
+                    &.img {
+                        grid-column: span 5;
+                        margin: 0 3rem 0 7rem;
+                        padding: 2.5rem;
+
+                        border-radius: calc($rounded-xxl * 2.5);
+                        backdrop-filter: none;
+
+                        img {
+                            width: 100%;
+                        }
                     }
                 }
             }

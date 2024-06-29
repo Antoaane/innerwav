@@ -18,14 +18,21 @@
 }
 
 @mixin h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 300;
     text-transform: uppercase;
     line-height: 1.2;
 }
 
+@mixin h2-mid {
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
 @mixin h2-bold {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 900;
     text-transform: uppercase;
     line-height: 1.2;
@@ -34,13 +41,21 @@
 @mixin h3 {
     font-size: 2rem;
     font-weight: 300;
-    text-transform: uppercase;
+}
+
+@mixin h3-mid {
+    font-size: 2rem;
+    font-weight: 500;
 }
 
 @mixin h3-bold {
     font-size: 2rem;
     font-weight: 900;
-    text-transform: uppercase;
+}
+
+@mixin h4-light {
+    font-size: 1.5rem;
+    font-weight: 300;
 }
 
 @mixin h4 {
@@ -48,14 +63,29 @@
     font-weight: 500;
 }
 
+@mixin h4-mid {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
 @mixin h4-bold {
     font-size: 1.5rem;
     font-weight: 900;
 }
 
+@mixin h5-light {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
 @mixin h5 {
     font-size: 1.25rem;
     font-weight: 500;
+}
+
+@mixin h5-mid {
+    font-size: 1.25rem;
+    font-weight: 700;
 }
 
 @mixin h5-bold {
