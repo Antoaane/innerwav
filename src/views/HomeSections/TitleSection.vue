@@ -16,7 +16,7 @@
                 </p>
 
                 <h1 class="main-subtitle">
-                    By <span class="font-extrabold !text-5xl">INNERWAV</span><span class="font-extralight inline-block !text-5xl scale-50 -translate-y-1/4">™</span>
+                    By <span class="font-extrabold text-xl sm:text-4xl md:text-5xl">INNERWAV <span class="inline-block font-extralight text-xl -translate-y-1/2">™</span></span>
                 </h1>
 
             </div>

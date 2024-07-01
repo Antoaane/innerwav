@@ -1,132 +1,133 @@
 @mixin big-title {
-    font-size: 9rem;
+    @include font-responsive(9rem, 2rem);
     font-weight: 900;
     line-height: 1.1;
     text-transform: uppercase;
 }
 
 @mixin main-title {
-    font-size: 1.625rem;
+    @include font-responsive(1.625rem, 1.25rem);
     font-weight: 400;
     line-height: 1.2;
 }
 
 @mixin h1 {
-    font-size: 4rem;
+    @include font-responsive(4rem, 1.75rem);
     font-weight: 900;
     text-transform: uppercase;
 }
 
 @mixin h2 {
-    font-size: 2.5rem;
+    @include font-responsive(2.5rem, 1.5rem);
     font-weight: 300;
     text-transform: uppercase;
     line-height: 1.2;
 }
 
 @mixin h2-mid {
-    font-size: 2.5rem;
+    @include font-responsive(2.5rem, 1.5rem);
     font-weight: 500;
     text-transform: uppercase;
     line-height: 1.2;
 }
 
 @mixin h2-bold {
-    font-size: 2.5rem;
+    @include font-responsive(2.5rem, 1.5rem);
     font-weight: 900;
     text-transform: uppercase;
     line-height: 1.2;
 }
 
 @mixin h3 {
-    font-size: 2rem;
+    @include font-responsive(2rem, 1.15rem);
     font-weight: 300;
 }
 
 @mixin h3-mid {
-    font-size: 2rem;
+    @include font-responsive(2rem, 1.15rem);
     font-weight: 500;
 }
 
 @mixin h3-bold {
-    font-size: 2rem;
+    @include font-responsive(2rem, 1.15rem);
     font-weight: 900;
 }
 
 @mixin h4-light {
+    @include font-responsive(1.5rem, 1.15rem);
     font-size: 1.5rem;
     font-weight: 300;
 }
 
 @mixin h4 {
-    font-size: 1.5rem;
+    @include font-responsive(1.5rem, 1.15rem);
     font-weight: 500;
 }
 
 @mixin h4-mid {
-    font-size: 1.5rem;
+    @include font-responsive(1.5rem, 1.15rem);
     font-weight: 700;
 }
 
 @mixin h4-bold {
-    font-size: 1.5rem;
+    @include font-responsive(1.5rem, 1.15rem);
     font-weight: 900;
 }
 
 @mixin h5-light {
-    font-size: 1.25rem;
+    @include font-responsive(1.25rem, 1.125rem);
     font-weight: 300;
 }
 
 @mixin h5 {
-    font-size: 1.25rem;
+    @include font-responsive(1.25rem, 1.125rem);
     font-weight: 500;
 }
 
 @mixin h5-mid {
-    font-size: 1.25rem;
+    @include font-responsive(1.25rem, 1.125rem);
     font-weight: 700;
 }
 
 @mixin h5-bold {
-    font-size: 1.25rem;
+    @include font-responsive(1.25rem, 1.125rem);
     font-weight: 900;
 }
 
 
 @mixin subtitle-black {
-    font-size: 1.5rem;
+    @include font-responsive(1.5rem, 1.15rem);
     font-weight: 900;
     text-transform: uppercase;
 }
 
 @mixin subtitle-big {
-    font-size: 1.5rem;
+    @include font-responsive(1.5rem, 1.15rem);
     font-weight: 700;
     text-transform: uppercase;
 }
 
 @mixin subtitle {
-    font-size: 1.5rem;
+    @include font-responsive(1.5rem, 1.15rem);
     font-weight: 400;
     text-transform: uppercase;
 }
 
 
 @mixin btn-big {
-    font-size: 1.5rem;
+    @include font-responsive(1.5rem, 1.15rem);
     font-weight: 800;
     text-transform: uppercase;
 }
 
 @mixin btn-medium {
-    font-size: 1.5rem;
+    @include font-responsive(1.5rem, 1.15rem);
     font-weight: 600;
     text-transform: uppercase;
 }
 
 @mixin btn {
-    font-size: 1.5rem;
+    @include font-responsive(1.5rem, 1.15rem);
     font-weight: 400;
 }
 
@@ -148,4 +149,29 @@
          1px -1px 0 $color1,
         -1px  1px 0 $color1,
          1px  1px 0 $color1;
+}
+
+
+@mixin font-responsive($size, $min_size: 1rem) {
+    font-size: calc($size - ($size * .75));
+
+    @media screen and (min-width: $xs) {
+        font-size: if(calc($size - ($size * .65)) < $min_size, $min_size, calc($size - ($size * .65)));
+    }
+
+    @media screen and (min-width: $sm) {
+        font-size: if(calc($size - ($size * .45)) < $min_size, $min_size, calc($size - ($size * .45)));
+    }
+
+    @media screen and (min-width: $md) {
+        font-size: if(calc($size - ($size * .30)) < $min_size, $min_size, calc($size - ($size * .30)));
+    }
+
+    @media screen and (min-width: $lg) {
+        font-size: if(calc($size - ($size * .15)) < $min_size, $min_size, calc($size - ($size * .15)));
+    }
+
+    @media screen and (min-width: $xl) {
+        font-size: $size;
+    }
 }
