@@ -153,7 +153,7 @@
 
 
 @mixin font-responsive($size, $min_size: 1rem) {
-    font-size: calc($size - ($size * .75));
+    font-size: if(calc($size - ($size * .75)) < $min_size, $min_size, calc($size - ($size * .75)));
 
     @media screen and (min-width: $xs) {
         font-size: if(calc($size - ($size * .65)) < $min_size, $min_size, calc($size - ($size * .65)));

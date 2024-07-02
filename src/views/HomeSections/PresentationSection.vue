@@ -40,17 +40,21 @@
             </div>
 
             <div id="section-2" class="container">
-                <div class="img">
-                    <img src="/res/presentation/img-2.svg" alt="">
-                </div>
-                <div class="text">
-                    <h2>À l’écoute de vos retours</h2>
-                    <p>
-                        Avec notre système de <strong>retour intégré à votre espace client</strong>, vous êtes assuré de bénéficier de l’expertise de notre équipe et d’avoir <strong>un mastering correspondant parfaitement à vos attentes</strong>.
-                    </p>
-                    <a href="#works-section">
-                        Voir nos réalisations
-                    </a>
+                <div>
+                    <div class="img">
+                        <div>
+                            <img src="/res/presentation/img-2.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="text">
+                        <h2>À l’écoute de vos retours</h2>
+                        <p>
+                            Avec notre système de <strong>retour intégré à votre espace client</strong>, vous êtes assuré de bénéficier de l’expertise de notre équipe et d’avoir <strong>un mastering correspondant parfaitement à vos attentes</strong>.
+                        </p>
+                        <a href="#works-section">
+                            Voir nos réalisations
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -86,7 +90,9 @@
 
             <div id="section-4" class="container">
                 <div class="img">
-                    <img src="/res/presentation/img-3.svg" alt="">
+                    <div>
+                        <img src="/res/presentation/img-3.svg" alt="">
+                    </div>
                 </div>
                 <div class="text">
                     <h2>Excellence sur les plateformes de Streaming</h2>

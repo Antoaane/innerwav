@@ -5,13 +5,20 @@
 
     &>div {
 
-        &>.container{
-            margin-bottom: 5rem;
+        &>.container {
+            margin-bottom: 1rem;
+            @media screen and (min-width: $md){
+                margin-bottom: 2.5rem;
+            }
+            @media screen and (min-width: $lg){
+                margin-bottom: 5rem;
+            }
 
             display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            
+            grid-template-columns: repeat(1, 1fr);
+
             @media screen and (min-width: $lg){
+                grid-template-columns: repeat(12, 1fr);
                 gap: 4rem;
             }
 
@@ -22,14 +29,23 @@
             h2 {
                 @include h2-bold;
                 margin-bottom: 2rem;
+                text-align: center;
+                @media screen and (min-width: $sm){
+                    text-align: left;
+                }
             }
-            
+
             &>div {
-                
+                    
                 &.text {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
+                    align-items: center;
+
+                    @media screen and (min-width: $sm){
+                        align-items: start;
+                    }
 
                     @media screen and (min-width: $lg){
                         grid-column: span 5;
@@ -51,39 +67,153 @@
                     @media screen and (min-width: $xl){
                         grid-column: span 6;
                     }
-
-                    @include glass('middle', 0.2);
+                    
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
                 }
             }
-
-            &#section-2 {
-                @include glass('middle', 0.2);
-                border-radius: $rounded-xxl;
-                padding: 2rem;
-
+        
+            &#section-1 {
+                
                 &>div {
-                    grid-column: span 6;
                     
                     &.text {
-                        padding-right: 3rem;
-                        padding-left: 0;
-                        
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-
-                        a {
-                            width: max-content;
-                            margin-top: 2rem;
-                            @include btn-md($light, $primary, $light, $primary);
+                        @media screen and (min-width: $lg){
+                            grid-column: span 5;
+                        }
+        
+                        @media screen and (min-width: $xl){
+                            padding-left: 3rem;
+                            grid-column: span 6;
                         }
                     }
                     
                     &.img {
-                        backdrop-filter: none;
+                        width: 100%;
+                        display: none;
 
-                        img {
-                            width: 100%;
+                        @media screen and (min-width: $lg){
+                            display: block;
+                            grid-column: span 7;
+                        }
+        
+                        @media screen and (min-width: $xl){
+                            grid-column: span 6;
+                        }
+
+                        @include glass('middle', 0.2);
+                    }
+                }
+            }
+
+            &#section-2 {
+                padding: 2rem;
+                display: block;
+
+                &>div {
+                    @include glass('middle', 0.2);
+                    border-radius: $rounded-xl;
+                    @media screen and (min-width: $sm){
+                        border-radius: $rounded-xxl;
+                    }
+                    padding: 2rem;
+
+                    display: grid;
+                    grid-template-columns: repeat(1, 1fr);
+
+                    @media screen and (min-width: $lg){
+                        grid-template-columns: repeat(12, 1fr);
+                        gap: 4rem;
+                    }
+
+                    @media screen and (min-width: $xl){
+                        gap: 6rem;
+                    }
+
+                    &>div {
+                        
+                        &.text {
+                            margin-bottom: 1rem;
+                            @media screen and (min-width: $sm){
+                                padding: 0 1rem;
+                            }
+                            @media screen and (min-width: $lg){
+                                padding-right: 3rem;
+                                padding-left: 0;
+                                margin-bottom: 0;
+                            }
+
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            @media screen and (min-width: $sm){
+                                align-items: start;
+                            }
+
+                            @media screen and (min-width: $lg){
+                                grid-column: span 5;
+                            }
+            
+                            @media screen and (min-width: $xl){
+                                padding-left: 3rem;
+                                grid-column: span 6;
+                            }
+
+                            @media screen and (min-width: $sm){
+                                align-items: start;
+                            }
+
+                            p {
+                                text-align: center;
+                                @media screen and (min-width: $sm){
+                                    text-align: left;
+                                }
+                            }
+
+                            a {
+                                @media screen and (min-width: $sm){
+                                    width: max-content;
+                                }
+                                display: inline-block;
+                                margin-top: 2rem;
+                                @include btn-md($light, $primary, $light, $primary);
+                            }
+                        }
+                        
+                        &.img {
+                            backdrop-filter: none;
+                            margin-bottom: 2.5rem;
+                            @media screen and (min-width: $lg){
+                                margin-bottom: 0;
+                                padding-right: 3rem;
+                            }
+
+                            @media screen and (min-width: $lg){
+                                grid-column: span 7;
+                            }
+            
+                            @media screen and (min-width: $xl){
+                                grid-column: span 6;
+                            }
+
+                            display: flex;
+                            align-items: center;
+
+                            &>div {
+                                @include glass('middle', 0.2);
+                                border-radius: $rounded-md;
+
+                                @media screen and (min-width: $sm){
+                                    @include glass('middle', 0.2);
+                                }
+
+                                img {
+                                    width: 100%;
+                                }
+                            }
                         }
                     }
                 }
@@ -168,14 +298,11 @@
                 &>div {
                     
                     &.text {
-                        grid-column: span 7;
-
-                        padding-right: 3rem;
-                        padding-left: 0;
-                        
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
+                        @media screen and (min-width: $lg){
+                            grid-column: span 7;
+                            padding-right: 3rem;
+                            padding-left: 0;
+                        }
 
                         a {
                             width: max-content;
@@ -185,15 +312,56 @@
                     }
                     
                     &.img {
-                        grid-column: span 5;
-                        margin: 0 3rem 0 7rem;
-                        padding: 2.5rem;
+                        @media screen and (min-width: $lg){
+                            grid-column: span 5;
+                        }
 
-                        border-radius: calc($rounded-xxl * 2.5);
-                        backdrop-filter: none;
 
-                        img {
-                            width: 100%;
+                        &>div {
+                            @include glass('middle', 0.2);
+                            padding: 1.5rem;
+                            margin-bottom: 3rem;
+                            border-radius: calc($rounded-xxl * 1.5);
+                            @media screen and (min-width: 470px){
+                                padding: 2.5rem;
+                                margin-bottom: 3rem;
+                                border-radius: calc($rounded-xxl * 2.5);
+                            }
+
+                            @media screen and (min-width: $sm){
+                                margin-bottom: 3rem;
+                                margin-right: 4rem;
+                                margin-left: 4rem;
+                                padding: 2.5rem;
+                                border-radius: calc($rounded-xxl * 2.5);
+                            }
+                            @media screen and (min-width: $md){
+                                margin-right: 7.5rem;
+                                margin-left: 7.5rem;
+                                padding: 3rem;
+                                border-radius: calc($rounded-xxl * 2.5);
+                            }
+                            @media screen and (min-width: $lg){
+                                margin: 0;
+                                padding: 1.5rem;
+                                border-radius: calc($rounded-xxl * 1.5);
+                            }
+                            @media screen and (min-width: $xl){
+                                margin-left: 7rem;
+                                padding: 1.5rem;
+                                border-radius: calc($rounded-xxl * 1.5);
+                            }
+                            @media screen and (min-width: $xxl){
+                                margin-right: 3rem;
+                                padding: 2.5rem;
+                                border-radius: calc($rounded-xxl * 2.5);
+                            }
+                            
+                            backdrop-filter: none;
+                            
+                            img {
+                                width: 100%;
+                            }
                         }
                     }
                 }
