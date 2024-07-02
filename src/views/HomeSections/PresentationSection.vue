@@ -13,6 +13,19 @@
                 speed: 0.25,
                 pauseOnHover: false,
             },
+            breakpoints: {
+                640: {
+                    perPage: 1,
+                    gap: '2rem',
+                },
+                1024: {
+                    perPage: 1,
+                    gap: '3rem',
+                },
+                1280: {
+                    perPage: 1.25,
+                }
+            },
             drag   : 'free',
             focus  : 'center',
             arrows: false,
@@ -64,22 +77,24 @@
                     <div class="splide__track">
                         <ul class="splide__list">
                             <li class="splide__slide">
-                                <div class="img">
-                                    <img src="/res/presentation/avis/sovajon.jpg" alt="">
-                                </div>
-                                <div class="text">
-                                    <p class="name">
-                                        Sovajon
-                                    </p>
-                                    <div class="type">
-                                        <img src="/res/pictos/mic-fil.svg" alt="">
-                                        <p>
-                                            Artiste, compositeur
+                                <div class="content-container">
+                                    <div class="img">
+                                        <img src="/res/presentation/avis/sovajon.jpg" alt="">
+                                    </div>
+                                    <div class="text">
+                                        <p class="name">
+                                            Sovajon
+                                        </p>
+                                        <div class="type">
+                                            <img src="/res/pictos/mic-fil.svg" alt="">
+                                            <p>
+                                                Artiste, compositeur
+                                            </p>
+                                        </div>
+                                        <p class="testimony">
+                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta numquam ex sapiente quas esse fuga, mollitia iusto obcaecati explicabo placeat non, facilis, corporis expedita dolore nisi. Omnis, itaque quam, animi commodi reiciendis vitae est eaque explicabo modi maxime quidem, amet obcaecati accusamus laborum distinctio facilis.
                                         </p>
                                     </div>
-                                    <p class="testimony">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta numquam ex sapiente quas esse fuga, mollitia iusto obcaecati explicabo placeat non, facilis, corporis expedita dolore nisi. Omnis, itaque quam, animi commodi reiciendis vitae est eaque explicabo modi maxime quidem, amet obcaecati accusamus laborum distinctio facilis.
-                                    </p>
                                 </div>
                                 <div class="line"></div>
                             </li>

@@ -68,7 +68,7 @@
                         </table>
                     </div>
 
-                    <div class="card special bright">
+                    <!-- <div class="card special bright">
                         <table>
                             <tbody>
                                 <tr>
@@ -84,7 +84,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="column">

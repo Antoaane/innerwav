@@ -57,11 +57,23 @@ onMounted(() => {
       right: '1rem',
       left : '1rem',
     },
+    breakpoints : {
+      560: {
+        perPage: 1,
+      },
+      768: {
+        perPage: 2,
+      },
+      1024: {
+        perPage: 3,
+      },
+    },
     gap: '2rem',
     autoplay: true,
     interval : 3000,
     pagination: true,
     arrows: true,
+    arrowPath: 'M1.73704 40L13.9258 20L1.73704 0L0.000324558 1.06291L11.5466 20L0.000324558 38.9371L1.73704 40Z',
   } ).mount();
 })
 </script>

@@ -224,22 +224,22 @@ function goToAccountByRedirect() {
 
       <ul id="menu" class="mobile hidden lg:hidden">
         <li class="main-nav-item">
-          <a class="nav-text" :href="baseUrl + '/'">Accueil</a>
+          <a @click=triggerMenu() class="nav-text" :href="baseUrl + '/'">Accueil</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="baseUrl + '/#works-section'">Réalisations</a>
+          <a @click=triggerMenu() class="nav-text" :href="baseUrl + '/#works-section'">Réalisations</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="baseUrl + '/#pricing-section'">Tarifs</a>
+          <a @click=triggerMenu() class="nav-text" :href="baseUrl + '/#pricing-section'">Tarifs</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="baseUrl + '/contact'">Contact</a>
+          <a @click=triggerMenu() class="nav-text" :href="baseUrl + '/contact'">Contact</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="baseUrl + '/masteriser'">Masteriser</a>
+          <a @click=triggerMenu() class="nav-text" :href="baseUrl + '/masteriser'">Masteriser</a>
         </li>
         <li @click="goToAccountByRedirect()" class="main-nav-item profile">
-          <a class="main-nav-item">
+          <a @click=triggerMenu() class="main-nav-item">
             <ProfileSvg />
           </a>
         </li>
