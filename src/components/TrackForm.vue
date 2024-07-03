@@ -17,7 +17,7 @@
         },
         projectType : {
             type: String,
-            required: false
+            required: true
         },
         support : {
             type: String,
@@ -25,7 +25,9 @@
         }
     });
 
-    console.log(props.orderId);
+    // --------- CONSOL LOG
+    console.log(props);
+    // --------------------
 
     const formData = ref(new FormData());
     const fileType = ref('lr');
@@ -40,12 +42,16 @@
         formData.value.append(name, e);
         track.value[name] = e;
         
-        console.log(track.value);
-        for (let pair of formData.value.entries()) {
-            console.log(pair[0] + ': ' + pair[1]);
-        }
+        // --------- CONSOL LOG
+            console.log(track.value);
+            for (let pair of formData.value.entries()) {
+                console.log(pair[0] + ': ' + pair[1]);
+            }
+        // --------------------
 
-        triggerProjectName();
+        if (props.projectType === 'single') {
+            triggerProjectName();
+        }
     }
 
     function cleanFormData() {
@@ -64,6 +70,12 @@
     async function sendData() {
         try {
             await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
+        // --------- CONSOL LOG
+            // console.log(track.value);
+            // for (let pair of formData.value.entries()) {
+            //     console.log(pair[0] + ': ' + pair[1]);
+            // }
+        // --------------------
             const response = await axios.post(`${apiUrl}/api/order/upload/${props.orderId}`,
                 formData.value,
                 {
@@ -74,16 +86,22 @@
                     }
                 }
             );
+        // --------- CONSOL LOG
             console.log(response);
+        // --------------------
         } catch (error) {
+        // --------- CONSOL LOG
             console.log(error);
+        // --------------------
         }
     }
 
     const emit = defineEmits(['trigger-delete', 'trigger-project-name']);
     function triggerDelete() {
         emit('trigger-delete');
+    // --------- CONSOL LOG
         console.log('delete');
+    // --------------------
     }
     function triggerProjectName() {
         emit('trigger-project-name', track.value.track_name);
@@ -134,7 +152,7 @@
                         <FileInput
                             :placeholder="'Ajouter la voix/mélodie'"
                             :accept="'.wav, .mp3'"
-                            @update-files="addToFormData('voice', $event)"
+                            @update-files="addToFormData('main', $event)"
                         />
 
                         <FileInput

@@ -753,6 +753,7 @@ header .main-nav {
     position: static;
     inset: 0;
     transform: none;
+    align-items: stretch;
   }
 }
 header .main-nav .desktop {
