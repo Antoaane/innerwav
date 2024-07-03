@@ -38,6 +38,11 @@
         formData.value.append(name, e);
         order.value[name] = e;
 
+        // formData consol.log
+        for (let pair of formData.value.entries()) {
+            console.log(pair[0] + ': ' + pair[1]);
+        }
+
         if (name === 'project_type') {
             setMinimumTracks(order.value.project_type)
         }
@@ -50,6 +55,7 @@
     async function pushOrderInfos() {
         loadingState.value = true;
 
+        // formData consol.log
         for (let pair of formData.value.entries()) {
             console.log(pair[0] + ': ' + pair[1]);
         }

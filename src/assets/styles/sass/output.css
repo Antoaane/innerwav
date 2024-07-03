@@ -1378,7 +1378,7 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
 }
 @media screen and (min-width: 1024px) {
   #presentation-section {
-    padding: 6rem;
+    padding: 6rem 0;
   }
 }
 @media screen and (min-width: 1280px) {
