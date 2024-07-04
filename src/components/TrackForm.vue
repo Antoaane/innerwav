@@ -13,7 +13,7 @@
     const props = defineProps({
         orderId : {
             type: String,
-            required: false
+            required: true
         },
         projectType : {
             type: String,

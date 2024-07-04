@@ -10,7 +10,7 @@
     const apiUrl = import.meta.env.VITE_API_URL;
 
     const order = ref([]);
-    order.value.id = 'no id yet';
+    order.value.id = '';
     order.value.project_name = 'Project test name';
     order.value.project_type = 'single';
     order.value.support = 'str';
@@ -55,10 +55,11 @@
     async function pushOrderInfos() {
         loadingState.value = true;
 
-        // formData consol.log
+        // --------- CONSOL LOG
         for (let pair of formData.value.entries()) {
             console.log(pair[0] + ': ' + pair[1]);
         }
+        // --------------------
 
         try {
             await axios.get(`${apiUrl}/sanctum/csrf-cookie`);
@@ -67,7 +68,7 @@
                 {
                     headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem('token'),
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'multipart/form-data',
                         'Accept': 'application/json'
                     }
                 }
@@ -187,7 +188,7 @@
                             <FileInput 
                                 :placeholder="order.project_type === 'ep' ? 'Ajouter la cover de l\'EP' : 'Ajouter la cover de l\'album'" 
                                 :accept="'image/*'"
-                                :multiple="true"
+                                :multiple="false"
                                 :button="false"
                                 @update-files="addToFormData('cover_img', $event)"
                             />
