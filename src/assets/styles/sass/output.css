@@ -690,6 +690,62 @@ body main {
   animation: fadeInOverlay 0.5s forwards;
 }
 
+.error-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error-overlay > div {
+  width: 50vw;
+  height: 50vh;
+  padding: 10rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  background: radial-gradient(100% 100% at 0% 100%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 150%);
+  background-color: #ffc87a;
+}
+.error-overlay > div p {
+  color: #ad6500;
+  font-size: 2rem;
+  font-weight: 300;
+}
+.error-overlay > div p strong {
+  font-weight: 500;
+}
+.error-overlay > div button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+.error-overlay > div button .cross-svg {
+  width: 2rem;
+  height: 2rem;
+}
+.error-overlay > div button .cross-svg path {
+  fill: #ad6500;
+  transition: all 0.3s ease-in-out;
+}
+.error-overlay > div button:hover .cross-svg path {
+  fill: #FFFFFF;
+}
+.error-overlay.sleeping {
+  animation: fadeOutOverlay 0.5s forwards;
+}
+.error-overlay.active {
+  animation: fadeInOverlay 0.5s forwards;
+}
+
 @keyframes fadeInOverlay {
   0% {
     z-index: -9999;
@@ -2568,6 +2624,9 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
   background: radial-gradient(100% 100% at 0% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 150%);
   border-radius: 1.5rem;
 }
+#masteriser > .container > div .general-infos > div > .\!min-h-0 .text-input {
+  margin-bottom: 0 !important;
+}
 #masteriser > .container > div .general-infos > div > .cover {
   margin-right: 0.75rem;
   flex-basis: 16.6666666667%;
@@ -2579,6 +2638,16 @@ header .main-nav-fixed .desktop > .profile:hover .account-submenu {
 }
 #masteriser > .container > div .general-infos > div > .cover .drag-drop-area {
   aspect-ratio: 1/1;
+}
+#masteriser > .container > div .general-infos > div > .cover.single {
+  flex-basis: 33.3333333333%;
+}
+#masteriser > .container > div .general-infos > div > .cover.single .drag-drop-area {
+  aspect-ratio: auto;
+  min-height: 0;
+  max-height: 40px;
+  padding: calc(0.5rem - 2px) 0;
+  box-sizing: border-box;
 }
 #masteriser > .container > div .general-infos > div > .infos {
   min-height: 12rem;

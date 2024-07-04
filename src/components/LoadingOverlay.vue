@@ -1,7 +1,4 @@
 <script setup>
-import { onMounted } from 'vue';
-import { loadingState } from '../states/loadingState';
-
 defineProps(['isLoading']);
 
 </script>

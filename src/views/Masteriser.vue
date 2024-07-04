@@ -2,6 +2,7 @@
     import { ref } from 'vue';
     import axios from 'axios';
     import { loadingState } from '../states/loadingState';
+    import { errorState, errorMessage } from '../states/errorState';
     import LoadingOverlay from '../components/LoadingOverlay.vue';
     import FileInput from '../components/FileInput.vue';
     import TextInput from '../components/TextInput.vue';
@@ -53,7 +54,6 @@
     // ------------------------ PUSH ORDER INFOS ------------------------
 
     async function pushOrderInfos() {
-        loadingState.value = true;
 
         // --------- CONSOL LOG
         for (let pair of formData.value.entries()) {
@@ -77,8 +77,8 @@
             order.value.id = response.data.order.order_id;
         } catch (error) {
             console.log(error);
-        } finally {
-            loadingState.value = false;
+            errorState.value = true;
+            errorMessage.value = 'Donner des références n\'est pas une obligation, mais tous les autres champs sont obligatoires :)';
         }
     }
 
@@ -131,13 +131,14 @@
     }
 
     async function pushTracks() {
-
+        loadingState.value = true;
         await pushOrderInfos();
 
         for (const trackFormComponent of trackFormComponents.value) {
             await trackFormComponent.sendData()
             console.log('pushed');
         }
+        loadingState.value = false;
     }
 
 
@@ -181,10 +182,11 @@
                 </div>
 
             <Transition name="general-infos">
-                <div v-if="order.project_type === 'ep' || order.project_type === 'album'" class="general-infos">
+                <!-- <div v-if="order.project_type === 'ep' || order.project_type === 'album'" class="general-infos"> -->
+                <div class="general-infos">
                     <div>
                     <Transition name="cover">
-                        <div v-if="order.support === 'strcd'" class="cover">
+                        <div v-if="order.support === 'strcd'" :class="{'cover': true, 'single' : order.project_type == 'single'}">
                             <FileInput 
                                 :placeholder="order.project_type === 'ep' ? 'Ajouter la cover de l\'EP' : 'Ajouter la cover de l\'album'" 
                                 :accept="'image/*'"
@@ -195,19 +197,21 @@
                         </div>
                     </Transition>
 
-                        <div class="infos">
+                        <div :class="{'infos': true, '!min-h-0' : order.project_type == 'single'}">
                             <TextInput
                                 :label="order.project_type === 'ep' ? 'Nom de l\'EP' : 'Nom de l\'album :'"
                                 :type="'text'"
                                 @update-text="addToFormData('project_name', $event)"
                             />
-
+                        <Transition name="general-infos">
                             <TextInput
+                                v-if="order.project_type === 'album' || order.project_type === 'ep'"
                                 :label="' Référence musicale globale :'"
                                 :type="'textarea'"
                                 :max="true"
                                 @update-text="addToFormData('global_ref', $event)"
                             />
+                        </Transition>
                         </div>
                     </div>
                 </div>

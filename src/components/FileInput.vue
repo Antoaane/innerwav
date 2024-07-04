@@ -14,6 +14,10 @@
             type: Boolean,
             default: false
         },
+        required: {
+            type: Boolean,
+            default: true
+        },
         button: {
             type: Boolean,
             default: true
@@ -145,8 +149,8 @@
                 <p v-else>{{ placeholder }}</p>
             </template>
             
-            <input v-if="props.multiple" type="file" ref="fileInput" @change="handleChange" multiple hidden>
-            <input v-else type="file" :accept="accept" ref="fileInput" @change="handleChange" hidden>
+            <input v-if="props.multiple" type="file" ref="fileInput" @change="handleChange" multiple hidden :required=props.required>
+            <input v-else type="file" :accept="accept" ref="fileInput" @change="handleChange" hidden :required=props.required>
         </div>
 
         <label @click="openFileChooser" v-if="button" for="fileInput" class="file-input-label">+</label>

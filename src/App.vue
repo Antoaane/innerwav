@@ -2,7 +2,9 @@
 import { onMounted, ref } from 'vue';
 import { RouterView } from 'vue-router';
 import { loadingState } from './states/loadingState';
+import { errorState, errorMessage } from './states/errorState';
 import LoadingOverlay from './components/LoadingOverlay.vue';
+import ErrorOverlay from './components/ErrorOverlay.vue';
 
 import ArrowSvg from './components/svgs/ArrowSvg.vue';
 import ProfileSvg from './components/svgs/ProfileSvg.vue';
@@ -314,4 +316,5 @@ function goToAccountByRedirect() {
   </footer>
 
   <LoadingOverlay :isLoading="loadingState" />
+  <ErrorOverlay :isError="errorState" :errorMessage=errorMessage />
 </template>

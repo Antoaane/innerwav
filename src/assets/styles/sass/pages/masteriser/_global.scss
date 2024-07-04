@@ -65,6 +65,13 @@
                     @include glass('middle');
                     border-radius: $rounded-xl;
 
+                    &>.\!min-h-0 {
+                        
+                        .text-input {
+                            margin-bottom: 0 !important;
+                        }
+                    }
+
                     &>.cover {
                         margin-right: $spacing;
                         flex-basis: calc(100% / 6);
@@ -78,6 +85,18 @@
 
                         .drag-drop-area {
                             aspect-ratio: 1 / 1;
+                        }
+
+                        &.single {
+                            flex-basis: calc(100% / 3);
+
+                            .drag-drop-area {
+                                aspect-ratio: auto;
+                                min-height: 0;
+                                max-height: 40px;
+                                padding: calc(0.5rem - 2px) 0;
+                                box-sizing: border-box;
+                            }
                         }
                     }
 

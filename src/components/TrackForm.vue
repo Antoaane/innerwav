@@ -2,6 +2,8 @@
     import { ref } from 'vue';
     import axios from 'axios';
 
+    import { errorState, errorMessage } from '../states/errorState';
+
     import FileInput from './FileInput.vue';
     import TextInput from './TextInput.vue';
     import BtnBad from './BtnBad.vue';
@@ -83,6 +85,9 @@
                         'Authorization': 'Bearer ' + localStorage.getItem('token'),
                         'Content-Type': 'multipart/form-data',
                         'Accept': 'application/json'
+                    },
+                    onUploadProgress: progressEvent => {
+                        console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%');
                     }
                 }
             );
@@ -92,6 +97,8 @@
         } catch (error) {
         // --------- CONSOL LOG
             console.log(error);
+            errorState.value = true;
+            errorMessage.value = 'Donner des références n\'est pas une obligation, mais tous les autres champs sont obligatoires :)';
         // --------------------
         }
     }

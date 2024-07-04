@@ -71,6 +71,77 @@ body {
     }
 }
 
+.error-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &>div {
+        width: 50vw;
+        height: 50vh;
+        padding: 10rem;
+
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include glass('bottom');
+        background-color: $coussi_coussa;
+
+        p {
+            color: darken($coussi_coussa, 40%);
+            font-size: 2rem;
+            font-weight: 300;
+
+            strong {
+                font-weight: 500;
+            }
+        }
+
+        button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+
+            .cross-svg {
+                width: 2rem;
+                height: 2rem;
+
+                path {
+                    fill: darken($coussi_coussa, 40%);
+
+                    transition: all 0.3s ease-in-out;
+                }
+            }
+
+            &:hover {
+                .cross-svg {
+                    path {
+                        fill: $light;
+                    }
+                }
+            }
+        }
+    }
+    
+
+    &.sleeping {
+        animation: fadeOutOverlay 0.5s forwards;
+    }
+
+    &.active {
+        animation: fadeInOverlay 0.5s forwards;
+    }
+}
+
 @keyframes fadeInOverlay {
     0% {
         z-index: -9999;
