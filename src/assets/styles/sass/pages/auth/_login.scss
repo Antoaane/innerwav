@@ -51,7 +51,7 @@
                     transform: translateY(-50%);
 
                     background: transparent;
-                    color: $light;
+                    color: rgba($light, $alpha: 0.5);
 
                     border-radius: $rounded-md;
                     background: transparent;

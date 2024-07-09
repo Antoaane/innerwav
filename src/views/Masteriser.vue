@@ -183,7 +183,7 @@
 
             <Transition name="general-infos">
                 <!-- <div v-if="order.project_type === 'ep' || order.project_type === 'album'" class="general-infos"> -->
-                <div class="general-infos">
+                <div v-if="order.support == 'strcd'" class="general-infos">
                     <div>
                     <Transition name="cover">
                         <div v-if="order.support === 'strcd'" :class="{'cover': true, 'single' : order.project_type == 'single'}">
@@ -199,7 +199,7 @@
 
                         <div :class="{'infos': true, '!min-h-0' : order.project_type == 'single'}">
                             <TextInput
-                                :label="order.project_type === 'ep' ? 'Nom de l\'EP' : 'Nom de l\'album :'"
+                                :label="order.project_type === 'ep' ? 'Nom de l\'EP' : order.project_type === 'album' ? 'Nom de l\'album :' : 'Titre du morceau :'"
                                 :type="'text'"
                                 @update-text="addToFormData('project_name', $event)"
                             />
