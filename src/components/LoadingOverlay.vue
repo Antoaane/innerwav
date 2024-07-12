@@ -4,7 +4,7 @@ defineProps(['isLoading']);
 </script>
 
 <template>
-    <div :class="{'loading-overlay' : true, 'active' : isLoading === true, 'sleeping' : isLoading === false}">
+    <div :class="{'loading-overlay hidden' : true, 'active' : isLoading === true, 'sleeping' : isLoading === false, 'flex' : isLoading === true}">
         <p>Loading...</p>
     </div>
 </template>

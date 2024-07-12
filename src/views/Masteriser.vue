@@ -242,7 +242,6 @@
                 <button @click="pushTracks()">Push</button>
             </div>
         </div>
-        <LoadingOverlay />
     </div>
 </template>
 
