@@ -92,10 +92,21 @@
                 }
             }
 
-            button {
-                margin: 2rem auto 0 auto;
-                display: block;
-                @include btn-md($dark, $light, $primary, $light);
+            .submit {
+                margin-top: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+
+                button {
+                    display: block;
+                    @include btn-md($dark, $light, $primary, $light);
+                }
+
+                a {
+                    @include btn-tertiary-lg;
+                }
             }
         }
     }

@@ -185,7 +185,7 @@ function goToAccountByRedirect() {
         <span id="hover-item-top"></span>
 
         <li class="main-nav-item">
-          <a class="nav-text" :href="baseUrl + '/'">Accueil</a>
+          <RouterLink class="nav-text" to="/">Accueil</RouterLink>
         </li>
         <li class="main-nav-item">
           <a class="nav-text" :href="baseUrl + '/#works-section'">Réalisations</a>
@@ -194,25 +194,25 @@ function goToAccountByRedirect() {
           <a class="nav-text" :href="baseUrl + '/#pricing-section'">Tarifs</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="baseUrl + '/contact'">Contact</a>
+          <RouterLink class="nav-text" to="/contact">Contact</RouterLink>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" href="/masteriser">Masteriser</a>
+          <RouterLink class="nav-text" to="/masteriser">Masteriser</RouterLink>
         </li>
         <li class="main-nav-item profile">
           <span @click="goToAccountByRedirect()">
-            <a class="main-nav-item" href="/account">
+            <RouterLink class="main-nav-item" to="/account">
               <ProfileSvg />
-            </a>
+            </RouterLink>
           </span>
           
           <div :class="{'account-submenu' : true, '!hidden' : !logged}">
-            <a :href="baseUrl + '/account'">Mon compte</a>
+            <RouterLink to="/account">Mon compte</RouterLink>
             <a @click="disconnect()">Déconnexion</a>
           </div>
           <div :class="{'account-submenu' : true, '!hidden' : logged}">
-            <a :href="baseUrl + '/register'">Inscription</a>
-            <a :href="baseUrl + '/login'">Connexion</a>
+            <RouterLink to="/register">Inscription</RouterLink>
+            <RouterLink to="/login">Connexion</RouterLink>
           </div>
         </li>
 
@@ -226,7 +226,7 @@ function goToAccountByRedirect() {
 
       <ul id="menu" class="mobile hidden lg:hidden">
         <li class="main-nav-item">
-          <a @click=triggerMenu() class="nav-text" :href="baseUrl + '/'">Accueil</a>
+          <RouterLink @click=triggerMenu() class="nav-text" to="/">Accueil</RouterLink>
         </li>
         <li class="main-nav-item">
           <a @click=triggerMenu() class="nav-text" :href="baseUrl + '/#works-section'">Réalisations</a>
@@ -235,10 +235,10 @@ function goToAccountByRedirect() {
           <a @click=triggerMenu() class="nav-text" :href="baseUrl + '/#pricing-section'">Tarifs</a>
         </li>
         <li class="main-nav-item">
-          <a @click=triggerMenu() class="nav-text" :href="baseUrl + '/contact'">Contact</a>
+          <RouterLink @click=triggerMenu() class="nav-text" to="/contact">Contact</RouterLink>
         </li>
         <li class="main-nav-item">
-          <a @click=triggerMenu() class="nav-text" :href="baseUrl + '/masteriser'">Masteriser</a>
+          <RouterLink @click=triggerMenu() class="nav-text" to="/masteriser">Masteriser</RouterLink>
         </li>
         <li @click="goToAccountByRedirect()" class="main-nav-item profile">
           <a @click=triggerMenu() class="main-nav-item">
@@ -265,7 +265,7 @@ function goToAccountByRedirect() {
         <span id="hover-item-fixed"></span>
 
         <li class="main-nav-item">
-          <a class="nav-text" :href="baseUrl + '/'">Accueil</a>
+          <RouterLink class="nav-text" to="/">Accueil</RouterLink>
         </li>
         <li class="main-nav-item">
           <a class="nav-text" :href="baseUrl + '/#works-section'">Réalisations</a>
@@ -274,10 +274,10 @@ function goToAccountByRedirect() {
           <a class="nav-text" :href="baseUrl + '/#pricing-section'">Tarifs</a>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="baseUrl + '/contact'">Contact</a>
+          <RouterLink class="nav-text" to="/contact">Contact</RouterLink>
         </li>
         <li class="main-nav-item">
-          <a class="nav-text" :href="baseUrl + '/masteriser'">Masteriser</a>
+          <RouterLink class="nav-text" to="/masteriser">Masteriser</RouterLink>
         </li>
         <li class="main-nav-item profile">
 
@@ -289,15 +289,15 @@ function goToAccountByRedirect() {
 
           <div :class="{'account-submenu' : true, '!hidden' : !logged}">
             <div>
-              <a :href="baseUrl + '/account'">Mon compte</a>
+              <RouterLink to="/account">Mon compte</RouterLink>
               <a @click="disconnect()">Déconnexion</a>
             </div>
           </div>
 
           <div :class="{'account-submenu' : true, '!hidden' : logged}">
             <div>
-              <a :href="baseUrl + '/register'">Inscription</a>
-              <a :href="baseUrl + '/login'">Connexion</a>
+              <RouterLink to="/register">Inscription</RouterLink>
+              <RouterLink to="/login">Connexion</RouterLink>
             </div>
           </div>
 

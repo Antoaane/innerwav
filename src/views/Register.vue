@@ -86,8 +86,9 @@ async function sendData() {
                     <label for="password-confirm"  :class="{'filled': passwordConfirm !== ''}">Confirmer le mot de passe :</label>
                 </div>
 
-                <button @click="sendData">Créer mon compte</button>
-
+                <div class="submit">
+                    <button @click="sendData">Créer mon compte</button><RouterLink to="/login">J'ai déjà un compte</RouterLink>
+                </div>
             </div>
         </div>
     </div>

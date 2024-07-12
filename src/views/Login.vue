@@ -46,19 +46,6 @@ async function sendData() {
             <h1>Connexion</h1>
 
             <div>
-
-                <!-- <div class="double-input-container">
-                    <div class="input-container">
-                        <input id="artist-name" name="artist-name" type="text" v-model="artistName">
-                        <label for="artist-name">Nom de scène :</label>
-                    </div>
-
-                    <div class="input-container">
-                        <input id="name" name="name" type="text" autocomplete="none" v-model="name">
-                        <label for="name">Nom/Prénom :</label>
-                    </div>
-                </div> -->
-
                 <div class="input-container">
                     <input id="email" name="email" type="email" v-model="email">
                     <label for="email" :class="{'filled': email !== ''}">E-mail</label>
@@ -69,13 +56,9 @@ async function sendData() {
                     <label for="password" :class="{'filled': password !== ''}">Mot de passe</label>
                 </div>
 
-                <!-- <div class="input-container">
-                    <input id="password-confirm" name="password-confirm" type="password">
-                    <label for="password-confirm">Confirmer le mot de passe :</label>
-                </div> -->
-
-                <button @click="sendData">Se connecter</button>
-
+                <div class="submit">
+                    <button @click="sendData">Se connecter</button><RouterLink to="/register">Je n'ai pas de compte</RouterLink>
+                </div>
             </div>
         </div>
     </div>

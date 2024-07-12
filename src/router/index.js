@@ -35,7 +35,10 @@ const router = createRouter({
     {
       path: '/masteriser',
       name: 'masteriser',
-      component: Masteriser
+      component: Masteriser,
+      meta : {
+        requiresAuth: true
+      }
     },
     {
       path: '/checkout/:id',
