@@ -313,6 +313,18 @@ function goToAccountByRedirect() {
   </main>
   
   <footer>
+    <div class="bg"></div>
+
+    <div class="white-bg">
+      <div class="container">
+        <div>
+          <p class="title">Nous contacter :</p>
+          <p class="info">Par mail : <strong><a href="mailto:contact@innerwav.fr">contact@innerwav.fr</a></strong></p>
+          <p class="info">Par téléphone : <strong><a href="telto:0688742600">+33 6 88 74 26 00</a></strong></p>
+        </div>
+      </div>
+    </div>
+    
   </footer>
 
   <LoadingOverlay :isLoading="loadingState" />

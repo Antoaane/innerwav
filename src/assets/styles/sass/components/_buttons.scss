@@ -86,7 +86,7 @@
     }
 }
 
-@mixin btn-tertiary-lg($color : $light, $colorHover: $primary){
+@mixin btn-tertiary-lg($color : $light){
     padding: 0.25rem 0rem;
 
     position: relative;
