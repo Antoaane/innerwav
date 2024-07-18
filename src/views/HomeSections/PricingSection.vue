@@ -25,7 +25,7 @@
 
         <div class="container">
 
-            <h2>Une offre adaptée</h2>
+            <!-- <h2>Une offre adaptée</h2>
 
             <div class="grid">
                 <div class="column special">
@@ -68,7 +68,7 @@
                         </table>
                     </div>
 
-                    <!-- <div class="card special bright">
+                    <div class="card special bright">
                         <table>
                             <tbody>
                                 <tr>
@@ -84,7 +84,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div> -->
+                    </div>
                 </div>
 
                 <div class="column">
@@ -168,7 +168,7 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <p class="condition">
                 Chez <strong>INNERWAV</strong>™, nous vous garantissons une livraison standard de 48h <b>maximum</b> pour toute commande de mastering sur les singles.

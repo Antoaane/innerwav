@@ -190,9 +190,9 @@ function goToAccountByRedirect() {
         <li class="main-nav-item">
           <a class="nav-text" :href="baseUrl + '/#works-section'">Réalisations</a>
         </li>
-        <li class="main-nav-item">
+        <!-- <li class="main-nav-item">
           <a class="nav-text" :href="baseUrl + '/#pricing-section'">Tarifs</a>
-        </li>
+        </li> -->
         <li class="main-nav-item">
           <RouterLink class="nav-text" to="/contact">Contact</RouterLink>
         </li>
@@ -231,9 +231,9 @@ function goToAccountByRedirect() {
         <li class="main-nav-item">
           <a @click=triggerMenu() class="nav-text" :href="baseUrl + '/#works-section'">Réalisations</a>
         </li>
-        <li class="main-nav-item">
+        <!-- <li class="main-nav-item">
           <a @click=triggerMenu() class="nav-text" :href="baseUrl + '/#pricing-section'">Tarifs</a>
-        </li>
+        </li> -->
         <li class="main-nav-item">
           <RouterLink @click=triggerMenu() class="nav-text" to="/contact">Contact</RouterLink>
         </li>
@@ -270,9 +270,9 @@ function goToAccountByRedirect() {
         <li class="main-nav-item">
           <a class="nav-text" :href="baseUrl + '/#works-section'">Réalisations</a>
         </li>
-        <li class="main-nav-item">
+        <!-- <li class="main-nav-item">
           <a class="nav-text" :href="baseUrl + '/#pricing-section'">Tarifs</a>
-        </li>
+        </li> -->
         <li class="main-nav-item">
           <RouterLink class="nav-text" to="/contact">Contact</RouterLink>
         </li>
