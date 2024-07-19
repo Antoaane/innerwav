@@ -40,7 +40,7 @@
         <div>
             <div id="section-1" class="container">
                 <div class="text">
-                    <h2>Un rendu rapide</h2>
+                    <h2>Vous respecterez vos delais de publication</h2>
                     <p>
                         Nous nous engageons à répondre à vos besoins <strong>avec rapidité</strong> en garantissant une première version de votre mastering en <strong>un maximum de 48 heures</strong> pour un single.
                         <br><br>

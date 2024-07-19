@@ -41,7 +41,7 @@
 }
 
 @mixin btn-lg($color : $dark, $bg : $light, $hover : $primary, $colorHover: $light){
-    padding: 1rem 4rem;
+    padding: 0.75rem 2.5rem;
 
     color: $color;
     text-decoration: none;
@@ -86,7 +86,7 @@
     }
 }
 
-@mixin btn-tertiary-lg($color : $light){
+@mixin btn-tertiary-lg($color : $light, $colorHover: $primary){
     padding: 0.25rem 0rem;
 
     position: relative;

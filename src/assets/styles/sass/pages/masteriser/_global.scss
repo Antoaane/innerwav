@@ -148,6 +148,16 @@
                     }
                 }
             }
+
+            .push-order {
+                width: max-content;
+                margin: 3rem auto 0 auto;
+                
+                &>button {
+                    display: inline-block;
+                    @include btn-lg;
+                }
+            }
         }
     }
 }

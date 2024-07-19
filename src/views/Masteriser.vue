@@ -154,10 +154,9 @@
             <h1>Ajoutez vos pistes</h1>
 
             <div>
-
                 <div class="order-options">
                     <div>
-                        <p>Je fait masteriser un </p>
+                        <p>Je fais masteriser un </p>
                         <BtnSelect 
                             :width="'9rem'"
                             :options="[
@@ -169,7 +168,7 @@
                         />
                     </div>
                     <div>
-                        <p>Je publie mon projet en </p>
+                        <p>Mon projet sera accessible en </p>
                         <BtnSelect 
                             :width="'16rem'"
                             :options="[
@@ -238,8 +237,9 @@
                 </div>
             </Transition>
                 
-                <br><br>
-                <button @click="pushTracks()">Push</button>
+                <div class="push-order">
+                    <button @click="pushTracks()">Confiez nous votre projet</button>
+                </div>
             </div>
         </div>
     </div>
