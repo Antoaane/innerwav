@@ -181,7 +181,6 @@
                 </div>
 
             <Transition name="general-infos">
-                <!-- <div v-if="order.project_type === 'ep' || order.project_type === 'album'" class="general-infos"> -->
                 <div v-if="order.support == 'strcd' || order.project_type === 'ep' || order.project_type === 'album'" class="general-infos">
                     <div>
                     <Transition name="cover">

@@ -1,13 +1,54 @@
 footer {
-    padding: 2.5rem;
-    position: relative;
+    position: fixed;
+    z-index: 99;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    transition: all .3s ease-in-out;
+
+    * {
+        transition: all .3s ease-in-out;
+    }
 
     .white-bg {
-        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        background-color: $light;
         border-radius: $rounded-md;
 
-        .container {
-            padding: 2.5rem;
+        &>.inactive {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .arrow {
+                transform: rotate(-90deg) scale(0.6);
+                margin-right: 0.5rem;
+
+                path {
+                    fill: $dark;
+                }
+            }
+
+            p {
+                color: $dark;
+                font-size: .85rem;
+                
+                &.info {
+                    a {
+                        @include btn-tertiary-lg($color: $dark);
+                        text-shadow: none;
+                    }
+                }
+            }
+        }
+
+        &>.container {
 
             p {
                 color: $dark;
@@ -23,6 +64,71 @@ footer {
                         text-shadow: none;
                     }
                 }
+            }
+        }
+    }
+
+    &.inactive {
+        width: 200px;
+        padding: 1.5rem;
+        @media screen and (min-width: $md) {
+            padding: 1rem;
+        }
+                
+        .white-bg {
+            padding: .5rem 1rem;
+
+            .btn-bad {
+                display: none;
+            }
+
+            &>.container {
+                padding: 0rem;
+            }
+
+            &:hover {
+                background-color: $light;
+                transform: scale(1.1);
+                @include soft-shadow;
+            }
+        }
+    }
+
+    &.active {
+        width: 100%;
+        padding: .5rem;
+        @media screen and (min-width: $md) {
+            padding: 2.5rem;
+        }
+
+        .white-bg {
+            max-width: 100%;
+            padding: 0;
+
+            position: relative;
+
+            @include soft-shadow;
+
+            .btn-bad {
+                display: flex;
+
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+
+                path {
+                    fill: $dark;
+                }
+
+                &:hover {
+                    path {
+                        fill: $light;
+                    }
+                }
+            }
+
+            &>.container {
+                padding: 2.5rem;
             }
         }
     }

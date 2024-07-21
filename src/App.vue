@@ -5,6 +5,7 @@ import { loadingState } from './states/loadingState';
 import { errorState, errorMessage } from './states/errorState';
 import LoadingOverlay from './components/LoadingOverlay.vue';
 import ErrorOverlay from './components/ErrorOverlay.vue';
+import BtnBad from './components/BtnBad.vue';
 
 import ArrowSvg from './components/svgs/ArrowSvg.vue';
 import ProfileSvg from './components/svgs/ProfileSvg.vue';
@@ -170,6 +171,8 @@ function scrollToTop() {
   window.scrollTo(0, 0);
 }
 
+const isFooterActive = ref(false);
+
 function goToAccountByRedirect() {
   window.location.href = '/account';
 }
@@ -240,10 +243,17 @@ function goToAccountByRedirect() {
         <li class="main-nav-item">
           <RouterLink @click=triggerMenu() class="nav-text" to="/masteriser">Masteriser</RouterLink>
         </li>
-        <li @click="goToAccountByRedirect()" class="main-nav-item profile">
-          <a @click=triggerMenu() class="main-nav-item">
-            <ProfileSvg />
-          </a>
+        <li class="main-nav-item" :class="{'!hidden' : !logged}">
+          <RouterLink @click=triggerMenu() class="nav-text" to="/account">Mon compte</RouterLink>
+        </li>
+        <li class="main-nav-item" :class="{'!hidden' : !logged}">
+          <p @click="disconnect(); triggerMenu()" class="nav-text">Se déconnecter</p>
+        </li>
+        <li class="main-nav-item" :class="{'!hidden' : logged}">
+          <RouterLink @click=triggerMenu() class="nav-text" to="/login">Se connecter</RouterLink>
+        </li>
+        <li class="main-nav-item" :class="{'!hidden' : logged}">
+          <RouterLink @click=triggerMenu() class="nav-text" to="/register">Créer un compte</RouterLink>
         </li>
       </ul>
     </nav>
@@ -312,21 +322,57 @@ function goToAccountByRedirect() {
     <RouterView />
   </main>
   
-  <footer>
-    <div class="bg"></div>
+  <footer :class="{'active' : isFooterActive === true, 'inactive' : isFooterActive === false}">
+
+    <!-- <div class="bg"></div> -->
 
     <div class="white-bg">
-      <div class="container">
+
+    <TransitionGroup name="footer">
+      <div v-if="isFooterActive" class="container">
+        <BtnBad 
+          @click="isFooterActive == false ? isFooterActive = true : isFooterActive = false" 
+        />
         <div>
           <p class="title">Nous contacter :</p>
           <p class="info">Par mail : <strong><a href="mailto:contact@innerwav.fr">contact@innerwav.fr</a></strong></p>
           <p class="info">Par téléphone : <strong><a href="telto:0688742600">+33 6 88 74 26 00</a></strong></p>
         </div>
       </div>
+      <div v-else class="inactive" @click="isFooterActive == false ? isFooterActive = true : isFooterActive = false">
+        <ArrowSvg />
+        <p class="info">
+          Plus d'infos
+        </p>
+      </div>
+    </TransitionGroup>
+
     </div>
-    
   </footer>
 
   <LoadingOverlay :isLoading="loadingState" />
   <ErrorOverlay :isError="errorState" :errorMessage=errorMessage />
 </template>
+
+<style scoped>
+
+  .footer-move,
+  .footer-enter-active,
+  .footer-leave-active {
+    transition: all .3s ease-in-out;
+  }
+  .footer-enter-from,
+  .footer-leave-to {
+    max-height: 0;
+    max-width: 0;
+    padding: 0 !important;
+    opacity: 0;
+  }
+  .footer-enter-to,
+  .footer-leave-from {
+    max-height: 300px;
+    max-width: 1536px;
+    opacity: 1;
+  }
+
+</style>

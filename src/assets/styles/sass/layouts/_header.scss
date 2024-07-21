@@ -197,7 +197,7 @@ header {
                 inset: 2rem;
             }
 
-            z-index: 49;
+            z-index: 998;
 
             opacity: 0;
             transform: scale(0.75);
@@ -218,13 +218,13 @@ header {
                 
                 text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 
-                &:last-of-type {
-                    margin: 0;
+                // &:last-of-type {
+                //     margin: 0;
 
-                    position: fixed;
-                    top: 2.75rem;
-                    left: 3rem;
-                }
+                //     position: fixed;
+                //     top: 2.75rem;
+                //     left: 3rem;
+                // }
             }
         }
     }
@@ -462,7 +462,7 @@ header {
     }
 
     position: relative;
-    z-index: 50;
+    z-index: 999;
 } 
 
 
