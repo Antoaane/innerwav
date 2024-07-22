@@ -14,6 +14,7 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
 const logged = ref();
 
 if (localStorage.getItem('token')) {
+  console.log('token');
   logged.value = true;
 } else {
   console.log('no token');
@@ -199,14 +200,20 @@ function goToAccountByRedirect() {
         <li class="main-nav-item">
           <RouterLink class="nav-text" to="/contact">Contact</RouterLink>
         </li>
-        <li class="main-nav-item">
+        <li class="main-nav-item bright">
           <RouterLink class="nav-text" to="/masteriser">Masteriser</RouterLink>
+          <!-- <span id="bright"></span> -->
         </li>
         <li class="main-nav-item profile">
-          <span @click="goToAccountByRedirect()">
-            <RouterLink class="main-nav-item" to="/account">
+          <span v-if="logged" @click="goToAccountByRedirect()">
+            <a class="main-nav-item">
               <ProfileSvg />
-            </RouterLink>
+            </a>
+          </span>
+          <span v-else>
+            <a class="main-nav-item">
+              <ProfileSvg />
+            </a>
           </span>
           
           <div :class="{'account-submenu' : true, '!hidden' : !logged}">
@@ -240,7 +247,7 @@ function goToAccountByRedirect() {
         <li class="main-nav-item">
           <RouterLink @click=triggerMenu() class="nav-text" to="/contact">Contact</RouterLink>
         </li>
-        <li class="main-nav-item">
+        <li class="main-nav-item bright">
           <RouterLink @click=triggerMenu() class="nav-text" to="/masteriser">Masteriser</RouterLink>
         </li>
         <li class="main-nav-item" :class="{'!hidden' : !logged}">
@@ -286,13 +293,19 @@ function goToAccountByRedirect() {
         <li class="main-nav-item">
           <RouterLink class="nav-text" to="/contact">Contact</RouterLink>
         </li>
-        <li class="main-nav-item">
+        <li class="main-nav-item bright">
           <RouterLink class="nav-text" to="/masteriser">Masteriser</RouterLink>
+          <!-- <span id="bright"></span> -->
         </li>
         <li class="main-nav-item profile">
 
-          <span @click="goToAccountByRedirect()">
+          <span v-if="logged" @click="goToAccountByRedirect()">
             <a class="main-nav-item">
+              <ProfileSvg />
+            </a>
+          </span>
+          <span v-else>
+            <a class="main-nav-item block">
               <ProfileSvg />
             </a>
           </span>

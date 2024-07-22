@@ -848,6 +848,20 @@ header .main-nav .desktop > .main-nav-item:hover {
 header .main-nav .desktop > .main-nav-item:hover path {
   fill: #200944;
 }
+header .main-nav .desktop > .main-nav-item.bright {
+  text-shadow: 1px 2px 15px white;
+}
+header .main-nav .desktop > .main-nav-item.bright #bright {
+  width: 88%;
+  height: 60%;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  border: 1px solid #FFFFFF;
+  border-radius: 0.5rem;
+}
 header .main-nav .desktop > .main-nav-item.profile {
   position: relative;
   cursor: default;
@@ -1092,6 +1106,21 @@ header .main-nav-fixed .desktop > .main-nav-item {
 }
 header .main-nav-fixed .desktop > .main-nav-item path {
   fill: #200944;
+}
+header .main-nav-fixed .desktop > .main-nav-item.bright {
+  text-shadow: 1px 2px 15px rgba(32, 9, 68, 0.5);
+}
+header .main-nav-fixed .desktop > .main-nav-item.bright #bright {
+  width: 88%;
+  height: 60%;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  border: 1px solid #200944;
+  border-style: dashed;
+  border-radius: 0.5rem;
 }
 header .main-nav-fixed .desktop > .main-nav-item:hover {
   color: #FFFFFF;
@@ -1596,7 +1625,7 @@ footer.active .white-bg > .container {
   object-fit: contain;
 }
 #title-section > .container .secondary .arrow {
-  margin-bottom: 2rem;
+  margin-bottom: 6rem;
 }
 
 #presentation-section {
@@ -2906,6 +2935,54 @@ footer.active .white-bg > .container {
   background-color: #99A0E0;
   transform: translateY(-0.5rem);
   box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.25);
+}
+
+#coming-soon {
+  min-height: 100vh;
+  padding-top: 5rem;
+  position: relative;
+}
+#coming-soon .container {
+  height: 100%;
+  padding-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (min-width: 640px) {
+  #coming-soon .container {
+    padding-top: 7.5vh;
+  }
+}
+#coming-soon .container h1 {
+  font-size: 1.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+@media screen and (min-width: 370px) {
+  #coming-soon .container h1 {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (min-width: 640px) {
+  #coming-soon .container h1 {
+    font-size: 2.2rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  #coming-soon .container h1 {
+    font-size: 2.8rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #coming-soon .container h1 {
+    font-size: 3.4rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #coming-soon .container h1 {
+    font-size: 4rem;
+  }
 }
 
 .checkout {

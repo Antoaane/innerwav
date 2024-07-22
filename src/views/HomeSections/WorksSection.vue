@@ -24,18 +24,12 @@ const works = ref([
   },
   {
     id: 2,
-    beforeAudio : '/assets/realisations/vraiment-a-part/before.mp3',
-    afterAudio : '/assets/realisations/vraiment-a-part/after.mp3',
-    coverImage : '/assets/realisations/vraiment-a-part/cover.jpg',
-  },
-  {
-    id: 3,
     beforeAudio : '/assets/realisations/pedra/before.mp3',
     afterAudio : '/assets/realisations/pedra/after.mp3',
     coverImage : '/assets/realisations/pedra/cover.jpg',
   },
   {
-    id: 4,
+    id: 3,
     beforeAudio : '/assets/realisations/moi-et-moi/before.mp3',
     afterAudio : '/assets/realisations/moi-et-moi/after.mp3',
     coverImage : '/assets/realisations/moi-et-moi/cover.jpg',
@@ -69,8 +63,6 @@ onMounted(() => {
       },
     },
     gap: '2rem',
-    autoplay: true,
-    interval : 3000,
     pagination: true,
     arrows: true,
     arrowPath: 'M1.73704 40L13.9258 20L1.73704 0L0.000324558 1.06291L11.5466 20L0.000324558 38.9371L1.73704 40Z',

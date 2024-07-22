@@ -4,33 +4,33 @@
     import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
     import '@splidejs/splide/css';
 
-    onMounted(() => {
-        new Splide('.testimonies', {
-            type   : 'loop',
-            perPage: 1.5,
-            gap: '5rem',
-            autoScroll: {
-                speed: 0.25,
-                pauseOnHover: false,
-            },
-            breakpoints: {
-                640: {
-                    perPage: 1,
-                    gap: '2rem',
-                },
-                1024: {
-                    perPage: 1,
-                    gap: '3rem',
-                },
-                1280: {
-                    perPage: 1.25,
-                }
-            },
-            drag   : 'free',
-            focus  : 'center',
-            arrows: false,
-        } ).mount( { AutoScroll } );
-    });
+    // onMounted(() => {
+    //     new Splide('.testimonies', {
+    //         type   : 'loop',
+    //         perPage: 1.5,
+    //         gap: '5rem',
+    //         autoScroll: {
+    //             speed: 0.25,
+    //             pauseOnHover: false,
+    //         },
+    //         breakpoints: {
+    //             640: {
+    //                 perPage: 1,
+    //                 gap: '2rem',
+    //             },
+    //             1024: {
+    //                 perPage: 1,
+    //                 gap: '3rem',
+    //             },
+    //             1280: {
+    //                 perPage: 1.25,
+    //             }
+    //         },
+    //         drag   : 'free',
+    //         focus  : 'center',
+    //         arrows: false,
+    //     } ).mount( { AutoScroll } );
+    // });
 </script>
 
 <template>
@@ -71,7 +71,7 @@
                 </div>
             </div>
 
-            <div id="section-3" class="container">
+            <!-- <div id="section-3" class="container">
                 <h2>Ce qu’en disent nos partenaires</h2>
                 <div class="splide testimonies">
                     <div class="splide__track">
@@ -101,7 +101,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div id="section-4" class="container">
                 <div class="img">
