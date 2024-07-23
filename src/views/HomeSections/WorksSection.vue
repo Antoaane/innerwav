@@ -12,24 +12,32 @@ import Wave2Svg from '@/components/svgs/Wave2Svg.vue';
 const works = ref([
   {
     id: 0,
+    genre : 'Rap',
+    name : 'Larme de sel',
     beforeAudio : '/assets/realisations/larme-de-sel/before.mp3',
     afterAudio : '/assets/realisations/larme-de-sel/after.mp3',
     coverImage : '/assets/realisations/larme-de-sel/cover.jpg',
   },
   {
     id: 1,
+    genre : 'Rap',
+    name : 'Sovajon - PARLES PAS DE LE FAIRE',
     beforeAudio : '/assets/realisations/parle-pas-de-lfaire/before.mp3',
     afterAudio : '/assets/realisations/parle-pas-de-lfaire/after.mp3',
     coverImage : '/assets/realisations/parle-pas-de-lfaire/cover.jpg',
   },
   {
     id: 2,
+    genre : 'House',
+    name : 'LEM2A - Pedra',
     beforeAudio : '/assets/realisations/pedra/before.mp3',
     afterAudio : '/assets/realisations/pedra/after.mp3',
     coverImage : '/assets/realisations/pedra/cover.jpg',
   },
   {
     id: 3,
+    genre : 'Rap',
+    name : 'Moi et Moi',
     beforeAudio : '/assets/realisations/moi-et-moi/before.mp3',
     afterAudio : '/assets/realisations/moi-et-moi/after.mp3',
     coverImage : '/assets/realisations/moi-et-moi/cover.jpg',
@@ -90,6 +98,8 @@ onMounted(() => {
                         <li class="splide__slide" v-for="work in works" :key="work.id">
                             <Player 
                                 :id="work.id" 
+                                :genre="work.genre"
+                                :name="work.name"
                                 :beforeAudio="work.beforeAudio" 
                                 :afterAudio="work.afterAudio" 
                                 :coverImage="work.coverImage"

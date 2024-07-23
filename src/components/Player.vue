@@ -2,6 +2,8 @@
     export default {
         props: {
             id: Number,
+            genre: String,
+            name: String,
             activePlayer : Number,
             beforeAudio: String,
             afterAudio: String,
@@ -73,7 +75,41 @@
         <div class="cover-container" @click="togglePlayer()">
             <img :src="coverImage" class="cover-img">
             <div class="cover-blur" :class="{ 'active': isPlayerActive }"></div>
-            <img class="play-btn" src="/res/pictos/play.svg">
+            <div v-if="!isPlayerActive" class="genre absolute -top-8 left-1/2 -translate-x-1/2">
+                <p class="font-bold">{{ genre }}</p>
+            </div>
+        <TransitionGroup name="track-name">
+            <div v-if="!isPlayerActive" class="name">
+                <p class="py-1 text-center">{{ name }}</p>
+            </div>
+        </TransitionGroup>
+            <div class="play-btn-container">
+                <div>
+                    <img class="play-btn" src="/res/pictos/play.svg">
+                </div>
+            </div>
         </div>
     </div>
 </template>
+
+<style scoped>
+    .track-name-move,
+    .track-name-enter-active,
+    .track-name-leave-active {
+        transition: all 0.5s cubic-bezier(0.8, 0, 0.2, 1);
+    }
+    .track-name-enter-from,
+    .track-name-leave-to {
+        max-height: 0;
+        transform: scaleY(0);
+        transform-origin: bottom;
+        opacity: 0;
+    }
+    .track-name-enter-to,
+    .track-name-leave-from {
+        max-height: 2rem;
+        transform: scaleY(1);
+        transform-origin: bottom;
+        opacity: 1;
+    }
+</style>
