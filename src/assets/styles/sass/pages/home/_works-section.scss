@@ -62,7 +62,7 @@
 
         .work-container {
             width: 100%;
-            margin: 5rem 0;
+            margin: 6rem 0;
             aspect-ratio: 1/1;
 
             position: relative;
@@ -129,11 +129,13 @@
                     .play-before{
                         padding-bottom: 0.5rem;
                         border-radius: $rounded-lg $rounded-lg 0px 0px;
+                        opacity: 0;
                     }
 
                     .play-after{
                         padding-top: 0.5rem;
                         border-radius: 0px 0px $rounded-lg $rounded-lg;
+                        opacity: 0;
                     }
 
                     .btn-switch:hover {
@@ -161,10 +163,14 @@
                         font-size: 2rem;
                     }
                 }
-            }
 
-            .player-position.active {
-                height: calc(100% + 10rem);
+                &.active {
+                    height: calc(100% + 10rem);
+
+                    .btn-switch {
+                        opacity: 1;
+                    }
+                }
             }
 
             .cover-container {
@@ -172,6 +178,33 @@
                 aspect-ratio: 1/1;
 
                 position: relative;
+
+                .genre {
+                    padding: 0.1rem 1rem;
+
+                    position: absolute;
+                    top: -3rem;
+                    left: 50%;
+                    z-index: -1;
+                    transform: translateX(-50%);
+
+                    background-color: $light;
+                    border-radius: $rounded-md;
+
+                    p {
+                        color: $dark;
+                        font-weight: 600;
+                        font-size: 1.125rem;
+                    }
+                }
+
+                .name {
+                    
+                    p {
+                        padding: 0.5rem 0.75rem;
+                        text-align: center;
+                    }
+                }
 
                 .cover-img {
                     width: 100%;
@@ -243,7 +276,7 @@
                             @include transition;
         
                             &:hover {
-                                transform: translate(-45%, -50%) scale(1.1);
+                                transform: translate(-50%, -50%) scale(1.1);
                             }
                         }
                     }

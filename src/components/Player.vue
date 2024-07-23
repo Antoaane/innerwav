@@ -75,12 +75,12 @@
         <div class="cover-container" @click="togglePlayer()">
             <img :src="coverImage" class="cover-img">
             <div class="cover-blur" :class="{ 'active': isPlayerActive }"></div>
-            <div v-if="!isPlayerActive" class="genre absolute -top-8 left-1/2 -translate-x-1/2">
-                <p class="font-bold">{{ genre }}</p>
-            </div>
         <TransitionGroup name="track-name">
+            <div v-if="!isPlayerActive" class="genre">
+                <p>{{ genre }}</p>
+            </div>
             <div v-if="!isPlayerActive" class="name">
-                <p class="py-1 text-center">{{ name }}</p>
+                <p>{{ name }}</p>
             </div>
         </TransitionGroup>
             <div class="play-btn-container">
@@ -102,14 +102,14 @@
     .track-name-leave-to {
         max-height: 0;
         transform: scaleY(0);
-        transform-origin: bottom;
+        transform-origin: top;
         opacity: 0;
     }
     .track-name-enter-to,
     .track-name-leave-from {
-        max-height: 2rem;
+        max-height: 3rem;
         transform: scaleY(1);
-        transform-origin: bottom;
+        transform-origin: top;
         opacity: 1;
     }
 </style>

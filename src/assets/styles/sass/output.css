@@ -2290,7 +2290,7 @@ footer.active .white-bg > .container {
 }
 #works-section > .container .work-container {
   width: 100%;
-  margin: 5rem 0;
+  margin: 6rem 0;
   aspect-ratio: 1/1;
   position: relative;
 }
@@ -2372,10 +2372,12 @@ footer.active .white-bg > .container {
 #works-section > .container .work-container .player-position .player-container .play-before {
   padding-bottom: 0.5rem;
   border-radius: 1rem 1rem 0px 0px;
+  opacity: 0;
 }
 #works-section > .container .work-container .player-position .player-container .play-after {
   padding-top: 0.5rem;
   border-radius: 0px 0px 1rem 1rem;
+  opacity: 0;
 }
 #works-section > .container .work-container .player-position .player-container .btn-switch:hover {
   filter: blur(0px);
@@ -2397,10 +2399,32 @@ footer.active .white-bg > .container {
 #works-section > .container .work-container .player-position.active {
   height: calc(100% + 10rem);
 }
+#works-section > .container .work-container .player-position.active .btn-switch {
+  opacity: 1;
+}
 #works-section > .container .work-container .cover-container {
   width: 100%;
   aspect-ratio: 1/1;
   position: relative;
+}
+#works-section > .container .work-container .cover-container .genre {
+  padding: 0.1rem 1rem;
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  z-index: -1;
+  transform: translateX(-50%);
+  background-color: #FFFFFF;
+  border-radius: 0.5rem;
+}
+#works-section > .container .work-container .cover-container .genre p {
+  color: #200944;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+#works-section > .container .work-container .cover-container .name p {
+  padding: 0.5rem 0.75rem;
+  text-align: center;
 }
 #works-section > .container .work-container .cover-container .cover-img {
   width: 100%;
@@ -2458,7 +2482,7 @@ footer.active .white-bg > .container {
   }
 }
 #works-section > .container .work-container .cover-container .play-btn-container > div .play-btn:hover {
-  transform: translate(-45%, -50%) scale(1.1);
+  transform: translate(-50%, -50%) scale(1.1);
 }
 #works-section > .container .splide__arrow {
   width: 3rem;
