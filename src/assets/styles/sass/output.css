@@ -1368,30 +1368,34 @@ footer .white-bg {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #FFFFFF;
-  border-radius: 0.5rem;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 150%);
 }
 footer .white-bg > .inactive {
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 0 !important;
 }
 footer .white-bg > .inactive .arrow {
   transform: rotate(-90deg) scale(0.6);
   margin-right: 0.5rem;
 }
 footer .white-bg > .inactive .arrow path {
-  fill: #200944;
+  fill: #FFFFFF;
 }
 footer .white-bg > .inactive p {
-  color: #200944;
+  color: #FFFFFF;
   font-size: 0.85rem;
 }
 footer .white-bg > .inactive p.info a {
   padding: 0.25rem 0rem;
   position: relative;
-  color: #200944;
+  color: #FFFFFF;
   text-decoration: none;
   text-align: center;
   border-radius: 1rem;
@@ -1408,14 +1412,14 @@ footer .white-bg > .inactive p.info a::after {
   position: absolute;
   bottom: 3px;
   left: 0;
-  background-color: #200944;
+  background-color: #FFFFFF;
   transition: all 300ms cubic-bezier(0.8, 0, 0.2, 1);
 }
 footer .white-bg > .inactive p.info a:hover::after {
   width: 100%;
 }
 footer .white-bg > .container p {
-  color: #200944;
+  color: #FFFFFF;
 }
 footer .white-bg > .container p.title {
   font-size: 1.15rem;
@@ -1450,7 +1454,7 @@ footer .white-bg > .container p.title {
 footer .white-bg > .container p.info a {
   padding: 0.25rem 0rem;
   position: relative;
-  color: #200944;
+  color: #FFFFFF;
   text-decoration: none;
   text-align: center;
   border-radius: 1rem;
@@ -1467,34 +1471,35 @@ footer .white-bg > .container p.info a::after {
   position: absolute;
   bottom: 3px;
   left: 0;
-  background-color: #200944;
+  background-color: #FFFFFF;
   transition: all 300ms cubic-bezier(0.8, 0, 0.2, 1);
 }
 footer .white-bg > .container p.info a:hover::after {
   width: 100%;
 }
 footer.inactive {
-  width: 200px;
-  padding: 1.5rem;
+  width: 100%;
+}
+footer.inactive:hover {
+  padding: 0.5rem;
 }
 @media screen and (min-width: 768px) {
-  footer.inactive {
-    padding: 1rem;
+  footer.inactive:hover {
+    padding: 0.5rem;
   }
 }
+footer.inactive:hover .white-bg {
+  border-radius: 0.5rem;
+  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.25);
+}
 footer.inactive .white-bg {
-  padding: 0.5rem 1rem;
+  border-radius: 0;
 }
 footer.inactive .white-bg .btn-bad {
   display: none;
 }
 footer.inactive .white-bg > .container {
   padding: 0rem;
-}
-footer.inactive .white-bg:hover {
-  background-color: #FFFFFF;
-  transform: scale(1.1);
-  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.25);
 }
 footer.active {
   width: 100%;
@@ -1509,6 +1514,7 @@ footer.active .white-bg {
   max-width: 100%;
   padding: 0;
   position: relative;
+  border-radius: 0.5rem;
   box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.25);
 }
 footer.active .white-bg .btn-bad {
@@ -1518,9 +1524,6 @@ footer.active .white-bg .btn-bad {
   right: 1rem;
 }
 footer.active .white-bg .btn-bad path {
-  fill: #200944;
-}
-footer.active .white-bg .btn-bad:hover path {
   fill: #FFFFFF;
 }
 footer.active .white-bg > .container {
