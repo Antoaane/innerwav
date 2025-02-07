@@ -384,7 +384,7 @@ input:not([type=submit]):not([type=file]):focus, textarea:focus {
   padding: 0.5rem 1rem;
   color: #200944;
   border-radius: 0.5rem;
-  background-color: #ececec;
+  background-color: rgb(235.875, 235.875, 235.875);
 }
 .orders-container .order-item > div .order-version .version-feedback .edited {
   display: flex;
@@ -717,7 +717,7 @@ body main {
   background-color: #ffc87a;
 }
 .error-overlay > div p {
-  color: #ad6500;
+  color: rgb(173, 101.4586466165, 0);
   font-size: 2rem;
   font-weight: 300;
 }
@@ -735,7 +735,7 @@ body main {
   height: 2rem;
 }
 .error-overlay > div button .cross-svg path {
-  fill: #ad6500;
+  fill: rgb(173, 101.4586466165, 0);
   transition: all 0.3s ease-in-out;
 }
 .error-overlay > div button:hover .cross-svg path {
